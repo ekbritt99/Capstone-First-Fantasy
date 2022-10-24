@@ -1,6 +1,6 @@
-# Freestyle - First Fantasy
+# First Fantasy by Team Freestyle
 
-This is a video game using the Unity game engine, programmed in C#.
+First Fantasy is a 2D RPG using the Unity game engine, programmed in C#.
 
 Authors:
 - Ethan Brittain
