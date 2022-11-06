@@ -28,7 +28,7 @@ public class DisplayInventory : MonoBehaviour
         for (int i = 0; i < inventory.container.Count; i++)
         {
             var obj = Instantiate(inventoryPrefab);
-            obj.GetComponent<Image>().sprite = inventory.container[i].item.uiDisplay;
+            obj.transform.GetChild(0).GetComponent<Image>().sprite = inventory.container[i].item.uiDisplay;
             obj.transform.parent = grid.transform;
         }
     }
