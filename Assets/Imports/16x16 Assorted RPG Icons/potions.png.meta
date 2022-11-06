@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -6739,7 +6739,6 @@ TextureImporter:
       potions_280: 609025215
       potions_29: 1450517101
       potions_83: 1712884712
-      potions_251: -1897556957
       potions_172: 1937223857
       potions_5: -1659948999
       potions_50: -1177992704
@@ -6751,7 +6750,6 @@ TextureImporter:
       potions_20: 1931043232
       potions_295: 973175880
       potions_265: 641453495
-      potions_261: -561725593
       potions_13: 1988406647
       potions_79: 1714223671
       potions_120: -2145745130
@@ -6818,11 +6816,11 @@ TextureImporter:
       potions_195: -709261920
       potions_262: -319158028
       potions_65: 1984696697
-      potions_204: -190883195
       potions_288: 1829294652
       potions_203: 856153476
       potions_303: 1366499326
       potions_98: 201569993
+      potions_204: -190883195
       potions_188: 535877935
       potions_256: 1677579552
       potions_189: 2031322236
@@ -6966,13 +6964,15 @@ TextureImporter:
       potions_162: 101853854
       potions_235: -1103096639
       potions_301: -299556553
-      potions_42: -647711779
+      potions_251: -1897556957
+      potions_261: -561725593
       potions_206: 839586647
-      potions_1: -59451264
+      potions_42: -647711779
       potions_183: -808233212
+      potions_1: -59451264
       potions_201: 1586907577
-      potions_122: 1524282751
       potions_210: -2061985325
+      potions_122: 1524282751
       potions_105: 1953418741
       potions_134: 842131917
       potions_110: 972394237
