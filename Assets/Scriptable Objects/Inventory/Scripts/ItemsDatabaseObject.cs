@@ -12,19 +12,23 @@ public class ItemsDatabaseObject : ScriptableObject, ISerializationCallbackRecei
     public ItemObject[] itemObjects;
 
     public Dictionary<ItemObject, int> GetID;
-    public Dictionary<int, ItemObject> GetItem;
-
-    public void OnAfterDeserialize()
-    {
-        for (int i = 0; i < itemObjects.Length; i++)
-        {
-            itemObjects[i].id = i;
-            GetItem.Add(i, itemObjects[i]);
-        }
-    }
+    public Dictionary<ItemObject, int> GetItem;
 
     public void OnBeforeSerialize()
     {
-        GetItem = new();
+        //GetItem = new();
+
     }
+
+    public void OnAfterDeserialize()
+    {
+        GetItem = new();
+        for (int i = 0; i < itemObjects.Length; i++)
+        {
+            itemObjects[i].id = i;
+            GetItem.Add(itemObjects[i], i);
+        }
+    }
+
+    
 }
