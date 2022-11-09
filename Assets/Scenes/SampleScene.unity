@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 414548269}
   - component: {fileID: 414548270}
   m_Layer: 5
-  m_Name: Grid
+  m_Name: InventoryGrid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -258,8 +258,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.8541}
-  m_SizeDelta: {x: 529.4316, y: 636.9111}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 469.5955, y: 410.2986}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &414548270
 MonoBehaviour:
@@ -422,11 +422,11 @@ RectTransform:
   m_Father: {fileID: 261324645}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.34800002, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 282.68848, y: 0}
-  m_SizeDelta: {x: -565.3769, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &953337202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,6 +479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryPrefab: {fileID: 7522105947910573475, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
   inventory: {fileID: 11400000, guid: 1af540207d904e14184a6ab85a43fa1c, type: 2}
+  grid: {fileID: 0}
 --- !u!1001 &1113120799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -496,11 +497,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4408792143027978656, guid: d2fca4bbff6e7cd479c4dc9d5c7d9d37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.1148295
+      value: -4.1148376
       objectReference: {fileID: 0}
     - target: {fileID: 4408792143027978656, guid: d2fca4bbff6e7cd479c4dc9d5c7d9d37, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.998148
+      value: -1.9981537
       objectReference: {fileID: 0}
     - target: {fileID: 4408792143027978656, guid: d2fca4bbff6e7cd479c4dc9d5c7d9d37, type: 3}
       propertyPath: m_LocalPosition.z
@@ -512,15 +513,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4408792143027978656, guid: d2fca4bbff6e7cd479c4dc9d5c7d9d37, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4408792143027978656, guid: d2fca4bbff6e7cd479c4dc9d5c7d9d37, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4408792143027978656, guid: d2fca4bbff6e7cd479c4dc9d5c7d9d37, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4408792143027978656, guid: d2fca4bbff6e7cd479c4dc9d5c7d9d37, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
