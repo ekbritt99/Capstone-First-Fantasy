@@ -9,7 +9,7 @@ public class DisplayInventory : MonoBehaviour
     public GameObject inventoryPrefab;
     public InventoryObject inventory;
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
-    public GameObject grid;
+    private GameObject grid;
 
     // Start is called before the first frame update
     void Start()
@@ -28,13 +28,18 @@ public class DisplayInventory : MonoBehaviour
         grid = GameObject.Find("InventoryGrid");
         for (int i = 0; i < inventory.container.Count; i++)
         {
-            var obj = Instantiate(inventoryPrefab);
-            obj.transform.SetParent(grid.transform);
+            var obj = Instantiate(inventoryPrefab, grid.transform);
+            obj.transform.GetChild(0).GetComponent<Image>().sprite = inventory.container[i].item.uiDisplay;
+
+            itemsDisplayed.Add(inventory.container[i], obj);
         }
     }
 
     public void UpdateDisplay()
     {
-        //obj.transform.GetChild(0).GetComponent<Image>().sprite = inventory.container[i].item.uiDisplay;
+        //foreach (KeyValuePair<InventorySlot, GameObject> _slot in itemsDisplayed)
+        //{
+        //    _slot.Value.transform.GetChild(0).GetComponent<Image>().sprite = inventory.database.GetItem[_slot.Key.item.id].uiDisplay;
+        //}
     }
 }

@@ -2,15 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemsDatabaseObject : ScriptableObject
+
+
+// TODO : This currently isn't implemented, need to add a database object thru unity and put all items in said database.
+
+[CreateAssetMenu(fileName = "New Item Database", menuName = "Inventory System/Items/Database")]
+public class ItemsDatabaseObject : ScriptableObject, ISerializationCallbackReceiver
 {
     public ItemObject[] itemObjects;
 
     public Dictionary<ItemObject, int> GetID;
     public Dictionary<int, ItemObject> GetItem;
 
-    public void OnAfterSerialize()
+    public void OnAfterDeserialize()
     {
+        for (int i = 0; i < itemObjects.Length; i++)
+        {
+            itemObjects[i].id = i;
+            GetItem.Add(i, itemObjects[i]);
+        }
+    }
 
+    public void OnBeforeSerialize()
+    {
+        GetItem = new();
     }
 }

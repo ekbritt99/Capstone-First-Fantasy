@@ -7,7 +7,7 @@ using UnityEngine;
 public class InventoryObject : ScriptableObject
 {
     public string savePath;
-    private ItemsDatabaseObject database;
+    public ItemsDatabaseObject database;
     public List<InventorySlot> container = new List<InventorySlot>();
 
     public void OnEnable()
