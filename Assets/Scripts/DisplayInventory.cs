@@ -26,12 +26,18 @@ public class DisplayInventory : MonoBehaviour
     public void CreateDisplay()
     {
         grid = GameObject.Find("InventoryGrid");
-        for (int i = 0; i < inventory.container.Count; i++)
+        for (int i = 0; i < inventory.container.Length; i++)
         {
             var obj = Instantiate(inventoryPrefab, grid.transform);
             obj.transform.GetChild(0).GetComponent<Image>().sprite = inventory.container[i].item.uiDisplay;
 
             itemsDisplayed.Add(inventory.container[i], obj);
+        }
+
+        // Make remaining empty slots
+        for (int i = inventory.container.Length; i < 24; i++)
+        {
+            Instantiate(inventoryPrefab, grid.transform);
         }
     }
 
