@@ -12,13 +12,18 @@ public enum ItemType
     Default
 }
 
-public class ItemObject : ScriptableObject
+public abstract class ItemObject : ScriptableObject
 {
-    public int id;
+    public int ID;
     public Sprite uiDisplay;
     public GameObject prefab;
     public ItemType type;
     [TextArea(15,20)]
     public string description;
     
+    public Item CreateItem()
+    {
+        Item newItem = new Item(this);
+        return newItem;
+    }
 }

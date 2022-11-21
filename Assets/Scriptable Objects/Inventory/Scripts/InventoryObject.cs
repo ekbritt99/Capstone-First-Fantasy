@@ -7,8 +7,8 @@ using UnityEngine;
 public class InventoryObject : ScriptableObject
 {
     public string savePath;
-    private ItemsDatabaseObject database;
-    public List<InventorySlot> container = new List<InventorySlot>();
+    public ItemsDatabaseObject database;
+    public InventorySlot[] container = new InventorySlot[24];
 
     public void OnEnable()
     {
@@ -17,21 +17,30 @@ public class InventoryObject : ScriptableObject
 
     public void AddItem(ItemObject _item, int _amt)
     {
-        bool hasItem = false;
-        for(int i = 0; i < container.Count; i++)
+        for(int i = 0; i < container.Length; i++)
         {
             if(container[i].item == _item)
             {
                 container[i].AddAmount(_amt);
-                hasItem = true;
-                break;
+                return;
             }
         }
 
-        if (!hasItem)
+        SetEmptySlot(_item, _amt);
+    }
+
+    public InventorySlot SetEmptySlot(ItemObject _item, int _amount)
+    {
+        for (int i = 0; i < container.Length; i++)
         {
-            container.Add(new InventorySlot(_item, _amt));
+            if (container[i].ID <= -1)
+            {
+                container[i].UpdateSlot(_item.ID, _item, _amount);
+                return container[i];
+            }
         }
+
+        return null;
     }
 
     public void OnAfterSerialization()
@@ -48,4 +57,5 @@ public class InventoryObject : ScriptableObject
     {
 
     }
+
 }
