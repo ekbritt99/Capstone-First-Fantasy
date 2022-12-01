@@ -46,4 +46,9 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(overworldScene);
     }
+
+    void Quit()
+    {
+        Application.Quit(0);
+    }
 }
