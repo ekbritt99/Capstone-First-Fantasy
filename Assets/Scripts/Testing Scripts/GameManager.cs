@@ -47,15 +47,12 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(overworldScene);
     }
-<<<<<<< HEAD
     void GoToBattle()
     {
         SceneManager.LoadScene(battleScene);
-=======
 
     void Quit()
     {
         Application.Quit(0);
->>>>>>> 7355183b7837b8b5e3d40a8855a54a36e5523166
     }
 }
