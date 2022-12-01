@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
     void GoToBattle()
     {
         SceneManager.LoadScene(battleScene);
-
+    }
     void Quit()
     {
         Application.Quit(0);
