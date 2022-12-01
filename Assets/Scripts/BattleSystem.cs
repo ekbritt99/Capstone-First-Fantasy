@@ -7,6 +7,8 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
 public class BattleSystem : MonoBehaviour
 {
+    public GameObject gameManager;
+    
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
 
@@ -88,6 +90,7 @@ public class BattleSystem : MonoBehaviour
         {
             dialogueText.text = "You were defeated.";
         }
+        gameManager.SendMessage("GoToOverWorld");
     }
 
     void PlayerTurn()

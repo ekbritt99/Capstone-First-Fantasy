@@ -27,6 +27,9 @@ public class PlayerCollisions : MonoBehaviour
         {
             gameManager.SendMessage("GoToVillage");
         }
-
+        if (collision.gameObject.tag == "Enemy")
+        {
+            gameManager.SendMessage("GoToBattle");
+        }
     }
 }

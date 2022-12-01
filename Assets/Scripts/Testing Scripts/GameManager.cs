@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public string villageScene = "Test Village Scene";
     public string overworldScene = "Test World Scene";
+    public string battleScene = "Battle Scene";
 
     bool pause = false;
     public GameObject pauseMenu;
@@ -45,5 +46,9 @@ public class GameManager : MonoBehaviour
     void GoToOverWorld()
     {
         SceneManager.LoadScene(overworldScene);
+    }
+    void GoToBattle()
+    {
+        SceneManager.LoadScene(battleScene);
     }
 }
