@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public string villageScene = "Test Village Scene";
     public string overworldScene = "Test World Scene";
     public string battleScene = "Battle Scene";
+    public string inventory = "InventoryUI Scene";
 
     bool pause = false;
     public GameObject pauseMenu;
@@ -25,6 +26,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetButtonDown("Pause"))
         {
             Pause();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            GoToInventory();
         }
     }
 
@@ -50,6 +56,10 @@ public class GameManager : MonoBehaviour
     void GoToBattle()
     {
         SceneManager.LoadScene(battleScene);
+    }
+    void GoToInventory()
+    {
+        SceneManager.LoadScene(inventory);
     }
     void Quit()
     {

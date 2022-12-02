@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 
 /* player controls written with tutorial: 
@@ -11,7 +12,8 @@ https://youtu.be/7iYWpzL9GkM
 //takes input and handles movement
 public class PlayerController : MonoBehaviour
 {
-    
+    public GameObject gameManager;
+
     public float moveSpeed = 1f;
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
@@ -51,6 +53,11 @@ public class PlayerController : MonoBehaviour
                 rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime); 
             } 
             
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            gameManager.SendMessage("GoToInventory");
         }
     }
 
