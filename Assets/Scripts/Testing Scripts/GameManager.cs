@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
         {
             Pause();
         }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            GoToInventory();
+        }
     }
 
     void Pause()
