@@ -48,6 +48,7 @@ public class BattleSystem : MonoBehaviour
     
     IEnumerator PlayerAttack()
     {
+        state = BattleState.ENEMYTURN;
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
         enemyHUD.setHP(enemyUnit.currentHP);
         dialogueText.text = "The attack is successful!";
@@ -58,7 +59,7 @@ public class BattleSystem : MonoBehaviour
             EndBattle();
         } else
         {
-            state = BattleState.ENEMYTURN;
+            //state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
         }
     }
