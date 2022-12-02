@@ -26,6 +26,4 @@ public class ItemsDatabaseObject : ScriptableObject, ISerializationCallbackRecei
             GetItem.Add(i, itemObjects[i]);
         }
     }
-
-    
 }
