@@ -24,9 +24,5 @@ public class PlayerMovement : MonoBehaviour
         moveVect *= (moveSpeed * Time.deltaTime);
         transform.Translate(moveVect);
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            gameManager.SendMessage("GoToInventory");
-        }
     }
 }

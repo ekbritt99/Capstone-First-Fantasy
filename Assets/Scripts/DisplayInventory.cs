@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class DisplayInventory : MonoBehaviour
 {
-
     public GameObject inventoryPrefab;
     public InventoryObject inventory;
     Dictionary<InventorySlot, GameObject> itemsDisplayed = new Dictionary<InventorySlot, GameObject>();
@@ -48,4 +47,5 @@ public class DisplayInventory : MonoBehaviour
         //    _slot.Value.transform.GetChild(0).GetComponent<Image>().sprite = inventory.database.GetItem[_slot.Key.item.id].uiDisplay;
         //}
     }
+
 }
