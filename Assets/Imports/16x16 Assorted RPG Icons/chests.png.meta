@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -1147,17 +1147,17 @@ TextureImporter:
       chests_6: -132484520
       chests_4: -1113739326
       chests_0: 1033741677
-      chests_9: 1453080589
       chests_31: -442021687
       chests_19: 1558368567
-      chests_47: -1862341240
+      chests_9: 1453080589
       chests_18: 175019376
-      chests_2: -384831212
+      chests_47: -1862341240
       chests_45: -184475988
+      chests_2: -384831212
       chests_8: 1395046696
-      chests_27: -1927611481
       chests_28: 1385966648
       chests_11: 1465027472
+      chests_27: -1927611481
       chests_38: 422604200
       chests_3: -1946869440
       chests_34: -1365568764

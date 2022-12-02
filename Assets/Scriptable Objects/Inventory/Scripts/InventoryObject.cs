@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
@@ -10,10 +12,6 @@ public class InventoryObject : ScriptableObject
     public ItemsDatabaseObject database;
     public InventorySlot[] container = new InventorySlot[24];
 
-    public void OnEnable()
-    {
-        
-    }
 
     public void AddItem(ItemObject _item, int _amt)
     {
@@ -48,14 +46,26 @@ public class InventoryObject : ScriptableObject
 
     }
 
+    [ContextMenu("Save")]
     public void Save()
     {
-
+        string saveData = JsonUtility.ToJson(this, true);
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(string.Concat(Application.persistentDataPath, savePath));
+        bf.Serialize(file, saveData);
+        file.Close();
     }
 
+    [ContextMenu("Load")]
     public void Load()
     {
-
+        if(File.Exists(string.Concat(Application.persistentDataPath, savePath)))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(string.Concat(Application.persistentDataPath, savePath), FileMode.Open, FileAccess.Read);
+            JsonUtility.FromJsonOverwrite(bf.Deserialize(file).ToString(), this);
+            file.Close();
+        }
     }
 
 }
