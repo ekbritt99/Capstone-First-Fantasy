@@ -6,7 +6,7 @@ using UnityEngine;
 public class InventorySlot
 {
     public int ID;
-    public ItemObject item;
+    public Item item;
     public int amount;
 
     public InventorySlot()
@@ -16,8 +16,9 @@ public class InventorySlot
         amount = 0;
     }
 
-    public InventorySlot(ItemObject _item, int _amount)
+    public InventorySlot(int _id, Item _item, int _amount)
     {
+        ID = _id;
         item = _item;
         amount = _amount;
     }
@@ -27,7 +28,7 @@ public class InventorySlot
         amount += val;
     }
 
-    public void UpdateSlot(int _id, ItemObject _item, int _amount)
+    public void UpdateSlot(int _id, Item _item, int _amount)
     {
         ID = _id;
         item = _item;

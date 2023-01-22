@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+    public InventoryObject playerInventory;
+
     public string villageScene = "Test Village Scene";
     public string overworldScene = "Test World Scene";
     public string battleScene = "Battle Scene";
-    public string inventory = "InventoryUI Scene";
+    public string inventoryScene = "InventoryUI Scene";
 
     bool pause = false;
     public GameObject pauseMenu;
@@ -31,6 +34,15 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             GoToInventory();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Equals))
+        {
+            playerInventory.Save();
+        }
+        if (Input.GetKeyDown(KeyCode.Backslash))
+        {
+            playerInventory.Load();
         }
     }
 
@@ -59,10 +71,15 @@ public class GameManager : MonoBehaviour
     }
     void GoToInventory()
     {
-        SceneManager.LoadScene(inventory);
+        SceneManager.LoadScene(inventoryScene);
     }
     void Quit()
     {
         Application.Quit(0);
+    }
+
+    private void OnApplicationQuit()
+    {
+        playerInventory.container.Items = new InventorySlot[25];
     }
 }

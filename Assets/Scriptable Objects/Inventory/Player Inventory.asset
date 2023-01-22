@@ -15,9 +15,129 @@ MonoBehaviour:
   savePath: /inventory.save
   database: {fileID: 11400000, guid: 4d319100ba513194a82b901c1dba2ce8, type: 2}
   container:
-  - ID: 0
-    item: {fileID: 11400000, guid: 30e1cebf225596045bb182c1b8e0eb6c, type: 2}
-    amount: 14
-  - ID: 1
-    item: {fileID: 11400000, guid: 3ae37aae6c51f00469af9dd31254377c, type: 2}
-    amount: 1
+    Items:
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
+    - ID: -1
+      item:
+        Name: 
+        ID: 0
+      amount: 0
