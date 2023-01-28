@@ -6,15 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/InventoryUI Scene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/Test Village Scene.unity
     guid: 25b98e755eff4bf4b9594da7f96880ac
+  - enabled: 1
+    path: Assets/Scenes/InventoryUI Scene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Test World Scene.unity
     guid: afcc1e763f2d3be4696b83f88d328bef
   - enabled: 1
     path: Assets/Scenes/Battle Scene.unity
     guid: 3e94deb873131bf41949aeec1daa5649
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: a29b76a5257b5a744a33163cf7376fc2, type: 2}
