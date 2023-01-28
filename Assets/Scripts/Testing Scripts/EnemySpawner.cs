@@ -56,7 +56,7 @@ public class EnemySpawner : MonoBehaviour
         populateEnemyArray(typeNineEnemies, typeNineEnemy);
         populateEnemyArray(typeTenEnemies, typeTenEnemy);
 
-        InvokeRepeating("spawnEnemies", 0.0f, 3.0f);
+        InvokeRepeating("spawnEnemies", 0.0f, 2.0f);
     }
 
     public void populateEnemyArray(GameObject[] enemyArray, GameObject enemyType)
@@ -133,11 +133,61 @@ public class EnemySpawner : MonoBehaviour
                 return;
             }
         }
-        //spawnEnemies();
+        spawnEnemies();
     }
     
-   
-       
+    public void spawnAllOfEnemyTypeOne()
+    {
+        for (int i = 0; i < typeOneEnemies.Length; i++)
+        {
+            if (typeOneEnemies[i].transform.position.x == DEF_X_POSITION)
+            {
+                float newXPos = Random.Range(-4.5f, 7.14f);
+                float newYPos = Random.Range(-4.5f, 2.5f);
+                Vector3 newPosition = typeOneEnemies[i].transform.position;
+                newPosition.x = newXPos;
+                newPosition.y = newYPos;
+                typeOneEnemies[i].transform.position = newPosition;
+            }
+        }
+    }
+
+    public void populateAllArrays()
+    {
+        typeOneEnemies = new GameObject[5];
+        typeTwoEnemies = new GameObject[5];
+        typeThreeEnemies = new GameObject[5];
+        typeFourEnemies = new GameObject[5];
+        typeFiveEnemies = new GameObject[5];
+        typeSixEnemies = new GameObject[5];
+        typeSevenEnemies = new GameObject[5];
+        typeEightEnemies = new GameObject[5];
+        typeNineEnemies = new GameObject[5];
+        typeTenEnemies = new GameObject[5];
+
+        populateEnemyArray(typeOneEnemies, typeOneEnemy);
+        populateEnemyArray(typeTwoEnemies, typeTwoEnemy);
+        populateEnemyArray(typeThreeEnemies, typeThreeEnemy);
+        populateEnemyArray(typeFourEnemies, typeFourEnemy);
+        populateEnemyArray(typeFiveEnemies, typeFiveEnemy);
+        populateEnemyArray(typeSixEnemies, typeSixEnemy);
+        populateEnemyArray(typeSevenEnemies, typeSevenEnemy);
+        populateEnemyArray(typeEightEnemies, typeEightEnemy);
+        populateEnemyArray(typeNineEnemies, typeNineEnemy);
+        populateEnemyArray(typeTenEnemies, typeTenEnemy);
+
+        populateEnemyArray(typeOneEnemies, typeOneEnemy);
+        populateEnemyArray(typeTwoEnemies, typeTwoEnemy);
+        populateEnemyArray(typeThreeEnemies, typeThreeEnemy);
+        populateEnemyArray(typeFourEnemies, typeFourEnemy);
+        populateEnemyArray(typeFiveEnemies, typeFiveEnemy);
+        populateEnemyArray(typeSixEnemies, typeSixEnemy);
+        populateEnemyArray(typeSevenEnemies, typeSevenEnemy);
+        populateEnemyArray(typeEightEnemies, typeEightEnemy);
+        populateEnemyArray(typeNineEnemies, typeNineEnemy);
+        populateEnemyArray(typeTenEnemies, typeTenEnemy);
+    }
+    
     // Update is called once per frame
     void Update()
     {
