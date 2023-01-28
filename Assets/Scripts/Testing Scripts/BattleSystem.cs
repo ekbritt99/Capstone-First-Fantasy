@@ -101,12 +101,22 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerHeal()
     {
-        playerUnit.Heal(5);
-        playerHUD.setHP(playerUnit.currentHP);
-        dialogueText.text = "You heal some HP!";
-        yield return new WaitForSeconds(1f);
         state = BattleState.ENEMYTURN;
-        StartCoroutine(EnemyTurn());
+        if(playerUnit.currentHP == playerUnit.maxHP)
+        {
+            dialogueText.text = "You are already at max health!";
+            yield return new WaitForSeconds(1f);
+            StartCoroutine(EnemyTurn());
+        }
+        else
+        {
+            playerUnit.Heal(5);
+            playerHUD.setHP(playerUnit.currentHP);
+            dialogueText.text = "You heal some HP!";
+            yield return new WaitForSeconds(1f);
+            state = BattleState.ENEMYTURN;
+            StartCoroutine(EnemyTurn());
+        }  
     }
     public void onAttackButton()
     {
@@ -122,5 +132,10 @@ public class BattleSystem : MonoBehaviour
             return;
 
         StartCoroutine(PlayerHeal());
+    }
+    public static int returnZero()
+    {
+        int number = 0;
+        return number;
     }
 }
