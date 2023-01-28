@@ -1,8 +1,8 @@
 {
-    "name": "Scripts",
+    "name": "Inventory",
     "rootNamespace": "",
     "references": [
-        "GUID:af8471a65dbb77e48bf5476e450ebd70"
+        "GUID:0b91a0a2cb237034983fe71e55ef1080"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
