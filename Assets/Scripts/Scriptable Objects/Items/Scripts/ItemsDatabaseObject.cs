@@ -2,10 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-// TODO : This currently isn't implemented, need to add a database object thru unity and put all items in said database.
-
 [CreateAssetMenu(fileName = "New Item Database", menuName = "Inventory System/Items/Database")]
 public class ItemsDatabaseObject : ScriptableObject, ISerializationCallbackReceiver
 {
