@@ -10,7 +10,7 @@ public class LimitEnemyLifetime : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        randomLifeTime = Random.Range(5.0f, 10.0f);
+        randomLifeTime = Random.Range(2.0f, 10.0f);
         hasCollidedWithPlayer = false;
     }
 
