@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using UnityEditor;
 
 public class movement
 {
@@ -12,7 +13,7 @@ public class movement
     public void TestPlayerLeftMovement()
     {
         //create player object for test
-        GameObject player = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Player"));
+        GameObject player = MonoBehaviour.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Prefabs/Test Prefabs/Player.prefab"));
 
         //save inital x
         float x = player.transform.position.x;
