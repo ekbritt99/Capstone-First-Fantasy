@@ -15,6 +15,12 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    void moveCommand(Vector3 moveVect)
+        {
+            //MOVE
+            transform.Translate(moveVect);
+        }
+
     // Update is called once per frame
     void Update()
     {
@@ -22,7 +28,12 @@ public class PlayerMovement : MonoBehaviour
         float inputY = Input.GetAxis("Vertical");
         Vector3 moveVect = new Vector3(inputX, inputY, 0);
         moveVect *= (moveSpeed * Time.deltaTime);
-        transform.Translate(moveVect);
+        moveCommand(moveVect);
+
+        //moved to a separate method to call in testing
+        // transform.Translate(moveVect);
 
     }
+
+    
 }
