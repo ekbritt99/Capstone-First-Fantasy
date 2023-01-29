@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveVect = new Vector3(inputX, inputY, 0);
         moveVect *= (moveSpeed * Time.deltaTime);
         moveCommand(moveVect);
+
+        //moved to a separate method to call in testing
         // transform.Translate(moveVect);
 
     }
