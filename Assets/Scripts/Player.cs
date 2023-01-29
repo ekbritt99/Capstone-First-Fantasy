@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
+    public MouseItem mouseItem = new MouseItem();
     public InventoryObject inventory;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -21,4 +22,12 @@ public class Player : MonoBehaviour
     {
         inventory.container.Items = new InventorySlot[25];
     }
+}
+
+public class MouseItem
+{
+    public GameObject obj;
+    public InventorySlot item;
+    public InventorySlot hoverItem;
+    public GameObject hoverObj;
 }
