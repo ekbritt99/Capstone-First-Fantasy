@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed3b80d1a0f97f4c939551d2d9e7d2a, type: 3}
   m_Name: Potion Red
   m_EditorClassIdentifier: 
-  id: 2147483647
+  ID: 0
   uiDisplay: {fileID: 363507832, guid: c7a25d898fe72724aa5f0cac73437ca9, type: 3}
   prefab: {fileID: 7478189960424040071, guid: d732c433f052247478d37fac6cedfe30, type: 3}
-  type: 2
+  type: 6
   description: 'Red Potion:
 
     Health +15'
+  data:
+    Name: Red Potion
+    ID: 0

@@ -16,128 +16,128 @@ MonoBehaviour:
   database: {fileID: 11400000, guid: 4d319100ba513194a82b901c1dba2ce8, type: 2}
   container:
     Items:
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0
-    - ID: -1
+    - AllowedItems: 
       item:
         Name: 
-        ID: 0
+        ID: -1
       amount: 0

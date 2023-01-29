@@ -7,11 +7,11 @@ public class Item
 {
     public string Name;
     public int ID;
-    // public Item()
-    // {
-    //     Name = "";
-    //     ID = -1;
-    // }
+    public Item()
+    {
+        Name = "";
+        ID = -1;
+    }
     
     public Item(ItemObject item)
     {

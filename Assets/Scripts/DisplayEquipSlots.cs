@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class DisplayEquipSlots : MonoBehaviour
+public class DisplayEquipSlots : InventoryInterface
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject[] slots;
+    public override void CreateDisplay()
     {
-        
-    }
+        itemsDisplayed = new();
+        for(int i = 0; i < inventory.container.Items.Length; i++)
+        {
+            var obj = slots[i];
+            AddEvent(obj, EventTriggerType.PointerEnter, delegate { OnEnter(obj); });
+            AddEvent(obj, EventTriggerType.PointerExit, delegate { OnExit(obj); });
+            AddEvent(obj, EventTriggerType.BeginDrag, delegate { OnDragStart(obj); });
+            AddEvent(obj, EventTriggerType.EndDrag, delegate { OnDragEnd(obj); });
+            AddEvent(obj, EventTriggerType.Drag, delegate { OnDrag(obj); });
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            itemsDisplayed.Add(obj, inventory.container.Items[i]);
+        }
     }
 }

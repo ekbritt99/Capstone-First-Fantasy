@@ -6,8 +6,12 @@ using TMPro;
 
 public enum ItemType
 {
-    Armor,
+    Helmet,
+    Chest,
+    Legs,
+    Boots,
     Weapon,
+    Shield,
     Food,
     Default
 }
@@ -20,6 +24,7 @@ public abstract class ItemObject : ScriptableObject
     public ItemType type;
     [TextArea(15,20)]
     public string description;
+    public Item data = new Item();
     
     public Item CreateItem()
     {
