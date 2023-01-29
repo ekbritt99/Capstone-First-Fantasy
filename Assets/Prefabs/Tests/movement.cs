@@ -12,7 +12,7 @@ public class movement
     public void TestPlayerLeftMovement()
     {
         //create player object for test
-        GameObject player = MonoBehaviour.Instantiate(Resources.Load<GameObject>("PlayerTest"));
+        GameObject player = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Player"));
 
         //save inital x
         float x = player.transform.position.x;
