@@ -78,8 +78,8 @@ public class GameManager : MonoBehaviour
         Application.Quit(0);
     }
 
-    private void OnApplicationQuit()
-    {
-        playerInventory.container.Items = new InventorySlot[25];
-    }
+    // private void OnApplicationQuit()
+    // {
+    //     playerInventory.container.Items = new InventorySlot[25];
+    // }
 }

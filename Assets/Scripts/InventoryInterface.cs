@@ -11,8 +11,6 @@ public abstract class InventoryInterface : MonoBehaviour
     public InventoryObject inventory;
     public Dictionary<GameObject, InventorySlot> itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
 
-    public Player player;
-    
     public void OnEnable()
     {
         for(int i = 0; i < inventory.container.Items.Length; i++)
