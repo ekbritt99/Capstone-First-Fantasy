@@ -16,10 +16,7 @@ public class InventorySystemTests
 
         var random = Random.Range(0, database.itemObjects.Length);
 
-        Debug.Log(random);
-
         var item = database.GetItem[random];
-        Debug.Log(item.ID);
 
         int amt = 1;
         Item item1 = item.CreateItem();

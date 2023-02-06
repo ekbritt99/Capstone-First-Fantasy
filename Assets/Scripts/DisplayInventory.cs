@@ -30,23 +30,5 @@ public class DisplayInventory : InventoryInterface
             itemsDisplayed.Add(obj, inventory.container.Items[i]);
         }
     }
-
-    public void UpdateSlots()
-    {
-        foreach (KeyValuePair<GameObject, InventorySlot> _slot in itemsDisplayed)
-        {
-            if(_slot.Value.item.ID >= 0)
-            {
-                _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = inventory.database.GetItem[_slot.Value.item.ID].uiDisplay;
-                _slot.Key.transform.GetComponentInChildren<TextMeshProUGUI>().text = _slot.Value.amount == 1 ? "" : _slot.Value.amount.ToString("n0");
-            }
-            else
-            {
-                _slot.Key.transform.GetChild(0).GetComponentInChildren<Image>().sprite = null;
-                _slot.Key.transform.GetComponentInChildren<TextMeshProUGUI>().text = "";
-            }
-
-        }
-    }
 }
 
