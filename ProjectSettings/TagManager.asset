@@ -7,6 +7,7 @@ TagManager:
   - Scene Trigger
   - Scene Trigger 2
   - Enemy
+  - Shop Trigger
   layers:
   - Default
   - TransparentFX

@@ -31,5 +31,9 @@ public class PlayerCollisions : MonoBehaviour
         {
             gameManager.SendMessage("GoToBattle");
         }
+        if (collision.gameObject.tag == "Shop Trigger")
+        {
+            gameManager.SendMessage("GoToShop");
+        }
     }
 }

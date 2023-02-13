@@ -13,9 +13,13 @@ public class GameManager : MonoBehaviour
     public string overworldScene = "Test World Scene";
     public string battleScene = "Battle Scene";
     public string inventoryScene = "InventoryUI Scene";
+    public string shopScene = "Shop Scene";
 
     bool pause = false;
     public GameObject pauseMenu;
+
+    public GameObject swordUpgradeMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +60,11 @@ public class GameManager : MonoBehaviour
         pause = !pause;
     }
 
+    void openSwordUpgradeMenu()
+    {
+        swordUpgradeMenu.SetActive(true);
+    }
+
     void GoToVillage()
     {
         SceneManager.LoadScene(villageScene);
@@ -72,6 +81,10 @@ public class GameManager : MonoBehaviour
     void GoToInventory()
     {
         SceneManager.LoadScene(inventoryScene);
+    }
+    void GoToShop()
+    {
+        SceneManager.LoadScene(shopScene);
     }
     void Quit()
     {
