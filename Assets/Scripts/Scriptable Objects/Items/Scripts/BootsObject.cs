@@ -8,7 +8,7 @@ public class BootsObject : ItemObject
 {
     public void Awake()
     {
-        type = ItemType.Chest;
+        type = ItemType.Boots;
     }
 
 }

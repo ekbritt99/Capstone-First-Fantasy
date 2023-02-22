@@ -7,7 +7,7 @@ public class LegsObject : ItemObject
 {
     public void Awake()
     {
-        type = ItemType.Chest;
+        type = ItemType.Legs;
     }
 
 }
