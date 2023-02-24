@@ -38,8 +38,8 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 
       item:
-        Name: Katana
-        ID: 1
+        Name: Mace
+        ID: 3
       amount: 0
     - AllowedItems: 
       item:

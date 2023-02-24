@@ -80,4 +80,15 @@ public class DataPersistenceManager : MonoBehaviour
 
         return new List<IDataPersistence>(dataPersistences);
     }
+
+    public void purchaseItem()
+    {
+        this.gameData.playerMoney -= 5;
+        this.SaveGame();
+    }
+
+    public int getMoneyAmount()
+    {
+        return this.gameData.playerMoney;
+    }
 }

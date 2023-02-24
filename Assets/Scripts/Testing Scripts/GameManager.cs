@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class GameManager : MonoBehaviour
     public GameObject swordUpgradeMenu;
 
     public GameObject dataManager;
+
+    public TMP_Text lblCurrentMoneyAmount; 
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +54,13 @@ public class GameManager : MonoBehaviour
         {
             playerInventory.Load();
         }
+
+        if (SceneManager.GetActiveScene().name == "Shop Scene" || SceneManager.GetActiveScene().name == "Test Village Scene")
+        {
+            lblCurrentMoneyAmount.text = dataManager.GetComponent<DataPersistenceManager>().getMoneyAmount().ToString();
+        }
+        
+
     }
 
     void Pause()
