@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public InventoryObject playerInventory;
 
+
     public string villageScene = "Test Village Scene";
     public string overworldScene = "Test World Scene";
     public string battleScene = "Battle Scene";
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenu;
 
     public GameObject swordUpgradeMenu;
+
+    public GameObject dataManager;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +63,7 @@ public class GameManager : MonoBehaviour
         pause = !pause;
     }
 
+
     void openSwordUpgradeMenu()
     {
         swordUpgradeMenu.SetActive(true);
@@ -84,6 +88,7 @@ public class GameManager : MonoBehaviour
     }
     void GoToShop()
     {
+        dataManager.GetComponent<DataPersistenceManager>().SaveGame();
         SceneManager.LoadScene(shopScene);
     }
     void Quit()
