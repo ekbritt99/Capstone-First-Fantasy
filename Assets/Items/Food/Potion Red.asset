@@ -19,6 +19,8 @@ MonoBehaviour:
   description: 'Red Potion:
 
     Health +15'
+  stackable: 1
   data:
     Name: Red Potion
     ID: 0
+    buffs: []

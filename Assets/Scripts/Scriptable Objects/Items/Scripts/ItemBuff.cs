@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public class ItemBuff
 {
-    public Attribute stat;
+    public Attributes stat;
     public int value;
     [SerializeField]
     private int min;
@@ -19,16 +19,27 @@ public class ItemBuff
     {
         this.min = min;
         this.max = max;
-        GenerateAttribute();
+        GenerateValue();
     }
 
 
-    public void AddValue(int v)
+
+    public bool IsUpgradable() {
+        if(value < max)
+            return true;
+        return false;
+    }
+
+    public void UpgradeStat(int v)
     {
-        v += value;
+        value += v;
+        if(value > max)
+        {
+            value = max;
+        }
     }
 
-    public void GenerateAttribute()
+    public void GenerateValue()
     {
         value = UnityEngine.Random.Range(min, max);
     }
@@ -37,6 +48,8 @@ public class ItemBuff
 
 public enum Attributes
 {
-    strength,
-    agility
+    Strength,
+    Agility,
+    Intellect,
+    Defense
 }

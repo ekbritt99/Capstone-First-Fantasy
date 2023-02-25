@@ -18,126 +18,151 @@ MonoBehaviour:
     Items:
     - AllowedItems: 
       item:
+        Name: Potion Red
+        ID: 0
+        buffs: []
+      amount: 20
+    - AllowedItems: 
+      item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
+        buffs: []
       amount: 0
     - AllowedItems: 
       item:
         Name: 
         ID: -1
-      amount: 0
-    - AllowedItems: 
-      item:
-        Name: 
-        ID: -1
+        buffs: []
       amount: 0
