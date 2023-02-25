@@ -7,6 +7,8 @@ public class Item
 {
     public string Name;
     public int ID;
+    public ItemBuff[] buffs;
+
     public Item()
     {
         Name = "";
@@ -17,6 +19,12 @@ public class Item
     {
         Name = item.name;
         ID = item.ID;
+        buffs = new ItemBuff[item.data.buffs.Length];
+        for(int i = 0; i < buffs.Length; i++) 
+        {
+            buffs[i] = new ItemBuff(item.data.buffs[i].Min, item.data.buffs [i].Max);
+            buffs[i].stat = item.data.buffs[i].stat;
+        }
         
     }
 

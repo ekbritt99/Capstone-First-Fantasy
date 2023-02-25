@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
 
     public InventoryObject inventory;
+    public InventoryObject equipment;
 
     // public InventoryObject inventory;
 
@@ -17,6 +18,36 @@ public class Player : MonoBehaviour
         //     inventory.AddItem(item, 1);
         //     Destroy(other.gameObject);
         // }
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Equals))
+        {
+            inventory.Save();
+            equipment.Save();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Backslash))
+        {
+            inventory.Load();
+            equipment.Load();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            ItemObject item = inventory.database.GetItem[0];
+            inventory.AddItem(item.CreateItem(), 1);
+
+            item = inventory.database.GetItem[1];
+            inventory.AddItem(item.CreateItem(), 1);
+        }
+
+        if(Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            Debug.Log(inventory.container.Items[0].item.ID);
+            inventory.container.Items[0].item.buffs[0].UpgradeStat(5);
+        }
     }
 
 }

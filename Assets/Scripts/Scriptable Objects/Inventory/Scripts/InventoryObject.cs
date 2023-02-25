@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
@@ -13,18 +13,51 @@ public class InventoryObject : ScriptableObject
     public Inventory container;
 
 
-    public void AddItem(Item _item, int _amt)
+    public bool AddItem(Item _item, int _amt)
     {
-        for(int i = 0; i < container.Items.Length; i++)
+        InventorySlot slot = FindItemInInventory(_item);
+        if(slot == null || !database.itemObjects[_item.ID].stackable)
         {
-            if(container.Items[i].item == _item)
+            for(int i = 0; i < container.Items.Length; i++)
             {
-                container.Items[i].AddAmount(_amt);
-                return;
+                if(container.Items[i].item.ID <= -1)
+                {
+                    SetEmptySlot(_item, _amt);
+                    return true;
+                }
+            }
+            return false;
+        }
+        slot.AddAmount(_amt);
+        return true;
+    }
+
+    public int EmptySlotCount
+    {
+        get
+        {
+            int counter = 0;
+            for(int i = 0; i < container.Items.Length; i++)
+            {
+                if(container.Items[i].item.ID <= -1)
+                {
+                    counter++;
+                }
+            }
+            return counter;
+        }
+    }
+
+    public InventorySlot FindItemInInventory(Item item)
+    {
+        for (int i = 0; i < container.Items.Length; i++)
+        {
+            if(container.Items[i].item.ID == item.ID)
+            {
+                return container.Items[i];
             }
         }
-
-        SetEmptySlot(_item, _amt);
+        return null;
     }
 
     public InventorySlot SetEmptySlot(Item _item, int _amount)
@@ -110,6 +143,16 @@ public class Inventory
         {
             Items[i].UpdateSlot(new Item(), 0);
         }
+    }
+
+    public bool ContainsItem(ItemObject itemObject)
+    {
+        return Array.Find(Items, i => i.item.ID == itemObject.data.ID) != null;
+    }
+
+    public bool ContainsItem(int id)
+    {
+        return Items.FirstOrDefault(i => i.item.ID == id) != null;
     }
 }
 

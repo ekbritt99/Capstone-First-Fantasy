@@ -17,6 +17,12 @@ MonoBehaviour:
   prefab: {fileID: 4786534329116576380, guid: 3ae20a97727534242b1aba678fad2feb, type: 3}
   type: 4
   description: 
+  stackable: 0
   data:
     Name: Katana
     ID: 1
+    buffs:
+    - stat: 0
+      value: 0
+      min: 15
+      max: 30
