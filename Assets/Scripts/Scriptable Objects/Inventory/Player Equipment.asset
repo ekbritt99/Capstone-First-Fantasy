@@ -19,9 +19,9 @@ MonoBehaviour:
     - AllowedItems: 00000000
       item:
         Name: 
-        ID: -1
+        ID: 20
         buffs: []
-      amount: 0
+      amount: 1
     - AllowedItems: 01000000
       item:
         Name: 
@@ -42,10 +42,10 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 04000000
       item:
-        Name: Mace
-        ID: -1
+        Name: 
+        ID: 1
         buffs: []
-      amount: 0
+      amount: 1
     - AllowedItems: 05000000
       item:
         Name: 

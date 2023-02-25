@@ -17,6 +17,12 @@ MonoBehaviour:
   prefab: {fileID: 0}
   type: 0
   description: 
+  stackable: 0
   data:
     Name: Horned Helmet
     ID: 20
+    buffs:
+    - stat: 3
+      value: 0
+      min: 10
+      max: 20
