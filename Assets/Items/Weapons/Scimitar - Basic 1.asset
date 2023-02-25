@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Scimitar - Basic 1
   m_EditorClassIdentifier: 
   ID: 5
-  uiDisplay: {fileID: 21300000, guid: d22e7355c785e764b896b15c900c3f47, type: 3}
+  uiDisplay: {fileID: 21300000, guid: 7d27c38afe4e26c4389de5f5aeb11b87, type: 3}
   prefab: {fileID: 4786534329116576380, guid: 3ae20a97727534242b1aba678fad2feb, type: 3}
   type: 4
   description: 

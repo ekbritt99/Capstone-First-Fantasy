@@ -81,9 +81,25 @@ public class DataPersistenceManager : MonoBehaviour
         return new List<IDataPersistence>(dataPersistences);
     }
 
-    public void purchaseItem()
+    public void purchaseWeapon5()
     {
         this.gameData.playerMoney -= 5;
+        this.SaveGame();
+    }
+    public void purchaseWeapon7()
+    {
+        this.gameData.playerMoney -= 7;
+        this.SaveGame();
+    }
+    public void purchaseWeapon9()
+    {
+        this.gameData.playerMoney -= 9;
+        this.SaveGame();
+    }
+
+    public void purchaseWeapon11()
+    {
+        this.gameData.playerMoney -= 11;
         this.SaveGame();
     }
 

@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9173f17c39b9f51449015d0cc49ea539, type: 3}
-  m_Name: Legs Item
+  m_Script: {fileID: 11500000, guid: 7ce86d486cc3e6947b2198cf53960020, type: 3}
+  m_Name: Iron Chest Armor
   m_EditorClassIdentifier: 
-  ID: 0
-  uiDisplay: {fileID: 0}
+  ID: 8
+  uiDisplay: {fileID: 1258314587, guid: badd572d80733e84c949e1a1d1598b30, type: 3}
   prefab: {fileID: 0}
   type: 1
   description: 
   data:
-    Name: 
-    ID: -1
+    Name: Iron Chest Armor
+    ID: 8

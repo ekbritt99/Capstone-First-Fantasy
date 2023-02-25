@@ -39,7 +39,7 @@ MonoBehaviour:
     - AllowedItems: 
       item:
         Name: Mace
-        ID: 3
+        ID: -1
       amount: 0
     - AllowedItems: 
       item:
