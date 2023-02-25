@@ -55,10 +55,6 @@ public class GameManager : MonoBehaviour
             playerInventory.Load();
         }
 
-        if (SceneManager.GetActiveScene().name == "Shop Scene" || SceneManager.GetActiveScene().name == "Test Village Scene")
-        {
-            lblCurrentMoneyAmount.text = dataManager.GetComponent<DataPersistenceManager>().getMoneyAmount().ToString();
-        }
         
 
     }

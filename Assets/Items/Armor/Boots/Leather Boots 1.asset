@@ -17,6 +17,8 @@ MonoBehaviour:
   prefab: {fileID: 0}
   type: 3
   description: 
+  stackable: 0
   data:
     Name: Leather Boots
     ID: 10
+    buffs: []
