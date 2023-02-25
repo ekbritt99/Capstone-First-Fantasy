@@ -3,19 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
 
     public InventoryObject playerInventory;
 
+
     public string villageScene = "Test Village Scene";
     public string overworldScene = "Test World Scene";
     public string battleScene = "Battle Scene";
     public string inventoryScene = "InventoryUI Scene";
+    public string shopScene = "Shop Scene";
 
     bool pause = false;
     public GameObject pauseMenu;
+
+    public GameObject swordUpgradeMenu;
+
+    public GameObject dataManager;
+
+    public TMP_Text lblCurrentMoneyAmount; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +54,13 @@ public class GameManager : MonoBehaviour
         {
             playerInventory.Load();
         }
+
+        if (SceneManager.GetActiveScene().name == "Shop Scene" || SceneManager.GetActiveScene().name == "Test Village Scene")
+        {
+            lblCurrentMoneyAmount.text = dataManager.GetComponent<DataPersistenceManager>().getMoneyAmount().ToString();
+        }
+        
+
     }
 
     void Pause()
@@ -54,6 +71,12 @@ public class GameManager : MonoBehaviour
         else
             Time.timeScale = 1;
         pause = !pause;
+    }
+
+
+    void openSwordUpgradeMenu()
+    {
+        swordUpgradeMenu.SetActive(true);
     }
 
     void GoToVillage()
@@ -72,6 +95,11 @@ public class GameManager : MonoBehaviour
     void GoToInventory()
     {
         SceneManager.LoadScene(inventoryScene);
+    }
+    void GoToShop()
+    {
+        dataManager.GetComponent<DataPersistenceManager>().SaveGame();
+        SceneManager.LoadScene(shopScene);
     }
     void Quit()
     {

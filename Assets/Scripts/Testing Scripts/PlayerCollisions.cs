@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerCollisions : MonoBehaviour
 {
     public GameObject gameManager;
+
+    public GameObject shopButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,22 @@ public class PlayerCollisions : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             gameManager.SendMessage("GoToBattle");
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Shop Trigger")
+        {
+            shopButton.SetActive(true);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Shop Trigger")
+        {
+            shopButton.SetActive(false);
         }
     }
 }

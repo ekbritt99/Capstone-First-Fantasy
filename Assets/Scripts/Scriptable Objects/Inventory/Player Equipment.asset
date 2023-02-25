@@ -42,7 +42,7 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 04000000
       item:
-        Name: 
+        Name: Mace
         ID: -1
         buffs: []
       amount: 0
