@@ -20,13 +20,16 @@ public class GameManager : MonoBehaviour
 
     public GameObject dataManager;
 
-    public TMP_Text lblCurrentMoneyAmount; 
+    public TMP_Text lblCurrentMoneyAmount;
+
+    public GameObject sceneTrackerObj;
 
     // Start is called before the first frame update
     void Start()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+        sceneTrackerObj = GameObject.FindGameObjectWithTag("Scene Tracker");
     }
 
     // Update is called once per frame
@@ -81,6 +84,7 @@ public class GameManager : MonoBehaviour
     }
     void GoToInventory()
     {
+        sceneTrackerObj.GetComponent<SceneTracker>().rememberScene();
         SceneManager.LoadScene(inventoryScene);
     }
     void GoToShop()
@@ -88,6 +92,13 @@ public class GameManager : MonoBehaviour
         dataManager.GetComponent<DataPersistenceManager>().SaveGame();
         SceneManager.LoadScene(shopScene);
     }
+
+   public void goToPreviousScene()
+    {
+        int numOfScenes = sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory.Count - 1;
+        SceneManager.LoadScene(sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory[numOfScenes]);
+    }
+
     void Quit()
     {
         Application.Quit(0);
