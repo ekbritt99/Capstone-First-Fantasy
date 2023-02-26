@@ -21869,8 +21869,12 @@ MonoBehaviour:
 
 
     Click ''Buy'' to purchase
-    that item, and it will be added to your inventory. Items can be equpped in this
-    menu as well.'
+    that item, and it will be added to your inventory. Drag and drop a piece of equipment
+    to its respective item slot to equip it.
+
+
+    Items can be equpped in this menu
+    as well.'
 --- !u!222 &1946501282
 CanvasRenderer:
   m_ObjectHideFlags: 0

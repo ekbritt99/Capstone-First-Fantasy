@@ -2067,7 +2067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   maxHP: 100
-  currentHP: 6
+  currentHP: 50
 --- !u!114 &871587447
 MonoBehaviour:
   m_ObjectHideFlags: 0
