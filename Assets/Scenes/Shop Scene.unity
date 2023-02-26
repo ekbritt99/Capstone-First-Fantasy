@@ -11619,7 +11619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21526f57009d53940acabf56cd934519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: data22.game
+  fileName: data7.game
 --- !u!4 &1112533505
 Transform:
   m_ObjectHideFlags: 0
@@ -23767,7 +23767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 1af540207d904e14184a6ab85a43fa1c, type: 2}
-  equipment: {fileID: 0}
+  equipment: {fileID: 11400000, guid: a27166c753180dd408aa17af7549c6ce, type: 2}
 --- !u!95 &5541147172328840511
 Animator:
   serializedVersion: 4

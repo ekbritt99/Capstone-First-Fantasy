@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -3784,12 +3784,12 @@ TextureImporter:
       armours_102: 158123013
       armours_81: 2001386354
       armours_132: 156714093
-      armours_87: 1219068816
+      armours_54: 770719875
       armours_140: -1572747043
       armours_95: -1773188985
       armours_135: 2002421626
       armours_104: 2120155435
-      armours_54: 770719875
+      armours_87: 1219068816
       armours_119: 31732917
       armours_143: -1028590446
       armours_155: -1885263880
