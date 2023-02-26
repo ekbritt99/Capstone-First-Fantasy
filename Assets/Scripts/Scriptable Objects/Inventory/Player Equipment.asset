@@ -15,13 +15,15 @@ MonoBehaviour:
   savePath: /equipment.save
   database: {fileID: 11400000, guid: 4d319100ba513194a82b901c1dba2ce8, type: 2}
   container:
+    gold:
+      unit: 30
     Items:
     - AllowedItems: 00000000
       item:
         Name: 
-        ID: 20
+        ID: -1
         buffs: []
-      amount: 1
+      amount: 0
     - AllowedItems: 01000000
       item:
         Name: 
@@ -43,9 +45,9 @@ MonoBehaviour:
     - AllowedItems: 04000000
       item:
         Name: 
-        ID: 1
+        ID: -1
         buffs: []
-      amount: 1
+      amount: 0
     - AllowedItems: 05000000
       item:
         Name: 

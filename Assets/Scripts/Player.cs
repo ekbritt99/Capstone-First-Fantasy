@@ -36,11 +36,11 @@ public class Player : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            ItemObject item = inventory.database.GetItem[0];
+            ItemObject item = inventory.database.GetItem[13];
             inventory.AddItem(item.CreateItem(), 1);
 
-            item = inventory.database.GetItem[1];
-            inventory.AddItem(item.CreateItem(), 1);
+            // item = inventory.database.GetItem[1];
+            // inventory.AddItem(item.CreateItem(), 1);
         }
 
         if(Input.GetKeyDown(KeyCode.RightArrow))
