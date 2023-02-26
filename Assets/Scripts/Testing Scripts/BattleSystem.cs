@@ -8,9 +8,13 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 public class BattleSystem : MonoBehaviour
 {
     public GameObject gameManager;
-    
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
+    public GameOverScreen GameOverScreen;
+
+    [SerializeField] AudioClip battleTheme;
+    [SerializeField] AudioClip gameOverTheme;
+    AudioSource _audio;
 
     Unit playerUnit;
     Unit enemyUnit;
@@ -24,6 +28,9 @@ public class BattleSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _audio = GetComponent<AudioSource>();
+        _audio.clip = battleTheme;
+        PlayMusic();
         state = BattleState.START;
         StartCoroutine(SetupBattle());
     }
@@ -87,13 +94,22 @@ public class BattleSystem : MonoBehaviour
         if(state == BattleState.WON)
         {
             dialogueText.text = "You won the battle!";
+            gameManager.SendMessage("GoToOverWorld");
         } else if (state == BattleState.LOST)
         {
-            dialogueText.text = "You were defeated.";
+            dialogueText.text = "You were defeated...";
+            GameOver();
+            //gameManager.SendMessage("GoToOverWorld");
         }
-        gameManager.SendMessage("GoToOverWorld");
-    }
 
+    }
+    void GameOver() 
+    {
+        StopMusic();
+        _audio.clip = gameOverTheme;
+        PlayMusic();
+        GameOverScreen.Setup();
+    }
     void PlayerTurn()
     {
         dialogueText.text = "Choose an Action:";
@@ -133,9 +149,46 @@ public class BattleSystem : MonoBehaviour
 
         StartCoroutine(PlayerHeal());
     }
+    public void onReturnButton() 
+    {
+        gameManager.SendMessage("GoToOverWorld");
+    }
     public static int returnZero()
     {
         int number = 0;
         return number;
+    }
+
+    //MUSIC INTERFACE
+    public void PlayPauseMusic()
+    {
+        // Check if the music is currently playing.
+        if(_audio.isPlaying)
+            _audio.Pause(); // Pause if it is
+        else
+            _audio.Play(); // Play if it isn't
+    }
+ 
+    public void PlayStop()
+    {
+        if(_audio.isPlaying)
+            _audio.Stop();
+        else
+            _audio.Play();
+    }
+ 
+    public void PlayMusic()
+    {  
+        _audio.Play();
+    }
+ 
+    public void StopMusic()
+    {
+        _audio.Stop();
+    }
+ 
+    public void PauseMusic()
+    {
+        _audio.Pause();
     }
 }

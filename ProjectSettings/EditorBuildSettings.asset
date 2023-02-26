@@ -14,11 +14,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test World Scene.unity
     guid: afcc1e763f2d3be4696b83f88d328bef
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Battle Scene.unity
     guid: 3e94deb873131bf41949aeec1daa5649
   - enabled: 1
     path: Assets/Scenes/Shop Scene.unity
     guid: 5f066461f10ba2b488e895dcd4282e0c
+  - enabled: 0
+    path: Assets/Scenes/Game Over Scene.unity
+    guid: 7b5da617b73e55746a2bcac6751f529c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a29b76a5257b5a744a33163cf7376fc2, type: 2}
