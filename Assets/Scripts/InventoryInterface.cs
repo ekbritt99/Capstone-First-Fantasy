@@ -82,6 +82,7 @@ public abstract class InventoryInterface : MonoBehaviour
     }
     public void OnDragStart(GameObject obj)
     {
+        StopAllCoroutines();
         GameObject tempItem = null;
         if(itemsDisplayed[obj].item.ID >= 0) 
         {
