@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -42,12 +43,17 @@ public class Player : MonoBehaviour
             // item = inventory.database.GetItem[1];
             // inventory.AddItem(item.CreateItem(), 1);
         }
-
-        if(Input.GetKeyDown(KeyCode.RightArrow))
+        /*
+        if (SceneManager.GetActiveScene().name != "Test Village Scene")
         {
-            Debug.Log(inventory.container.Items[0].item.ID);
-            inventory.container.Items[0].item.buffs[0].UpgradeStat(5);
+            if(Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                Debug.Log(inventory.container.Items[0].item.ID);
+                inventory.container.Items[0].item.buffs[0].UpgradeStat(5);
+            }
+
         }
+        */
     }
 
 }
