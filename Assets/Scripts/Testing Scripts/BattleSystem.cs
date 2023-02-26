@@ -10,6 +10,21 @@ public class BattleSystem : MonoBehaviour
     public GameObject gameManager;
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
+
+    public GameObject enemyOnePrefab;
+    public GameObject enemyTwoPrefab;
+    public GameObject enemyThreePrefab;
+    public GameObject enemyFourPrefab;
+    public GameObject enemyFivePrefab;
+    public GameObject enemySixPrefab;
+    public GameObject enemySevenPrefab;
+    public GameObject enemyEightPrefab;
+    public GameObject enemyNinePrefab;
+    public GameObject enemyTenPrefab;
+    GameObject enemyGO;
+
+    public GameObject sceneTrackerObj;
+
     public GameOverScreen GameOverScreen;
 
     [SerializeField] AudioClip battleTheme;
@@ -32,16 +47,71 @@ public class BattleSystem : MonoBehaviour
         _audio.clip = battleTheme;
         PlayMusic();
         state = BattleState.START;
+        sceneTrackerObj = GameObject.FindGameObjectWithTag("Scene Tracker");
         StartCoroutine(SetupBattle());
+
+        
     }
 
     IEnumerator SetupBattle()
     {
         GameObject playerGO = Instantiate(playerPrefab);
         playerUnit = playerGO.GetComponent<Unit>();
-        
-        GameObject enemyGO = Instantiate(enemyPrefab);
-        enemyUnit = enemyGO.GetComponent<Unit>();
+
+        int numOfEnemiesEncountered = sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory.Count - 1;
+        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "One")
+        {
+            enemyGO = Instantiate(enemyOnePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+            enemyUnit = enemyGO.GetComponent<Unit>();
+        }
+        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Two")
+        {
+            enemyGO = Instantiate(enemyTwoPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+            enemyUnit = enemyGO.GetComponent<Unit>();
+        }
+        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Three")
+        {
+            enemyGO = Instantiate(enemyThreePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+            enemyUnit = enemyGO.GetComponent<Unit>();
+        }
+        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Four")
+        {
+            enemyGO = Instantiate(enemyFourPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+            enemyUnit = enemyGO.GetComponent<Unit>();
+        }
+        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Five")
+        {
+            enemyGO = Instantiate(enemyFivePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+            enemyUnit = enemyGO.GetComponent<Unit>();
+        }
+        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Six")
+        {
+            enemyGO = Instantiate(enemySixPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+            enemyUnit = enemyGO.GetComponent<Unit>();
+        }
+        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Seven")
+        {
+            enemyGO = Instantiate(enemySevenPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+            enemyUnit = enemyGO.GetComponent<Unit>();
+        }
+        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Eight")
+        {
+            enemyGO = Instantiate(enemyEightPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+            enemyUnit = enemyGO.GetComponent<Unit>();
+        }
+        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Nine")
+        {
+            enemyGO = Instantiate(enemyNinePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+            enemyUnit = enemyGO.GetComponent<Unit>();
+        }
+        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Ten")
+        {
+            enemyGO = Instantiate(enemyTenPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+            enemyUnit = enemyGO.GetComponent<Unit>();
+        }
+
+        Vector3 newEnemyScale = new Vector3(3.0f, 3.0f, 3.0f);
+        enemyGO.transform.localScale += newEnemyScale;
 
         dialogueText.text = "Enemy approaches!";
         playerHUD.setHUD(playerUnit);

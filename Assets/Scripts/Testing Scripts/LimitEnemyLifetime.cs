@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LimitEnemyLifetime : MonoBehaviour
 {
@@ -18,19 +19,23 @@ public class LimitEnemyLifetime : MonoBehaviour
     void Update()
     {
 
-        if (transform.position.x != -11.0f)
+        if (SceneManager.GetActiveScene().name == "Test World Scene")
         {
-            randomLifeTime -= Time.deltaTime;
-        }
-        
-        if (randomLifeTime <= 0.0f)
-        {
-            if (hasCollidedWithPlayer == false)
+            if (transform.position.x != -11.0f)
             {
-                transform.position = new Vector3(-11.0f, 0.0f, 1.0f);
-                randomLifeTime = Random.Range(5.0f, 10.0f);
+                randomLifeTime -= Time.deltaTime;
+            }
+
+            if (randomLifeTime <= 0.0f)
+            {
+                if (hasCollidedWithPlayer == false)
+                {
+                    transform.position = new Vector3(-11.0f, 0.0f, 1.0f);
+                    randomLifeTime = Random.Range(5.0f, 10.0f);
+                }
             }
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

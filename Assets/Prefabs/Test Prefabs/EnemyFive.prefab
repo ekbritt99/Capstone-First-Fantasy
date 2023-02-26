@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2237009361519849392}
   - component: {fileID: 457353854575759502}
   - component: {fileID: -522028905011715019}
+  - component: {fileID: 7745876350580557832}
   m_Layer: 0
   m_Name: EnemyFive
-  m_TagString: Enemy
+  m_TagString: Five
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +126,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomLifeTime: 0
+--- !u!114 &7745876350580557832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104814378376789738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9787800846429df469c1d3e431ba7a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 8
+  maxHP: 25
+  currentHP: 25
