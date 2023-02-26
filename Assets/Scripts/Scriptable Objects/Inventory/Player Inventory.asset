@@ -15,6 +15,8 @@ MonoBehaviour:
   savePath: /inventory.save
   database: {fileID: 11400000, guid: 4d319100ba513194a82b901c1dba2ce8, type: 2}
   container:
+    gold:
+      unit: 30
     Items:
     - AllowedItems: 
       item:
@@ -34,6 +36,36 @@ MonoBehaviour:
       amount: 1
     - AllowedItems: 
       item:
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
         Name: Katana - Basic
         ID: 1
         buffs:
@@ -42,36 +74,6 @@ MonoBehaviour:
           min: 15
           max: 30
       amount: 1
-    - AllowedItems: 
-      item:
-        Name: 
-        ID: -1
-        buffs: []
-      amount: 0
-    - AllowedItems: 
-      item:
-        Name: 
-        ID: -1
-        buffs: []
-      amount: 0
-    - AllowedItems: 
-      item:
-        Name: 
-        ID: -1
-        buffs: []
-      amount: 0
-    - AllowedItems: 
-      item:
-        Name: 
-        ID: -1
-        buffs: []
-      amount: 0
-    - AllowedItems: 
-      item:
-        Name: 
-        ID: -1
-        buffs: []
-      amount: 0
     - AllowedItems: 
       item:
         Name: 

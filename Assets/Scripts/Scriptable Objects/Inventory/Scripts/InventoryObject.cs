@@ -136,6 +136,7 @@ public class InventoryObject : ScriptableObject
 [System.Serializable]
 public class Inventory
 {
+    public Currency gold;
     public InventorySlot[] Items = new InventorySlot[24];
     public void Clear()
     {
