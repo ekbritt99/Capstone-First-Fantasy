@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6525076075194277613}
   - component: {fileID: 4890371395296633299}
   - component: {fileID: -1712267025294874858}
+  - component: {fileID: 7611191815134287234}
   m_Layer: 0
   m_Name: EnemyFour
-  m_TagString: Enemy
+  m_TagString: Four
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +126,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomLifeTime: 0
+--- !u!114 &7611191815134287234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5391891657742585783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9787800846429df469c1d3e431ba7a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 3
+  maxHP: 15
+  currentHP: 15

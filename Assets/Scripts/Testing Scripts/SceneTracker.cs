@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class SceneTracker : MonoBehaviour
 {
 
-    public List<string> sceneHistory = new List<string>();  
-    
+    public List<string> sceneHistory = new List<string>();
+    public List<string> enemyHistory = new List<string>();
+
     private void Awake()
     {
         int numSceneTrackers = FindObjectsOfType<SceneTracker>().Length;
@@ -30,5 +31,10 @@ public class SceneTracker : MonoBehaviour
     public void rememberScene()
     {
         sceneHistory.Add(SceneManager.GetActiveScene().name);
+    }
+
+    public void rememberEnemy(string enemyType)
+    {
+        enemyHistory.Add(enemyType);
     }
 }

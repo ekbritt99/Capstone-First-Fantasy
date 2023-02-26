@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21526f57009d53940acabf56cd934519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: 
+  fileName: data22.game
 --- !u!4 &95858764
 Transform:
   m_ObjectHideFlags: 0
@@ -693,6 +693,10 @@ PrefabInstance:
     - target: {fileID: 3010796280420188630, guid: 965e2167966a9dc41b226390031448cf, type: 3}
       propertyPath: m_Name
       value: Slime
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010796280420188630, guid: 965e2167966a9dc41b226390031448cf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3010796280420188631, guid: 965e2167966a9dc41b226390031448cf, type: 3}
       propertyPath: m_RootOrder
@@ -3432,6 +3436,17 @@ MonoBehaviour:
   gameManager: {fileID: 2094225402}
   playerPrefab: {fileID: 871587441}
   enemyPrefab: {fileID: 431860704}
+  enemyOnePrefab: {fileID: 9143014642059542093, guid: c86448bd3b74f584f8849abba6378d91, type: 3}
+  enemyTwoPrefab: {fileID: 7244020545106449968, guid: c496e4b36369ba84a9087d94592dc08e, type: 3}
+  enemyThreePrefab: {fileID: 6108972098264396084, guid: 89d2532d332539c49874a9f290e08952, type: 3}
+  enemyFourPrefab: {fileID: 5391891657742585783, guid: 19dec7c9df784864183d7f1b2ba70853, type: 3}
+  enemyFivePrefab: {fileID: 1104814378376789738, guid: bcc9fef2940ab9f42a729591e58a91d2, type: 3}
+  enemySixPrefab: {fileID: 3629397885588319475, guid: 7edff730e7c2d8d45b5e84d87289d381, type: 3}
+  enemySevenPrefab: {fileID: 649774131731707552, guid: a22903eec53134e4790391d67f04897f, type: 3}
+  enemyEightPrefab: {fileID: 4504837620572870046, guid: 5f92219dcff20e748913dc76d3638c0b, type: 3}
+  enemyNinePrefab: {fileID: 3395990604518458458, guid: 0974be627e5f077498bded5fcab8baca, type: 3}
+  enemyTenPrefab: {fileID: 3758574665474765653, guid: 6098d4f5d5d22ea438ab87b7fb2bb838, type: 3}
+  sceneTrackerObj: {fileID: 0}
   GameOverScreen: {fileID: 717077680}
   battleTheme: {fileID: 8300000, guid: 1a3959912c98f564f8c5c6529372d39c, type: 3}
   gameOverTheme: {fileID: 8300000, guid: a1e8f95f525963a4fb2b426eddd3e931, type: 3}

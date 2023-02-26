@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2627640675425755663}
   - component: {fileID: 4405907487038332209}
   - component: {fileID: 1920775402805995758}
+  - component: {fileID: 7763688074829384467}
   m_Layer: 0
   m_Name: EnemyTen
-  m_TagString: Enemy
+  m_TagString: Ten
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +126,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomLifeTime: 0
+--- !u!114 &7763688074829384467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3758574665474765653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9787800846429df469c1d3e431ba7a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  maxHP: 15
+  currentHP: 15

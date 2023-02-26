@@ -9,6 +9,16 @@ TagManager:
   - Enemy
   - Shop Trigger
   - Scene Tracker
+  - One
+  - Two
+  - Three
+  - Four
+  - Five
+  - Six
+  - Seven
+  - Eight
+  - Nine
+  - Ten
   layers:
   - Default
   - TransparentFX
