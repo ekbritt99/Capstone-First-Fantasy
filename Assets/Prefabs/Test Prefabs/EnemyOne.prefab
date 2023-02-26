@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7979500697129201431}
   - component: {fileID: 8642211261295611945}
   - component: {fileID: 7696882720594782057}
+  - component: {fileID: 372617814594942056}
   m_Layer: 0
   m_Name: EnemyOne
-  m_TagString: Enemy
+  m_TagString: One
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +126,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomLifeTime: 0
+--- !u!114 &372617814594942056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9143014642059542093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9787800846429df469c1d3e431ba7a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  maxHP: 15
+  currentHP: 15
