@@ -9,6 +9,8 @@ public class DisplayEquipSlots : InventoryInterface
     public override void CreateDisplay()
     {
         itemsDisplayed = new();
+
+        // Apply event listeners for each item slot displayed
         for(int i = 0; i < inventory.container.Items.Length; i++)
         {
             var obj = slots[i];
