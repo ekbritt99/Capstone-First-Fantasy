@@ -15,6 +15,8 @@ public class DisplayInventory : InventoryInterface
     {
         grid = GameObject.Find("InventoryGrid");
         itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
+
+        // Apply event listeners for each item slot displayed.
         for (int i = 0; i < inventory.container.Items.Length; i++)
         {
             var obj = Instantiate(inventoryPrefab, grid.transform);
@@ -25,6 +27,7 @@ public class DisplayInventory : InventoryInterface
             AddEvent(obj, EventTriggerType.BeginDrag, delegate { OnDragStart(obj); });
             AddEvent(obj, EventTriggerType.EndDrag, delegate { OnDragEnd(obj); });
             AddEvent(obj, EventTriggerType.Drag, delegate { OnDrag(obj); });
+            AddEvent(obj, EventTriggerType.PointerDown, e => OnPointerDown(obj, e));
         
         
             itemsDisplayed.Add(obj, inventory.container.Items[i]);
