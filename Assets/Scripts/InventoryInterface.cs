@@ -10,6 +10,7 @@ public abstract class InventoryInterface : MonoBehaviour
 {
     public InventoryObject inventory;
     public Dictionary<GameObject, InventorySlot> itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
+    public GameObject hoverPanel;
 
     public void OnEnable()
     {
@@ -55,11 +56,11 @@ public abstract class InventoryInterface : MonoBehaviour
     public void OnEnter(GameObject obj)
     {
         MouseData.slotHovered = obj;
-        // player.mouseItem.hoverObj = obj;
-        // if(itemsDisplayed.ContainsKey(obj))
-        // {
-        //     player.mouseItem.hoverItem = itemsDisplayed[obj];
-        // }
+        if(itemsDisplayed[obj].item.ID >= 0 && MouseData.tempItemBeingDragged == null) 
+        {
+            StopAllCoroutines();
+            StartCoroutine(StartTimer());
+        }
     }
     public void OnEnterInterface(GameObject obj)
     {
@@ -71,9 +72,13 @@ public abstract class InventoryInterface : MonoBehaviour
     }
     public void OnExit(GameObject obj)
     {
+        if(MouseData.tempItemBeingDragged == null)
+        {
+            StopAllCoroutines();
+        }
+
         MouseData.slotHovered = null;
-        // player.mouseItem.hoverObj = null;
-        // player.mouseItem.hoverItem = null;
+        hoverPanel.SetActive(false);
     }
     public void OnDragStart(GameObject obj)
     {
@@ -133,6 +138,31 @@ public abstract class InventoryInterface : MonoBehaviour
         }
         // if(player.mouseItem.obj != null)
         //     player.mouseItem.obj.GetComponent<RectTransform>().position = Input.mousePosition;
+    }
+    
+    private IEnumerator StartTimer()
+    {
+        yield return new WaitForSeconds(1);
+        ShowToolTip();
+    }
+
+    private void ShowToolTip()
+    {
+        ItemObject item = inventory.database.GetItem[itemsDisplayed[MouseData.slotHovered].item.ID];
+        hoverPanel.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = item.name;
+        hoverPanel.transform.Find("Description").GetComponent<TextMeshProUGUI>().text = item.description;
+        hoverPanel.transform.Find("Buffs").GetComponent<TextMeshProUGUI>().text = "- Buff1 \n- Buff2";
+
+
+        hoverPanel.SetActive(true);
+
+        RectTransform hoverTransform = hoverPanel.GetComponent<RectTransform>();
+
+        Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        mousePosition.x = Mathf.Clamp(mousePosition.x + hoverTransform.sizeDelta.x / 2, 0 + hoverTransform.rect.width / 2, Screen.width - hoverTransform.rect.width / 2);
+        mousePosition.y = Mathf.Clamp(mousePosition.y - hoverTransform.sizeDelta.y / 2, 0 + hoverTransform.rect.height / 2, Screen.height - hoverTransform.rect.height / 2);
+        hoverTransform.transform.position = mousePosition;
+        //hoverTransform.transform.position = new Vector2(Input.mousePosition.x + hoverTransform.sizeDelta.x/2, Input.mousePosition.y - hoverTransform.sizeDelta.y/2);
     }
 
 
