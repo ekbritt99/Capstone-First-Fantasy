@@ -3451,6 +3451,7 @@ MonoBehaviour:
   gameManager: {fileID: 2094225402}
   playerPrefab: {fileID: 871587441}
   enemyPrefab: {fileID: 431860704}
+  playerEquipment: {fileID: 11400000, guid: a27166c753180dd408aa17af7549c6ce, type: 2}
   enemyOnePrefab: {fileID: 9143014642059542093, guid: c86448bd3b74f584f8849abba6378d91, type: 3}
   enemyTwoPrefab: {fileID: 7244020545106449968, guid: c496e4b36369ba84a9087d94592dc08e, type: 3}
   enemyThreePrefab: {fileID: 6108972098264396084, guid: 89d2532d332539c49874a9f290e08952, type: 3}

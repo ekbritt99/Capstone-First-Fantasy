@@ -11,6 +11,8 @@ public class BattleSystem : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
 
+    public InventoryObject playerEquipment;
+
     public GameObject enemyOnePrefab;
     public GameObject enemyTwoPrefab;
     public GameObject enemyThreePrefab;
@@ -126,7 +128,8 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayerAttack()
     {
         state = BattleState.ENEMYTURN;
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
+        int newPlayerDamage = playerUnit.damage + playerEquipment.database.GetItem[4].data.buffs[0].value;
+        bool isDead = enemyUnit.TakeDamage(newPlayerDamage);
         enemyHUD.setHP(enemyUnit.currentHP);
         dialogueText.text = "The attack is successful!";
         yield return new WaitForSeconds(2f);
