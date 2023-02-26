@@ -15,7 +15,7 @@ public class ShopManager : MonoBehaviour
     public GameObject purchaseSuccessful;
 
     public int currPlayerMoney;
-    public TMP_Text lblCurrentMoneyAmount;
+    public TextMeshProUGUI lblCurrentMoneyAmount;
 
     public GameObject playerObj;
 
@@ -24,12 +24,15 @@ public class ShopManager : MonoBehaviour
     {
         dataManager = dataManagerObj.GetComponent<DataPersistenceManager>();
         //get current player money here
+
+        // lblCurrentMoneyAmount.text = "Test";
     }
 
     // Update is called once per frame
     void Update()
     {
-        lblCurrentMoneyAmount.text = playerInventory.container.gold.getCurrency().ToString();
+        // lblCurrentMoneyAmount.text = playerInventory.container.gold.getCurrency().ToString();
+        // lblCurrentMoneyAmount.text = "Testing";
     }
 
     public void purchaseKatana()

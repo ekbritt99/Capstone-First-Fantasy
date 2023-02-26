@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4552770034531372719}
   - component: {fileID: 4552770034531372716}
+  - component: {fileID: -7022601103145010094}
   - component: {fileID: 4552770034531372717}
   - component: {fileID: 4552770034531372720}
   - component: {fileID: 4552770034531372722}
@@ -88,6 +89,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &-7022601103145010094
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4552770034531372718}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a12f574c6ff8a07418cc556e9f6a06b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &4552770034531372717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -105,7 +126,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 2.56}
+    oldSize: {x: 1.03, y: 1.49}
     newSize: {x: 5.12, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -147,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3de301bdfeb1fa2429118fc7c364bba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   moveSpeed: 5
 --- !u!114 &4552770034531372723
 MonoBehaviour:
@@ -161,3 +183,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  shopButton: {fileID: 0}

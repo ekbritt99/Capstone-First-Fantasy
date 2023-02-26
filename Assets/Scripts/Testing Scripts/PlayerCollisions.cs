@@ -86,19 +86,29 @@ public class PlayerCollisions : MonoBehaviour
         
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Shop Trigger")
         {
             shopButton.SetActive(true);
         }
+        if (collision.gameObject.tag == "Scene Trigger")
+        {
+            gameManager.SendMessage("GoToOverWorld");
+        }
+        if (collision.gameObject.tag == "Scene Trigger 2")
+        {
+            gameManager.SendMessage("GoToVillage");
+        }
+
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Shop Trigger")
         {
             shopButton.SetActive(false);
         }
+        
     }
 }

@@ -27,6 +27,7 @@ public abstract class InventoryInterface : MonoBehaviour
 
     public void Update()
     {
+        // Update each sprite and item count once per frame
         foreach (KeyValuePair<GameObject, InventorySlot> _slot in itemsDisplayed)
         {
             if(_slot.Value.item.ID >= 0)
@@ -43,7 +44,7 @@ public abstract class InventoryInterface : MonoBehaviour
         }
     }
 
-    
+    /* Programmatically add event listeners to objects --  See DisplayInventory.cs and DisplayEquipSlots.cs */
     protected void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
     {
         EventTrigger trigger = obj.GetComponent<EventTrigger>();
@@ -53,15 +54,19 @@ public abstract class InventoryInterface : MonoBehaviour
         trigger.triggers.Add(eventTrigger);
     }
 
+    /* Event - When cursor enters, starts timer to display item tool tip and sets current slotHovered in MouseData */
     public void OnEnter(GameObject obj)
     {
         MouseData.slotHovered = obj;
+
         if(itemsDisplayed[obj].item.ID >= 0 && MouseData.tempItemBeingDragged == null) 
         {
             StopAllCoroutines();
             StartCoroutine(StartTimer());
         }
     }
+
+    /* Event - Tracks which inventory interface is active with cursor */
     public void OnEnterInterface(GameObject obj)
     {
         MouseData.interfaceMouseIsOver = obj.GetComponent<InventoryInterface>();
@@ -70,6 +75,8 @@ public abstract class InventoryInterface : MonoBehaviour
     {
         MouseData.interfaceMouseIsOver = null;
     }
+
+    /* Event - When cursor exits, the timer for tool tip is stopped and existing tool tip is deactivated */
     public void OnExit(GameObject obj)
     {
         if(MouseData.tempItemBeingDragged == null)
@@ -80,6 +87,8 @@ public abstract class InventoryInterface : MonoBehaviour
         MouseData.slotHovered = null;
         hoverPanel.SetActive(false);
     }
+
+    /* Event - On start of click drag, creates an image copy of the item */
     public void OnDragStart(GameObject obj)
     {
         StopAllCoroutines();
@@ -96,22 +105,9 @@ public abstract class InventoryInterface : MonoBehaviour
         }
 
         MouseData.tempItemBeingDragged = tempItem;
-
-        // var mouseObject = new GameObject();
-        // var rt = mouseObject.AddComponent<RectTransform>();
-        // rt.sizeDelta = new Vector2(50, 50);
-        // mouseObject.transform.SetParent(transform.parent);
-
-        // if(itemsDisplayed[obj].ID >= 0)
-        // {
-        //     var image = mouseObject.AddComponent<Image>();
-        //     image.sprite = inventory.database.GetItem[itemsDisplayed[obj].ID].uiDisplay;
-        //     image.raycastTarget = false;
-        // }
-        // player.mouseItem.obj = mouseObject;
-        // player.mouseItem.item = itemsDisplayed[obj];
     }
     
+    /* Event - Destroys the dragged item image and moves the original item to the slot hovered */
     public void OnDragEnd(GameObject obj)
     {  
         Destroy(MouseData.tempItemBeingDragged);
@@ -120,33 +116,57 @@ public abstract class InventoryInterface : MonoBehaviour
             InventorySlot mouseHoverSlotData = MouseData.interfaceMouseIsOver.itemsDisplayed[MouseData.slotHovered];
             inventory.MoveItem(itemsDisplayed[obj], mouseHoverSlotData);
         }
-        // if(player.mouseItem.hoverObj)
-        // {
-        //     inventory.MoveItem(itemsDisplayed[obj], itemsDisplayed[player.mouseItem.hoverObj]);
-        // }
-        // else
-        // {
-        //     // inventory.RemoveItem(itemsDisplayed[obj].item);
-        // }
-        // Destroy(player.mouseItem.obj);
-        // player.mouseItem.item = null;
     }
+
+    /* Event - Keeps the dragged item image on the mouse location */
     public void OnDrag(GameObject obj)
     {
         if(MouseData.tempItemBeingDragged != null)
         {
             MouseData.tempItemBeingDragged.GetComponent<RectTransform>().position = Input.mousePosition;
         }
-        // if(player.mouseItem.obj != null)
-        //     player.mouseItem.obj.GetComponent<RectTransform>().position = Input.mousePosition;
+    }
+
+    public void OnPointerDown(GameObject obj, BaseEventData eventData)
+    {
+        PointerEventData pointerEventData = (PointerEventData)eventData;
+
+        // Equip item if right clicked on in inventory
+        if(pointerEventData.button == PointerEventData.InputButton.Right && itemsDisplayed[obj].item.ID >= 0) {
+            InventoryInterface equipment = GameObject.Find("EquipmentScreen").GetComponent<InventoryInterface>();
+            // Ensure the right click was not on equipment panel
+            if(this.GetComponent<InventoryInterface>() == equipment)
+            {
+                return;
+            }
+            
+            if(itemsDisplayed[obj].ItemObject.type == ItemType.Helmet) {
+                inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[0]);
+            } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Chest) {
+                inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[1]);
+            } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Legs) {
+                inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[2]);
+            } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Boots) {
+                inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[3]);
+            } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Weapon) {
+                inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[4]);
+            } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Offhand) {
+                inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[5]);
+            }
+
+            InventorySlot mouseHoverSlotData = MouseData.interfaceMouseIsOver.itemsDisplayed[MouseData.slotHovered];
+            inventory.MoveItem(itemsDisplayed[obj], mouseHoverSlotData);
+        }
     }
     
+    /* Timer used for the tool tip popup */
     private IEnumerator StartTimer()
     {
         yield return new WaitForSeconds(1);
         ShowToolTip();
     }
 
+    /* Displays a tool tip with item information next to the cursor */
     private void ShowToolTip()
     {
         ItemObject item = inventory.database.GetItem[itemsDisplayed[MouseData.slotHovered].item.ID];
@@ -163,11 +183,7 @@ public abstract class InventoryInterface : MonoBehaviour
         mousePosition.x = Mathf.Clamp(mousePosition.x + hoverTransform.sizeDelta.x / 2, 0 + hoverTransform.rect.width / 2, Screen.width - hoverTransform.rect.width / 2);
         mousePosition.y = Mathf.Clamp(mousePosition.y - hoverTransform.sizeDelta.y / 2, 0 + hoverTransform.rect.height / 2, Screen.height - hoverTransform.rect.height / 2);
         hoverTransform.transform.position = mousePosition;
-        //hoverTransform.transform.position = new Vector2(Input.mousePosition.x + hoverTransform.sizeDelta.x/2, Input.mousePosition.y - hoverTransform.sizeDelta.y/2);
     }
-
-
-
 
 }
 
