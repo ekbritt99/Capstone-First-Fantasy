@@ -7,10 +7,6 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-
-    public InventoryObject playerInventory;
-
-
     public string villageScene = "Test Village Scene";
     public string overworldScene = "Test World Scene";
     public string battleScene = "Battle Scene";
@@ -44,15 +40,6 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             GoToInventory();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Equals))
-        {
-            playerInventory.Save();
-        }
-        if (Input.GetKeyDown(KeyCode.Backslash))
-        {
-            playerInventory.Load();
         }
 
         if (SceneManager.GetActiveScene().name == "Shop Scene" || SceneManager.GetActiveScene().name == "Test Village Scene")

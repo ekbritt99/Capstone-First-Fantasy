@@ -11,7 +11,7 @@ public enum ItemType
     Legs,
     Boots,
     Weapon,
-    Shield,
+    Offhand,
     Food,
     Default
 }
