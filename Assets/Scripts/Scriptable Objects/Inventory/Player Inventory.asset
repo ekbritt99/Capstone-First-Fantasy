@@ -16,23 +16,13 @@ MonoBehaviour:
   database: {fileID: 11400000, guid: 4d319100ba513194a82b901c1dba2ce8, type: 2}
   container:
     gold:
-      unit: 30
+      unit: 22
     Items:
     - AllowedItems: 
       item:
-        Name: Potion Red
-        ID: 0
+        Name: Wooden Shield
+        ID: 13
         buffs: []
-      amount: 2
-    - AllowedItems: 
-      item:
-        Name: Katana - Basic
-        ID: 1
-        buffs:
-        - stat: 0
-          value: 19
-          min: 15
-          max: 30
       amount: 1
     - AllowedItems: 
       item:
@@ -66,14 +56,16 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 
       item:
-        Name: Katana - Basic
-        ID: 1
-        buffs:
-        - stat: 0
-          value: 28
-          min: 15
-          max: 30
-      amount: 1
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
     - AllowedItems: 
       item:
         Name: 

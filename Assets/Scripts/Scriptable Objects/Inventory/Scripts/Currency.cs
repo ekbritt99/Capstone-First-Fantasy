@@ -30,4 +30,9 @@ public class Currency
             return true;
         return false;
     }
+
+    public int getCurrency()
+    {
+        return unit;
+    }
 }

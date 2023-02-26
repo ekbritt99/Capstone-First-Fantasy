@@ -19,6 +19,6 @@ MonoBehaviour:
   description: 
   stackable: 0
   data:
-    Name: Wooden Shield
+    Name: Tower Shield
     ID: 13
     buffs: []
