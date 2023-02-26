@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 3376018608394503364}
   - component: {fileID: 4001918620489710586}
   - component: {fileID: 5379211527441095190}
+  - component: {fileID: 6644365823552646053}
   m_Layer: 0
   m_Name: EnemyEight
-  m_TagString: Enemy
+  m_TagString: Eight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,3 +126,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomLifeTime: 0
+--- !u!114 &6644365823552646053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4504837620572870046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9787800846429df469c1d3e431ba7a02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 7
+  maxHP: 25
+  currentHP: 25
