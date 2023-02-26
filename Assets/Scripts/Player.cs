@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
-{
 
     public InventoryObject inventory;
     public InventoryObject equipment;
+
+  
 
     // public InventoryObject inventory;
 

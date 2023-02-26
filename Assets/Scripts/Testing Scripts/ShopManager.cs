@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ShopManager : MonoBehaviour, IDataPersistence
+public class ShopManager : MonoBehaviour
 {
     public InventoryObject playerInventory;
     public InventoryObject playerEquipment;
@@ -17,10 +17,13 @@ public class ShopManager : MonoBehaviour, IDataPersistence
     public int currPlayerMoney;
     public TMP_Text lblCurrentMoneyAmount;
 
+    public GameObject playerObj;
+
     // Start is called before the first frame update
     void Start()
     {
         dataManager = dataManagerObj.GetComponent<DataPersistenceManager>();
+        //get current player money here
     }
 
     // Update is called once per frame
@@ -353,35 +356,7 @@ public class ShopManager : MonoBehaviour, IDataPersistence
 
     
 
-    public void purchaseShieldBuff()
-    {
-        playerEquipment.container.Items[5].item.buffs[0] = new ItemBuff(10, 20);
-    }
-    public void purchaseBootsBuff()
-    {
-        playerEquipment.container.Items[4].item.buffs[0] = new ItemBuff(10, 20);
-    }
-    public void purchaseChestBuff()
-    {
-        playerEquipment.container.Items[4].item.buffs[0] = new ItemBuff(10, 20);
-    }
-    public void purchasLegsBuff()
-    {
-        playerEquipment.container.Items[4].item.buffs[0] = new ItemBuff(10, 20);
-    }
-    public void purchasHelmetBuff()
-    {
-        playerEquipment.container.Items[4].item.buffs[0] = new ItemBuff(10, 20);
-    }
 
+   
 
-    public void LoadData(GameData data)
-    {
-        this.currPlayerMoney = data.playerMoney;
-    }
-
-    public void SaveData(GameData data)
-    {
-        data.playerMoney = this.currPlayerMoney;
-    }
 }
