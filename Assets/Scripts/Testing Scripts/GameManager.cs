@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
     public string inventoryScene = "InventoryUI Scene";
     public string shopScene = "Shop Scene";
 
+    public InventoryInfoScreen InventoryInfoScreen;
+    public ShopInfoScreen ShopInfoScreen;
+    public StartInfoScreen StartInfoScreen;
+
     bool pause = false;
     public GameObject pauseMenu;
 
@@ -93,13 +97,43 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(shopScene);
     }
 
+    //Info Screen Management
+    public void OpenInventoryInfo()
+    {
+        InventoryInfoScreen.Setup();
+    }
+    public void CloseInventoryInfo()
+    {
+        InventoryInfoScreen.Shutdown();
+    }
+    public void OpenShopInfo()
+    {
+        ShopInfoScreen.Setup();
+    }
+    public void CloseShopInfo()
+    {
+        ShopInfoScreen.Shutdown();
+    }
+    public void OpenStartInfo()
+    {
+        StartInfoScreen.Setup();
+    }
+    public void CloseStartInfo()
+    {
+        StartInfoScreen.Shutdown();
+    }
+    public void StartfromInfoScreen()
+    {
+        GoToVillage();
+    }
+
    public void goToPreviousScene()
     {
         int numOfScenes = sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory.Count - 1;
         SceneManager.LoadScene(sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory[numOfScenes]);
     }
 
-    void Quit()
+    public void Quit()
     {
         Application.Quit(0);
     }
