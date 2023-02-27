@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
     }
     public void GoToHouseScene()
     {
-        SceneManager.LoadScene("houseScene");
+        SceneManager.LoadScene("House Scene");
     }
 
    public void goToPreviousScene()

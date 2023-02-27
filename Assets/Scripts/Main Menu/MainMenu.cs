@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     [Header("Menu Buttons")]
     [SerializeField] private Button newGameButton;
     [SerializeField] private Button loadGameButton;
+    [SerializeField] private GameObject tutorial;
 
 
     private void Start()
@@ -23,9 +24,8 @@ public class MainMenu : MonoBehaviour
     public void onNewGameClicked()
     {
         DisableMenuButtons();
-        DataPersistenceManager.instance.NewGame();
 
-        SceneManager.LoadSceneAsync("Test Village Scene");
+        tutorial.SetActive(true);
     }
 
     public void onLoadGameMenu()
@@ -34,12 +34,19 @@ public class MainMenu : MonoBehaviour
         DataPersistenceManager.instance.SaveGame();
         DataPersistenceManager.instance.playerInventory.Load();
         DataPersistenceManager.instance.playerEquipment.Load();
-        SceneManager.LoadSceneAsync("Test Village Scene");
+        SceneManager.LoadSceneAsync("House Scene");
     }
 
     private void DisableMenuButtons()
     {
         newGameButton.interactable = false;
         loadGameButton.interactable = false;
+    }
+
+
+    public void onTutorialStartGameClicked()
+    {
+        DataPersistenceManager.instance.NewGame();
+        SceneManager.LoadSceneAsync("House Scene");
     }
 }
