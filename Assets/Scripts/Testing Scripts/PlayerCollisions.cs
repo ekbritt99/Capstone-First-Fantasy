@@ -82,7 +82,12 @@ public class PlayerCollisions : MonoBehaviour
             sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Ten");
             gameManager.SendMessage("GoToBattle");
         }
-            
+
+        if (collision.gameObject.tag == "NPC Rat")
+        {
+            Debug.Log("Hello");
+            gameManager.SendMessage("DisplayDialogueBox", "Oh... I didn't know you were home...");
+        }
         
     }
 

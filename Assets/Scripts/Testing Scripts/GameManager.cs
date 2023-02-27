@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject sceneTrackerObj;
 
+    public GameObject dialogueBox;
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,6 +67,17 @@ public class GameManager : MonoBehaviour
         else
             Time.timeScale = 1;
         pause = !pause;
+    }
+
+    public void DisplayDialogueBox(string text)
+    {
+        dialogueBox.GetComponentInChildren<TextMeshProUGUI>().text = text;
+        dialogueBox.SetActive(true);
+    }
+
+    public void HideDialogeBox()
+    {
+        dialogueBox.SetActive(false);
     }
 
 
