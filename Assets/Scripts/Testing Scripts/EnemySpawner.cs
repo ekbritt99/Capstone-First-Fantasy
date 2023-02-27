@@ -63,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
     {
         Vector3 location = Vector3.zero;
         location.x = DEF_X_POSITION;
-        location.y = 0.0f;
+        location.y = 100.0f;
         location.z = 1.0f;
 
         for (int i = 0; i < 5; i++)

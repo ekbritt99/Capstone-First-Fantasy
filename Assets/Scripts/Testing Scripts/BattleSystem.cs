@@ -141,7 +141,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         if(isDead)
         {
             state = BattleState.WON;
-            EndBattle();
+            StartCoroutine(EndBattle());
         } else
         {
             //state = BattleState.ENEMYTURN;
@@ -158,23 +158,23 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         int legsBuff = 0;
         int shieldBuff = 0;
         int bootsBuff = 0;
-        if (playerEquipment.container.Items[0].item.ID != -1)
+        if (playerEquipment.container.Items[0].item.ID != -1 && playerEquipment.container.Items[0].item.buffs.Length > 0)
         {
             helmetBuff = playerEquipment.container.Items[0].item.buffs[0].value;
         }
-        if (playerEquipment.container.Items[1].item.ID != -1)
+        if (playerEquipment.container.Items[1].item.ID != -1 && playerEquipment.container.Items[1].item.buffs.Length > 0)
         {
             chestBuff = playerEquipment.container.Items[1].item.buffs[0].value;
         }
-        if (playerEquipment.container.Items[2].item.ID != -1)
+        if (playerEquipment.container.Items[2].item.ID != -1 && playerEquipment.container.Items[2].item.buffs.Length > 0)
         {
             legsBuff = playerEquipment.container.Items[2].item.buffs[0].value;
         }
-        if (playerEquipment.container.Items[3].item.ID != -1)
+        if (playerEquipment.container.Items[3].item.ID != -1 && playerEquipment.container.Items[3].item.buffs.Length > 0)
         {
             bootsBuff = playerEquipment.container.Items[3].item.buffs[0].value;
         }
-        if (playerEquipment.container.Items[5].item.ID != -1)
+        if (playerEquipment.container.Items[5].item.ID != -1 && playerEquipment.container.Items[4].item.buffs.Length > 0)
         {
             shieldBuff = playerEquipment.container.Items[4].item.buffs[0].value;
         }
@@ -185,7 +185,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         if(isDead)
         {
             state = BattleState.LOST;
-            EndBattle();
+            StartCoroutine(EndBattle());
         } else
         {
             state = BattleState.PLAYERTURN;
@@ -193,15 +193,17 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         }
     }
 
-    void EndBattle()
+    IEnumerator EndBattle()
     {
         if(state == BattleState.WON)
         {
             dialogueText.text = "You won the battle!";
+            yield return new WaitForSeconds(2);
             gameManager.SendMessage("GoToOverWorld");
         } else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were defeated...";
+            yield return new WaitForSeconds(2);
             GameOver();
             //gameManager.SendMessage("GoToOverWorld");
         }
