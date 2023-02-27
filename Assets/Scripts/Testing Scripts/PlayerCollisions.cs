@@ -81,13 +81,7 @@ public class PlayerCollisions : MonoBehaviour
         {
             sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Ten");
             gameManager.SendMessage("GoToBattle");
-        }
-
-        if (collision.gameObject.tag == "NPC Rat")
-        {
-            Debug.Log("Hello");
-            gameManager.SendMessage("DisplayDialogueBox", "Oh... I didn't know you were home...");
-        }
+        } 
         
     }
 
@@ -108,6 +102,10 @@ public class PlayerCollisions : MonoBehaviour
         if (collision.gameObject.tag == "house")
         {
             gameManager.SendMessage("GoToHouseScene");
+        }
+        if (collision.gameObject.tag == "NPC Rat")
+        {
+            gameManager.SendMessage("DisplayDialogueBox", "Don't forget to stop by the shop to the west of town and buy some gear...");
         }
     }
 
