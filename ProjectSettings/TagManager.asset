@@ -19,6 +19,7 @@ TagManager:
   - Eight
   - Nine
   - Ten
+  - house
   layers:
   - Default
   - TransparentFX

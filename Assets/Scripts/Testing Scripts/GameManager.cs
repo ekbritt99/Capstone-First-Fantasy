@@ -123,7 +123,11 @@ public class GameManager : MonoBehaviour
     }
     public void StartfromInfoScreen()
     {
-        GoToVillage();
+        GoToHouseScene();
+    }
+    public void GoToHouseScene()
+    {
+        SceneManager.LoadScene("houseScene");
     }
 
    public void goToPreviousScene()

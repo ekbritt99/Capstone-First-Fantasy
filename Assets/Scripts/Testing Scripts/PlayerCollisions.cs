@@ -100,7 +100,10 @@ public class PlayerCollisions : MonoBehaviour
         {
             gameManager.SendMessage("GoToVillage");
         }
-
+        if (collision.gameObject.tag == "house")
+        {
+            gameManager.SendMessage("GoToHouseScene");
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
