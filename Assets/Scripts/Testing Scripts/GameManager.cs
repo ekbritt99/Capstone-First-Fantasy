@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
             Pause();
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && SceneManager.GetActiveScene().name != "InventoryUI Scene")
         {
             GoToInventory();
         }
