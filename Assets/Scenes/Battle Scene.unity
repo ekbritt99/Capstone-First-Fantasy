@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21526f57009d53940acabf56cd934519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initializeDataIfNull: 0
   fileName: data22.game
 --- !u!4 &95858764
 Transform:
@@ -1977,7 +1978,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225, y: -86.28999}
+  m_AnchoredPosition: {x: 225, y: -86.28998}
   m_SizeDelta: {x: 0.89001465, y: 0.2899933}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &871587440
@@ -3466,6 +3467,7 @@ MonoBehaviour:
   GameOverScreen: {fileID: 717077680}
   battleTheme: {fileID: 8300000, guid: 1a3959912c98f564f8c5c6529372d39c, type: 3}
   gameOverTheme: {fileID: 8300000, guid: a1e8f95f525963a4fb2b426eddd3e931, type: 3}
+  playerUnit: {fileID: 871587442}
   dialogueText: {fileID: 166807760}
   playerHUD: {fileID: 855119404}
   enemyHUD: {fileID: 1345323781}

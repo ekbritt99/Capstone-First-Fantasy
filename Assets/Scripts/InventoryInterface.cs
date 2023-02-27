@@ -170,9 +170,20 @@ public abstract class InventoryInterface : MonoBehaviour
     private void ShowToolTip()
     {
         ItemObject item = inventory.database.GetItem[itemsDisplayed[MouseData.slotHovered].item.ID];
+        Item item1 = MouseData.interfaceMouseIsOver.itemsDisplayed[MouseData.slotHovered].item;
         hoverPanel.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = item.name;
         hoverPanel.transform.Find("Description").GetComponent<TextMeshProUGUI>().text = item.description;
-        hoverPanel.transform.Find("Buffs").GetComponent<TextMeshProUGUI>().text = "- Buff1 \n- Buff2";
+
+        string buffs = "";
+
+        for (int i = 0; i < item1.buffs.Length; i++)
+        {
+            buffs += "- " + item1.buffs[i].stat + " +" + item1.buffs[i].value;
+            if(i < item1.buffs.Length-1)
+                buffs += "\n";
+        }
+
+        hoverPanel.transform.Find("Buffs").GetComponent<TextMeshProUGUI>().text = buffs;
 
 
         hoverPanel.SetActive(true);
