@@ -128,7 +128,12 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayerAttack()
     {
         state = BattleState.ENEMYTURN;
-        int newPlayerDamage = playerUnit.damage + playerEquipment.database.GetItem[4].data.buffs[0].value;
+        int weaponBuff = 0;
+        if (playerEquipment.container.Items[4].item.ID != -1)
+        {
+            weaponBuff = playerEquipment.container.Items[4].item.buffs[0].value;
+        }
+        int newPlayerDamage = playerUnit.damage + weaponBuff;
         bool isDead = enemyUnit.TakeDamage(newPlayerDamage);
         enemyHUD.setHP(enemyUnit.currentHP);
         dialogueText.text = "The attack is successful!";
@@ -148,7 +153,33 @@ public class BattleSystem : MonoBehaviour
     {
         dialogueText.text = "Enemy attacks!";
         yield return new WaitForSeconds(1f);
-        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+        int helmetBuff = 0;
+        int chestBuff = 0;
+        int legsBuff = 0;
+        int shieldBuff = 0;
+        int bootsBuff = 0;
+        if (playerEquipment.container.Items[0].item.ID != -1)
+        {
+            helmetBuff = playerEquipment.container.Items[0].item.buffs[0].value;
+        }
+        if (playerEquipment.container.Items[1].item.ID != -1)
+        {
+            chestBuff = playerEquipment.container.Items[1].item.buffs[0].value;
+        }
+        if (playerEquipment.container.Items[2].item.ID != -1)
+        {
+            legsBuff = playerEquipment.container.Items[2].item.buffs[0].value;
+        }
+        if (playerEquipment.container.Items[3].item.ID != -1)
+        {
+            bootsBuff = playerEquipment.container.Items[3].item.buffs[0].value;
+        }
+        if (playerEquipment.container.Items[5].item.ID != -1)
+        {
+            shieldBuff = playerEquipment.container.Items[4].item.buffs[0].value;
+        }
+        int newEnemyDamage = enemyUnit.damage - (helmetBuff + chestBuff + legsBuff + bootsBuff + shieldBuff);
+        bool isDead = playerUnit.TakeDamage(newEnemyDamage);
         playerHUD.setHP(playerUnit.currentHP);
         yield return new WaitForSeconds(1f);
         if(isDead)

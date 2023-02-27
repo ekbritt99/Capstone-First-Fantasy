@@ -15,8 +15,14 @@ MonoBehaviour:
   ID: 18
   uiDisplay: {fileID: 21300000, guid: 26d1b5ff45549ba41aae4fa424d15db8, type: 3}
   prefab: {fileID: 0}
-  type: 1
+  type: 2
   description: 
+  stackable: 0
   data:
     Name: Chainmail Pants
     ID: 18
+    buffs:
+    - stat: 3
+      value: 0
+      min: 1
+      max: 3

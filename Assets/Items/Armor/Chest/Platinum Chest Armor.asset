@@ -17,6 +17,12 @@ MonoBehaviour:
   prefab: {fileID: 0}
   type: 1
   description: 
+  stackable: 0
   data:
     Name: Platinum Chest Armor
     ID: 9
+    buffs:
+    - stat: 3
+      value: 0
+      min: 1
+      max: 4

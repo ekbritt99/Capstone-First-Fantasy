@@ -21,4 +21,8 @@ MonoBehaviour:
   data:
     Name: Kite Shield
     ID: 14
-    buffs: []
+    buffs:
+    - stat: 3
+      value: 0
+      min: 1
+      max: 2

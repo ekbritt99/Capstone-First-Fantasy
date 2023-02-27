@@ -15,8 +15,14 @@ MonoBehaviour:
   ID: 17
   uiDisplay: {fileID: 21300000, guid: 17fa7b8c792cdff40a0b2764fd5601ad, type: 3}
   prefab: {fileID: 0}
-  type: 1
+  type: 2
   description: 
+  stackable: 0
   data:
     Name: Studded Pants
     ID: 17
+    buffs:
+    - stat: 3
+      value: 0
+      min: 1
+      max: 2
