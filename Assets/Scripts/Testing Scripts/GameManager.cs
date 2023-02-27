@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject sceneTrackerObj;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -92,7 +93,7 @@ public class GameManager : MonoBehaviour
     }
     void GoToShop()
     {
-        dataManager.GetComponent<DataPersistenceManager>().SaveGame();
+        // dataManager.GetComponent<DataPersistenceManager>().SaveGame();
         SceneManager.LoadScene(shopScene);
     }
 
@@ -141,8 +142,8 @@ public class GameManager : MonoBehaviour
         Application.Quit(0);
     }
 
-    // private void OnApplicationQuit()
-    // {
-    //     playerInventory.container.Items = new InventorySlot[25];
-    // }
+    private void OnApplicationQuit()
+    {
+
+    }
 }

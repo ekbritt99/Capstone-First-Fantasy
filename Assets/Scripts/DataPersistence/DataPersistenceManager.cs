@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class DataPersistenceManager : MonoBehaviour
 {
+
+    [Header("Debugging")]
+    [SerializeField] private bool initializeDataIfNull = false;
 
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
@@ -13,6 +17,9 @@ public class DataPersistenceManager : MonoBehaviour
     private List<IDataPersistence> dataPersistences;
     private FileDataHandler dataHandler;
 
+    public InventoryObject playerInventory;
+    public InventoryObject playerEquipment;
+
 
     public static DataPersistenceManager instance { get; private set; }
 
@@ -20,21 +27,40 @@ public class DataPersistenceManager : MonoBehaviour
     {
         if(instance != null)
         {
-            Debug.LogError("Found more than one DataPersistenceManager in scene");
+            Debug.Log("Found more than one DataPersistenceManager in scene. Newest destroyed.");
+            Destroy(this.gameObject);
+            return;
         }
         instance = this;
+
+        DontDestroyOnLoad(this.gameObject);
+        
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
     }
 
-    private void Start()
+    public void OnEnable()
     {
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    public void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         this.dataPersistences = FindAllDataPersistences();
         LoadGame();
     }
 
     public void NewGame()
     {
+        Debug.Log("New Game started");
+        playerInventory.Clear();
+        playerEquipment.Clear();
         this.gameData = new GameData();
+        this.SaveGame();
     }
 
     public void LoadGame()
@@ -42,23 +68,32 @@ public class DataPersistenceManager : MonoBehaviour
         // load game data from file with data handler
         this.gameData = dataHandler.Load();
 
-        // if there is no save data, initialize to a new game
-        if(this.gameData ==null)
+        if(this.gameData == null && initializeDataIfNull)
         {
-            Debug.Log("No save data found. Defaulting.");
             NewGame();
+        }
+
+        // if there is no save data, initialize to a new game
+        if(this.gameData == null)
+        {
+            Debug.Log("No save data found. A new game needs to be started before load");
+            return;
         }
 
         foreach(IDataPersistence dataPersistence in dataPersistences)
         {
             dataPersistence.LoadData(gameData);
         }
-
-        Debug.Log("Loaded player position = " + gameData.playerPosition);
     }
 
     public void SaveGame()
     {
+        if(this.gameData == null)
+        {
+            Debug.LogWarning("No data found. A new game must be started.");
+            return;
+        }
+
         // pass data to other scripts to be updated
         foreach(IDataPersistence dataPersistence in dataPersistences)
         {
@@ -67,11 +102,15 @@ public class DataPersistenceManager : MonoBehaviour
 
         // save the gathered data to file with data handler
         dataHandler.Save(gameData);
+
+        playerInventory.Save();
+        playerEquipment.Save();
     }
 
     private void OnApplicationQuit()
     {
         SaveGame();
+        Debug.Log("Saved");
     }
 
     private List<IDataPersistence> FindAllDataPersistences()
@@ -81,30 +120,9 @@ public class DataPersistenceManager : MonoBehaviour
         return new List<IDataPersistence>(dataPersistences);
     }
 
-    public void purchaseWeapon5()
+    public bool HasGameData()
     {
-        this.gameData.playerMoney -= 5;
-        this.SaveGame();
-    }
-    public void purchaseWeapon7()
-    {
-        this.gameData.playerMoney -= 7;
-        this.SaveGame();
-    }
-    public void purchaseWeapon9()
-    {
-        this.gameData.playerMoney -= 9;
-        this.SaveGame();
+        return gameData != null;
     }
 
-    public void purchaseWeapon11()
-    {
-        this.gameData.playerMoney -= 11;
-        this.SaveGame();
-    }
-
-    public int getMoneyAmount()
-    {
-        return this.gameData.playerMoney;
-    }
 }

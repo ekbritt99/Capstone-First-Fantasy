@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
-public class BattleSystem : MonoBehaviour
+public class BattleSystem : MonoBehaviour, IDataPersistence
 {
     public GameObject gameManager;
     public GameObject playerPrefab;
@@ -33,7 +33,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] AudioClip gameOverTheme;
     AudioSource _audio;
 
-    Unit playerUnit;
+    [SerializeField] private Unit playerUnit;
     Unit enemyUnit;
 
     public Text dialogueText;
@@ -57,8 +57,8 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator SetupBattle()
     {
-        GameObject playerGO = Instantiate(playerPrefab);
-        playerUnit = playerGO.GetComponent<Unit>();
+        // GameObject playerGO = Instantiate(playerPrefab);
+        // playerUnit = playerGO.GetComponent<Unit>();
 
         int numOfEnemiesEncountered = sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory.Count - 1;
         if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "One")
@@ -294,5 +294,15 @@ public class BattleSystem : MonoBehaviour
     public void PauseMusic()
     {
         _audio.Pause();
+    }
+
+    public void LoadData(GameData data)
+    {
+        playerUnit.currentHP = data.playerHealth;
+    }
+
+    public void SaveData(GameData data)
+    {
+        data.playerHealth = playerUnit.currentHP;
     }
 }

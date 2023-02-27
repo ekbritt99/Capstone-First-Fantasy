@@ -45,12 +45,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9931e12dfae05d9468c01dcc7468ae32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInventory: {fileID: 11400000, guid: 1af540207d904e14184a6ab85a43fa1c, type: 2}
   villageScene: Test Village Scene
   overworldScene: Test World Scene
   battleScene: Battle Scene
   inventoryScene: InventoryUI Scene
+  shopScene: Shop Scene
+  InventoryInfoScreen: {fileID: 0}
+  ShopInfoScreen: {fileID: 0}
+  StartInfoScreen: {fileID: 0}
   pauseMenu: {fileID: 7529964708118101213}
+  swordUpgradeMenu: {fileID: 0}
+  dataManager: {fileID: 0}
+  lblCurrentMoneyAmount: {fileID: 0}
+  sceneTrackerObj: {fileID: 0}
+  playerInventory: {fileID: 11400000, guid: 1af540207d904e14184a6ab85a43fa1c, type: 2}
+  playerEquipment: {fileID: 11400000, guid: a27166c753180dd408aa17af7549c6ce, type: 2}
 --- !u!1 &2327988089164751344
 GameObject:
   m_ObjectHideFlags: 0

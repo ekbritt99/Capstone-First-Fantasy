@@ -20,8 +20,44 @@ MonoBehaviour:
     Items:
     - AllowedItems: 
       item:
-        Name: Wooden Shield
-        ID: 13
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: Iron Chest Armor
+        ID: 8
         buffs: []
       amount: 1
     - AllowedItems: 
@@ -50,10 +86,10 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 
       item:
-        Name: 
-        ID: -1
+        Name: Studded Boots
+        ID: 11
         buffs: []
-      amount: 0
+      amount: 1
     - AllowedItems: 
       item:
         Name: 
@@ -74,46 +110,10 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 
       item:
-        Name: 
-        ID: -1
+        Name: Studded Pants
+        ID: 17
         buffs: []
-      amount: 0
-    - AllowedItems: 
-      item:
-        Name: 
-        ID: -1
-        buffs: []
-      amount: 0
-    - AllowedItems: 
-      item:
-        Name: 
-        ID: -1
-        buffs: []
-      amount: 0
-    - AllowedItems: 
-      item:
-        Name: 
-        ID: -1
-        buffs: []
-      amount: 0
-    - AllowedItems: 
-      item:
-        Name: 
-        ID: -1
-        buffs: []
-      amount: 0
-    - AllowedItems: 
-      item:
-        Name: 
-        ID: -1
-        buffs: []
-      amount: 0
-    - AllowedItems: 
-      item:
-        Name: 
-        ID: -1
-        buffs: []
-      amount: 0
+      amount: 1
     - AllowedItems: 
       item:
         Name: 
