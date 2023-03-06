@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject dialogueBox;
 
+    public GameObject playerObj;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,33 @@ public class GameManager : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
         sceneTrackerObj = GameObject.FindGameObjectWithTag("Scene Tracker");
+
+        if (sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory.Count > 0)
+        {
+            int numOfScenes = sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory.Count - 1;
+            if (sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory[numOfScenes] == "House Scene")
+            {
+                playerObj.transform.position = new Vector3(7.71f, -0.81f, 1.57f);
+            }
+            if (sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory[numOfScenes] == "Shop Scene")
+            {
+                playerObj.transform.position = new Vector3(-5.71f, 0.45f, 1.57f);
+            }
+            if (sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory[numOfScenes] == "Test World Scene")
+            {
+                playerObj.transform.position = new Vector3(7.71f, -0.81f, 1.57f);
+            }
+        }
+        
+        if (SceneManager.GetActiveScene().name == "House Scene")
+        {
+            playerObj.transform.position = new Vector3(2.2f, -0.92f, -3f);
+        }
+
+        if (SceneManager.GetActiveScene().name == "Test World Scene")
+        {
+            playerObj.transform.position = new Vector3(-2.79f, -1.22f, 1.57f);
+        }
     }
 
     // Update is called once per frame
@@ -106,9 +135,15 @@ public class GameManager : MonoBehaviour
     }
     void GoToShop()
     {
-        // dataManager.GetComponent<DataPersistenceManager>().SaveGame();
         SceneManager.LoadScene(shopScene);
     }
+
+    void GoToVillageFromHouseOrShop()
+    {
+        sceneTrackerObj.GetComponent<SceneTracker>().rememberScene();
+        SceneManager.LoadScene(villageScene);
+    }
+
 
     //Info Screen Management
     public void OpenInventoryInfo()

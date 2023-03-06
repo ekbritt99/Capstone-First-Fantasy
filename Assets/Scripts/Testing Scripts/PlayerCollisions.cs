@@ -29,9 +29,14 @@ public class PlayerCollisions : MonoBehaviour
         }
         if (collision.gameObject.tag == "Scene Trigger 2")
         {
-            gameManager.SendMessage("GoToVillage");
+            gameManager.SendMessage("GoToVillageFromHouseOrShop");
         }
-        
+
+        if (collision.gameObject.tag == "leave house")
+        {
+            gameManager.SendMessage("GoToVillageFromHouseOrShop");
+        }
+
         if (collision.gameObject.tag == "One")
         {
             sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("One");
@@ -89,7 +94,7 @@ public class PlayerCollisions : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop Trigger")
         {
-            shopButton.SetActive(true);
+            gameManager.SendMessage("GoToShop");
         }
         if (collision.gameObject.tag == "Scene Trigger")
         {

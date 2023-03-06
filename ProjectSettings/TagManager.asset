@@ -21,6 +21,7 @@ TagManager:
   - Ten
   - house
   - NPC Rat
+  - leave house
   layers:
   - Default
   - TransparentFX

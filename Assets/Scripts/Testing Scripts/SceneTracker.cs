@@ -8,6 +8,7 @@ public class SceneTracker : MonoBehaviour
 
     public List<string> sceneHistory = new List<string>();
     public List<string> enemyHistory = new List<string>();
+    public List<Vector3> positionHistory = new List<Vector3>();
 
     private void Awake()
     {
@@ -36,5 +37,10 @@ public class SceneTracker : MonoBehaviour
     public void rememberEnemy(string enemyType)
     {
         enemyHistory.Add(enemyType);
+    }
+
+    public void rememberPosition(Vector3 playerPosition)
+    {
+        positionHistory.Add(playerPosition);
     }
 }
