@@ -62,9 +62,18 @@ public class GameManager : MonoBehaviour
             playerObj.transform.position = new Vector3(2.2f, -0.92f, -3f);
         }
 
-        if (SceneManager.GetActiveScene().name == "Test World Scene")
+        int scenes = sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory.Count - 1;
+        if (SceneManager.GetActiveScene().name == "Test World Scene" && sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory[scenes] == "Battle Scene")
         {
-            playerObj.transform.position = new Vector3(-2.79f, -1.22f, 1.57f);
+            int positions = sceneTrackerObj.GetComponent<SceneTracker>().positionHistory.Count - 1;
+            playerObj.transform.position = sceneTrackerObj.GetComponent<SceneTracker>().positionHistory[positions];
+        }
+        else
+        {
+            if (SceneManager.GetActiveScene().name == "Test World Scene")
+            {
+                playerObj.transform.position = new Vector3(-2.79f, -1.22f, 1.57f);
+            }
         }
     }
 
@@ -124,6 +133,9 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(overworldScene);
     }
+
+
+
     void GoToBattle()
     {
         SceneManager.LoadScene(battleScene);

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 
@@ -12,6 +14,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     public GameObject enemyPrefab;
 
     public InventoryObject playerEquipment;
+    public InventoryObject playerInventory;
 
     public GameObject enemyOnePrefab;
     public GameObject enemyTwoPrefab;
@@ -41,6 +44,10 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
 
+    public int currencyReward;
+    public TMP_Text currencyRewardDisplay;
+    public GameObject wholeCurrencyDisplay;
+
     public BattleState state;
     // Start is called before the first frame update
     void Start()
@@ -59,57 +66,68 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     {
         // GameObject playerGO = Instantiate(playerPrefab);
         // playerUnit = playerGO.GetComponent<Unit>();
+        playerPrefab.transform.position = new Vector3(-5.45f, -0.57f, 0f);
 
         int numOfEnemiesEncountered = sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory.Count - 1;
         if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "One")
         {
             enemyGO = Instantiate(enemyOnePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
             enemyUnit = enemyGO.GetComponent<Unit>();
-        }
+            currencyReward = Random.Range(3, 5);
+;        }
         if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Two")
         {
             enemyGO = Instantiate(enemyTwoPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
             enemyUnit = enemyGO.GetComponent<Unit>();
+            currencyReward = Random.Range(7, 10);
         }
         if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Three")
         {
             enemyGO = Instantiate(enemyThreePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
             enemyUnit = enemyGO.GetComponent<Unit>();
+            currencyReward = Random.Range(5, 7);
         }
         if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Four")
         {
             enemyGO = Instantiate(enemyFourPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
             enemyUnit = enemyGO.GetComponent<Unit>();
+            currencyReward = Random.Range(3, 5);
         }
         if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Five")
         {
             enemyGO = Instantiate(enemyFivePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
             enemyUnit = enemyGO.GetComponent<Unit>();
+            currencyReward = Random.Range(5, 7);
         }
         if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Six")
         {
             enemyGO = Instantiate(enemySixPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
             enemyUnit = enemyGO.GetComponent<Unit>();
+            currencyReward = Random.Range(7, 10);
         }
         if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Seven")
         {
             enemyGO = Instantiate(enemySevenPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
             enemyUnit = enemyGO.GetComponent<Unit>();
+            currencyReward = Random.Range(1, 3);
         }
         if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Eight")
         {
             enemyGO = Instantiate(enemyEightPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
             enemyUnit = enemyGO.GetComponent<Unit>();
+            currencyReward = Random.Range(3, 5);
         }
         if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Nine")
         {
             enemyGO = Instantiate(enemyNinePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
             enemyUnit = enemyGO.GetComponent<Unit>();
+            currencyReward = Random.Range(3, 5);
         }
         if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Ten")
         {
             enemyGO = Instantiate(enemyTenPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
             enemyUnit = enemyGO.GetComponent<Unit>();
+            currencyReward = Random.Range(3, 5);
         }
 
         Vector3 newEnemyScale = new Vector3(3.0f, 3.0f, 3.0f);
@@ -198,7 +216,11 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         if(state == BattleState.WON)
         {
             dialogueText.text = "You won the battle!";
-            yield return new WaitForSeconds(2);
+            playerInventory.container.gold.addCurrency(currencyReward);
+            currencyRewardDisplay.text = currencyReward.ToString();
+            wholeCurrencyDisplay.SetActive(true);
+            sceneTrackerObj.GetComponent<SceneTracker>().rememberScene();
+            yield return new WaitForSeconds(3);
             gameManager.SendMessage("GoToOverWorld");
         } else if (state == BattleState.LOST)
         {
@@ -257,7 +279,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     }
     public void onReturnButton() 
     {
-        gameManager.SendMessage("GoToOverWorld");
+        gameManager.SendMessage("GoToOverWorldFromBattle");
     }
     public static int returnZero()
     {

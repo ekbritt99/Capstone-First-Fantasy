@@ -9,6 +9,8 @@ public class PlayerCollisions : MonoBehaviour
     public GameObject shopButton;
 
     public GameObject sceneTrackerObj;
+
+    public GameObject playerObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,51 +42,61 @@ public class PlayerCollisions : MonoBehaviour
         if (collision.gameObject.tag == "One")
         {
             sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("One");
+            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
             gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Two")
         {
             sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Two");
+            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
             gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Three")
         {
             sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Three");
+            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
             gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Four")
         {
             sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Four");
+            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
             gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Five")
         {
             sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Five");
+            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
             gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Six")
         {
             sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Six");
+            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
             gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Seven")
         {
             sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Seven");
+            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
             gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Eight")
         {
             sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Eight");
+            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
             gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Nine")
         {
             sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Nine");
+            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
             gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Ten")
         {
             sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Ten");
+            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
             gameManager.SendMessage("GoToBattle");
         } 
         
