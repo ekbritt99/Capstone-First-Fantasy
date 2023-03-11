@@ -75,6 +75,19 @@ public class GameManager : MonoBehaviour
                 playerObj.transform.position = new Vector3(-2.79f, -1.22f, 1.57f);
             }
         }
+
+        if (SceneManager.GetActiveScene().name == "Test Village Scene" && sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory[scenes] == "InventoryUI Scene")
+        {
+            int positions = sceneTrackerObj.GetComponent<SceneTracker>().positionHistory.Count - 1;
+            playerObj.transform.position = sceneTrackerObj.GetComponent<SceneTracker>().positionHistory[positions];
+        }
+
+        if (SceneManager.GetActiveScene().name == "Test World Scene" && sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory[scenes] == "InventoryUI Scene")
+        {
+            int positions = sceneTrackerObj.GetComponent<SceneTracker>().positionHistory.Count - 1;
+            playerObj.transform.position = sceneTrackerObj.GetComponent<SceneTracker>().positionHistory[positions];
+        }
+
     }
 
     // Update is called once per frame
@@ -142,6 +155,7 @@ public class GameManager : MonoBehaviour
     }
     void GoToInventory()
     {
+        sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
         sceneTrackerObj.GetComponent<SceneTracker>().rememberScene();
         SceneManager.LoadScene(inventoryScene);
     }
@@ -193,8 +207,9 @@ public class GameManager : MonoBehaviour
 
    public void goToPreviousScene()
     {
+        sceneTrackerObj.GetComponent<SceneTracker>().rememberScene();
         int numOfScenes = sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory.Count - 1;
-        SceneManager.LoadScene(sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory[numOfScenes]);
+        SceneManager.LoadScene(sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory[numOfScenes-1]);
     }
 
     public void Quit()
