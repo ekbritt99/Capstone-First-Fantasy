@@ -16,7 +16,7 @@ MonoBehaviour:
   database: {fileID: 11400000, guid: 4d319100ba513194a82b901c1dba2ce8, type: 2}
   container:
     gold:
-      unit: 22
+      unit: 44
     Items:
     - AllowedItems: 
       item:
@@ -56,10 +56,28 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 
       item:
-        Name: Iron Chest Armor
-        ID: 8
+        Name: 
+        ID: -1
         buffs: []
-      amount: 1
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
+    - AllowedItems: 
+      item:
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
     - AllowedItems: 
       item:
         Name: 
@@ -86,12 +104,6 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 
       item:
-        Name: Studded Boots
-        ID: 11
-        buffs: []
-      amount: 1
-    - AllowedItems: 
-      item:
         Name: 
         ID: -1
         buffs: []
@@ -102,18 +114,6 @@ MonoBehaviour:
         ID: -1
         buffs: []
       amount: 0
-    - AllowedItems: 
-      item:
-        Name: 
-        ID: -1
-        buffs: []
-      amount: 0
-    - AllowedItems: 
-      item:
-        Name: Studded Pants
-        ID: 17
-        buffs: []
-      amount: 1
     - AllowedItems: 
       item:
         Name: 

@@ -20,10 +20,10 @@ MonoBehaviour:
     Items:
     - AllowedItems: 00000000
       item:
-        Name: Studded Helmet
-        ID: 19
+        Name: 
+        ID: -1
         buffs: []
-      amount: 1
+      amount: 0
     - AllowedItems: 01000000
       item:
         Name: 

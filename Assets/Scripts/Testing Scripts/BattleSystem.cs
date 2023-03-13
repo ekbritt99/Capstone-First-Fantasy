@@ -36,7 +36,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     [SerializeField] AudioClip gameOverTheme;
     AudioSource _audio;
 
-    [SerializeField] private Unit playerUnit;
+    [SerializeField] private PersistentEntityUnit playerUnit;
     Unit enemyUnit;
 
     public Text dialogueText;
@@ -68,74 +68,81 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         // playerUnit = playerGO.GetComponent<Unit>();
         playerPrefab.transform.position = new Vector3(-5.45f, -0.57f, 0f);
 
-        int numOfEnemiesEncountered = sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory.Count - 1;
-        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "One")
-        {
+        if(sceneTrackerObj == null) {
             enemyGO = Instantiate(enemyOnePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
             enemyUnit = enemyGO.GetComponent<Unit>();
             currencyReward = Random.Range(3, 5);
-;        }
-        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Two")
-        {
-            enemyGO = Instantiate(enemyTwoPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
-            enemyUnit = enemyGO.GetComponent<Unit>();
-            currencyReward = Random.Range(7, 10);
-        }
-        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Three")
-        {
-            enemyGO = Instantiate(enemyThreePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
-            enemyUnit = enemyGO.GetComponent<Unit>();
-            currencyReward = Random.Range(5, 7);
-        }
-        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Four")
-        {
-            enemyGO = Instantiate(enemyFourPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
-            enemyUnit = enemyGO.GetComponent<Unit>();
-            currencyReward = Random.Range(3, 5);
-        }
-        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Five")
-        {
-            enemyGO = Instantiate(enemyFivePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
-            enemyUnit = enemyGO.GetComponent<Unit>();
-            currencyReward = Random.Range(5, 7);
-        }
-        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Six")
-        {
-            enemyGO = Instantiate(enemySixPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
-            enemyUnit = enemyGO.GetComponent<Unit>();
-            currencyReward = Random.Range(7, 10);
-        }
-        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Seven")
-        {
-            enemyGO = Instantiate(enemySevenPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
-            enemyUnit = enemyGO.GetComponent<Unit>();
-            currencyReward = Random.Range(1, 3);
-        }
-        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Eight")
-        {
-            enemyGO = Instantiate(enemyEightPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
-            enemyUnit = enemyGO.GetComponent<Unit>();
-            currencyReward = Random.Range(3, 5);
-        }
-        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Nine")
-        {
-            enemyGO = Instantiate(enemyNinePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
-            enemyUnit = enemyGO.GetComponent<Unit>();
-            currencyReward = Random.Range(3, 5);
-        }
-        if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Ten")
-        {
-            enemyGO = Instantiate(enemyTenPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
-            enemyUnit = enemyGO.GetComponent<Unit>();
-            currencyReward = Random.Range(3, 5);
+        } else {
+
+            int numOfEnemiesEncountered = sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory.Count - 1;
+            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "One")
+            {
+                enemyGO = Instantiate(enemyOnePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyUnit = enemyGO.GetComponent<Unit>();
+                currencyReward = Random.Range(3, 5);
+    ;        }
+            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Two")
+            {
+                enemyGO = Instantiate(enemyTwoPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyUnit = enemyGO.GetComponent<Unit>();
+                currencyReward = Random.Range(7, 10);
+            }
+            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Three")
+            {
+                enemyGO = Instantiate(enemyThreePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyUnit = enemyGO.GetComponent<Unit>();
+                currencyReward = Random.Range(5, 7);
+            }
+            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Four")
+            {
+                enemyGO = Instantiate(enemyFourPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyUnit = enemyGO.GetComponent<Unit>();
+                currencyReward = Random.Range(3, 5);
+            }
+            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Five")
+            {
+                enemyGO = Instantiate(enemyFivePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyUnit = enemyGO.GetComponent<Unit>();
+                currencyReward = Random.Range(5, 7);
+            }
+            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Six")
+            {
+                enemyGO = Instantiate(enemySixPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyUnit = enemyGO.GetComponent<Unit>();
+                currencyReward = Random.Range(7, 10);
+            }
+            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Seven")
+            {
+                enemyGO = Instantiate(enemySevenPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyUnit = enemyGO.GetComponent<Unit>();
+                currencyReward = Random.Range(1, 3);
+            }
+            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Eight")
+            {
+                enemyGO = Instantiate(enemyEightPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyUnit = enemyGO.GetComponent<Unit>();
+                currencyReward = Random.Range(3, 5);
+            }
+            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Nine")
+            {
+                enemyGO = Instantiate(enemyNinePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyUnit = enemyGO.GetComponent<Unit>();
+                currencyReward = Random.Range(3, 5);
+            }
+            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Ten")
+            {
+                enemyGO = Instantiate(enemyTenPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyUnit = enemyGO.GetComponent<Unit>();
+                currencyReward = Random.Range(3, 5);
+            }
         }
 
         Vector3 newEnemyScale = new Vector3(3.0f, 3.0f, 3.0f);
         enemyGO.transform.localScale += newEnemyScale;
 
         dialogueText.text = "Enemy approaches!";
-        playerHUD.setHUD(playerUnit);
-        enemyHUD.setHUD(enemyUnit);
+        playerHUD.setHUD(playerUnit.maxHP, playerUnit.currentHP);
+        enemyHUD.setHUD(enemyUnit.maxHP, enemyUnit.currentHP);
 
         yield return new WaitForSeconds(2f);
 

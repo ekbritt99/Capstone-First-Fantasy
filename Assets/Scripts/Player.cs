@@ -9,7 +9,57 @@ public class Player : MonoBehaviour
     public InventoryObject inventory;
     public InventoryObject equipment;
 
-    // public InventoryObject inventory;
+    public Attribute[] attributes;
+    public PersistentEntityUnit playerUnit;
+
+    private void Start() 
+    {
+        for(int i = 0; i < attributes.Length; i++)
+        {
+            attributes[i].SetParent(this);
+        }
+
+        for(int i = 0; i < equipment.GetSlots.Length; i++)
+        {
+            equipment.GetSlots[i].OnBeforeUpdate += OnRemoveItem;
+            equipment.GetSlots[i].OnAfterUpdate += OnAddItem;
+        }
+        
+    }
+
+
+    public void OnRemoveItem(InventorySlot _slot)
+    {
+        if(_slot.ItemObject == null)
+            return;
+        switch(_slot.parent.inventory.type)
+        {
+            case InventoryType.Inventory:
+                break;
+            case InventoryType.Equipment:
+                Debug.Log("Removed " + _slot.ItemObject + " on " + _slot.parent.inventory.type);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void OnAddItem(InventorySlot _slot)
+    {
+        if(_slot.ItemObject == null)
+            return;
+        switch(_slot.parent.inventory.type)
+        {
+            case InventoryType.Inventory:
+                break;
+            case InventoryType.Equipment:
+                Debug.Log("Equipped " + _slot.ItemObject + " on " + _slot.parent.inventory.type);
+                break;
+            default:
+                break;
+        }
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -62,4 +112,28 @@ public class Player : MonoBehaviour
         inventory.MoveItem(inventory.container.Items[fromSlot], equipment.container.Items[toSlot]);
     }
 
+    public void AttributeModified(Attribute attribute)
+    {
+        Debug.Log(string.Concat(attribute));
+    }
+
+}
+
+[System.Serializable]
+public class Attribute
+{   
+    public Player parent;
+    public Attributes type;
+    public int value;
+
+    public void SetParent(Player player)
+    {
+        parent = player;
+        value = 0;
+    }
+
+    public void AttributeModified()
+    {
+        parent.AttributeModified(this);
+    }
 }

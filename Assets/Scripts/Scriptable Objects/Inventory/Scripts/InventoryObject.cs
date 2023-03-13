@@ -5,12 +5,22 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
+
+public enum InventoryType
+{
+    Inventory,
+    Equipment,
+    Chest
+}
+
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject
 {
     public string savePath;
+    public InventoryType type;
     public ItemsDatabaseObject database;
     public Inventory container;
+    public InventorySlot[] GetSlots { get { return container.Items; } }
 
 
     public bool AddItem(Item _item, int _amt)

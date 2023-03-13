@@ -2491,7 +2491,7 @@ PrefabInstance:
     - target: {fileID: 822192568290053133, guid: 777ca4bdd496d3f4e9fe03caeca26eef, type: 3}
       propertyPath: playerObj
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4792700299342721035}
     - target: {fileID: 822192568290053133, guid: 777ca4bdd496d3f4e9fe03caeca26eef, type: 3}
       propertyPath: playerInventory
       value: 
@@ -3819,6 +3819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 1af540207d904e14184a6ab85a43fa1c, type: 2}
   equipment: {fileID: 11400000, guid: a27166c753180dd408aa17af7549c6ce, type: 2}
+  playerUnit: {fileID: 0}
 --- !u!95 &5541147172328840511
 Animator:
   serializedVersion: 4

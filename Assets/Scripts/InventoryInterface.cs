@@ -127,35 +127,42 @@ public abstract class InventoryInterface : MonoBehaviour
         }
     }
 
+    // Handles clicking for equipping armor or using potion on right click
     public void OnPointerDown(GameObject obj, BaseEventData eventData)
     {
         PointerEventData pointerEventData = (PointerEventData)eventData;
 
         // Equip item if right clicked on in inventory
-        if(pointerEventData.button == PointerEventData.InputButton.Right && itemsDisplayed[obj].item.ID >= 0) {
-            InventoryInterface equipment = GameObject.Find("EquipmentScreen").GetComponent<InventoryInterface>();
-            // Ensure the right click was not on equipment panel
-            if(this.GetComponent<InventoryInterface>() == equipment)
-            {
-                return;
-            }
-            
-            if(itemsDisplayed[obj].ItemObject.type == ItemType.Helmet) {
-                inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[0]);
-            } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Chest) {
-                inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[1]);
-            } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Legs) {
-                inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[2]);
-            } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Boots) {
-                inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[3]);
-            } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Weapon) {
-                inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[4]);
-            } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Offhand) {
-                inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[5]);
-            }
+        if(!(pointerEventData.button == PointerEventData.InputButton.Right && itemsDisplayed[obj].item.ID >= 0)) {
+            return;
+        } else {
+            if(itemsDisplayed[obj].ItemObject.type == ItemType.Food) {
+                // itemsDisplayed[obj].item.use();
+            } else {
+                InventoryInterface equipment = GameObject.Find("EquipmentScreen").GetComponent<InventoryInterface>();
+                // Ensure the right click was not on equipment panel
+                if(this.GetComponent<InventoryInterface>() == equipment)
+                {
+                    return;
+                }
+                
+                if(itemsDisplayed[obj].ItemObject.type == ItemType.Helmet) {
+                    inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[0]);
+                } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Chest) {
+                    inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[1]);
+                } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Legs) {
+                    inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[2]);
+                } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Boots) {
+                    inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[3]);
+                } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Weapon) {
+                    inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[4]);
+                } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Offhand) {
+                    inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[5]);
+                }
 
-            InventorySlot mouseHoverSlotData = MouseData.interfaceMouseIsOver.itemsDisplayed[MouseData.slotHovered];
-            inventory.MoveItem(itemsDisplayed[obj], mouseHoverSlotData);
+                InventorySlot mouseHoverSlotData = MouseData.interfaceMouseIsOver.itemsDisplayed[MouseData.slotHovered];
+                inventory.MoveItem(itemsDisplayed[obj], mouseHoverSlotData);
+            }
         }
     }
     

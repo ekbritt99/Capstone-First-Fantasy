@@ -10,7 +10,10 @@ public class InventorySlot
 
     [System.NonSerialized]
     public InventoryInterface parent;
-    // public int ID;
+    [System.NonSerialized]
+    public SlotUpdated OnBeforeUpdate;
+    [System.NonSerialized]
+    public SlotUpdated OnAfterUpdate;
     public Item item;
     public int amount;
     public ItemObject ItemObject
@@ -42,8 +45,16 @@ public class InventorySlot
 
     public void UpdateSlot(Item _item, int _amount)
     {
+        if(OnBeforeUpdate != null)
+        {
+            OnBeforeUpdate.Invoke(this);
+        }
         item = _item;
         amount = _amount;
+        if(OnAfterUpdate != null)
+        {
+            OnAfterUpdate.Invoke(this);
+        }
     }
 
     public void RemoveItem()
@@ -66,3 +77,5 @@ public class InventorySlot
         return false; 
     }
 }
+
+public delegate void SlotUpdated(InventorySlot _slot);

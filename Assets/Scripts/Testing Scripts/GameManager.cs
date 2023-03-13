@@ -40,6 +40,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         sceneTrackerObj = GameObject.FindGameObjectWithTag("Scene Tracker");
 
+        // Return early if the game is started from a scene without a tracker
+        if (sceneTrackerObj == null) {
+            return;
+        }
+
         if (sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory.Count > 0)
         {
             int numOfScenes = sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory.Count - 1;
