@@ -6,14 +6,38 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
+    // private static Player _instance;
+    // public static Player Instance { get { return _instance; } }
+
     public InventoryObject inventory;
     public InventoryObject equipment;
 
     public Attribute[] attributes;
-    public PersistentEntityUnit playerUnit;
+
+    public PlayerCollisions collisions;
+
+    // public PersistentEntityUnit playerUnit;
+
+    // private void Awake()
+    // {
+    //     if(_instance != null && _instance != this)
+    //     {
+    //         Destroy(this.gameObject);
+    //         return;
+    //     }
+    //     _instance = this;
+    //     DontDestroyOnLoad(this.gameObject);
+
+    // }
 
     private void Start() 
     {
+        Debug.Log("What player sees: " + PersistentEntityUnit.Instance.spawnPosition); 
+        if(PersistentEntityUnit.Instance.spawnPosition != null && PersistentEntityUnit.Instance.spawnPosition != Vector3.zero) {
+            
+            this.gameObject.transform.position = PersistentEntityUnit.Instance.spawnPosition;
+        }
+
         for(int i = 0; i < attributes.Length; i++)
         {
             attributes[i].SetParent(this);
@@ -24,7 +48,6 @@ public class Player : MonoBehaviour
             equipment.GetSlots[i].OnBeforeUpdate += OnRemoveItem;
             equipment.GetSlots[i].OnAfterUpdate += OnAddItem;
         }
-        
     }
 
 

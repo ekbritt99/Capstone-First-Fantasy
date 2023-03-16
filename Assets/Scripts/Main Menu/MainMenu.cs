@@ -47,6 +47,6 @@ public class MainMenu : MonoBehaviour
     public void onTutorialStartGameClicked()
     {
         DataPersistenceManager.instance.NewGame();
-        SceneManager.LoadSceneAsync("House Scene");
+        GameManager1.Instance.GoToGameScene(Scenes.HOUSE);
     }
 }

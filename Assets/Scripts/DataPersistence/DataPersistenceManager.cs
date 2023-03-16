@@ -48,7 +48,7 @@ public class DataPersistenceManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
         this.dataPersistences = FindAllDataPersistences();
         LoadGame();
@@ -84,6 +84,8 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistence.LoadData(gameData);
         }
+
+        Debug.Log("Loaded Player health: " + gameData.playerHealth);
     }
 
     public void SaveGame()
@@ -94,14 +96,19 @@ public class DataPersistenceManager : MonoBehaviour
             return;
         }
 
+        // dataPersistences = FindAllDataPersistences();
+
         // pass data to other scripts to be updated
         foreach(IDataPersistence dataPersistence in dataPersistences)
         {
-            dataPersistence.SaveData(gameData);
+            // Ensure deleted instances do not get saved
+            if(dataPersistence.Equals(null))
+                dataPersistence.SaveData(gameData);
         }
 
         // save the gathered data to file with data handler
         dataHandler.Save(gameData);
+        Debug.Log("Saved Player health: " + gameData.playerHealth);
 
         playerInventory.Save();
         playerEquipment.Save();

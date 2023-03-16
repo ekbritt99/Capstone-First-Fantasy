@@ -50,6 +50,11 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
 
     public BattleState state;
     // Start is called before the first frame update
+
+    void OnEnable()
+    {
+        playerUnit = GameObject.Find("PlayerPersistency").GetComponent<PersistentEntityUnit>();
+    }
     void Start()
     {
         _audio = GetComponent<AudioSource>();
@@ -57,9 +62,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         PlayMusic();
         state = BattleState.START;
         sceneTrackerObj = GameObject.FindGameObjectWithTag("Scene Tracker");
-        StartCoroutine(SetupBattle());
-
-        
+        StartCoroutine(SetupBattle());  
     }
 
     IEnumerator SetupBattle()
@@ -74,62 +77,63 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             currencyReward = Random.Range(3, 5);
         } else {
 
-            int numOfEnemiesEncountered = sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory.Count - 1;
-            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "One")
+            int numOfEnemiesEncountered = GameManager1.Instance.enemyHistory.Count - 1;
+            string enemyEncountered = GameManager1.Instance.enemyHistory[numOfEnemiesEncountered];
+            if (enemyEncountered == "One")
             {
                 enemyGO = Instantiate(enemyOnePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
     ;        }
-            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Two")
+            if (enemyEncountered == "Two")
             {
                 enemyGO = Instantiate(enemyTwoPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(7, 10);
             }
-            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Three")
+            if (enemyEncountered == "Three")
             {
                 enemyGO = Instantiate(enemyThreePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(5, 7);
             }
-            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Four")
+            if (enemyEncountered == "Four")
             {
                 enemyGO = Instantiate(enemyFourPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
             }
-            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Five")
+            if (enemyEncountered == "Five")
             {
                 enemyGO = Instantiate(enemyFivePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(5, 7);
             }
-            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Six")
+            if (enemyEncountered == "Six")
             {
                 enemyGO = Instantiate(enemySixPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(7, 10);
             }
-            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Seven")
+            if (enemyEncountered == "Seven")
             {
                 enemyGO = Instantiate(enemySevenPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(1, 3);
             }
-            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Eight")
+            if (enemyEncountered == "Eight")
             {
                 enemyGO = Instantiate(enemyEightPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
             }
-            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Nine")
+            if (enemyEncountered == "Nine")
             {
                 enemyGO = Instantiate(enemyNinePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
             }
-            if (sceneTrackerObj.GetComponent<SceneTracker>().enemyHistory[numOfEnemiesEncountered] == "Ten")
+            if (enemyEncountered == "Ten")
             {
                 enemyGO = Instantiate(enemyTenPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
@@ -228,7 +232,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             wholeCurrencyDisplay.SetActive(true);
             sceneTrackerObj.GetComponent<SceneTracker>().rememberScene();
             yield return new WaitForSeconds(3);
-            gameManager.SendMessage("GoToOverWorld");
+            GameManager1.Instance.GoToPreviousScene();
         } else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were defeated...";
@@ -236,6 +240,8 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             GameOver();
             //gameManager.SendMessage("GoToOverWorld");
         }
+
+        DataPersistenceManager.instance.SaveGame();
 
     }
     void GameOver() 
@@ -329,11 +335,13 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
 
     public void LoadData(GameData data)
     {
-        playerUnit.currentHP = data.playerHealth;
+        // Debug.Log(playerUnit.currentHP);
     }
 
     public void SaveData(GameData data)
     {
-        data.playerHealth = playerUnit.currentHP;
+        // data.playerHealth = playerUnit.currentHP;
+        // Debug.Log("Save data called with " + playerUnit.currentHP);
+
     }
 }

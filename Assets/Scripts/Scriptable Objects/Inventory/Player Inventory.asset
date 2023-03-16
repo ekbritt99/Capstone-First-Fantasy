@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Player Inventory
   m_EditorClassIdentifier: 
   savePath: /inventory.save
+  type: 0
   database: {fileID: 11400000, guid: 4d319100ba513194a82b901c1dba2ce8, type: 2}
   container:
     gold:
-      unit: 44
+      unit: 39
     Items:
     - AllowedItems: 
       item:
@@ -56,10 +57,14 @@ MonoBehaviour:
       amount: 0
     - AllowedItems: 
       item:
-        Name: 
-        ID: -1
-        buffs: []
-      amount: 0
+        Name: Basic Chest Armor 1
+        ID: 6
+        buffs:
+        - stat: 3
+          value: 1
+          min: 1
+          max: 1
+      amount: 1
     - AllowedItems: 
       item:
         Name: 

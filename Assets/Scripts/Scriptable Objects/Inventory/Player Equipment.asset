@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Player Equipment
   m_EditorClassIdentifier: 
   savePath: /equipment.save
+  type: 1
   database: {fileID: 11400000, guid: 4d319100ba513194a82b901c1dba2ce8, type: 2}
   container:
     gold:

@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         
         if (SceneManager.GetActiveScene().name == "House Scene")
         {
-            playerObj.transform.position = new Vector3(2.2f, -0.92f, -3f);
+            playerObj.transform.position = new Vector3(1.3f, -0.23f, -3f);
         }
 
         int scenes = sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory.Count - 1;
