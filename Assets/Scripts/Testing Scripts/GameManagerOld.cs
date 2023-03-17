@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class GameManager : MonoBehaviour
+public class GameManagerOld : MonoBehaviour
 {
     public string villageScene = "Test Village Scene";
     public string overworldScene = "Test World Scene";
@@ -40,6 +40,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         sceneTrackerObj = GameObject.FindGameObjectWithTag("Scene Tracker");
 
+        // Return early if the game is started from a scene without a tracker
+        if (sceneTrackerObj == null) {
+            return;
+        }
+
         if (sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory.Count > 0)
         {
             int numOfScenes = sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory.Count - 1;
@@ -59,7 +64,7 @@ public class GameManager : MonoBehaviour
         
         if (SceneManager.GetActiveScene().name == "House Scene")
         {
-            playerObj.transform.position = new Vector3(2.2f, -0.92f, -3f);
+            playerObj.transform.position = new Vector3(1.3f, -0.23f, -3f);
         }
 
         int scenes = sceneTrackerObj.GetComponent<SceneTracker>().sceneHistory.Count - 1;

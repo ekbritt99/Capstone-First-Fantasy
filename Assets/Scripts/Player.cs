@@ -6,10 +6,112 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
+    // private static Player _instance;
+    // public static Player Instance { get { return _instance; } }
+
     public InventoryObject inventory;
     public InventoryObject equipment;
 
-    // public InventoryObject inventory;
+    public Attribute[] attributes;
+
+    public PlayerCollisions collisions;
+
+
+    // public PersistentEntityUnit playerUnit;
+
+    // private void Awake()
+    // {
+    //     if(_instance != null && _instance != this)
+    //     {
+    //         Destroy(this.gameObject);
+    //         return;
+    //     }
+    //     _instance = this;
+    //     DontDestroyOnLoad(this.gameObject);
+
+    // }
+
+    private void Start() 
+    {
+        
+        // Handle temporary spawn position - useful for returning to scenes or entering scenes in custom positions
+        if(PlayerPersistency.Instance.spawnPosition != null && PlayerPersistency.Instance.spawnPosition != Vector3.zero) {
+            
+            this.gameObject.transform.position = PlayerPersistency.Instance.spawnPosition;
+            // Reset the spawnPosition to zero so that the player spawns in default position in scenes unless otherwise specified
+            PlayerPersistency.Instance.spawnPosition = Vector3.zero;
+        }
+
+
+
+        // Collect attribute stats 
+        for(int i = 0; i < attributes.Length; i++)
+        {
+            attributes[i].SetParent(this);
+        }
+
+        // This adds on equip event listeners to the equipment slots so that attributes update on equip
+        for(int i = 0; i < equipment.GetSlots.Length; i++)
+        {
+            equipment.GetSlots[i].OnBeforeUpdate += OnRemoveItem;
+            equipment.GetSlots[i].OnAfterUpdate += OnAddItem;
+        }
+    }
+
+    private void OnDisable()
+    {
+        // Remove event handlers when the player is unloaded to prevent duplicate handlers
+        for(int i = 0; i < equipment.GetSlots.Length; i++)
+        {
+            equipment.GetSlots[i].OnBeforeUpdate -= OnRemoveItem;
+            equipment.GetSlots[i].OnAfterUpdate -= OnAddItem;
+        }
+    }
+
+
+    public void OnRemoveItem(InventorySlot _slot)
+    {
+        Debug.Log("OnRemoveItem called");
+        if(_slot.ItemObject == null)
+            return;
+        switch(_slot.parent.inventory.type)
+        {
+            case InventoryType.Inventory:
+                break;
+            case InventoryType.Equipment:
+                Debug.Log("Removed " + _slot.ItemObject + " on " + _slot.parent.inventory.type);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void OnAddItem(InventorySlot _slot)
+    {
+        if(_slot.ItemObject == null)
+            return;
+        switch(_slot.parent.inventory.type)
+        {
+            case InventoryType.Inventory:
+                break;
+            case InventoryType.Equipment:
+                Debug.Log("Equipped " + _slot.ItemObject + " on " + _slot.parent.inventory.type);
+                Debug.Log("Num Attributes on Item: " + _slot.item.buffs.Length);
+                for(int i = 0; i < _slot.item.buffs.Length; i++)
+                {
+                    for(int j = 0; j < attributes.Length; j++)
+                    {
+                        Debug.Log("Test");
+                        attributes[j].value = _slot.item.buffs[i].value;
+                        attributes[j].type = _slot.item.buffs[i].stat;
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -62,4 +164,30 @@ public class Player : MonoBehaviour
         inventory.MoveItem(inventory.container.Items[fromSlot], equipment.container.Items[toSlot]);
     }
 
+    public void AttributeModified(Attribute attribute)
+    {
+        Debug.Log(string.Concat(attribute));
+    }
+
+
+
+}
+
+[System.Serializable]
+public class Attribute
+{   
+    public Player parent;
+    public Attributes type;
+    public int value;
+
+    public void SetParent(Player player)
+    {
+        parent = player;
+        value = 0;
+    }
+
+    public void AttributeModified()
+    {
+        parent.AttributeModified(this);
+    }
 }

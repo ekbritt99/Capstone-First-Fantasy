@@ -5,12 +5,22 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
+
+public enum InventoryType
+{
+    Inventory,
+    Equipment,
+    Chest
+}
+
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject
 {
     public string savePath;
+    public InventoryType type;
     public ItemsDatabaseObject database;
     public Inventory container;
+    public InventorySlot[] GetSlots { get { return container.Items; } }
 
 
     public bool AddItem(Item _item, int _amt)
@@ -108,7 +118,7 @@ public class InventoryObject : ScriptableObject
         Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Create, FileAccess.Write);
         formatter.Serialize(stream, container);
         stream.Close();
-        Debug.Log("Saved");
+        Debug.Log("Saved inventory" + type);
     }
 
     [ContextMenu("Load")]
@@ -122,11 +132,12 @@ public class InventoryObject : ScriptableObject
             for (int i = 0; i < container.Items.Length; i++)
             {
                 container.Items[i].UpdateSlot(newContainer.Items[i].item, newContainer.Items[i].amount);
+                // GetSlots[i].UpdateSlot(newContainer.Items[i].item, newContainer.Items[i].amount);
             }
 
             container.gold = newContainer.gold;
             stream.Close();
-            Debug.Log("Loaded");
+            Debug.Log("Loaded inventory " + type);
         }
     }
     [ContextMenu("Clear")]

@@ -27,77 +27,97 @@ public class PlayerCollisions : MonoBehaviour
     {
         if (collision.gameObject.tag == "Scene Trigger")
         {
-            gameManager.SendMessage("GoToOverWorld");
+            GameManager.Instance.GoToGameScene(Scenes.WORLD);
         }
         if (collision.gameObject.tag == "Scene Trigger 2")
         {
-            gameManager.SendMessage("GoToVillageFromHouseOrShop");
+            GameManager.Instance.GoToGameScene(Scenes.VILLAGE);
         }
 
         if (collision.gameObject.tag == "leave house")
         {
-            gameManager.SendMessage("GoToVillageFromHouseOrShop");
+            GameManager.Instance.GoToGameScene(Scenes.VILLAGE);
         }
 
         if (collision.gameObject.tag == "One")
         {
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("One");
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
-            gameManager.SendMessage("GoToBattle");
+            GameManager.Instance.enemyHistory.Add("One");
+            GameManager.Instance.GoToGameScene(Scenes.BATTLE);
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("One");
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
+            // gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Two")
         {
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Two");
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
-            gameManager.SendMessage("GoToBattle");
+            GameManager.Instance.enemyHistory.Add("Two");
+            GameManager.Instance.GoToGameScene(Scenes.BATTLE);
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Two");
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
+            // gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Three")
         {
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Three");
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
-            gameManager.SendMessage("GoToBattle");
+            GameManager.Instance.enemyHistory.Add("Three");
+            GameManager.Instance.GoToGameScene(Scenes.BATTLE);
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Three");
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
+            // gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Four")
         {
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Four");
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
-            gameManager.SendMessage("GoToBattle");
+            GameManager.Instance.enemyHistory.Add("Four");
+            GameManager.Instance.GoToGameScene(Scenes.BATTLE);
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Four");
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
+            // gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Five")
         {
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Five");
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
-            gameManager.SendMessage("GoToBattle");
+            GameManager.Instance.enemyHistory.Add("Five");
+            GameManager.Instance.GoToGameScene(Scenes.BATTLE);
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Five");
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
+            // gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Six")
         {
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Six");
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
-            gameManager.SendMessage("GoToBattle");
+            GameManager.Instance.enemyHistory.Add("Six");
+            GameManager.Instance.GoToGameScene(Scenes.BATTLE);
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Six");
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
+            // gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Seven")
         {
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Seven");
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
-            gameManager.SendMessage("GoToBattle");
+            GameManager.Instance.enemyHistory.Add("Seven");
+            GameManager.Instance.GoToGameScene(Scenes.BATTLE);
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Seven");
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
+            // gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Eight")
         {
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Eight");
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
-            gameManager.SendMessage("GoToBattle");
+            GameManager.Instance.enemyHistory.Add("Eight");
+            GameManager.Instance.GoToGameScene(Scenes.BATTLE);
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Eight");
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
+            // gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Nine")
         {
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Nine");
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
-            gameManager.SendMessage("GoToBattle");
+            GameManager.Instance.enemyHistory.Add("Nine");
+            GameManager.Instance.GoToGameScene(Scenes.BATTLE);
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Nine");
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
+            // gameManager.SendMessage("GoToBattle");
         }
         if (collision.gameObject.tag == "Ten")
         {
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Ten");
-            sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
-            gameManager.SendMessage("GoToBattle");
+            GameManager.Instance.enemyHistory.Add("Ten");
+            GameManager.Instance.GoToGameScene(Scenes.BATTLE);
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Ten");
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
+            // gameManager.SendMessage("GoToBattle");
         } 
         
     }
@@ -106,32 +126,33 @@ public class PlayerCollisions : MonoBehaviour
     {
         if (collision.gameObject.tag == "Shop Trigger")
         {
-            gameManager.SendMessage("GoToShop");
+            GameManager.Instance.GoToGameScene(Scenes.SHOP);
         }
         if (collision.gameObject.tag == "Scene Trigger")
         {
-            gameManager.SendMessage("GoToOverWorld");
+            GameManager.Instance.GoToGameScene(Scenes.WORLD);
         }
         if (collision.gameObject.tag == "Scene Trigger 2")
         {
-            gameManager.SendMessage("GoToVillage");
+            GameManager.Instance.GoToGameScene(Scenes.VILLAGE);
         }
         if (collision.gameObject.tag == "house")
         {
-            gameManager.SendMessage("GoToHouseScene");
+            GameManager.Instance.GoToGameScene(Scenes.HOUSE);
         }
         if (collision.gameObject.tag == "NPC Rat")
         {
-            gameManager.SendMessage("DisplayDialogueBox", "Don't forget to stop by the shop to the west of town and buy some gear...");
+            GameManager.Instance.SendMessage("DisplayDialogueBox", "Don't forget to stop by the shop to the west of town and buy some gear...");
+            // gameManager.SendMessage("DisplayDialogueBox", "Don't forget to stop by the shop to the west of town and buy some gear...");
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Shop Trigger")
-        {
-            shopButton.SetActive(false);
-        }
+    // private void OnTriggerExit2D(Collider2D collision)
+    // {
+    //     if (collision.gameObject.tag == "Shop Trigger")
+    //     {
+    //         shopButton.SetActive(false);
+    //     }
         
-    }
+    // }
 }

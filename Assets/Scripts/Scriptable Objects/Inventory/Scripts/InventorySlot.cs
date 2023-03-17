@@ -10,7 +10,10 @@ public class InventorySlot
 
     [System.NonSerialized]
     public InventoryInterface parent;
-    // public int ID;
+    [System.NonSerialized]
+    public SlotUpdated OnBeforeUpdate;
+    [System.NonSerialized]
+    public SlotUpdated OnAfterUpdate;
     public Item item;
     public int amount;
     public ItemObject ItemObject
@@ -40,10 +43,13 @@ public class InventorySlot
         amount += val;
     }
 
+    // Invokes On_Update to trigger the attributes to recalculate in Player.cs
     public void UpdateSlot(Item _item, int _amount)
     {
+        OnBeforeUpdate?.Invoke(this);
         item = _item;
         amount = _amount;
+        OnAfterUpdate?.Invoke(this);
     }
 
     public void RemoveItem()
@@ -66,3 +72,5 @@ public class InventorySlot
         return false; 
     }
 }
+
+public delegate void SlotUpdated(InventorySlot _slot);

@@ -48,7 +48,7 @@ public class DataPersistenceManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, LoadSceneMode mode)
     {
         this.dataPersistences = FindAllDataPersistences();
         LoadGame();
@@ -65,6 +65,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void LoadGame()
     {
+        Debug.Log("(DataPersistenceManager) LoadGame()");
         // load game data from file with data handler
         this.gameData = dataHandler.Load();
 
@@ -82,34 +83,44 @@ public class DataPersistenceManager : MonoBehaviour
 
         foreach(IDataPersistence dataPersistence in dataPersistences)
         {
+            Debug.Log(dataPersistence);
             dataPersistence.LoadData(gameData);
         }
+
+        Debug.Log("Loaded Spawn Position: " + gameData.playerHP);
     }
 
     public void SaveGame()
     {
+        Debug.Log("(DataPersistenceManager) SaveGame()");
         if(this.gameData == null)
         {
             Debug.LogWarning("No data found. A new game must be started.");
             return;
         }
 
+        // dataPersistences = FindAllDataPersistences();
+
         // pass data to other scripts to be updated
         foreach(IDataPersistence dataPersistence in dataPersistences)
         {
+            // Ensure deleted instances do not get saved
+            
             dataPersistence.SaveData(gameData);
         }
 
         // save the gathered data to file with data handler
         dataHandler.Save(gameData);
-
-        playerInventory.Save();
-        playerEquipment.Save();
+        Debug.Log("Saved Player health: " + gameData.playerHP);
     }
 
     private void OnApplicationQuit()
     {
         SaveGame();
+        // playerInventory.Save();
+        // playerEquipment.Save();
+        // playerInventory.Clear();
+        // playerEquipment.Clear();
         Debug.Log("Saved");
     }
 

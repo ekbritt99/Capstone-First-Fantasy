@@ -8,7 +8,7 @@ public class ShopManager : MonoBehaviour
     public InventoryObject playerInventory;
     public InventoryObject playerEquipment;
 
-    public GameObject dataManagerObj;
+    // public GameObject dataManagerObj;
     public DataPersistenceManager dataManager;
 
     public GameObject notEnoughFunds;
@@ -22,7 +22,7 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dataManager = dataManagerObj.GetComponent<DataPersistenceManager>();
+        // dataManager = dataManagerObj.GetComponent<DataPersistenceManager>();
         //get current player money here
 
         // lblCurrentMoneyAmount.text = "Test";

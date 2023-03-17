@@ -5,16 +5,21 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
-    public int playerHealth;
-    // public Vector3 playerPosition;
+    public int playerHP;
+    public int playerMaxHP;
+    public int playerDamage;
+    public Vector3 spawnPosition;
+    public Scenes spawnScene;
     public InventoryData inventory;
     // public int playerMoney;
 
     public GameData()
     {
-        this.playerHealth = 100;
-        // this.playerPosition = new Vector3(-2.789f,-1.228f,1.565f);
-        // this.playerMoney = 25;
+        this.playerHP = 100;
+        this.playerMaxHP = 100;
+        this.playerDamage = 15;
+        this.spawnPosition = Vector3.zero;
+        this.spawnScene = Scenes.HOUSE;
         inventory = new InventoryData();
     }
 
