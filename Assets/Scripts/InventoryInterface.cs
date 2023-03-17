@@ -137,7 +137,10 @@ public abstract class InventoryInterface : MonoBehaviour
             return;
         } else {
             if(itemsDisplayed[obj].ItemObject.type == ItemType.Food) {
-                // itemsDisplayed[obj].item.use();
+                if (itemsDisplayed[obj].item.healPlayer() == true)
+                {
+                    itemsDisplayed[obj].RemoveAmount(1);
+                }
             } else {
                 InventoryInterface equipment = GameObject.Find("EquipmentScreen").GetComponent<InventoryInterface>();
                 // Ensure the right click was not on equipment panel

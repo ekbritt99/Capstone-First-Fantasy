@@ -16,7 +16,7 @@ MonoBehaviour:
   uiDisplay: {fileID: 21300000, guid: 12da3b9e740ae404cbf922cb62a07e0d, type: 3}
   prefab: {fileID: 0}
   type: 5
-  description: 
+  description: Basic shield that gets the job done.
   stackable: 0
   data:
     Name: Tower Shield

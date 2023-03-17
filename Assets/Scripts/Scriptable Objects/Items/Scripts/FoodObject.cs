@@ -8,9 +8,10 @@ public class FoodObject : ItemObject
 
     int healthRestore;
     int strenghtBoost;
-
+    
     public void Awake()
     {
         type = ItemType.Food;
+
     }
 }

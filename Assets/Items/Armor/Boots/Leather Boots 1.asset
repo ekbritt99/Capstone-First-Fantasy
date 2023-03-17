@@ -16,7 +16,7 @@ MonoBehaviour:
   uiDisplay: {fileID: 21300000, guid: fef0e37983b510b4c8276f95627b54da, type: 3}
   prefab: {fileID: 0}
   type: 3
-  description: 
+  description: At least you're not barefoot. Gets the job done in a pinch.
   stackable: 0
   data:
     Name: Leather Boots

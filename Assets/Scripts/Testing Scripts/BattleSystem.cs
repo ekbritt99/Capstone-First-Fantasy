@@ -300,6 +300,16 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         return number;
     }
 
+    public void hideEnemy()
+    {
+        enemyGO.SetActive(false);
+    }
+
+    public void showEnemy()
+    {
+        enemyGO.SetActive(true);    
+    }
+
     //MUSIC INTERFACE
     public void PlayPauseMusic()
     {

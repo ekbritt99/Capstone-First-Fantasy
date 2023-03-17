@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ed3b80d1a0f97f4c939551d2d9e7d2a, type: 3}
-  m_Name: Potion Red
+  m_Name: Golden Elixir
   m_EditorClassIdentifier: 
-  ID: 0
-  uiDisplay: {fileID: 363507832, guid: c7a25d898fe72724aa5f0cac73437ca9, type: 3}
+  ID: 22
+  uiDisplay: {fileID: 1677579552, guid: c7a25d898fe72724aa5f0cac73437ca9, type: 3}
   prefab: {fileID: 7478189960424040071, guid: d732c433f052247478d37fac6cedfe30, type: 3}
   type: 6
-  description: 'A cheap but effective HP boost.
+  description: 'Brewed with the finest ingredients by the most skilled apothecary
+    in the village.
 
-    Health +15'
+    Health +35'
   stackable: 1
   data:
-    Name: Red Potion
-    ID: 0
+    Name: Golden Elixir
+    ID: 22
     buffs: []
