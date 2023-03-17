@@ -65,6 +65,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void LoadGame()
     {
+        Debug.Log("(DataPersistenceManager) LoadGame()");
         // load game data from file with data handler
         this.gameData = dataHandler.Load();
 
@@ -82,6 +83,7 @@ public class DataPersistenceManager : MonoBehaviour
 
         foreach(IDataPersistence dataPersistence in dataPersistences)
         {
+            Debug.Log(dataPersistence);
             dataPersistence.LoadData(gameData);
         }
 
@@ -90,6 +92,7 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void SaveGame()
     {
+        Debug.Log("(DataPersistenceManager) SaveGame()");
         if(this.gameData == null)
         {
             Debug.LogWarning("No data found. A new game must be started.");
@@ -102,8 +105,8 @@ public class DataPersistenceManager : MonoBehaviour
         foreach(IDataPersistence dataPersistence in dataPersistences)
         {
             // Ensure deleted instances do not get saved
-            if(dataPersistence.Equals(null))
-                dataPersistence.SaveData(gameData);
+            
+            dataPersistence.SaveData(gameData);
         }
 
         // save the gathered data to file with data handler

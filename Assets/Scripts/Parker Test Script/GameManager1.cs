@@ -106,7 +106,7 @@ public class GameManager1: MonoBehaviour
         else
             gameState = GameState.ACTIVE;
 
-        // DataPersistenceManager.instance.SaveGame();
+        DataPersistenceManager.instance.SaveGame();
 
         SceneManager.LoadScene((int) scene);
         
@@ -172,6 +172,8 @@ public class GameManager1: MonoBehaviour
             positionHistory = temp;
             
         }
+
+        DataPersistenceManager.instance.SaveGame();
 
         SceneManager.LoadScene((int) prevScene);
 

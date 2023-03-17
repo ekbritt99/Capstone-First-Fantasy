@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PlayerMovement : MonoBehaviour, IDataPersistence
+public class PlayerMovement : MonoBehaviour
 {
     
     public GameObject gameManager;
@@ -54,16 +54,5 @@ public class PlayerMovement : MonoBehaviour, IDataPersistence
     {
         
     }
-
-    public void LoadData(GameData data)
-    {
-        // this.transform.position = data.playerPosition;
-    }
-
-    public void SaveData(GameData data)
-    {
-        // data.playerPosition = this.transform.position;
-    }
-
     
 }
