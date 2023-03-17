@@ -106,7 +106,7 @@ public class GameManager1: MonoBehaviour
         else
             gameState = GameState.ACTIVE;
 
-        DataPersistenceManager.instance.SaveGame();
+        // DataPersistenceManager.instance.SaveGame();
 
         SceneManager.LoadScene((int) scene);
         
@@ -119,24 +119,24 @@ public class GameManager1: MonoBehaviour
 
                 positionHistory = player.transform.position;
 
-                switch(scene)
-                {
-                    case Scenes.HOUSE:
-                        PersistentEntityUnit.Instance.spawnPosition = new Vector3(1.2f, -0.1f, -3f);
-                        break;
-                    case Scenes.VILLAGE:
-                        PersistentEntityUnit.Instance.spawnPosition = new Vector3(6.9f,-1.0f, 1f);
-                        break;
-                    case Scenes.BATTLE:
-                        PersistentEntityUnit.Instance.spawnPosition = new Vector3(-5.4f, -0.5f, 1f);
-                        break;
-                    case Scenes.WORLD:
-                        PersistentEntityUnit.Instance.spawnPosition = new Vector3(-2.7f,-1.2f, 1f);
-                        break;
-                    default:
-                        PersistentEntityUnit.Instance.spawnPosition = Vector3.zero;
-                        break;
-                }
+                // switch(scene)
+                // {
+                //     case Scenes.HOUSE:
+                //         PlayerPersistency.Instance.spawnPosition = new Vector3(1.2f, -0.1f, -3f);
+                //         break;
+                //     case Scenes.VILLAGE:
+                //         PlayerPersistency.Instance.spawnPosition = new Vector3(6.9f,-1.0f, 1f);
+                //         break;
+                //     case Scenes.BATTLE:
+                //         PlayerPersistency.Instance.spawnPosition = new Vector3(-5.4f, -0.5f, 1f);
+                //         break;
+                //     case Scenes.WORLD:
+                //         PlayerPersistency.Instance.spawnPosition = new Vector3(-2.7f,-1.2f, 1f);
+                //         break;
+                //     default:
+                //         PlayerPersistency.Instance.spawnPosition = Vector3.zero;
+                //         break;
+                // }
             }
         }
 
@@ -145,10 +145,6 @@ public class GameManager1: MonoBehaviour
         prevScene = sceneState;
         sceneState = scene;
 
-        
-
-        Debug.Log("Current Scene: " + sceneState + " --- Expected: " + scene);
-        Debug.Log("Expected PersistentEntity spawn position: " + PersistentEntityUnit.Instance.spawnPosition);
 
     }
 
@@ -172,7 +168,7 @@ public class GameManager1: MonoBehaviour
             // Debug.Log("Player: " + player.gameObject.transform.position);
             Vector3 temp = player.transform.position;
             Debug.Log("GoToPreviousScene spawn position: " + positionHistory);
-            PersistentEntityUnit.Instance.spawnPosition = positionHistory;
+            PlayerPersistency.Instance.spawnPosition = positionHistory;
             positionHistory = temp;
             
         }

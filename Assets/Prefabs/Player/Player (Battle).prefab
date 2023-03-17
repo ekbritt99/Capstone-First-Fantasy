@@ -9,12 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4408792143027978656}
-  - component: {fileID: 6872749865352511256}
-  - component: {fileID: 4750416799324078098}
   - component: {fileID: 3787990181114278644}
   - component: {fileID: 5079866241400768577}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player (Battle)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,65 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6872749865352511256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3748283871436912037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: a73f391d7f986e147a91e029eb93876a, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &4750416799324078098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3748283871436912037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2fa2597113c6644f9a85a9c2921168f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
-  moveSpeed: 3
-  collisionOffset: 0.05
-  movementFilter:
-    useTriggers: 0
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 0
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
 --- !u!50 &3787990181114278644
 Rigidbody2D:
   serializedVersion: 4
@@ -130,7 +69,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 1af540207d904e14184a6ab85a43fa1c, type: 2}
   equipment: {fileID: 11400000, guid: a27166c753180dd408aa17af7549c6ce, type: 2}
-  playerUnit: {fileID: 11400000, guid: c39052a65857d744ea41d49d2f363450, type: 2}
+  attributes:
+  - parent: {fileID: 0}
+    type: 0
+    value: 0
+  - parent: {fileID: 0}
+    type: 1
+    value: 0
+  - parent: {fileID: 0}
+    type: 2
+    value: 0
+  - parent: {fileID: 0}
+    type: 3
+    value: 0
+  collisions: {fileID: 0}
+  data: {fileID: 0}
 --- !u!1 &8467311832632759240
 GameObject:
   m_ObjectHideFlags: 0

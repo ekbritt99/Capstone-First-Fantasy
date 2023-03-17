@@ -118,7 +118,7 @@ public class InventoryObject : ScriptableObject
         Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Create, FileAccess.Write);
         formatter.Serialize(stream, container);
         stream.Close();
-        Debug.Log("Saved");
+        Debug.Log("Saved inventory" + type);
     }
 
     [ContextMenu("Load")]
@@ -132,11 +132,12 @@ public class InventoryObject : ScriptableObject
             for (int i = 0; i < container.Items.Length; i++)
             {
                 container.Items[i].UpdateSlot(newContainer.Items[i].item, newContainer.Items[i].amount);
+                // GetSlots[i].UpdateSlot(newContainer.Items[i].item, newContainer.Items[i].amount);
             }
 
             container.gold = newContainer.gold;
             stream.Close();
-            Debug.Log("Loaded");
+            Debug.Log("Loaded inventory " + type);
         }
     }
     [ContextMenu("Clear")]

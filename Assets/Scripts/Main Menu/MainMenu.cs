@@ -32,9 +32,9 @@ public class MainMenu : MonoBehaviour
     {
         DisableMenuButtons();
         DataPersistenceManager.instance.SaveGame();
-        DataPersistenceManager.instance.playerInventory.Load();
         DataPersistenceManager.instance.playerEquipment.Load();
-        SceneManager.LoadSceneAsync("House Scene");
+        DataPersistenceManager.instance.playerInventory.Load();
+        GameManager1.Instance.GoToGameScene(Scenes.HOUSE);
     }
 
     private void DisableMenuButtons()

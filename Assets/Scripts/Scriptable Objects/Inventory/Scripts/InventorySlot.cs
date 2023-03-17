@@ -43,18 +43,13 @@ public class InventorySlot
         amount += val;
     }
 
+    // Invokes On_Update to trigger the attributes to recalculate in Player.cs
     public void UpdateSlot(Item _item, int _amount)
     {
-        if(OnBeforeUpdate != null)
-        {
-            OnBeforeUpdate.Invoke(this);
-        }
+        OnBeforeUpdate?.Invoke(this);
         item = _item;
         amount = _amount;
-        if(OnAfterUpdate != null)
-        {
-            OnAfterUpdate.Invoke(this);
-        }
+        OnAfterUpdate?.Invoke(this);
     }
 
     public void RemoveItem()

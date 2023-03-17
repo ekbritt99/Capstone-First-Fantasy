@@ -174,14 +174,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9151122929306045593, guid: 85840f8e65694d34ba5522c35b5d3262, type: 3}
-      propertyPath: playerEquipment
-      value: 
-      objectReference: {fileID: 11400000, guid: a27166c753180dd408aa17af7549c6ce, type: 2}
-    - target: {fileID: 9151122929306045593, guid: 85840f8e65694d34ba5522c35b5d3262, type: 3}
-      propertyPath: playerInventory
-      value: 
-      objectReference: {fileID: 11400000, guid: 1af540207d904e14184a6ab85a43fa1c, type: 2}
     - target: {fileID: 9151122929306045595, guid: 85840f8e65694d34ba5522c35b5d3262, type: 3}
       propertyPath: m_Name
       value: DataPersistanceManager
@@ -310,6 +302,10 @@ PrefabInstance:
     - target: {fileID: 3609953755467777915, guid: 79e7d314c95af5a4c894bca52d7cf876, type: 3}
       propertyPath: m_Name
       value: PlayerPersistency
+      objectReference: {fileID: 0}
+    - target: {fileID: 3609953755467777915, guid: 79e7d314c95af5a4c894bca52d7cf876, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79e7d314c95af5a4c894bca52d7cf876, type: 3}

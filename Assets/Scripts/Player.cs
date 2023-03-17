@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     public PlayerCollisions collisions;
 
+
     // public PersistentEntityUnit playerUnit;
 
     // private void Awake()
@@ -32,17 +33,24 @@ public class Player : MonoBehaviour
 
     private void Start() 
     {
-        Debug.Log("What player sees: " + PersistentEntityUnit.Instance.spawnPosition); 
-        if(PersistentEntityUnit.Instance.spawnPosition != null && PersistentEntityUnit.Instance.spawnPosition != Vector3.zero) {
+        
+        // Handle temporary spawn position - useful for returning to scenes or entering scenes in custom positions
+        if(PlayerPersistency.Instance.spawnPosition != null && PlayerPersistency.Instance.spawnPosition != Vector3.zero) {
             
-            this.gameObject.transform.position = PersistentEntityUnit.Instance.spawnPosition;
+            this.gameObject.transform.position = PlayerPersistency.Instance.spawnPosition;
+            // Reset the spawnPosition to zero so that the player spawns in default position in scenes unless otherwise specified
+            PlayerPersistency.Instance.spawnPosition = Vector3.zero;
         }
 
+
+
+        // Collect attribute stats 
         for(int i = 0; i < attributes.Length; i++)
         {
             attributes[i].SetParent(this);
         }
 
+        // This adds on equip event listeners to the equipment slots so that attributes update on equip
         for(int i = 0; i < equipment.GetSlots.Length; i++)
         {
             equipment.GetSlots[i].OnBeforeUpdate += OnRemoveItem;
@@ -50,9 +58,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        // Remove event handlers when the player is unloaded to prevent duplicate handlers
+        for(int i = 0; i < equipment.GetSlots.Length; i++)
+        {
+            equipment.GetSlots[i].OnBeforeUpdate -= OnRemoveItem;
+            equipment.GetSlots[i].OnAfterUpdate -= OnAddItem;
+        }
+    }
+
 
     public void OnRemoveItem(InventorySlot _slot)
     {
+        Debug.Log("OnRemoveItem called");
         if(_slot.ItemObject == null)
             return;
         switch(_slot.parent.inventory.type)
@@ -77,6 +96,16 @@ public class Player : MonoBehaviour
                 break;
             case InventoryType.Equipment:
                 Debug.Log("Equipped " + _slot.ItemObject + " on " + _slot.parent.inventory.type);
+                Debug.Log("Num Attributes on Item: " + _slot.item.buffs.Length);
+                for(int i = 0; i < _slot.item.buffs.Length; i++)
+                {
+                    for(int j = 0; j < attributes.Length; j++)
+                    {
+                        Debug.Log("Test");
+                        attributes[j].value = _slot.item.buffs[i].value;
+                        attributes[j].type = _slot.item.buffs[i].stat;
+                    }
+                }
                 break;
             default:
                 break;
@@ -139,6 +168,8 @@ public class Player : MonoBehaviour
     {
         Debug.Log(string.Concat(attribute));
     }
+
+
 
 }
 

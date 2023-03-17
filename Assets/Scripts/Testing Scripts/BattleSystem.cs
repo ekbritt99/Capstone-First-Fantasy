@@ -36,7 +36,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     [SerializeField] AudioClip gameOverTheme;
     AudioSource _audio;
 
-    [SerializeField] private PersistentEntityUnit playerUnit;
+    [SerializeField] private PlayerPersistency playerUnit;
     Unit enemyUnit;
 
     public Text dialogueText;
@@ -53,7 +53,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
 
     void OnEnable()
     {
-        playerUnit = GameObject.Find("PlayerPersistency").GetComponent<PersistentEntityUnit>();
+        playerUnit = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
     }
     void Start()
     {

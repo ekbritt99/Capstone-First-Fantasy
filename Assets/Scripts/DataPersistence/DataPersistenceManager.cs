@@ -85,7 +85,7 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistence.LoadData(gameData);
         }
 
-        Debug.Log("Loaded Player health: " + gameData.playerHealth);
+        Debug.Log("Loaded Spawn Position: " + gameData.playerHP);
     }
 
     public void SaveGame()
@@ -108,15 +108,16 @@ public class DataPersistenceManager : MonoBehaviour
 
         // save the gathered data to file with data handler
         dataHandler.Save(gameData);
-        Debug.Log("Saved Player health: " + gameData.playerHealth);
-
-        playerInventory.Save();
-        playerEquipment.Save();
+        Debug.Log("Saved Player health: " + gameData.playerHP);
     }
 
     private void OnApplicationQuit()
     {
         SaveGame();
+        // playerInventory.Save();
+        // playerEquipment.Save();
+        // playerInventory.Clear();
+        // playerEquipment.Clear();
         Debug.Log("Saved");
     }
 
