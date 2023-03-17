@@ -77,8 +77,8 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             currencyReward = Random.Range(3, 5);
         } else {
 
-            int numOfEnemiesEncountered = GameManager1.Instance.enemyHistory.Count - 1;
-            string enemyEncountered = GameManager1.Instance.enemyHistory[numOfEnemiesEncountered];
+            int numOfEnemiesEncountered = GameManager.Instance.enemyHistory.Count - 1;
+            string enemyEncountered = GameManager.Instance.enemyHistory[numOfEnemiesEncountered];
             if (enemyEncountered == "One")
             {
                 enemyGO = Instantiate(enemyOnePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
@@ -232,7 +232,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             wholeCurrencyDisplay.SetActive(true);
             sceneTrackerObj.GetComponent<SceneTracker>().rememberScene();
             yield return new WaitForSeconds(3);
-            GameManager1.Instance.GoToPreviousScene();
+            GameManager.Instance.GoToPreviousScene();
         } else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were defeated...";

@@ -8,6 +8,6 @@ public class BackButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.GetComponent<Button>().onClick.AddListener(delegate { GameManager1.Instance.GoToPreviousScene(); });
+        this.GetComponent<Button>().onClick.AddListener(delegate { GameManager.Instance.GoToPreviousScene(); });
     }
 }

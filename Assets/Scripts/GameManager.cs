@@ -7,10 +7,10 @@ using TMPro;
 public enum Scenes { MAIN_MENU, HOUSE, VILLAGE, INVENTORY, WORLD, BATTLE, SHOP }
 public enum GameState { DEFAULT, ACTIVE, INACTIVE }
 
-public class GameManager1: MonoBehaviour
+public class GameManager: MonoBehaviour
 {
-    private static GameManager1 _instance = null;
-    public static GameManager1 Instance { get { return _instance; } }
+    private static GameManager _instance = null;
+    public static GameManager Instance { get { return _instance; } }
     
     public Scenes sceneState { get; private set; }
     public GameState gameState { get; private set; }
@@ -226,7 +226,7 @@ public class GameManager1: MonoBehaviour
 
     public void OnApplicationQuit()
     {
-        GameManager1._instance = null;
+        GameManager._instance = null;
     }
 
 }

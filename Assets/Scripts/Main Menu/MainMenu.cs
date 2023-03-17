@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
         DataPersistenceManager.instance.SaveGame();
         DataPersistenceManager.instance.playerEquipment.Load();
         DataPersistenceManager.instance.playerInventory.Load();
-        GameManager1.Instance.GoToGameScene(Scenes.HOUSE);
+        GameManager.Instance.GoToGameScene(Scenes.HOUSE);
     }
 
     private void DisableMenuButtons()
@@ -47,6 +47,6 @@ public class MainMenu : MonoBehaviour
     public void onTutorialStartGameClicked()
     {
         DataPersistenceManager.instance.NewGame();
-        GameManager1.Instance.GoToGameScene(Scenes.HOUSE);
+        GameManager.Instance.GoToGameScene(Scenes.HOUSE);
     }
 }
