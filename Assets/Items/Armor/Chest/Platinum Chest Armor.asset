@@ -16,7 +16,8 @@ MonoBehaviour:
   uiDisplay: {fileID: 1219068816, guid: badd572d80733e84c949e1a1d1598b30, type: 3}
   prefab: {fileID: 0}
   type: 1
-  description: 
+  description: The cream of the crop. Everyone in town wishes they had this piece
+    of equipment.
   stackable: 0
   data:
     Name: Platinum Chest Armor

@@ -16,7 +16,7 @@ MonoBehaviour:
   uiDisplay: {fileID: 21300000, guid: 2201a98ee48c4bb4d83a2f33be100dad, type: 3}
   prefab: {fileID: 0}
   type: 0
-  description: 
+  description: Will at least stop your noggin from getting cracked open.
   stackable: 0
   data:
     Name: Studded Helmet

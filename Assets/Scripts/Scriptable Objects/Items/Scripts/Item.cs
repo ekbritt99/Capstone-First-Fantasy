@@ -28,4 +28,31 @@ public class Item
         
     }
 
+    public bool healPlayer()
+    {
+        GameObject playerObj = GameObject.Find("PlayerPersistency");
+        PlayerPersistency playerStats = playerObj.GetComponent<PlayerPersistency>();
+        if(playerStats.currentHP < 100)
+        {
+            if (this.ID == 0)
+            {
+                playerStats.Heal(15);
+            }
+            if (this.ID == 2)
+            {
+                playerStats.Heal(25);
+            }
+            if (this.ID == 22)
+            {
+                playerStats.Heal(35);
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+
 }

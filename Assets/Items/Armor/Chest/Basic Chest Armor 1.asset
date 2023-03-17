@@ -16,7 +16,7 @@ MonoBehaviour:
   uiDisplay: {fileID: 1907952657, guid: badd572d80733e84c949e1a1d1598b30, type: 3}
   prefab: {fileID: 0}
   type: 1
-  description: 
+  description: Cheap and provides a little bit of protection.
   stackable: 0
   data:
     Name: Basic Chest Armor

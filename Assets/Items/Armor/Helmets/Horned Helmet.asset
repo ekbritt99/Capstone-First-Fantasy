@@ -16,7 +16,7 @@ MonoBehaviour:
   uiDisplay: {fileID: 21300000, guid: 465b5d69b1c78f74b8ab5de434599f0f, type: 3}
   prefab: {fileID: 0}
   type: 0
-  description: 
+  description: Your head is safe from most attacks.
   stackable: 0
   data:
     Name: Horned Helmet

@@ -357,6 +357,54 @@ public class ShopManager : MonoBehaviour
 
     }
 
+    public void purchaseRedPotion()
+    {
+        if (playerInventory.container.gold.canAfford(5))
+        {
+            playerInventory.container.gold.removeCurrency(9);
+            ItemObject item = playerInventory.database.GetItem[0];
+            playerInventory.AddItem(item.CreateItem(), 1);
+            purchaseSuccessful.SetActive(true);
+        }
+        else
+        {
+            notEnoughFunds.SetActive(true);
+        }
+
+    }
+
+    public void purchaseStrangeBrew()
+    {
+        if (playerInventory.container.gold.canAfford(7))
+        {
+            playerInventory.container.gold.removeCurrency(9);
+            ItemObject item = playerInventory.database.GetItem[2];
+            playerInventory.AddItem(item.CreateItem(), 1);
+            purchaseSuccessful.SetActive(true);
+        }
+        else
+        {
+            notEnoughFunds.SetActive(true);
+        }
+
+    }
+
+    public void purchaseGoldenElixir()
+    {
+        if (playerInventory.container.gold.canAfford(9))
+        {
+            playerInventory.container.gold.removeCurrency(9);
+            ItemObject item = playerInventory.database.GetItem[22];
+            playerInventory.AddItem(item.CreateItem(), 1);
+            purchaseSuccessful.SetActive(true);
+        }
+        else
+        {
+            notEnoughFunds.SetActive(true);
+        }
+
+    }
+
 
     public void resetMoney()
     {

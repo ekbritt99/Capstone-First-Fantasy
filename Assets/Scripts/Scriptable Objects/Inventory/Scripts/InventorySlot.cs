@@ -43,6 +43,18 @@ public class InventorySlot
         amount += val;
     }
 
+    public void RemoveAmount(int val)
+    {
+        if (amount - val <= 0)
+        {
+            RemoveItem();
+        }
+        else
+        {
+            amount -= val;
+        }
+    }
+
     // Invokes On_Update to trigger the attributes to recalculate in Player.cs
     public void UpdateSlot(Item _item, int _amount)
     {

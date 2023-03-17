@@ -16,7 +16,7 @@ MonoBehaviour:
   uiDisplay: {fileID: 1258314587, guid: badd572d80733e84c949e1a1d1598b30, type: 3}
   prefab: {fileID: 0}
   type: 1
-  description: 
+  description: A step up from iron armor.
   stackable: 0
   data:
     Name: Iron Chest Armor

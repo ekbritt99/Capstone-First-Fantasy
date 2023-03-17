@@ -16,7 +16,8 @@ MonoBehaviour:
   uiDisplay: {fileID: 21300000, guid: 4c484335366fe0546b8f4897e1b8be8b, type: 3}
   prefab: {fileID: 0}
   type: 3
-  description: 
+  description: Now we're talkin'. These shiny boots will get a lot of lookers AND
+    provide excellent defense.
   stackable: 0
   data:
     Name: Iron Boots
