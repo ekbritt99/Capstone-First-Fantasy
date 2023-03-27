@@ -79,6 +79,14 @@ public class Player : MonoBehaviour
                 break;
             case InventoryType.Equipment:
                 Debug.Log("Removed " + _slot.ItemObject + " on " + _slot.parent.inventory.type);
+                for (int i = 0; i < _slot.item.buffs.Length; i++)
+                {
+                    for(int j = 0; j < PlayerPersistency.Instance.attributes.Length; j++)
+                    {
+                        if(PlayerPersistency.Instance.attributes[j].type == _slot.item.buffs[i].stat)
+                            PlayerPersistency.Instance.attributes[j].value -= _slot.item.buffs[i].value;
+                    }
+                }
                 break;
             default:
                 break;

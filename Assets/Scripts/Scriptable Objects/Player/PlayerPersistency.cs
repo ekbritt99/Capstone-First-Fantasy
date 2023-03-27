@@ -12,6 +12,7 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
     public int maxHP;
     public int currentHP;
 
+    // Attributes contains all of the player's stats that are not HP or damage
     public Attribute[] attributes;
 
     public InventoryObject inventory;
@@ -66,16 +67,66 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
         currentHP = maxHP;
     }
 
+    // Load data from GameData object into this object on scene load using DataPersistenceManager
     public void LoadData(GameData data)
     {
+        if(_instance != this)
+            return;
+
         this.currentHP = data.playerHP;
-        // this.spawnScene = data.spawnScene;
+        this.damage = data.playerDamage;
+
+        for (int i = 0; i < attributes.Length; i++)
+        {
+            if(attributes[i].type == Attributes.Defense)
+            {
+                attributes[i].value = data.playerDefense;
+            }
+            if(attributes[i].type == Attributes.Agility)
+            {
+                attributes[i].value = data.playerAgility;
+            }
+            if(attributes[i].type == Attributes.Strength)
+            {
+                attributes[i].value = data.playerStrength;
+            }
+            if(attributes[i].type == Attributes.Intellect)
+            {
+                attributes[i].value = data.playerIntellect;
+            }
+        }
         // this.spawnPosition = data.spawnPosition;
     }
 
     public void SaveData(GameData data)
     {
+        if(_instance != this)
+            return;
+
         data.playerHP = this.currentHP;
+        data.playerDamage = this.damage;
+
+        for (int i = 0; i < attributes.Length; i++)
+        {
+            if(attributes[i].type == Attributes.Defense)
+            {
+                data.playerDefense = attributes[i].value;
+            }
+            if(attributes[i].type == Attributes.Agility)
+            {
+                data.playerAgility = attributes[i].value;
+            }
+            if(attributes[i].type == Attributes.Strength)
+            {
+                data.playerStrength = attributes[i].value;
+            }
+            if(attributes[i].type == Attributes.Intellect)
+            {
+                data.playerIntellect = attributes[i].value;
+            }
+        }
+
+        
 
         // GameObject player = GameObject.Find("Player");
         // if(player != null){
@@ -94,7 +145,7 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
 
     private void OnDisable()
     {
-        if(_instance != null && _instance != this)
+        if(_instance != this)
             return;
         inventory.Save();
         equipment.Save();
@@ -107,22 +158,3 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
         this.Clear();
     }
 }
-
-// [System.Serializable]
-// public class Attribute
-// {   
-//     public PlayerPersistency parent;
-//     public Attributes type;
-//     public int value;
-
-//     public void SetParent(PlayerPersistency pPersistency)
-//     {
-//         parent = pPersistency;
-//         value = 0;
-//     }
-
-//     public void AttributeModified()
-//     {
-//         parent.AttributeModified(this);
-//     }
-// }
