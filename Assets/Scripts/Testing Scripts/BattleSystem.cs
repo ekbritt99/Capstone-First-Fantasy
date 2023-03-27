@@ -15,6 +15,10 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
 
     public InventoryObject playerEquipment;
     public InventoryObject playerInventory;
+    int playerDefense;
+    int playerIntellect;
+    int playerAgility;
+    int playerStrength;
 
     public GameObject enemyOnePrefab;
     public GameObject enemyTwoPrefab;
@@ -69,6 +73,24 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     {
         // GameObject playerGO = Instantiate(playerPrefab);
         // playerUnit = playerGO.GetComponent<Unit>();
+        
+        // Loop through player attributes and set each attribute value
+        for(int i = 0; i < playerUnit.attributes.Length; i++)
+        {
+            if(playerUnit.attributes[i].type == Attributes.Defense) {
+                playerDefense = playerUnit.attributes[i].value;
+            }
+            if(playerUnit.attributes[i].type == Attributes.Agility) {
+                playerAgility = playerUnit.attributes[i].value;
+            }
+            if(playerUnit.attributes[i].type == Attributes.Strength) {
+                playerStrength = playerUnit.attributes[i].value;
+            }
+            if(playerUnit.attributes[i].type == Attributes.Intellect) {
+                playerIntellect = playerUnit.attributes[i].value;
+            }
+        }
+
         playerPrefab.transform.position = new Vector3(-5.45f, -0.57f, 0f);
 
         if(sceneTrackerObj == null) {
@@ -182,32 +204,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     {
         dialogueText.text = "Enemy attacks!";
         yield return new WaitForSeconds(1f);
-        int helmetBuff = 0;
-        int chestBuff = 0;
-        int legsBuff = 0;
-        int shieldBuff = 0;
-        int bootsBuff = 0;
-        if (playerEquipment.container.Items[0].item.ID != -1 && playerEquipment.container.Items[0].item.buffs.Length > 0)
-        {
-            helmetBuff = playerEquipment.container.Items[0].item.buffs[0].value;
-        }
-        if (playerEquipment.container.Items[1].item.ID != -1 && playerEquipment.container.Items[1].item.buffs.Length > 0)
-        {
-            chestBuff = playerEquipment.container.Items[1].item.buffs[0].value;
-        }
-        if (playerEquipment.container.Items[2].item.ID != -1 && playerEquipment.container.Items[2].item.buffs.Length > 0)
-        {
-            legsBuff = playerEquipment.container.Items[2].item.buffs[0].value;
-        }
-        if (playerEquipment.container.Items[3].item.ID != -1 && playerEquipment.container.Items[3].item.buffs.Length > 0)
-        {
-            bootsBuff = playerEquipment.container.Items[3].item.buffs[0].value;
-        }
-        if (playerEquipment.container.Items[5].item.ID != -1 && playerEquipment.container.Items[4].item.buffs.Length > 0)
-        {
-            shieldBuff = playerEquipment.container.Items[4].item.buffs[0].value;
-        }
-        int newEnemyDamage = enemyUnit.damage - (helmetBuff + chestBuff + legsBuff + bootsBuff + shieldBuff);
+        int newEnemyDamage = enemyUnit.damage - playerDefense;
         bool isDead = playerUnit.TakeDamage(newEnemyDamage);
         playerHUD.setHP(playerUnit.currentHP);
         yield return new WaitForSeconds(1f);

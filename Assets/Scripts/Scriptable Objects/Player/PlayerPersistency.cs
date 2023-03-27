@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// This object is for player stats that should not be destroyed on new scene loads
+// It is essentially double dipping on the job of DataPersistencyManager so this will probably change later
 public class PlayerPersistency : MonoBehaviour, IDataPersistence
 {
+    // Player Stats
     public int damage;
     public int maxHP;
     public int currentHP;
 
+    // Attributes contains all of the player's stats that are not HP or damage
+    public Attribute[] attributes;
+
     public InventoryObject inventory;
     public InventoryObject equipment;
 
-    public Attribute[] attributes;
 
     public Vector3 spawnPosition;
     public Scenes spawnScene;
@@ -30,82 +35,6 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
         _instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
-
-
-    // public void Start()
-    // {
-    //     // Collect attribute stats 
-    //     for(int i = 0; i < attributes.Length; i++)
-    //     {
-    //         attributes[i].SetParent(this);
-    //     }
-
-    //     // This adds on equip event listeners to the equipment slots so that attributes update on equip
-    //     for(int i = 0; i < equipment.GetSlots.Length; i++)
-    //     {
-    //         equipment.GetSlots[i].OnBeforeUpdate += OnRemoveItem;
-    //         equipment.GetSlots[i].OnAfterUpdate += OnAddItem;
-    //     }
-
-    //     foreach (InventorySlot _slot in equipment.GetSlots)
-    //     {
-    //         OnAddItem(_slot);
-    //     }
-    // }
-
-    // public void OnRemoveItem(InventorySlot _slot)
-    // {
-    //     Debug.Log("OnRemoveItem called");
-    //     Debug.Log(_slot.item.ID);
-    //     if(_slot.parent == null || _slot.ItemObject == null)
-    //         return;
-    //     switch(_slot.parent.inventory.type)
-    //     {
-    //         case InventoryType.Inventory:
-    //             break;
-    //         case InventoryType.Equipment:
-    //             Debug.Log("Removed " + _slot.ItemObject + " on " + _slot.parent.inventory.type);
-    //             for(int i = 0; i < _slot.item.buffs.Length; i++)
-    //             {
-    //                 for(int j = 0; j < attributes.Length; j++)
-    //                 {
-    //                     if(attributes[j].type == _slot.item.buffs[i].stat)
-    //                         attributes[j].value -= _slot.item.buffs[i].value;
-    //                 }
-    //             }
-    //             break;
-    //         default:
-    //             break;
-    //     }
-    // }
-
-    // public void OnAddItem(InventorySlot _slot)
-    // {
-    //     if(_slot.ItemObject == null)
-    //         return;
-    //     switch(_slot.parent.inventory.type)
-    //     {
-    //         case InventoryType.Inventory:
-    //             break;
-    //         case InventoryType.Equipment:
-    //             Debug.Log("Equipped " + _slot.ItemObject + " on " + _slot.parent.inventory.type);
-    //             Debug.Log("Num Attributes on Item: " + _slot.item.buffs.Length);
-    //             for(int i = 0; i < _slot.item.buffs.Length; i++)
-    //             {
-    //                 for(int j = 0; j < attributes.Length; j++)
-    //                 {
-    //                     if(attributes[j].type == _slot.item.buffs[i].stat)
-    //                         attributes[j].value += _slot.item.buffs[i].value;
-    //                 }
-    //             }
-    //             break;
-    //         default:
-    //             break;
-    //     }
-    // }
-
-
-    
 
     public void SetHP(int hp)
     {
@@ -138,16 +67,66 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
         currentHP = maxHP;
     }
 
+    // Load data from GameData object into this object on scene load using DataPersistenceManager
     public void LoadData(GameData data)
     {
+        if(_instance != this)
+            return;
+
         this.currentHP = data.playerHP;
-        // this.spawnScene = data.spawnScene;
+        this.damage = data.playerDamage;
+
+        for (int i = 0; i < attributes.Length; i++)
+        {
+            if(attributes[i].type == Attributes.Defense)
+            {
+                attributes[i].value = data.playerDefense;
+            }
+            if(attributes[i].type == Attributes.Agility)
+            {
+                attributes[i].value = data.playerAgility;
+            }
+            if(attributes[i].type == Attributes.Strength)
+            {
+                attributes[i].value = data.playerStrength;
+            }
+            if(attributes[i].type == Attributes.Intellect)
+            {
+                attributes[i].value = data.playerIntellect;
+            }
+        }
         // this.spawnPosition = data.spawnPosition;
     }
 
     public void SaveData(GameData data)
     {
+        if(_instance != this)
+            return;
+
         data.playerHP = this.currentHP;
+        data.playerDamage = this.damage;
+
+        for (int i = 0; i < attributes.Length; i++)
+        {
+            if(attributes[i].type == Attributes.Defense)
+            {
+                data.playerDefense = attributes[i].value;
+            }
+            if(attributes[i].type == Attributes.Agility)
+            {
+                data.playerAgility = attributes[i].value;
+            }
+            if(attributes[i].type == Attributes.Strength)
+            {
+                data.playerStrength = attributes[i].value;
+            }
+            if(attributes[i].type == Attributes.Intellect)
+            {
+                data.playerIntellect = attributes[i].value;
+            }
+        }
+
+        
 
         // GameObject player = GameObject.Find("Player");
         // if(player != null){
@@ -166,7 +145,7 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
 
     private void OnDisable()
     {
-        if(_instance != null && _instance != this)
+        if(_instance != this)
             return;
         inventory.Save();
         equipment.Save();
@@ -179,22 +158,3 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
         this.Clear();
     }
 }
-
-// [System.Serializable]
-// public class Attribute
-// {   
-//     public PlayerPersistency parent;
-//     public Attributes type;
-//     public int value;
-
-//     public void SetParent(PlayerPersistency pPersistency)
-//     {
-//         parent = pPersistency;
-//         value = 0;
-//     }
-
-//     public void AttributeModified()
-//     {
-//         parent.AttributeModified(this);
-//     }
-// }

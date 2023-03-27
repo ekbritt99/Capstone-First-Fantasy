@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public InventoryObject inventory;
     public InventoryObject equipment;
 
-    public Attribute[] attributes;
+    // public Attribute[] attributes;
 
     public PlayerCollisions collisions;
 
@@ -42,13 +42,12 @@ public class Player : MonoBehaviour
             PlayerPersistency.Instance.spawnPosition = Vector3.zero;
         }
 
-
-
         // Collect attribute stats 
-        for(int i = 0; i < attributes.Length; i++)
+        for(int i = 0; i < PlayerPersistency.Instance.attributes.Length; i++)
         {
-            attributes[i].SetParent(this);
+            PlayerPersistency.Instance.attributes[i].SetParent(this);
         }
+
 
         // This adds on equip event listeners to the equipment slots so that attributes update on equip
         for(int i = 0; i < equipment.GetSlots.Length; i++)
@@ -80,6 +79,14 @@ public class Player : MonoBehaviour
                 break;
             case InventoryType.Equipment:
                 Debug.Log("Removed " + _slot.ItemObject + " on " + _slot.parent.inventory.type);
+                for (int i = 0; i < _slot.item.buffs.Length; i++)
+                {
+                    for(int j = 0; j < PlayerPersistency.Instance.attributes.Length; j++)
+                    {
+                        if(PlayerPersistency.Instance.attributes[j].type == _slot.item.buffs[i].stat)
+                            PlayerPersistency.Instance.attributes[j].value -= _slot.item.buffs[i].value;
+                    }
+                }
                 break;
             default:
                 break;
@@ -99,11 +106,10 @@ public class Player : MonoBehaviour
                 Debug.Log("Num Attributes on Item: " + _slot.item.buffs.Length);
                 for(int i = 0; i < _slot.item.buffs.Length; i++)
                 {
-                    for(int j = 0; j < attributes.Length; j++)
+                    for(int j = 0; j < PlayerPersistency.Instance.attributes.Length; j++)
                     {
-                        Debug.Log("Test");
-                        attributes[j].value = _slot.item.buffs[i].value;
-                        attributes[j].type = _slot.item.buffs[i].stat;
+                        if(PlayerPersistency.Instance.attributes[j].type == _slot.item.buffs[i].stat)
+                            PlayerPersistency.Instance.attributes[j].value += _slot.item.buffs[i].value;
                     }
                 }
                 break;
@@ -183,7 +189,6 @@ public class Attribute
     public void SetParent(Player player)
     {
         parent = player;
-        value = 0;
     }
 
     public void AttributeModified()
