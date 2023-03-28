@@ -7,17 +7,18 @@ public class CurrencyCounter : MonoBehaviour
 {
 
     private TextMeshProUGUI counterText;
-    public InventoryObject playerInventory;
+    private PlayerPersistency playerPersistency;
 
     // Start is called before the first frame update
     void Start()
     {
         counterText = this.GetComponent<TextMeshProUGUI>();
+        playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        counterText.text = playerInventory.container.gold.getCurrency().ToString();
+        counterText.text = playerPersistency.money.getCurrency().ToString();
     }
 }

@@ -24,4 +24,8 @@ MonoBehaviour:
   data:
     Name: Strange Brew
     ID: 2
-    buffs: []
+    buffs:
+    - stat: 4
+      value: 15
+      min: 0
+      max: 0

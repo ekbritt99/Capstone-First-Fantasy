@@ -24,4 +24,8 @@ MonoBehaviour:
   data:
     Name: Golden Elixir
     ID: 22
-    buffs: []
+    buffs:
+    - stat: 4
+      value: 30
+      min: 0
+      max: 0

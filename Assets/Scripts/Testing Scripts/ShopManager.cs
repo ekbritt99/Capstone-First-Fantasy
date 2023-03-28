@@ -5,8 +5,9 @@ using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
+    private PlayerPersistency playerPersistency;
+
     public InventoryObject playerInventory;
-    public InventoryObject playerEquipment;
 
     // public GameObject dataManagerObj;
     public DataPersistenceManager dataManager;
@@ -22,6 +23,7 @@ public class ShopManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
         // dataManager = dataManagerObj.GetComponent<DataPersistenceManager>();
         //get current player money here
 
@@ -31,15 +33,15 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // lblCurrentMoneyAmount.text = playerInventory.container.gold.getCurrency().ToString();
+        // lblCurrentMoneyAmount.text = playerInventory.money.getCurrency().ToString();
         // lblCurrentMoneyAmount.text = "Testing";
     }
 
     public void purchaseKatana()
     {
-        if (playerInventory.container.gold.canAfford(5))
+        if (playerPersistency.money.canAfford(5))
         {
-            playerInventory.container.gold.removeCurrency(5);
+            playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[1];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -53,9 +55,9 @@ public class ShopManager : MonoBehaviour
 
     public void purchaseMace()
     {
-        if (playerInventory.container.gold.canAfford(5))
+        if (playerPersistency.money.canAfford(5))
         {
-            playerInventory.container.gold.removeCurrency(5);
+            playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[3];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -69,9 +71,9 @@ public class ShopManager : MonoBehaviour
 
     public void purchaseScimitar()
     {
-        if (playerInventory.container.gold.canAfford(5))
+        if (playerPersistency.money.canAfford(5))
         {
-            playerInventory.container.gold.removeCurrency(5);
+            playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[5];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -85,9 +87,9 @@ public class ShopManager : MonoBehaviour
 
     public void purchaseRomanSword()
     {
-        if (playerInventory.container.gold.canAfford(5))
+        if (playerPersistency.money.canAfford(5))
         {
-            playerInventory.container.gold.removeCurrency(5);
+            playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[4];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -104,9 +106,9 @@ public class ShopManager : MonoBehaviour
 
     public void purchasePlatinumArmor()
     {
-        if (playerInventory.container.gold.canAfford(11))
+        if (playerPersistency.money.canAfford(11))
         {
-            playerInventory.container.gold.removeCurrency(11);
+            playerPersistency.money.removeCurrency(11);
             ItemObject item = playerInventory.database.GetItem[9];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -119,9 +121,9 @@ public class ShopManager : MonoBehaviour
     }
     public void purchaseBasicArmor()
     {
-        if (playerInventory.container.gold.canAfford(5))
+        if (playerPersistency.money.canAfford(5))
         {
-            playerInventory.container.gold.removeCurrency(5);
+            playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[6];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -134,9 +136,9 @@ public class ShopManager : MonoBehaviour
     }
     public void purchaseBronzeArmor()
     {
-        if (playerInventory.container.gold.canAfford(7))
+        if (playerPersistency.money.canAfford(7))
         {
-            playerInventory.container.gold.removeCurrency(7);
+            playerPersistency.money.removeCurrency(7);
             ItemObject item = playerInventory.database.GetItem[7];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -149,9 +151,9 @@ public class ShopManager : MonoBehaviour
     }
     public void purchaseIronArmor()
     {
-        if (playerInventory.container.gold.canAfford(9))
+        if (playerPersistency.money.canAfford(9))
         {
-            playerInventory.container.gold.removeCurrency(9);
+            playerPersistency.money.removeCurrency(9);
             ItemObject item = playerInventory.database.GetItem[8];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -166,9 +168,9 @@ public class ShopManager : MonoBehaviour
 
     public void purchaseIronBoots()
     {
-        if (playerInventory.container.gold.canAfford(9))
+        if (playerPersistency.money.canAfford(9))
         {
-            playerInventory.container.gold.removeCurrency(9);
+            playerPersistency.money.removeCurrency(9);
             ItemObject item = playerInventory.database.GetItem[12];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -181,9 +183,9 @@ public class ShopManager : MonoBehaviour
     }
     public void purchaseLeatherBoots()
     {
-        if (playerInventory.container.gold.canAfford(5))
+        if (playerPersistency.money.canAfford(5))
         {
-            playerInventory.container.gold.removeCurrency(5);
+            playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[10];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -196,9 +198,9 @@ public class ShopManager : MonoBehaviour
     }
     public void purchaseStuddedBoots()
     {
-        if (playerInventory.container.gold.canAfford(7))
+        if (playerPersistency.money.canAfford(7))
         {
-            playerInventory.container.gold.removeCurrency(7);
+            playerPersistency.money.removeCurrency(7);
             ItemObject item = playerInventory.database.GetItem[11];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -216,9 +218,9 @@ public class ShopManager : MonoBehaviour
 
     public void purchaseWoodenShield()
     {
-        if (playerInventory.container.gold.canAfford(5))
+        if (playerPersistency.money.canAfford(5))
         {
-            playerInventory.container.gold.removeCurrency(5);
+            playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[13];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -231,9 +233,9 @@ public class ShopManager : MonoBehaviour
     }
     public void purchaseKiteShield()
     {
-        if (playerInventory.container.gold.canAfford(7))
+        if (playerPersistency.money.canAfford(7))
         {
-            playerInventory.container.gold.removeCurrency(7);
+            playerPersistency.money.removeCurrency(7);
             ItemObject item = playerInventory.database.GetItem[14];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -246,9 +248,9 @@ public class ShopManager : MonoBehaviour
     }
     public void purchaseTowerShield()
     {
-        if (playerInventory.container.gold.canAfford(9))
+        if (playerPersistency.money.canAfford(9))
         {
-            playerInventory.container.gold.removeCurrency(9);
+            playerPersistency.money.removeCurrency(9);
             ItemObject item = playerInventory.database.GetItem[15];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -266,9 +268,9 @@ public class ShopManager : MonoBehaviour
 
     public void purchaseLeatherPants()
     {
-        if (playerInventory.container.gold.canAfford(5))
+        if (playerPersistency.money.canAfford(5))
         {
-            playerInventory.container.gold.removeCurrency(5);
+            playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[16];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -281,9 +283,9 @@ public class ShopManager : MonoBehaviour
     }
     public void purchaseStuddedPants()
     {
-        if (playerInventory.container.gold.canAfford(7))
+        if (playerPersistency.money.canAfford(7))
         {
-            playerInventory.container.gold.removeCurrency(7);
+            playerPersistency.money.removeCurrency(7);
             ItemObject item = playerInventory.database.GetItem[17];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -296,9 +298,9 @@ public class ShopManager : MonoBehaviour
     }
     public void purchaseChainmailPants()
     {
-        if (playerInventory.container.gold.canAfford(9))
+        if (playerPersistency.money.canAfford(9))
         {
-            playerInventory.container.gold.removeCurrency(9);
+            playerPersistency.money.removeCurrency(9);
             ItemObject item = playerInventory.database.GetItem[18];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -312,9 +314,9 @@ public class ShopManager : MonoBehaviour
 
     public void purchaseStuddedHelmet()
     {
-        if (playerInventory.container.gold.canAfford(5))
+        if (playerPersistency.money.canAfford(5))
         {
-            playerInventory.container.gold.removeCurrency(5);
+            playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[19];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -328,9 +330,9 @@ public class ShopManager : MonoBehaviour
 
     public void purchaseHornedHelmet()
     {
-        if (playerInventory.container.gold.canAfford(7))
+        if (playerPersistency.money.canAfford(7))
         {
-            playerInventory.container.gold.removeCurrency(7);
+            playerPersistency.money.removeCurrency(7);
             ItemObject item = playerInventory.database.GetItem[20];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -343,9 +345,9 @@ public class ShopManager : MonoBehaviour
     }
     public void purchaseKnightHelmet()
     {
-        if (playerInventory.container.gold.canAfford(9))
+        if (playerPersistency.money.canAfford(9))
         {
-            playerInventory.container.gold.removeCurrency(9);
+            playerPersistency.money.removeCurrency(9);
             ItemObject item = playerInventory.database.GetItem[21];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -359,9 +361,9 @@ public class ShopManager : MonoBehaviour
 
     public void purchaseRedPotion()
     {
-        if (playerInventory.container.gold.canAfford(5))
+        if (playerPersistency.money.canAfford(5))
         {
-            playerInventory.container.gold.removeCurrency(9);
+            playerPersistency.money.removeCurrency(9);
             ItemObject item = playerInventory.database.GetItem[0];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -375,9 +377,9 @@ public class ShopManager : MonoBehaviour
 
     public void purchaseStrangeBrew()
     {
-        if (playerInventory.container.gold.canAfford(7))
+        if (playerPersistency.money.canAfford(7))
         {
-            playerInventory.container.gold.removeCurrency(9);
+            playerPersistency.money.removeCurrency(9);
             ItemObject item = playerInventory.database.GetItem[2];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -391,9 +393,9 @@ public class ShopManager : MonoBehaviour
 
     public void purchaseGoldenElixir()
     {
-        if (playerInventory.container.gold.canAfford(9))
+        if (playerPersistency.money.canAfford(9))
         {
-            playerInventory.container.gold.removeCurrency(9);
+            playerPersistency.money.removeCurrency(9);
             ItemObject item = playerInventory.database.GetItem[22];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
@@ -408,7 +410,7 @@ public class ShopManager : MonoBehaviour
 
     public void resetMoney()
     {
-        playerInventory.container.gold.addCurrency(25);
+        playerPersistency.money.addCurrency(25);
     }
 
 

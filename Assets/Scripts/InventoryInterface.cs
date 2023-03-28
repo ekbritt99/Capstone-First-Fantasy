@@ -137,7 +137,7 @@ public abstract class InventoryInterface : MonoBehaviour
             return;
         } else {
             if(itemsDisplayed[obj].ItemObject.type == ItemType.Food) {
-                if (itemsDisplayed[obj].item.healPlayer() == true)
+                if (healPlayer(itemsDisplayed[obj].ItemObject.data.buffs[0].value) == true)
                 {
                     itemsDisplayed[obj].RemoveAmount(1);
                 }
@@ -205,6 +205,23 @@ public abstract class InventoryInterface : MonoBehaviour
         mousePosition.y = Mathf.Clamp(mousePosition.y - hoverTransform.sizeDelta.y / 2, 0 + hoverTransform.rect.height / 2, Screen.height - hoverTransform.rect.height / 2);
         hoverTransform.transform.position = mousePosition;
     }
+
+    public bool healPlayer(int healAmount)
+    {
+        GameObject playerObj = GameObject.Find("PlayerPersistency");
+        PlayerPersistency playerStats = playerObj.GetComponent<PlayerPersistency>();
+        if(playerStats.currentHP < playerStats.maxHP)
+        {
+            playerStats.Heal(healAmount);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+
 
 }
 

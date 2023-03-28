@@ -20,11 +20,14 @@ public class DataPersistenceManager : MonoBehaviour
     public InventoryObject playerInventory;
     public InventoryObject playerEquipment;
 
+    private string selectedProfileID = "";
+
 
     public static DataPersistenceManager instance { get; private set; }
 
     private void Awake()
     {
+        // Check if there is already an instance of DataPersistenceManager in the scene. If there is, destroy this one.
         if(instance != null)
         {
             Debug.Log("Found more than one DataPersistenceManager in scene. Newest destroyed.");
@@ -36,6 +39,9 @@ public class DataPersistenceManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
+
+        // Select the first profile.
+        this.selectedProfileID = dataHandler.LoadAllProfiles().FirstOrDefault().Key;
     }
 
     public void OnEnable()
@@ -54,6 +60,17 @@ public class DataPersistenceManager : MonoBehaviour
         LoadGame();
     }
 
+
+    public void ChangeProfile(string profileID)
+    {
+        // Change the profile ID
+        this.selectedProfileID = profileID;
+
+        // Load the game data
+        LoadGame();
+    }
+
+    // Start a new game save. Clear the inventory scriptable objects just in case they weren't cleared before.
     public void NewGame()
     {
         Debug.Log("New Game started");
@@ -67,7 +84,7 @@ public class DataPersistenceManager : MonoBehaviour
     {
         Debug.Log("(DataPersistenceManager) LoadGame()");
         // load game data from file with data handler
-        this.gameData = dataHandler.Load();
+        this.gameData = dataHandler.Load(selectedProfileID);
 
         if(this.gameData == null && initializeDataIfNull)
         {
@@ -87,7 +104,7 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistence.LoadData(gameData);
         }
 
-        Debug.Log("Loaded Spawn Position: " + gameData.playerHP);
+        Debug.Log("Loaded Player HP: " + gameData.playerHP);
     }
 
     public void SaveGame()
@@ -110,7 +127,7 @@ public class DataPersistenceManager : MonoBehaviour
         }
 
         // save the gathered data to file with data handler
-        dataHandler.Save(gameData);
+        dataHandler.Save(gameData, selectedProfileID);
         Debug.Log("Saved Player health: " + gameData.playerHP);
     }
 
@@ -134,6 +151,16 @@ public class DataPersistenceManager : MonoBehaviour
     public bool HasGameData()
     {
         return gameData != null;
+    }
+
+    public string GetSelectedProfileID()
+    {
+        return selectedProfileID;
+    }
+
+    public Dictionary<string, GameData> GetAllProfilesData()
+    {
+        return dataHandler.LoadAllProfiles();
     }
 
 

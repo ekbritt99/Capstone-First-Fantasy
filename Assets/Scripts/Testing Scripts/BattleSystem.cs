@@ -224,7 +224,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         if(state == BattleState.WON)
         {
             dialogueText.text = "You won the battle!";
-            playerInventory.container.gold.addCurrency(currencyReward);
+            playerUnit.money.addCurrency(currencyReward);
             currencyRewardDisplay.text = currencyReward.ToString();
             wholeCurrencyDisplay.SetActive(true);
             sceneTrackerObj.GetComponent<SceneTracker>().rememberScene();

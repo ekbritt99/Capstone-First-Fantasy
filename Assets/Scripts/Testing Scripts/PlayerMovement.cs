@@ -6,53 +6,75 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     
-    public GameObject gameManager;
     private Animator animator;
 
-    public float moveSpeed = 5.0f;
-    // Start is called before the first frame update
+    [SerializeField] private float moveSpeed = 5.0f;
+    private Rigidbody2D rb;
+    
+
     void Start()
     {
         animator = this.GetComponent<Animator>();
+        rb = this.GetComponent<Rigidbody2D>();
     }
 
-    void moveCommand(Vector3 moveVect)
-        {
-            //MOVE
-            transform.Translate(moveVect);
-            animator.SetBool("Walk", true);
-        }
+    // void moveCommand(Vector3 moveVect)
+    //     {
+    //         //MOVE
+    //         transform.Translate(moveVect);
+    //         animator.SetBool("Walk", true);
+    //     }
 
-    // Update is called once per frame
-    void Update()
+    // // Update is called once per frame
+    // void Update()
+    // {
+    //     Vector3 scale = this.gameObject.transform.localScale;
+    //     float inputX = Input.GetAxis("Horizontal");
+    //     float inputY = Input.GetAxis("Vertical");
+    //     Vector3 moveVect = new Vector3(inputX, inputY, 0);
+    //     moveVect *= (moveSpeed * Time.deltaTime);
+
+    //     // If moving right, make sprite face right
+    //     if(moveVect.x > 0)
+    //     {
+    //         this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
+    //     } else if(moveVect.x < 0){
+    //         this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
+    //     }
+        
+    //     if(moveVect != Vector3.zero)
+    //         moveCommand(moveVect);
+    //     else
+    //         animator.SetBool("Walk", false);
+
+    //     //moved to a separate method to call in testing
+    //     // transform.Translate(moveVect);
+
+    // }
+
+    // Using FixedUpdate for physics calculations, movement in this case.
+    private void FixedUpdate()
     {
-        Vector3 scale = this.gameObject.transform.localScale;
-        float inputX = Input.GetAxis("Horizontal");
-        float inputY = Input.GetAxis("Vertical");
-        Vector3 moveVect = new Vector3(inputX, inputY, 0);
-        moveVect *= (moveSpeed * Time.deltaTime);
+        float moveHorizontal = Input.GetAxisRaw("Horizontal");
+        float moveVertical = Input.GetAxisRaw("Vertical");
+
+        Vector2 movement = new Vector2(moveHorizontal, moveVertical).normalized;
 
         // If moving right, make sprite face right
-        if(moveVect.x > 0)
+        if(movement.x > 0)
         {
             this.gameObject.GetComponent<SpriteRenderer>().flipX = false;
-        } else if(moveVect.x < 0){
+        } else if(movement.x < 0){
             this.gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
-        
-        if(moveVect != Vector3.zero)
-            moveCommand(moveVect);
+
+        // If moving, set walk animation to true
+        if(movement != Vector2.zero)
+            animator.SetBool("Walk", true);
         else
             animator.SetBool("Walk", false);
 
-        //moved to a separate method to call in testing
-        // transform.Translate(moveVect);
-
-    }
-
-    private void FixedUpdate()
-    {
-        
+        rb.velocity = movement * moveSpeed;
     }
     
 }

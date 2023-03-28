@@ -51,5 +51,6 @@ public enum Attributes
     Strength,
     Agility,
     Intellect,
-    Defense
+    Defense,
+    Healing
 }
