@@ -13,6 +13,7 @@ public enum InventoryType
     Chest
 }
 
+// Inventory Scriptable Object.
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject
 {
@@ -23,9 +24,11 @@ public class InventoryObject : ScriptableObject
     public InventorySlot[] GetSlots { get { return container.Items; } }
 
 
+    // Add an item to the inventory.
     public bool AddItem(Item _item, int _amt)
     {
         InventorySlot slot = FindItemInInventory(_item);
+        // If the item is not stackable, add it to the first empty slot.
         if(slot == null || !database.itemObjects[_item.ID].stackable)
         {
             for(int i = 0; i < container.Items.Length; i++)
@@ -38,6 +41,7 @@ public class InventoryObject : ScriptableObject
             }
             return false;
         }
+        // If the item is stackable, add it to the first slot that has the same item.
         slot.AddAmount(_amt);
         return true;
     }
@@ -58,6 +62,7 @@ public class InventoryObject : ScriptableObject
         }
     }
 
+    // Find an item in the inventory. Returns the slot.
     public InventorySlot FindItemInInventory(Item item)
     {
         for (int i = 0; i < container.Items.Length; i++)
@@ -70,6 +75,7 @@ public class InventoryObject : ScriptableObject
         return null;
     }
 
+    // Set an empty slot to an item. Returns the slot if successful.
     public InventorySlot SetEmptySlot(Item _item, int _amount)
     {
         for (int i = 0; i < container.Items.Length; i++)
@@ -85,6 +91,7 @@ public class InventoryObject : ScriptableObject
         return null;
     }
 
+    // Swap two items in the inventory. Reminder: an empty slot is an item with ID -1.
     public void MoveItem(InventorySlot item1, InventorySlot item2)
     {
         if(item2.CanPlaceInSlot(item1.ItemObject))
@@ -95,6 +102,7 @@ public class InventoryObject : ScriptableObject
         }
     }
 
+    // Remove an item from the inventory.
     public void RemoveItem(Item _item)
     {
         for (int i = 0; i < container.Items.Length; i++)
@@ -106,28 +114,28 @@ public class InventoryObject : ScriptableObject
         }
     }
 
-    public void OnAfterSerialization()
-    {
-
-    }
-
+    // Save the inventory. Uses the profileID in DataPersistenceManager to save the inventory in the correct profile folder.
+    // The savePath is the name of the inventory file. i.e. inventory or equipment or chest.
     [ContextMenu("Save")]
     public void Save()
     {
+        string fullPath = Path.Combine(Application.persistentDataPath, DataPersistenceManager.instance.GetSelectedProfileID(), savePath);
         IFormatter formatter = new BinaryFormatter();
-        Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Create, FileAccess.Write);
+        Stream stream = new FileStream(fullPath, FileMode.Create, FileAccess.Write);
         formatter.Serialize(stream, container);
         stream.Close();
         Debug.Log("Saved inventory" + type);
     }
 
+    // Load the inventory. Uses the profileID in DataPersistenceManager to load the inventory from the correct profile folder.
     [ContextMenu("Load")]
     public void Load()
     {
-        if(File.Exists(string.Concat(Application.persistentDataPath, savePath)))
+        string fullPath = Path.Combine(Application.persistentDataPath, DataPersistenceManager.instance.GetSelectedProfileID(), savePath);
+        if(File.Exists(fullPath))
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(string.Concat(Application.persistentDataPath, savePath), FileMode.Open, FileAccess.Read);
+            Stream stream = new FileStream(fullPath, FileMode.Open, FileAccess.Read);
             Inventory newContainer = (Inventory)formatter.Deserialize(stream);
             for (int i = 0; i < container.Items.Length; i++)
             {
@@ -135,11 +143,17 @@ public class InventoryObject : ScriptableObject
                 // GetSlots[i].UpdateSlot(newContainer.Items[i].item, newContainer.Items[i].amount);
             }
 
-            container.gold = newContainer.gold;
+            // container.gold = newContainer.gold;
             stream.Close();
             Debug.Log("Loaded inventory " + type);
         }
+        else 
+        {
+            Debug.Log("No file to load inventory " + type);
+        }
     }
+
+    // Clear the inventory.
     [ContextMenu("Clear")]
     public void Clear()
     {
@@ -149,14 +163,15 @@ public class InventoryObject : ScriptableObject
 
 }
 
+// This is the actual inventory container. It contains the gold and the inventory slots.
 [System.Serializable]
 public class Inventory
 {
-    public Currency gold;
+    // public Currency gold;
     public InventorySlot[] Items = new InventorySlot[24];
     public void Clear()
     {
-        gold = new Currency();
+        // gold = new Currency();
         for (int i = 0; i < Items.Length; i++)
         {
             Items[i].UpdateSlot(new Item(), 0);

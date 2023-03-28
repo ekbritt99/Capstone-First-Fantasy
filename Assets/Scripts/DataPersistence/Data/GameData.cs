@@ -7,29 +7,49 @@ public class GameData
 {
     public int playerHP;
     public int playerMaxHP;
+    public int money;
     public int playerDamage;
     public int playerDefense;
     public int playerIntellect;
     public int playerAgility;
     public int playerStrength;
 
-    public Vector3 spawnPosition;
-    public Scenes spawnScene;
-    public InventoryData inventory;
+    // public int deathCount;
+
+    // public Vector3 spawnPosition;
+    // public Scenes spawnScene;
+    // public InventoryData inventory;
     // public int playerMoney;
 
     public GameData()
     {
-        this.playerHP = 100;
-        this.playerMaxHP = 100;
-        this.playerDamage = 15;
+        this.playerHP = 30;
+        this.playerMaxHP = 30;
+        this.money = 30;
+        this.playerDamage = 5;
         this.playerDefense = 0;
         this.playerIntellect = 0;
         this.playerAgility = 0;
         this.playerStrength = 0;
-        this.spawnPosition = Vector3.zero;
-        this.spawnScene = Scenes.HOUSE;
-        inventory = new InventoryData();
+        // this.deathCount = 0;
+        // this.spawnPosition = Vector3.zero;
+        // this.spawnScene = Scenes.HOUSE;
+        // inventory = new InventoryData();
     }
+
+    public int GetHealth()
+    {
+        return playerHP;
+    }
+
+    public int GetMaxHealth()
+    {
+        return playerMaxHP;
+    }
+
+    // public int GetDeathCount()
+    // {
+    //     return deathCount;
+    // }
 
 }

@@ -14,6 +14,16 @@ public class Currency
         unit = amount;
     }
 
+    public void SetCurrency(int amount)
+    {
+        unit = amount;
+    }
+
+    public int GetCurrency()
+    {
+        return unit;
+    }
+
     public void addCurrency(int amount)
     {
         unit += amount;

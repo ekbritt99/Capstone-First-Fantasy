@@ -11,6 +11,7 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
     public int damage;
     public int maxHP;
     public int currentHP;
+    public Currency money;
 
     // Attributes contains all of the player's stats that are not HP or damage
     public Attribute[] attributes;
@@ -67,13 +68,15 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
         currentHP = maxHP;
     }
 
-    // Load data from GameData object into this object on scene load using DataPersistenceManager
+    // Load data from GameData object into this object on scene load using DataPersistenceManager.
     public void LoadData(GameData data)
     {
         if(_instance != this)
             return;
 
         this.currentHP = data.playerHP;
+        this.maxHP = data.playerMaxHP;
+        this.money.SetCurrency(data.money);
         this.damage = data.playerDamage;
 
         for (int i = 0; i < attributes.Length; i++)
@@ -104,6 +107,8 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
             return;
 
         data.playerHP = this.currentHP;
+        data.playerMaxHP = this.maxHP;
+        data.money = this.money.GetCurrency();
         data.playerDamage = this.damage;
 
         for (int i = 0; i < attributes.Length; i++)
@@ -137,12 +142,6 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
         
     }
 
-    
-    // public void AttributeModified(Attribute attribute)
-    // {
-    //     Debug.Log(string.Concat(attribute));
-    // }
-
     private void OnDisable()
     {
         if(_instance != this)
@@ -153,8 +152,8 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
         equipment.Clear();
     }
 
-    public void OnApplicationQuit()
-    {
-        this.Clear();
-    }
+    // public void OnApplicationQuit()
+    // {
+    //     this.Clear();
+    // }
 }
