@@ -23,4 +23,8 @@ MonoBehaviour:
   data:
     Name: Red Potion
     ID: 0
-    buffs: []
+    buffs:
+    - stat: 4
+      value: 5
+      min: 0
+      max: 0
