@@ -236,6 +236,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             yield return new WaitForSeconds(2);
             GameOver();
             //gameManager.SendMessage("GoToOverWorld");
+            GameManager.Instance.GoToGameScene(Scenes.VILLAGE);
         }
 
         DataPersistenceManager.instance.SaveGame();
@@ -289,7 +290,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     }
     public void onReturnButton() 
     {
-        gameManager.SendMessage("GoToOverWorldFromBattle");
+        GameManager.Instance.GoToGameScene(Scenes.VILLAGE);
     }
     public static int returnZero()
     {

@@ -66,11 +66,6 @@ public class GameManager: MonoBehaviour
             Pause();
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && SceneManager.GetActiveScene().name != "InventoryUI Scene")
-        {
-            GoToGameScene(Scenes.INVENTORY);
-        }
-
         // if (SceneManager.GetActiveScene().name == "Shop Scene" || SceneManager.GetActiveScene().name == "Test Village Scene")
         // {
         //     lblCurrentMoneyAmount.text = dataManager.GetComponent<DataPersistenceManager>().getMoneyAmount().ToString();

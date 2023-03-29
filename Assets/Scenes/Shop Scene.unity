@@ -3939,7 +3939,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 11400000, guid: 1af540207d904e14184a6ab85a43fa1c, type: 2}
-  playerEquipment: {fileID: 11400000, guid: a27166c753180dd408aa17af7549c6ce, type: 2}
   dataManager: {fileID: 1344708234}
   notEnoughFunds: {fileID: 551000874}
   purchaseSuccessful: {fileID: 1686619582}
@@ -27394,6 +27393,10 @@ PrefabInstance:
     - target: {fileID: 1129350857955119608, guid: 11c51de7f31f30f45890c3a4a1655709, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129350857955119613, guid: 11c51de7f31f30f45890c3a4a1655709, type: 3}
+      propertyPath: isControllable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1129350857955119615, guid: 11c51de7f31f30f45890c3a4a1655709, type: 3}
       propertyPath: m_Pivot.x
