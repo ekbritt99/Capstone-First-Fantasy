@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     public PlayerCollisions collisions;
 
+    public bool isControllable = true;
+
 
     // public PersistentEntityUnit playerUnit;
 
@@ -131,6 +133,12 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.E) && this.isControllable)
+        {
+            GameManager.Instance.GoToGameScene(Scenes.INVENTORY);
+        }
+
         if(Input.GetKeyDown(KeyCode.Equals))
         {
             inventory.Save();
