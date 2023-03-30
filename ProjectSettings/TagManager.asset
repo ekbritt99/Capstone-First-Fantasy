@@ -22,6 +22,7 @@ TagManager:
   - house
   - NPC Rat
   - leave house
+  - NPCRat2
   layers:
   - Default
   - TransparentFX
@@ -58,4 +59,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Top
+    uniqueID: 4173650471
     locked: 0
