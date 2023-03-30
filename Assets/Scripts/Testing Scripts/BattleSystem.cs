@@ -12,6 +12,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     public GameObject gameManager;
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
+    public GameObject inventoryOverlay;
 
     public InventoryObject playerEquipment;
     public InventoryObject playerInventory;
@@ -325,6 +326,16 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     public void showEnemy()
     {
         enemyGO.SetActive(true);    
+    }
+
+    public void showInventory()
+    {
+        inventoryOverlay.GetComponent<Canvas>().enabled = true;
+    }
+
+    public void hideInventory()
+    {
+        inventoryOverlay.GetComponent<Canvas>().enabled = false;
     }
 
     //MUSIC INTERFACE
