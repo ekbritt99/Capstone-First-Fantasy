@@ -47,5 +47,6 @@ public class NPCBubbleManager : MonoBehaviour
     private void hideShopBubble()
     {
         shopBubble.SetActive(false);
+        npcDialogueText.text = "";
     }
 }
