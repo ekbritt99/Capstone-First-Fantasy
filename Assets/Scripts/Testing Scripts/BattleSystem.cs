@@ -205,6 +205,10 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         dialogueText.text = "Enemy attacks!";
         yield return new WaitForSeconds(1f);
         int newEnemyDamage = enemyUnit.damage - playerDefense;
+        if(newEnemyDamage <= 0)
+        {
+            dialogueText.text = "You took no damage from the attack!";
+        }
         bool isDead = playerUnit.TakeDamage(newEnemyDamage);
         playerHUD.setHP(playerUnit.currentHP);
         yield return new WaitForSeconds(1f);
@@ -233,7 +237,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         } else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were defeated...";
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
             GameOver();
         }
 
@@ -286,6 +290,22 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
 
         StartCoroutine(PlayerHeal());
     }
+
+    public void onBattleInventoryBackButton()
+    {
+        if(state != BattleState.PLAYERTURN)
+            return;
+
+        state = BattleState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
+    
+    public void onBattleInventoryButton()
+    {
+        if(state != BattleState.PLAYERTURN)
+            return;
+    }
+
     public void onReturnButton() 
     {
         playerUnit.currentHP = 1;
