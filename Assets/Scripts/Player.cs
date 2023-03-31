@@ -189,6 +189,7 @@ public class Player : MonoBehaviour
         Debug.Log(string.Concat(attribute));
     }
 
+    /*
     private void OnMouseOver()
     {
         StartCoroutine(StillHovering());
@@ -201,6 +202,7 @@ public class Player : MonoBehaviour
         hpAndEquipmentDisplay.SetActive(false);
     }
 
+    
     private IEnumerator StillHovering()
     {
         yield return new WaitForSeconds(1f);
@@ -209,7 +211,7 @@ public class Player : MonoBehaviour
             hpAndEquipmentDisplay.SetActive(true);
         }
     }
-
+    */
 }
 
 [System.Serializable]
