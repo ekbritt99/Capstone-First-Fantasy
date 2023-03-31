@@ -1411,26 +1411,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532808196}
   m_CullTransparentMesh: 1
---- !u!1 &540819258 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1144188293864817749, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
-  m_PrefabInstance: {fileID: 1147520597620856514}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &540819260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 540819258}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a91184917662287448208663f21452dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 11400000, guid: 1af540207d904e14184a6ab85a43fa1c, type: 2}
-  hoverPanel: {fileID: 744202106}
-  inventoryPrefab: {fileID: 7522105947910573475, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
 --- !u!1 &573028076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,11 +1917,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717809494}
   m_CullTransparentMesh: 1
---- !u!1 &744202106 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1144188293628975773, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
-  m_PrefabInstance: {fileID: 1147520597620856514}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &780961831 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3192530762114409176, guid: dfbf56976f8c1b54c926977d44894ce3, type: 3}
@@ -3585,6 +3560,7 @@ MonoBehaviour:
   enemyEightPrefab: {fileID: 4504837620572870046, guid: 5f92219dcff20e748913dc76d3638c0b, type: 3}
   enemyNinePrefab: {fileID: 3395990604518458458, guid: 0974be627e5f077498bded5fcab8baca, type: 3}
   enemyTenPrefab: {fileID: 3758574665474765653, guid: 6098d4f5d5d22ea438ab87b7fb2bb838, type: 3}
+  sceneTrackerObj: {fileID: 0}
   GameOverScreen: {fileID: 717077680}
   battleTheme: {fileID: 8300000, guid: 1a3959912c98f564f8c5c6529372d39c, type: 3}
   gameOverTheme: {fileID: 8300000, guid: a1e8f95f525963a4fb2b426eddd3e931, type: 3}
