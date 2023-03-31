@@ -45,8 +45,9 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject swordPurchaseBtn;
     [SerializeField] private GameObject shieldPurchaseBtn;
 
-    [Header("Upgrade Success Display")]
+    [Header("Upgrade Success/Not Enough Funds Display")]
     [SerializeField] private GameObject upgradeSuccessDisplay;
+    [SerializeField] private GameObject notEnoughFundsUpgradeDisplay;
 
 
     // Start is called before the first frame update
@@ -128,10 +129,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[1];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -144,10 +147,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[3];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -160,10 +165,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[5];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -176,10 +183,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[4];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -195,10 +204,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[9];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -210,10 +221,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[6];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -225,10 +238,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[7];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -240,10 +255,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[8];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -257,10 +274,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[12];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -272,10 +291,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[10];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -287,10 +308,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[11];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -307,10 +330,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[13];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -322,10 +347,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[14];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -337,10 +364,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[15];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -357,10 +386,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[16];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -372,10 +403,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[17];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -387,10 +420,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[18];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -403,10 +438,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[19];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -419,10 +456,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[20];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -434,10 +473,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[21];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -450,10 +491,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[0];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -462,14 +505,16 @@ public class ShopManager : MonoBehaviour
     {
         if (playerPersistency.money.canAfford(7))
         {
-            playerPersistency.money.removeCurrency(9);
+            playerPersistency.money.removeCurrency(7);
             ItemObject item = playerInventory.database.GetItem[2];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -482,10 +527,12 @@ public class ShopManager : MonoBehaviour
             ItemObject item = playerInventory.database.GetItem[22];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
         }
         else
         {
             notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
 
     }
@@ -603,13 +650,20 @@ public class ShopManager : MonoBehaviour
             Debug.Log("tried to purchase upgrade");
             playerPersistency.money.removeCurrency(cost);
             playerEquipment.container.Items[equipSlot].item.buffs[0].UpgradeStat(playerEquipment.container.Items[equipSlot].item.buffs[0].Max);
+
+            helmetPurchaseBtn.SetActive(false);
+            chestPurchaseBtn.SetActive(false);
+            legsPurchaseBtn.SetActive(false);
+            bootsPurchaseBtn.SetActive(false);
+            swordPurchaseBtn.SetActive(false);
+            shieldPurchaseBtn.SetActive(false);
         }
-        helmetPurchaseBtn.SetActive(false);
-        chestPurchaseBtn.SetActive(false);
-        legsPurchaseBtn.SetActive(false);
-        bootsPurchaseBtn.SetActive(false);
-        swordPurchaseBtn.SetActive(false);
-        shieldPurchaseBtn.SetActive(false);
+        else
+        {
+            notEnoughFundsUpgradeDisplay.SetActive(true);
+            Invoke("hideNotEnoughFundsUpgrade", 1.5f);        
+        }
+           
     }
 
     private void hideUpgradeSuccess()
@@ -617,6 +671,21 @@ public class ShopManager : MonoBehaviour
         upgradeSuccessDisplay.SetActive(false);
         upgradeInfoWindow.SetActive(false);
         
+    }
+
+    private void hideNotEnoughFundsUpgrade()
+    {
+        notEnoughFundsUpgradeDisplay.SetActive(false);
+    }
+
+    private void hideNotEnoughFundsPurchase()
+    {
+        notEnoughFunds.SetActive(false);
+    }
+
+    private void hidePurchaseSuccessful()
+    {
+        purchaseSuccessful.SetActive(false);
     }
 
     public void resetMoney()
