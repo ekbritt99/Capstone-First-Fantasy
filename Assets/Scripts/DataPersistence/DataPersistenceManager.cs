@@ -112,7 +112,7 @@ public class DataPersistenceManager : MonoBehaviour
         Debug.Log("(DataPersistenceManager) SaveGame()");
         if(this.gameData == null)
         {
-            Debug.LogWarning("No data found. A new game must be started.");
+            Debug.LogWarning("No data found. A new game must be started. Game was likely started from scene other than main menu.");
             return;
         }
 

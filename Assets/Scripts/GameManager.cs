@@ -21,6 +21,7 @@ public class GameManager: MonoBehaviour
     public Vector3 playerStartLocation;
 
     public GameObject pauseMenu;
+    public GameObject settingsMenu;
     public GameObject dialogueBox;
     public GameObject backButton;
 
@@ -43,6 +44,9 @@ public class GameManager: MonoBehaviour
 
     private void Start()
     {
+
+        // Load PlayerPrefs
+        LoadSettings();
 
         sceneState = (Scenes) SceneManager.GetActiveScene().buildIndex;
         prevScene = sceneState;
@@ -82,6 +86,15 @@ public class GameManager: MonoBehaviour
             Time.timeScale = 1;
     }
 
+    void RetrunToMenu()
+    {
+        SceneManager.LoadScene((int) Scenes.MAIN_MENU);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
     public void GoToGameScene(Scenes scene)
     {
@@ -211,6 +224,11 @@ public class GameManager: MonoBehaviour
     //     Debug.Log("Previous Scene: " + prevScene + " -- Scene State: " + sceneState);
     // }
 
+    public void ToggleSettingsMenu()
+    {
+        this.settingsMenu.SetActive(!this.settingsMenu.activeSelf);
+    }
+
 
     public void DisplayDialogueBox(string text)
     {
@@ -226,6 +244,22 @@ public class GameManager: MonoBehaviour
     public void ResetTempDisplays()
     {
         HideDialogeBox();
+    }
+
+    // Load settings from PlayerPrefs (saved in registry)
+    private void LoadSettings()
+    {
+        // Load Resolution
+        int width = PlayerPrefs.GetInt("ScreenWidth", Screen.currentResolution.width);
+        int height = PlayerPrefs.GetInt("ScreenHeight", Screen.currentResolution.height);
+        int refreshRate = PlayerPrefs.GetInt("RefreshRate", Screen.currentResolution.refreshRate);
+        bool isFullScreen = PlayerPrefs.GetInt("IsFullscreen", 1) == 1;
+
+        Screen.SetResolution(width, height, isFullScreen, refreshRate);
+
+        // Load Volume
+        float volume = PlayerPrefs.GetInt("volume", 10000) / 10000f;
+        AudioListener.volume = volume;
     }
 
     public void OnApplicationQuit()

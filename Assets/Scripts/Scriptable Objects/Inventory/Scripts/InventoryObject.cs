@@ -91,6 +91,18 @@ public class InventoryObject : ScriptableObject
         return null;
     }
 
+    public int FindEmptySlot()
+    {
+        for (int i = 0; i < container.Items.Length; i++)
+        {
+            if (container.Items[i].item.ID <= -1)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     // Swap two items in the inventory. Reminder: an empty slot is an item with ID -1.
     public void MoveItem(InventorySlot item1, InventorySlot item2)
     {
@@ -118,7 +130,12 @@ public class InventoryObject : ScriptableObject
     // The savePath is the name of the inventory file. i.e. inventory or equipment or chest.
     [ContextMenu("Save")]
     public void Save()
-    {
+    {   
+        if(DataPersistenceManager.instance.GetSelectedProfileID() == null)
+        {
+            Debug.LogWarning("No profile selected. Game likely started from a scene other than the main menu.");
+            return;
+        }
         string fullPath = Path.Combine(Application.persistentDataPath, DataPersistenceManager.instance.GetSelectedProfileID(), savePath);
         IFormatter formatter = new BinaryFormatter();
         Stream stream = new FileStream(fullPath, FileMode.Create, FileAccess.Write);
@@ -131,6 +148,12 @@ public class InventoryObject : ScriptableObject
     [ContextMenu("Load")]
     public void Load()
     {
+        if(DataPersistenceManager.instance.GetSelectedProfileID() == null)
+        {
+            Debug.LogWarning("No profile selected. Game likely started from a scene other than the main menu.");
+            return;
+        }
+
         string fullPath = Path.Combine(Application.persistentDataPath, DataPersistenceManager.instance.GetSelectedProfileID(), savePath);
         if(File.Exists(fullPath))
         {
