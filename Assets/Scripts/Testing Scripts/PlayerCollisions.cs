@@ -38,7 +38,7 @@ public class PlayerCollisions : MonoBehaviour
 
         if (collision.gameObject.tag == "Scene Trigger 3")
         {
-            GameManager.Instance.GoToPreviousScene();
+            GameManager.Instance.GoToGameScene(Scenes.WORLD);
         }
 
         if (collision.gameObject.tag == "leave house")
