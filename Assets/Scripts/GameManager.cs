@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public enum Scenes { MAIN_MENU, HOUSE, VILLAGE, INVENTORY, WORLD, BATTLE, SHOP }
+public enum Scenes { MAIN_MENU, HOUSE, VILLAGE, INVENTORY, WORLD, BATTLE, SHOP, WORLD2 }
 public enum GameState { DEFAULT, ACTIVE, INACTIVE }
 
 public class GameManager: MonoBehaviour

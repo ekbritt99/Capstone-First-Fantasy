@@ -41,6 +41,11 @@ public class PlayerCollisions : MonoBehaviour
             GameManager.Instance.GoToGameScene(Scenes.VILLAGE);
         }
 
+        if (collision.gameObject.tag == "World 2 Trigger") 
+        {
+            GameManager.Instance.GoToGameScene(Scenes.WORLD2);
+        }
+
         if (collision.gameObject.tag == "One")
         {
             GameManager.Instance.enemyHistory.Add("One");
