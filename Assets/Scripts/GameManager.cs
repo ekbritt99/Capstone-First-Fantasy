@@ -111,8 +111,12 @@ public class GameManager: MonoBehaviour
             GameObject player = GameObject.Find("Player");
             if(player != null)
             {
-
                 positionHistory = player.transform.position;
+
+                if (scene == Scenes.WORLD2)
+                {
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(positionHistory.x, -4.25f, 1.565f);
+                }
 
                 // switch(scene)
                 // {
@@ -162,6 +166,11 @@ public class GameManager: MonoBehaviour
             GameObject player = GameObject.Find("Player");
             // Debug.Log("Player: " + player.gameObject.transform.position);
             Vector3 temp = player.transform.position;
+            if (SceneManager.GetActiveScene().name == "World Scene 2")
+            {
+                Debug.Log("line up player location");
+                positionHistory = new Vector3(temp.x, 4f, 1.565f);
+            }
             Debug.Log("GoToPreviousScene spawn position: " + positionHistory);
             PlayerPersistency.Instance.spawnPosition = positionHistory;
             positionHistory = temp;

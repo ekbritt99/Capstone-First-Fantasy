@@ -24,6 +24,7 @@ TagManager:
   - leave house
   - World 2 Trigger
   - NPCRat2
+  - Scene Trigger 3
   layers:
   - Default
   - TransparentFX

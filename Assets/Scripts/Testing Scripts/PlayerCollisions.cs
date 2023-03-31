@@ -36,6 +36,11 @@ public class PlayerCollisions : MonoBehaviour
             GameManager.Instance.GoToGameScene(Scenes.VILLAGE);
         }
 
+        if (collision.gameObject.tag == "Scene Trigger 3")
+        {
+            GameManager.Instance.GoToPreviousScene();
+        }
+
         if (collision.gameObject.tag == "leave house")
         {
             GameManager.Instance.GoToGameScene(Scenes.VILLAGE);
