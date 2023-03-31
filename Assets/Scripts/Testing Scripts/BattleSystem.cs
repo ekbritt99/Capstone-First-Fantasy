@@ -12,6 +12,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     public GameObject gameManager;
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
+    public GameObject inventoryOverlay;
 
     public InventoryObject playerEquipment;
     public InventoryObject playerInventory;
@@ -91,10 +92,10 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             }
         }
 
-        playerPrefab.transform.position = new Vector3(-5.45f, -0.57f, 0f);
+        playerPrefab.transform.position = new Vector3(-5.45f, -0.63f, 0f);
 
         if(sceneTrackerObj == null) {
-            enemyGO = Instantiate(enemyOnePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+            enemyGO = Instantiate(enemyOnePrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
             enemyUnit = enemyGO.GetComponent<Unit>();
             currencyReward = Random.Range(3, 5);
         } else {
@@ -103,61 +104,61 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             string enemyEncountered = GameManager.Instance.enemyHistory[numOfEnemiesEncountered];
             if (enemyEncountered == "One")
             {
-                enemyGO = Instantiate(enemyOnePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyGO = Instantiate(enemyOnePrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
     ;        }
             if (enemyEncountered == "Two")
             {
-                enemyGO = Instantiate(enemyTwoPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyGO = Instantiate(enemyTwoPrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(7, 10);
             }
             if (enemyEncountered == "Three")
             {
-                enemyGO = Instantiate(enemyThreePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyGO = Instantiate(enemyThreePrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(5, 7);
             }
             if (enemyEncountered == "Four")
             {
-                enemyGO = Instantiate(enemyFourPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyGO = Instantiate(enemyFourPrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
             }
             if (enemyEncountered == "Five")
             {
-                enemyGO = Instantiate(enemyFivePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyGO = Instantiate(enemyFivePrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(5, 7);
             }
             if (enemyEncountered == "Six")
             {
-                enemyGO = Instantiate(enemySixPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyGO = Instantiate(enemySixPrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(7, 10);
             }
             if (enemyEncountered == "Seven")
             {
-                enemyGO = Instantiate(enemySevenPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyGO = Instantiate(enemySevenPrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(1, 3);
             }
             if (enemyEncountered == "Eight")
             {
-                enemyGO = Instantiate(enemyEightPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyGO = Instantiate(enemyEightPrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
             }
             if (enemyEncountered == "Nine")
             {
-                enemyGO = Instantiate(enemyNinePrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyGO = Instantiate(enemyNinePrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
             }
             if (enemyEncountered == "Ten")
             {
-                enemyGO = Instantiate(enemyTenPrefab, new Vector3(5.09f, -1.8f, -4.85f), Quaternion.identity);
+                enemyGO = Instantiate(enemyTenPrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
             }
@@ -205,6 +206,10 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         dialogueText.text = "Enemy attacks!";
         yield return new WaitForSeconds(1f);
         int newEnemyDamage = enemyUnit.damage - playerDefense;
+        if(newEnemyDamage <= 0)
+        {
+            dialogueText.text = "You took no damage from the attack!";
+        }
         bool isDead = playerUnit.TakeDamage(newEnemyDamage);
         playerHUD.setHP(playerUnit.currentHP);
         yield return new WaitForSeconds(1f);
@@ -233,10 +238,8 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         } else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were defeated...";
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1);
             GameOver();
-            //gameManager.SendMessage("GoToOverWorld");
-            GameManager.Instance.GoToGameScene(Scenes.VILLAGE);
         }
 
         DataPersistenceManager.instance.SaveGame();
@@ -288,8 +291,25 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
 
         StartCoroutine(PlayerHeal());
     }
+
+    public void onBattleInventoryBackButton()
+    {
+        if(state != BattleState.PLAYERTURN)
+            return;
+
+        state = BattleState.ENEMYTURN;
+        StartCoroutine(EnemyTurn());
+    }
+    
+    public void onBattleInventoryButton()
+    {
+        if(state != BattleState.PLAYERTURN)
+            return;
+    }
+
     public void onReturnButton() 
     {
+        playerUnit.currentHP = 1;
         GameManager.Instance.GoToGameScene(Scenes.VILLAGE);
     }
     public static int returnZero()
@@ -306,6 +326,16 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     public void showEnemy()
     {
         enemyGO.SetActive(true);    
+    }
+
+    public void showInventory()
+    {
+        inventoryOverlay.GetComponent<Canvas>().enabled = true;
+    }
+
+    public void hideInventory()
+    {
+        inventoryOverlay.GetComponent<Canvas>().enabled = false;
     }
 
     //MUSIC INTERFACE

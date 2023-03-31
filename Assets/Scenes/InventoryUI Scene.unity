@@ -667,6 +667,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2882356546298022776, guid: 5aa2b56a2daca0949871842845990817, type: 3}
+      propertyPath: m_Text
+      value: 'Hover over an item to view its description.
+
+
+        Drag and drop
+        a piece of equipment to its respective item slot to equip it.
+
+
+        Right
+        click on an HP restoring item to restore your health.
+
+
+        You can drag
+        and drop items to other item slots to organize them.'
+      objectReference: {fileID: 0}
     - target: {fileID: 2882356546350212838, guid: 5aa2b56a2daca0949871842845990817, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

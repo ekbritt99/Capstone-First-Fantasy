@@ -11,6 +11,8 @@ public class PlayerCollisions : MonoBehaviour
     public GameObject sceneTrackerObj;
 
     public GameObject playerObj;
+
+    public NPCBubbleManager bubbleManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -123,8 +125,14 @@ public class PlayerCollisions : MonoBehaviour
             // sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Ten");
             // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
             // gameManager.SendMessage("GoToBattle");
-        } 
-        
+        }
+
+        if (collision.gameObject.tag == "NPCRat2")
+        {
+            bubbleManager.SendMessage("showShopBubble");
+            bubbleManager.SendMessage("startDialogue");
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

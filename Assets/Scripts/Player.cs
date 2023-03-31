@@ -18,6 +18,10 @@ public class Player : MonoBehaviour
 
     public bool isControllable = true;
 
+    public bool isHovering;
+
+    [SerializeField] GameObject hpAndEquipmentDisplay;
+
 
     // public PersistentEntityUnit playerUnit;
 
@@ -57,6 +61,8 @@ public class Player : MonoBehaviour
             equipment.GetSlots[i].OnBeforeUpdate += OnRemoveItem;
             equipment.GetSlots[i].OnAfterUpdate += OnAddItem;
         }
+
+        isHovering = false;
     }
 
     private void OnDisable()
@@ -183,7 +189,26 @@ public class Player : MonoBehaviour
         Debug.Log(string.Concat(attribute));
     }
 
+    private void OnMouseOver()
+    {
+        StartCoroutine(StillHovering());
+        isHovering = true;
+    }
 
+    private void OnMouseExit()
+    {
+        isHovering = false;
+        hpAndEquipmentDisplay.SetActive(false);
+    }
+
+    private IEnumerator StillHovering()
+    {
+        yield return new WaitForSeconds(1f);
+        if (isHovering)
+        {
+            hpAndEquipmentDisplay.SetActive(true);
+        }
+    }
 
 }
 

@@ -1491,10 +1491,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 464481266}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2115337701}
+        m_TargetAssemblyTypeName: BattleSystem, Scripts
+        m_MethodName: showInventory
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1506,6 +1506,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2115337701}
         m_TargetAssemblyTypeName: BattleSystem, Scripts
         m_MethodName: hideEnemy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2115337701}
+        m_TargetAssemblyTypeName: BattleSystem, Scripts
+        m_MethodName: onBattleInventoryButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2021,7 +2033,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Return To Overworld
+  m_text: Return To Village
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3531,6 +3543,7 @@ MonoBehaviour:
   gameManager: {fileID: 2094225402}
   playerPrefab: {fileID: 871587441}
   enemyPrefab: {fileID: 431860704}
+  inventoryOverlay: {fileID: 464481266}
   playerEquipment: {fileID: 11400000, guid: a27166c753180dd408aa17af7549c6ce, type: 2}
   playerInventory: {fileID: 11400000, guid: 1af540207d904e14184a6ab85a43fa1c, type: 2}
   enemyOnePrefab: {fileID: 9143014642059542093, guid: c86448bd3b74f584f8849abba6378d91, type: 3}
@@ -3692,22 +3705,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 464481266}
+      objectReference: {fileID: 2115337701}
     - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2115337701}
+    - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 2115337701}
     - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
@@ -3719,19 +3740,31 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: hideInventory
       objectReference: {fileID: 0}
     - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: showEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: onBattleInventoryBackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: BattleSystem, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: BattleSystem, Scripts
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: BattleSystem, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
@@ -3740,6 +3773,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1144188293276536149, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
@@ -3834,13 +3871,17 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1144188293608947265, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1144188293608947268, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_Name
       value: BattleInventory
       objectReference: {fileID: 0}
     - target: {fileID: 1144188293608947268, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1144188293864817745, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: backButton
