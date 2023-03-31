@@ -552,8 +552,8 @@ GameObject:
   - component: {fileID: 1071831368}
   - component: {fileID: 1071831369}
   m_Layer: 0
-  m_Name: bound top
-  m_TagString: Untagged
+  m_Name: bound top/world 2 trigger
+  m_TagString: World 2 Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1245,11 +1245,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4552770034531372719, guid: 9b5b492bb0d6b9d42b3acbb366cdd62d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.79
+      value: 1.99
       objectReference: {fileID: 0}
     - target: {fileID: 4552770034531372719, guid: 9b5b492bb0d6b9d42b3acbb366cdd62d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2280492
+      value: -2.19
       objectReference: {fileID: 0}
     - target: {fileID: 4552770034531372719, guid: 9b5b492bb0d6b9d42b3acbb366cdd62d, type: 3}
       propertyPath: m_LocalPosition.z
