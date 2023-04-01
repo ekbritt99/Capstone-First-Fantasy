@@ -667,6 +667,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2882356546297450548, guid: 5aa2b56a2daca0949871842845990817, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 146
+      objectReference: {fileID: 0}
     - target: {fileID: 2882356546298022776, guid: 5aa2b56a2daca0949871842845990817, type: 3}
       propertyPath: m_Text
       value: 'Hover over an item to view its description.
@@ -687,5 +691,13 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1419507914}
+    - target: {fileID: 2882356546350212841, guid: 5aa2b56a2daca0949871842845990817, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882356546350212841, guid: 5aa2b56a2daca0949871842845990817, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -51
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5aa2b56a2daca0949871842845990817, type: 3}
