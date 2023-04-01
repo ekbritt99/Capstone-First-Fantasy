@@ -6,6 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     
 
+    public GameObject gameManager;
     public GameObject typeOneEnemy;
     public GameObject typeTwoEnemy;
     public GameObject typeThreeEnemy;
@@ -74,7 +75,27 @@ public class EnemySpawner : MonoBehaviour
 
     public void spawnEnemies()
     {
-        int randomEnemyType = Random.Range(1, 11);
+        //int randomEnemyType = Random.Range(1, 11);
+        int randomEnemyType = 1;
+        string stringEncounter = GameManager.Instance.SceneString();
+
+        if(stringEncounter == "World")
+        {
+            randomEnemyType = Random.Range(1,4);
+        }
+        if(stringEncounter == "Castle")
+        {
+            randomEnemyType = Random.Range(4,7);
+        }
+        if(stringEncounter == "World2")
+        {
+            randomEnemyType = Random.Range(7,11);
+        }
+        if(stringEncounter == "None")
+        {
+            randomEnemyType = Random.Range(1,11);
+        }
+        
         
         if (randomEnemyType == 1)
         {

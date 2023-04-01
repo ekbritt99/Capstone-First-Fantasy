@@ -164,6 +164,17 @@ public class GameManager: MonoBehaviour
 
 
     }
+    public string SceneString()
+    {
+        if(sceneState == Scenes.WORLD)
+            return "World";
+        if(sceneState == Scenes.WORLD2)
+            return "World2";
+        if(sceneState == Scenes.TL_CASTLE_DOOR || sceneState == Scenes.TR_CASTLE_DOOR || sceneState == Scenes.BL_CASTLE_DOOR || sceneState == Scenes.BR_CASTLE_DOOR)
+            return "Castle";
+        else
+            return "None";
+    }
 
     public void GoToPreviousScene()
     {
