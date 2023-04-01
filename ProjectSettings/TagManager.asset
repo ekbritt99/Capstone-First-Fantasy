@@ -25,6 +25,11 @@ TagManager:
   - World 2 Trigger
   - NPCRat2
   - Scene Trigger 3
+  - Top Left Castle Door Trigger
+  - Top Right Castle Door Trigger
+  - Bottom Left Castle Door Trigger
+  - Bottom Right Castle Door Trigger
+  - Castle Trigger
   layers:
   - Default
   - TransparentFX

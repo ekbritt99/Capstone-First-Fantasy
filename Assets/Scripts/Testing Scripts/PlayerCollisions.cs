@@ -50,6 +50,28 @@ public class PlayerCollisions : MonoBehaviour
         {
             GameManager.Instance.GoToGameScene(Scenes.WORLD2);
         }
+        if (collision.gameObject.tag == "Castle Trigger") 
+        {
+            GameManager.Instance.GoToGameScene(Scenes.CASTLE);
+        }
+        /*
+        if (collision.gameObject.tag == "Top Left Castle Door Trigger") 
+        {
+            GameManager.Instance.GoToGameScene(Scenes.TL_CASTLE_DOOR);
+        }
+        if (collision.gameObject.tag == "Top Right Castle Door Trigger") 
+        {
+            GameManager.Instance.GoToGameScene(Scenes.TR_CASTLE_DOOR);
+        }
+        if (collision.gameObject.tag == "Bottom Left Castle Door Trigger") 
+        {
+            GameManager.Instance.GoToGameScene(Scenes.BL_CASTLE_DOOR);
+        }
+        if (collision.gameObject.tag == "Bottom Right Castle Door Trigger") 
+        {
+            GameManager.Instance.GoToGameScene(Scenes.BR_CASTLE_DOOR);
+        }
+        */
 
         if (collision.gameObject.tag == "One")
         {
@@ -162,6 +184,26 @@ public class PlayerCollisions : MonoBehaviour
         {
             GameManager.Instance.SendMessage("DisplayDialogueBox", "Don't forget to stop by the shop to the west of town and buy some gear...");
             // gameManager.SendMessage("DisplayDialogueBox", "Don't forget to stop by the shop to the west of town and buy some gear...");
+        }
+        if (collision.gameObject.tag == "Castle Trigger") 
+        {
+            GameManager.Instance.GoToGameScene(Scenes.CASTLE);
+        }
+        if (collision.gameObject.tag == "Top Left Castle Door Trigger") 
+        {
+            GameManager.Instance.GoToGameScene(Scenes.TL_CASTLE_DOOR);
+        }
+        if (collision.gameObject.tag == "Top Right Castle Door Trigger") 
+        {
+            GameManager.Instance.GoToGameScene(Scenes.TR_CASTLE_DOOR);
+        }
+        if (collision.gameObject.tag == "Bottom Left Castle Door Trigger") 
+        {
+            GameManager.Instance.GoToGameScene(Scenes.BL_CASTLE_DOOR);
+        }
+        if (collision.gameObject.tag == "Bottom Right Castle Door Trigger") 
+        {
+            GameManager.Instance.GoToGameScene(Scenes.BR_CASTLE_DOOR);
         }
     }
 
