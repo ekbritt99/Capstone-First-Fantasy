@@ -16,15 +16,17 @@ MonoBehaviour:
   type: 0
   database: {fileID: 11400000, guid: 4d319100ba513194a82b901c1dba2ce8, type: 2}
   container:
-    gold:
-      unit: 30
     Items:
     - AllowedItems: 
       item:
-        Name: 
-        ID: -1
-        buffs: []
-      amount: 0
+        Name: Potion Red
+        ID: 0
+        buffs:
+        - stat: 4
+          value: 0
+          min: 0
+          max: 0
+      amount: 4
     - AllowedItems: 
       item:
         Name: 

@@ -22,9 +22,9 @@ public class MainMenu : MonoBehaviour
     // Show the save slot menu with loading flag flase.
     public void OnNewGameClicked()
     {
-        saveSlotsMenu.ActivateMenu(false);
+        DisableMenuButtons();
 
-        this.DisableMenuButtons();
+        saveSlotsMenu.ActivateMenu(false);
     }
 
     // Show the save slot menu with loading flag true.
@@ -33,6 +33,11 @@ public class MainMenu : MonoBehaviour
         DisableMenuButtons();
 
         saveSlotsMenu.ActivateMenu(true);
+    }
+
+    public void OnSettingsClicked()
+    {
+        GameManager.Instance.settingsMenu.SetActive(true);
     }
 
     // Disable the menu buttons
