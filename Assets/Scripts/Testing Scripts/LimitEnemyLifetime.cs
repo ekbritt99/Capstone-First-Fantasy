@@ -19,7 +19,8 @@ public class LimitEnemyLifetime : MonoBehaviour
     void Update()
     {
 
-        if (SceneManager.GetActiveScene().name == "Test World Scene")
+        if (SceneManager.GetActiveScene().name == "Test World Scene" || SceneManager.GetActiveScene().name == "Top Left Castle Room Scene" || SceneManager.GetActiveScene().name == "Top Right Castle Room Scene" 
+        || SceneManager.GetActiveScene().name == "Bottom Left Castle Room Scene" || SceneManager.GetActiveScene().name == "Bottom Right Castle Room Scene" || SceneManager.GetActiveScene().name == "World Scene 2")
         {
             if (transform.position.x != -11.0f)
             {
