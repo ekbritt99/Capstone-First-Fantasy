@@ -206,11 +206,15 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         dialogueText.text = "Enemy attacks!";
         yield return new WaitForSeconds(1f);
         int newEnemyDamage = enemyUnit.damage - playerDefense;
+        bool isDead = false;
         if(newEnemyDamage <= 0)
         {
             dialogueText.text = "You took no damage from the attack!";
         }
-        bool isDead = playerUnit.TakeDamage(newEnemyDamage);
+        if(newEnemyDamage > 0)
+        {
+            isDead = playerUnit.TakeDamage(newEnemyDamage);
+        }
         playerHUD.setHP(playerUnit.currentHP);
         yield return new WaitForSeconds(1f);
         if(isDead)
@@ -294,6 +298,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
 
     public void onBattleInventoryBackButton()
     {
+        playerHUD.setHP(playerUnit.currentHP);
         if(state != BattleState.PLAYERTURN)
             return;
 

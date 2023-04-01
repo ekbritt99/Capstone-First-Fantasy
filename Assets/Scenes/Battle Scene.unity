@@ -3513,6 +3513,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 822192568290053122, guid: 777ca4bdd496d3f4e9fe03caeca26eef, type: 3}
   m_PrefabInstance: {fileID: 2094225401}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2094225403 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 822192568290053133, guid: 777ca4bdd496d3f4e9fe03caeca26eef, type: 3}
+  m_PrefabInstance: {fileID: 2094225401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094225402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9931e12dfae05d9468c01dcc7468ae32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2115337700
 GameObject:
   m_ObjectHideFlags: 0
@@ -3703,9 +3714,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1144188292096323362, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 300
+      objectReference: {fileID: 0}
     - target: {fileID: 1144188292096323373, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 2094225403}
+    - target: {fileID: 1144188292096323373, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenInventoryInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144188292096323373, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManagerOld, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 1144188292147894782, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3786,6 +3809,14 @@ PrefabInstance:
     - target: {fileID: 1144188293276536149, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 2094225403}
+    - target: {fileID: 1144188293276536149, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseInventoryInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144188293276536149, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManagerOld, Scripts
       objectReference: {fileID: 0}
     - target: {fileID: 1144188293608947264, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_Pivot.x
