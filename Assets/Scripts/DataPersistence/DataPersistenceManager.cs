@@ -131,6 +131,11 @@ public class DataPersistenceManager : MonoBehaviour
         Debug.Log("Saved Player health: " + gameData.playerHP);
     }
 
+    public void DeleteProfile(string profileID)
+    {
+        dataHandler.DeleteProfile(profileID);
+    }
+
     private void OnApplicationQuit()
     {
         SaveGame();

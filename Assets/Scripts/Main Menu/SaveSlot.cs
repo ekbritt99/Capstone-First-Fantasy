@@ -12,13 +12,19 @@ public class SaveSlot : MonoBehaviour
     [SerializeField] private GameObject noDataContent;
     [SerializeField] private GameObject hasDataContent;
     [SerializeField] private TMPro.TextMeshProUGUI healthText;
-    [SerializeField] private TMPro.TextMeshProUGUI deathsText;
+    [SerializeField] private TMPro.TextMeshProUGUI moneyText;
+
+    [SerializeField] private InventoryObject equipment;
+    [SerializeField] private DisplaySaveEquipment displaySaveEquipment;
 
     private Button saveSlotButton;
+
+    [SerializeField] private Button deleteButton;
 
     private void Awake()
     {
         saveSlotButton = GetComponent<Button>();
+        displaySaveEquipment.inventory = InventoryObject.Instantiate<InventoryObject>(equipment);
     }
 
     public void SetData(GameData data)
@@ -28,16 +34,24 @@ public class SaveSlot : MonoBehaviour
         {
             noDataContent.SetActive(true);
             hasDataContent.SetActive(false);
+            deleteButton.interactable = false;
+            displaySaveEquipment.inventory.Clear();
+            displaySaveEquipment.Display();
         }
         else
         {
             noDataContent.SetActive(false);
             hasDataContent.SetActive(true);
+            deleteButton.interactable = true;
 
             // Set the data
-            healthText.text = data.playerHP.ToString();
-            deathsText.text = data.money.ToString();
-            // deathsText.text = data.deathCount.ToString();
+            healthText.text = "HP: " + data.playerHP.ToString();
+            moneyText.text = "Gold: " + data.money.ToString();
+            
+            displaySaveEquipment.inventory.Load(profileID);
+
+            displaySaveEquipment.Display();
+
         }
     }
 
