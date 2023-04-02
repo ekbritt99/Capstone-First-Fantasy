@@ -391,6 +391,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204087773}
   m_CullTransparentMesh: 1
+--- !u!1 &216504961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5561043943306234923, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
+  m_PrefabInstance: {fileID: 1085928285}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &314153115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1066,6 +1071,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 735518729105091648, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1507173352407299443, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1765,6 +1774,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 777ca4bdd496d3f4e9fe03caeca26eef, type: 3}
+--- !u!1 &1950938596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1950938598}
+  - component: {fileID: 1950938597}
+  m_Layer: 0
+  m_Name: NPC Bubble Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1950938597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950938596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f525fd0cabdfc4b88119e32953c357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displaySpeed: 0.05
+  npcDialogueText: {fileID: 2038998881}
+  npcDialogueSentences:
+  - Don't forget to stop by the shop to the west of town and buy some gear...
+  shopBubble: {fileID: 216504961}
+--- !u!4 &1950938598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950938596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.33446473, y: -0.40965295, z: 1.8489634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2012333375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,6 +1881,17 @@ Transform:
   m_Father: {fileID: 1367939974}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2038998881 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 735518729105091648, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
+  m_PrefabInstance: {fileID: 1085928285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2099257567
 GameObject:
   m_ObjectHideFlags: 0
