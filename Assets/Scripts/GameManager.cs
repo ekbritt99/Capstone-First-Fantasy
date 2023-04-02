@@ -136,6 +136,11 @@ public class GameManager: MonoBehaviour
                     PlayerPersistency.Instance.spawnPosition = new Vector3(positionHistory.x, 4f, 1.565f);
                 }
 
+                if (scene == Scenes.WORLD && SceneManager.GetActiveScene().name == "Castle Scene")
+                {
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-5.054507f, -1.56f, 1.565f);
+                }
+
                 // switch(scene)
                 // {
                 //     case Scenes.HOUSE:
