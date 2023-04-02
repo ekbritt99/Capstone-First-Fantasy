@@ -569,8 +569,8 @@ public class ShopManager : MonoBehaviour
         weaponName.text = playerEquipment.container.Items[3].item.Name;
         int cost = calculateUpgrade(3);
         upgradeCost.text = cost.ToString();
-        currentBuff.text = playerEquipment.container.Items[0].item.buffs[0].value.ToString();
-        upgradedBuff.text = playerEquipment.container.Items[0].item.buffs[0].Max.ToString();
+        currentBuff.text = playerEquipment.container.Items[3].item.buffs[0].value.ToString();
+        upgradedBuff.text = playerEquipment.container.Items[3].item.buffs[0].Max.ToString();
         bootsPurchaseBtn.SetActive(true);
     }
     private void calculateSword()
