@@ -87,10 +87,10 @@ public class EnemySpawner : MonoBehaviour
         {
             randomEnemyType = Random.Range(4,7);
         }
-        if(stringEncounter == "World2")
-        {
-            randomEnemyType = Random.Range(7,11);
-        }
+        // if(stringEncounter == "World2")
+        // {
+        //     randomEnemyType = Random.Range(7,11);
+        // }
         if(stringEncounter == "None")
         {
             randomEnemyType = Random.Range(1,11);

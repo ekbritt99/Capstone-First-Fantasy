@@ -30,6 +30,8 @@ TagManager:
   - Bottom Left Castle Door Trigger
   - Bottom Right Castle Door Trigger
   - Castle Trigger
+  - boss1
+  - boss1text
   layers:
   - Default
   - TransparentFX

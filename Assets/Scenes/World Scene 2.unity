@@ -256,6 +256,7 @@ Transform:
   - {fileID: 908417569}
   - {fileID: 1976103831}
   - {fileID: 534512148}
+  - {fileID: 1571097090}
   m_Father: {fileID: 1850835774}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -467,6 +468,72 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4552770034531372718, guid: 9b5b492bb0d6b9d42b3acbb366cdd62d, type: 3}
   m_PrefabInstance: {fileID: 558166360}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &558207277
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5461348189279581056, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461348189279581056, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461348189279581056, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461348189279581056, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.7773169
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461348189279581056, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461348189279581056, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461348189279581056, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461348189279581056, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461348189279581056, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461348189279581056, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5461348189279581056, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904417752678411850, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: maxHP
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904417752678411850, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: currentHP
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7244020545106449968, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: m_Name
+      value: EnemyBoss
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4045344309509808589, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
 --- !u!1001 &714315095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -691,6 +758,55 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8015251, y: 10.809159}
   m_EdgeRadius: 0
+--- !u!1 &1085973280
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1085973282}
+  - component: {fileID: 1085973281}
+  m_Layer: 0
+  m_Name: NPCBubbleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1085973281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085973280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f525fd0cabdfc4b88119e32953c357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displaySpeed: 0.05
+  npcDialogueText: {fileID: 0}
+  npcDialogueSentences:
+  - You approach the large slime.
+  shopBubble: {fileID: 0}
+--- !u!4 &1085973282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085973280}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3223629, y: 0.27454817, z: 0.04326159}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1147587746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -805,6 +921,64 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1.3816795, y: 10.656489}
+  m_EdgeRadius: 0
+--- !u!1 &1571097089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1571097090}
+  - component: {fileID: 1571097091}
+  m_Layer: 0
+  m_Name: bosstext
+  m_TagString: boss1text
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1571097090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571097089}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 159625379}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1571097091
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571097089}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.9706898, y: 1.97069}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16.505646, y: 0.5235691}
   m_EdgeRadius: 0
 --- !u!1001 &1755746191
 PrefabInstance:
