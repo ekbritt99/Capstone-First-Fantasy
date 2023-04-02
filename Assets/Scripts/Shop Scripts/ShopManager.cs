@@ -483,12 +483,12 @@ public class ShopManager : MonoBehaviour
 
     }
 
-    public void purchaseRedPotion()
+    public void purchaseHardyStew()
     {
-        if (playerPersistency.money.canAfford(5))
+        if (playerPersistency.money.canAfford(3))
         {
-            playerPersistency.money.removeCurrency(5);
-            ItemObject item = playerInventory.database.GetItem[0];
+            playerPersistency.money.removeCurrency(3);
+            ItemObject item = playerInventory.database.GetItem[24];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
@@ -498,8 +498,25 @@ public class ShopManager : MonoBehaviour
             notEnoughFunds.SetActive(true);
             Invoke("hideNotEnoughFundsPurchase", 1.5f);
         }
-
     }
+
+        public void purchaseRedPotion()
+        {
+            if (playerPersistency.money.canAfford(5))
+            {
+                playerPersistency.money.removeCurrency(5);
+                ItemObject item = playerInventory.database.GetItem[0];
+                playerInventory.AddItem(item.CreateItem(), 1);
+                purchaseSuccessful.SetActive(true);
+                Invoke("hidePurchaseSuccessful", 1.5f);
+            }
+            else
+            {
+                notEnoughFunds.SetActive(true);
+                Invoke("hideNotEnoughFundsPurchase", 1.5f);
+            }
+
+        }
 
     public void purchaseStrangeBrew()
     {
@@ -525,6 +542,24 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(9);
             ItemObject item = playerInventory.database.GetItem[22];
+            playerInventory.AddItem(item.CreateItem(), 1);
+            purchaseSuccessful.SetActive(true);
+            Invoke("hidePurchaseSuccessful", 1.5f);
+        }
+        else
+        {
+            notEnoughFunds.SetActive(true);
+            Invoke("hideNotEnoughFundsPurchase", 1.5f);
+        }
+
+    }
+
+    public void purchaseElixirOfTheGods()
+    {
+        if (playerPersistency.money.canAfford(15))
+        {
+            playerPersistency.money.removeCurrency(15);
+            ItemObject item = playerInventory.database.GetItem[23];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
