@@ -11,6 +11,8 @@ public class SaveSlotsMenu : MonoBehaviour
     [Header("Menu Buttons")]
     [SerializeField] private Button backButton;
 
+    [SerializeField] private ConfirmationBox confirmationBox;
+
     private SaveSlot[] saveSlots;
 
     private bool isLoadingGame = false;
@@ -82,6 +84,22 @@ public class SaveSlotsMenu : MonoBehaviour
         // Go to the game scene
         GameManager.Instance.GoToGameScene(Scenes.HOUSE);
     }
+
+    // Called when delete save slot is clicked.
+    public void OnDeleteSaveSlotClicked(SaveSlot slot)
+    {
+        confirmationBox.ShowConfirmationBox("Are you sure you want to delete this save slot?", () => { DeleteSaveSlot(slot); }, null);
+    }
+
+    private void DeleteSaveSlot(SaveSlot slot)
+    {
+        // Delete the save slot
+        DataPersistenceManager.instance.DeleteProfile(slot.GetProfileID());
+
+        // Reload the save slots
+        this.ActivateMenu(isLoadingGame);
+    }
+
 
     public void DisableMenuButtons()
     {

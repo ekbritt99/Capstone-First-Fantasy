@@ -117,4 +117,21 @@ public class FileDataHandler
 
         return profileDictionary;
     }
+
+    // Delete the data file for the given profileID.
+    public void DeleteProfile(string profileID)
+    {
+        string fullPath = Path.Combine(dataDirPath, profileID);
+        if(Directory.Exists(fullPath))
+        {
+            try
+            {
+                Directory.Delete(fullPath, true);
+            }
+            catch(Exception e)
+            {
+                Debug.LogError("Error occured when trying to delete data file " + fullPath + "\n" + e);
+            }
+        }
+    }
 }

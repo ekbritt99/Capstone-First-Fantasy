@@ -146,15 +146,20 @@ public class InventoryObject : ScriptableObject
 
     // Load the inventory. Uses the profileID in DataPersistenceManager to load the inventory from the correct profile folder.
     [ContextMenu("Load")]
-    public void Load()
+    public void Load(string path = null)
     {
-        if(DataPersistenceManager.instance.GetSelectedProfileID() == null)
+        if(DataPersistenceManager.instance.GetSelectedProfileID() == null && path == null)
         {
             Debug.LogWarning("No profile selected. Game likely started from a scene other than the main menu.");
             return;
         }
 
-        string fullPath = Path.Combine(Application.persistentDataPath, DataPersistenceManager.instance.GetSelectedProfileID(), savePath);
+        if(path == null)
+        {
+            path = DataPersistenceManager.instance.GetSelectedProfileID();
+        }
+
+        string fullPath = Path.Combine(Application.persistentDataPath, path, savePath);
         if(File.Exists(fullPath))
         {
             IFormatter formatter = new BinaryFormatter();
