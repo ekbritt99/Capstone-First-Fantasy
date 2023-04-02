@@ -3561,16 +3561,16 @@ MonoBehaviour:
   inventoryOverlay: {fileID: 464481266}
   playerEquipment: {fileID: 11400000, guid: a27166c753180dd408aa17af7549c6ce, type: 2}
   playerInventory: {fileID: 11400000, guid: 1af540207d904e14184a6ab85a43fa1c, type: 2}
-  enemyOnePrefab: {fileID: 9143014642059542093, guid: c86448bd3b74f584f8849abba6378d91, type: 3}
-  enemyTwoPrefab: {fileID: 7244020545106449968, guid: c496e4b36369ba84a9087d94592dc08e, type: 3}
-  enemyThreePrefab: {fileID: 6108972098264396084, guid: 89d2532d332539c49874a9f290e08952, type: 3}
+  enemyOnePrefab: {fileID: 649774131731707552, guid: c86448bd3b74f584f8849abba6378d91, type: 3}
+  enemyTwoPrefab: {fileID: 3395990604518458458, guid: c496e4b36369ba84a9087d94592dc08e, type: 3}
+  enemyThreePrefab: {fileID: 4504837620572870046, guid: 89d2532d332539c49874a9f290e08952, type: 3}
   enemyFourPrefab: {fileID: 5391891657742585783, guid: 19dec7c9df784864183d7f1b2ba70853, type: 3}
-  enemyFivePrefab: {fileID: 1104814378376789738, guid: bcc9fef2940ab9f42a729591e58a91d2, type: 3}
+  enemyFivePrefab: {fileID: 3758574665474765653, guid: bcc9fef2940ab9f42a729591e58a91d2, type: 3}
   enemySixPrefab: {fileID: 3629397885588319475, guid: 7edff730e7c2d8d45b5e84d87289d381, type: 3}
-  enemySevenPrefab: {fileID: 649774131731707552, guid: a22903eec53134e4790391d67f04897f, type: 3}
-  enemyEightPrefab: {fileID: 4504837620572870046, guid: 5f92219dcff20e748913dc76d3638c0b, type: 3}
-  enemyNinePrefab: {fileID: 3395990604518458458, guid: 0974be627e5f077498bded5fcab8baca, type: 3}
-  enemyTenPrefab: {fileID: 3758574665474765653, guid: 6098d4f5d5d22ea438ab87b7fb2bb838, type: 3}
+  enemySevenPrefab: {fileID: 1104814378376789738, guid: a22903eec53134e4790391d67f04897f, type: 3}
+  enemyEightPrefab: {fileID: 6108972098264396084, guid: 0974be627e5f077498bded5fcab8baca, type: 3}
+  enemyNinePrefab: {fileID: 9143014642059542093, guid: 6098d4f5d5d22ea438ab87b7fb2bb838, type: 3}
+  enemyTenPrefab: {fileID: 9143014642059542093, guid: 6098d4f5d5d22ea438ab87b7fb2bb838, type: 3}
   sceneTrackerObj: {fileID: 0}
   GameOverScreen: {fileID: 717077680}
   battleTheme: {fileID: 8300000, guid: 1a3959912c98f564f8c5c6529372d39c, type: 3}

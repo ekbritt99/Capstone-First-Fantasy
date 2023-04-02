@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7763688074829384467}
   m_Layer: 0
   m_Name: EnemyFive
-  m_TagString: Ten
+  m_TagString: Five
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
