@@ -79,6 +79,11 @@ public class GameManager: MonoBehaviour
 
     void Pause()
     {
+        if(this.settingsMenu.activeInHierarchy)
+        {
+            this.settingsMenu.SetActive(false);
+            return;
+        }
         pauseMenu.SetActive(!pauseMenu.activeInHierarchy);
         if (pauseMenu.activeInHierarchy)
             Time.timeScale = 0;
