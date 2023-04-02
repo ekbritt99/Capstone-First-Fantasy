@@ -31,6 +31,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     public GameObject enemyEightPrefab;
     public GameObject enemyNinePrefab;
     public GameObject enemyTenPrefab;
+    public GameObject enemyBossPrefab;
     GameObject enemyGO;
 
     public GameObject sceneTrackerObj;
@@ -161,6 +162,12 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
                 enemyGO = Instantiate(enemyTenPrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
+            }
+            if (enemyEncountered == "boss1")
+            {
+                enemyGO = Instantiate(enemyBossPrefab, new Vector3(5.09f, .25f, -4.85f), Quaternion.identity);
+                enemyUnit = enemyGO.GetComponent<Unit>();
+                currencyReward = 50;
             }
         }
 
