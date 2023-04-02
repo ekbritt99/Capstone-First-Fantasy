@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DisplayPlayerHP : MonoBehaviour
 {
-    private GameObject playerPersist;
     private PlayerPersistency playerStats;
 
     [SerializeField] private GameObject hpBar;
-    private SpriteRenderer hpBarRenderer;
+    private Slider hpBarSlider;
 
     [SerializeField] private GameObject Weapon;
-    private SpriteRenderer weaponSprite;
+    private Image weaponSprite;
 
     [SerializeField] private int currHealth;
     [SerializeField] private int maxHealth;
@@ -26,23 +26,24 @@ public class DisplayPlayerHP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerPersist = GameObject.Find("PlayerPersistency");
-        playerStats = playerPersist.GetComponent<PlayerPersistency>();
-        hpBarRenderer = hpBar.GetComponent<SpriteRenderer>();
+        playerStats = PlayerPersistency.Instance;
+        hpBarSlider = hpBar.GetComponent<Slider>();
         currHealth = playerStats.currentHP;
         maxHealth = playerStats.maxHP;
 
         float cHealth = (float)currHealth;
         float mHealth = (float)maxHealth;
-        hpBarRenderer.size = new Vector2((cHealth / mHealth) * 14.4f, 8f);
+        // hpBarSlider. = new Vector2((cHealth / mHealth) * 14.4f, 8f);
+        Debug.Log(hpBarSlider);
+        hpBarSlider.value = cHealth / mHealth;
 
-        weaponSprite = Weapon.GetComponent<SpriteRenderer>();
+        weaponSprite = Weapon.GetComponent<Image>();
         int currentWeapon = playerEquipment.container.Items[4].item.ID;
         if(currentWeapon == 1)
         {
             weaponSprite.sprite = katanaSprite;
             weaponSprite.color = Color.white;
-            Weapon.transform.localScale = new Vector3(0.09564409f, 0.09564409f, 0.09564409f);
+            // Weapon.transform.localScale = new Vector3(0.09564409f, 0.09564409f, 0.09564409f);
         }
         if (currentWeapon == 3)
         {
