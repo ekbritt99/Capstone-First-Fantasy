@@ -487,7 +487,7 @@ public class ShopManager : MonoBehaviour
     {
         if (playerPersistency.money.canAfford(5))
         {
-            playerPersistency.money.removeCurrency(9);
+            playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[0];
             playerInventory.AddItem(item.CreateItem(), 1);
             purchaseSuccessful.SetActive(true);
