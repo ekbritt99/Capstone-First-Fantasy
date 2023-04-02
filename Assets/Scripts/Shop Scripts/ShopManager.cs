@@ -693,6 +693,17 @@ public class ShopManager : MonoBehaviour
         playerPersistency.money.addCurrency(25);
     }
 
+    public void useTestingPlayerPersistency(PlayerPersistency testingPersistency)
+    {
+        playerPersistency = testingPersistency;
+    }
 
+    public void purchaseKnightHelmetTest()
+    {
+        if (playerPersistency.money.canAfford(9))
+        {
+            playerPersistency.money.removeCurrency(9);
+        }
+    }
 
 }
