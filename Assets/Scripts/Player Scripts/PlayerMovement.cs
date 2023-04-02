@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     
     private Animator animator;
+    private BoundaryManager boundaryManager;
 
     [SerializeField] private float moveSpeed = 5.0f;
     private Rigidbody2D rb;
@@ -14,6 +15,12 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        Camera mainCamera = Camera.main;
+        if(mainCamera != null)
+        {
+            boundaryManager = mainCamera.GetComponent<BoundaryManager>();
+        }
+
         animator = this.GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody2D>();
     }
@@ -75,6 +82,21 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("Walk", false);
 
         rb.velocity = movement * moveSpeed;
+
+        // Clamp the player's position to the camera's view if boundaryManager is set
+        if(boundaryManager != null && boundaryManager.isActiveAndEnabled)
+        {
+            ClampPosition();
+        }
+    }
+
+    private void ClampPosition()
+    {
+        Vector2 clampedPosition = new Vector2(
+            Mathf.Clamp(transform.position.x, boundaryManager.xMin, boundaryManager.xMax),
+            Mathf.Clamp(transform.position.y, boundaryManager.yMin, boundaryManager.yMax)
+        );
+        transform.position = clampedPosition;
     }
     
 }

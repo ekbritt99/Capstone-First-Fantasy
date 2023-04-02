@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     // public Attribute[] attributes;
 
     public PlayerCollisions collisions;
+    public BoundaryManager boundaryManager;
 
     public bool isControllable = true;
 
@@ -39,7 +40,6 @@ public class Player : MonoBehaviour
 
     private void Start() 
     {
-        
         // Handle temporary spawn position - useful for returning to scenes or entering scenes in custom positions
         if(PlayerPersistency.Instance.spawnPosition != null && PlayerPersistency.Instance.spawnPosition != Vector3.zero) {
             
@@ -145,26 +145,26 @@ public class Player : MonoBehaviour
             GameManager.Instance.GoToGameScene(Scenes.INVENTORY);
         }
 
-        if(Input.GetKeyDown(KeyCode.Equals))
-        {
-            inventory.Save();
-            equipment.Save();
-        }
+        // if(Input.GetKeyDown(KeyCode.Equals))
+        // {
+        //     inventory.Save();
+        //     equipment.Save();
+        // }
 
-        if(Input.GetKeyDown(KeyCode.Backslash))
-        {
-            inventory.Load();
-            equipment.Load();
-        }
+        // if(Input.GetKeyDown(KeyCode.Backslash))
+        // {
+        //     inventory.Load();
+        //     equipment.Load();
+        // }
 
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            ItemObject item = inventory.database.GetItem[21];
-            inventory.AddItem(item.CreateItem(), 1);
+        // if(Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     ItemObject item = inventory.database.GetItem[21];
+        //     inventory.AddItem(item.CreateItem(), 1);
 
-            // item = inventory.database.GetItem[1];
-            // inventory.AddItem(item.CreateItem(), 1);
-        }
+        //     // item = inventory.database.GetItem[1];
+        //     // inventory.AddItem(item.CreateItem(), 1);
+        // }
         /*
         if (SceneManager.GetActiveScene().name != "Test Village Scene")
         {
