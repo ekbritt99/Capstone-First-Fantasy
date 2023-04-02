@@ -153,12 +153,24 @@ public class PlayerCollisions : MonoBehaviour
             // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
             // gameManager.SendMessage("GoToBattle");
         }
+        
+        if (collision.gameObject.tag == "boss1")
+        {
+            GameManager.Instance.enemyHistory.Add("boss1");
+            GameManager.Instance.GoToGameScene(Scenes.BATTLE);
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Ten");
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
+            // gameManager.SendMessage("GoToBattle");
+        }
+        
 
         if (collision.gameObject.tag == "NPCRat2")
         {
             bubbleManager.SendMessage("showShopBubble");
             bubbleManager.SendMessage("startDialogue");
         }
+
+        
 
     }
 
@@ -188,6 +200,14 @@ public class PlayerCollisions : MonoBehaviour
             //GameManager.Instance.SendMessage("DisplayDialogueBox", "Don't forget to stop by the shop to the west of town and buy some gear...");
             // gameManager.SendMessage("DisplayDialogueBox", "Don't forget to stop by the shop to the west of town and buy some gear...");
         }
+
+        if (collision.gameObject.tag == "boss1text")
+        {
+            NPCBubbleManager bubbleManager = GameObject.Find("NPCBubbleManager").GetComponent<NPCBubbleManager>();
+            bubbleManager.SendMessage("showDialogueBox");
+            bubbleManager.SendMessage("startDialogue");
+        }
+
         if (collision.gameObject.tag == "Castle Trigger") 
         {
             GameManager.Instance.GoToGameScene(Scenes.CASTLE);
