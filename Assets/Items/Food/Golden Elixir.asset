@@ -27,5 +27,5 @@ MonoBehaviour:
     buffs:
     - stat: 4
       value: 20
-      min: 0
-      max: 0
+      min: 20
+      max: 20

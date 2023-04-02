@@ -19,14 +19,10 @@ MonoBehaviour:
     Items:
     - AllowedItems: 
       item:
-        Name: Potion Red
-        ID: 0
-        buffs:
-        - stat: 4
-          value: 0
-          min: 0
-          max: 0
-      amount: 4
+        Name: 
+        ID: -1
+        buffs: []
+      amount: 0
     - AllowedItems: 
       item:
         Name: 
