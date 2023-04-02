@@ -391,11 +391,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204087773}
   m_CullTransparentMesh: 1
---- !u!1 &216504961 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5561043943306234923, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
-  m_PrefabInstance: {fileID: 1085928285}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &314153115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1804,10 +1799,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displaySpeed: 0.05
-  npcDialogueText: {fileID: 2038998881}
+  npcDialogueText: {fileID: 0}
   npcDialogueSentences:
   - Don't forget to stop by the shop to the west of town and buy some gear...
-  shopBubble: {fileID: 216504961}
+  shopBubble: {fileID: 0}
 --- !u!4 &1950938598
 Transform:
   m_ObjectHideFlags: 0
@@ -1881,17 +1876,6 @@ Transform:
   m_Father: {fileID: 1367939974}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2038998881 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 735518729105091648, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
-  m_PrefabInstance: {fileID: 1085928285}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2099257567
 GameObject:
   m_ObjectHideFlags: 0
