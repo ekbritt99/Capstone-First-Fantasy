@@ -1518,7 +1518,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 2115337701}
         m_TargetAssemblyTypeName: BattleSystem, Scripts
         m_MethodName: onBattleInventoryButton
@@ -3556,7 +3556,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2094225402}
-  playerPrefab: {fileID: 871587441}
+  playerObj: {fileID: 871587441}
+  playerAnimator: {fileID: 0}
   enemyPrefab: {fileID: 431860704}
   inventoryOverlay: {fileID: 464481266}
   playerEquipment: {fileID: 11400000, guid: a27166c753180dd408aa17af7549c6ce, type: 2}

@@ -10,7 +10,8 @@ public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
 public class BattleSystem : MonoBehaviour, IDataPersistence
 {
     public GameObject gameManager;
-    public GameObject playerPrefab;
+    public GameObject playerObj;
+    public Animator playerAnimator;
     public GameObject enemyPrefab;
     public GameObject inventoryOverlay;
 
@@ -63,6 +64,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     }
     void Start()
     {
+        playerAnimator = playerObj.GetComponentInChildren<Animator>();
         _audio = GetComponent<AudioSource>();
         _audio.clip = battleTheme;
         PlayMusic();
@@ -93,7 +95,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             }
         }
 
-        playerPrefab.transform.position = new Vector3(-5.45f, -0.63f, 0f);
+        playerObj.transform.position = new Vector3(-5.45f, -0.63f, 0f);
 
         if(sceneTrackerObj == null) {
             enemyGO = Instantiate(enemyOnePrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
@@ -186,6 +188,9 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     
     IEnumerator PlayerAttack()
     {
+
+        playerAnimator.SetTrigger("Attack");
+
         state = BattleState.ENEMYTURN;
         int weaponBuff = 0;
         if (playerEquipment.container.Items[4].item.ID != -1)
@@ -210,6 +215,8 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
 
     IEnumerator EnemyTurn()
     {
+        playerAnimator.SetTrigger("Defend");
+
         dialogueText.text = "Enemy attacks!";
         yield return new WaitForSeconds(1f);
         int newEnemyDamage = enemyUnit.damage - playerDefense;
@@ -342,7 +349,8 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
 
     public void showInventory()
     {
-        inventoryOverlay.GetComponent<Canvas>().enabled = true;
+        if(BattleState.PLAYERTURN == state)
+            inventoryOverlay.GetComponent<Canvas>().enabled = true;
     }
 
     public void hideInventory()
