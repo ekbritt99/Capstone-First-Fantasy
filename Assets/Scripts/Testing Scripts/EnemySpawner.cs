@@ -141,12 +141,23 @@ public class EnemySpawner : MonoBehaviour
 
     public void getNextAvailableEnemy(GameObject[] enemyArray)
     {
+        string scene = GameManager.Instance.SceneString();
         for (int i = 0; i < enemyArray.Length; i++)
         {
-            if (enemyArray[i].transform.position.x == DEF_X_POSITION)
+            if (enemyArray[i].transform.position.x == DEF_X_POSITION && (scene == "World" || scene == "World2"))
             {
                 float newXPos = Random.Range(-4.5f, 7.14f);
                 float newYPos = Random.Range(-4.5f, 2.5f);
+                Vector3 newPosition = enemyArray[i].transform.position;
+                newPosition.x = newXPos;
+                newPosition.y = newYPos;
+                enemyArray[i].transform.position = newPosition;
+                return;
+            }
+            if (enemyArray[i].transform.position.x == DEF_X_POSITION && scene == "Castle")
+            {
+                float newXPos = Random.Range(-4.5f, 4.5f);
+                float newYPos = Random.Range(-4.36f, 2.75f);
                 Vector3 newPosition = enemyArray[i].transform.position;
                 newPosition.x = newXPos;
                 newPosition.y = newYPos;
