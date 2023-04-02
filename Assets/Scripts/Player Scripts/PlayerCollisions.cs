@@ -183,7 +183,7 @@ public class PlayerCollisions : MonoBehaviour
         if (collision.gameObject.tag == "NPC Rat")
         {
             NPCBubbleManager bubbleManager = GameObject.Find("NPC Bubble Manager").GetComponent<NPCBubbleManager>();
-            bubbleManager.SendMessage("showShopBubble");
+            bubbleManager.SendMessage("showDialogueBox");
             bubbleManager.SendMessage("startDialogue");
             //GameManager.Instance.SendMessage("DisplayDialogueBox", "Don't forget to stop by the shop to the west of town and buy some gear...");
             // gameManager.SendMessage("DisplayDialogueBox", "Don't forget to stop by the shop to the west of town and buy some gear...");

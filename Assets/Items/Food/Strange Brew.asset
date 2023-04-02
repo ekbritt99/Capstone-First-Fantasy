@@ -19,13 +19,13 @@ MonoBehaviour:
   description: 'A concoction of mystery ingredients. As long as it works, I guess???
 
     Health
-    +25'
+    +10'
   stackable: 0
   data:
     Name: Strange Brew
     ID: 2
     buffs:
     - stat: 4
-      value: 15
+      value: 10
       min: 0
       max: 0

@@ -36,7 +36,14 @@ public class NPCBubbleManager : MonoBehaviour
             npcDialogueText.text += letter;
             yield return new WaitForSeconds(displaySpeed);
         }
-        Invoke("hideShopBubble", 2.0f);
+        if (GameManager.Instance.sceneState == Scenes.WORLD)
+        {
+            Invoke("hideShopBubble", 2.0f);
+        }
+        if(GameManager.Instance.sceneState == Scenes.HOUSE)
+        {
+            Invoke("hideDialogueBox", 2.0f);
+        }
     }
 
     private void showShopBubble()
@@ -49,4 +56,18 @@ public class NPCBubbleManager : MonoBehaviour
         shopBubble.SetActive(false);
         npcDialogueText.text = "";
     }
+
+    private void showDialogueBox()
+    {
+        GameManager.Instance.dialogueBox.SetActive(true);
+        npcDialogueText = GameManager.Instance.dialogueBox.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
+    }
+
+    private void hideDialogueBox()
+    {
+        GameManager.Instance.dialogueBox.SetActive(false);
+        npcDialogueText.text = "";
+    }
+
+
 }

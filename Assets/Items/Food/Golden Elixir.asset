@@ -19,13 +19,13 @@ MonoBehaviour:
   description: 'Brewed with the finest ingredients by the most skilled apothecary
     in the village.
 
-    Health +35'
+    Health +20'
   stackable: 1
   data:
     Name: Golden Elixir
     ID: 22
     buffs:
     - stat: 4
-      value: 30
+      value: 20
       min: 0
       max: 0
