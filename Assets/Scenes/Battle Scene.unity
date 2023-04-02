@@ -3556,7 +3556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 2094225402}
-  playerPrefab: {fileID: 871587441}
+  playerObj: {fileID: 871587441}
   enemyPrefab: {fileID: 431860704}
   inventoryOverlay: {fileID: 464481266}
   playerEquipment: {fileID: 11400000, guid: a27166c753180dd408aa17af7549c6ce, type: 2}
