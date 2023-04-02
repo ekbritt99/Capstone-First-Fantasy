@@ -17,10 +17,12 @@ public class NPCBubbleManager : MonoBehaviour
     [Header("Bubbles")]
     [SerializeField] private GameObject shopBubble;
 
+    private bool hasStarted;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        hasStarted = false;
     }
 
     private void startDialogue()
@@ -30,19 +32,23 @@ public class NPCBubbleManager : MonoBehaviour
 
     private IEnumerator TypeShopNPCDialogue()
     {
-        char[] charSentence = npcDialogueSentences[0].ToCharArray();
-        foreach (char letter in charSentence)
+        if(hasStarted == false)
         {
-            npcDialogueText.text += letter;
-            yield return new WaitForSeconds(displaySpeed);
-        }
-        if (GameManager.Instance.sceneState == Scenes.WORLD)
-        {
-            Invoke("hideShopBubble", 2.0f);
-        }
-        if(GameManager.Instance.sceneState == Scenes.HOUSE)
-        {
-            Invoke("hideDialogueBox", 2.0f);
+            hasStarted = true;
+            char[] charSentence = npcDialogueSentences[0].ToCharArray();
+            foreach (char letter in charSentence)
+            {
+                npcDialogueText.text += letter;
+                yield return new WaitForSeconds(displaySpeed);
+            }
+            if (GameManager.Instance.sceneState == Scenes.WORLD)
+            {
+                Invoke("hideShopBubble", 2.0f);
+            }
+            else
+            {
+                Invoke("hideDialogueBox", 2.0f);
+            }
         }
     }
 
@@ -55,6 +61,7 @@ public class NPCBubbleManager : MonoBehaviour
     {
         shopBubble.SetActive(false);
         npcDialogueText.text = "";
+        hasStarted = false;
     }
 
     private void showDialogueBox()
@@ -67,6 +74,7 @@ public class NPCBubbleManager : MonoBehaviour
     {
         GameManager.Instance.dialogueBox.SetActive(false);
         npcDialogueText.text = "";
+        hasStarted = false;
     }
 
 
