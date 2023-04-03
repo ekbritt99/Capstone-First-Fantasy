@@ -34,6 +34,7 @@ public class NPCBubbleManager : MonoBehaviour
     {
         if(hasStarted == false)
         {
+            npcDialogueText.text = "";
             hasStarted = true;
             char[] charSentence = npcDialogueSentences[0].ToCharArray();
             foreach (char letter in charSentence)

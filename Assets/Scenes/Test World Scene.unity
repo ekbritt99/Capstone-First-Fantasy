@@ -1368,11 +1368,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4552770034531372719, guid: 9b5b492bb0d6b9d42b3acbb366cdd62d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.79
+      value: 4.02
       objectReference: {fileID: 0}
     - target: {fileID: 4552770034531372719, guid: 9b5b492bb0d6b9d42b3acbb366cdd62d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.23
+      value: -1.78
       objectReference: {fileID: 0}
     - target: {fileID: 4552770034531372719, guid: 9b5b492bb0d6b9d42b3acbb366cdd62d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1441,6 +1441,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 731458444685006366, guid: ee869a55f6d340649bdcee2a1dad7dc7, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 731458444685006367, guid: ee869a55f6d340649bdcee2a1dad7dc7, type: 3}
       propertyPath: m_Pivot.x
       value: 0

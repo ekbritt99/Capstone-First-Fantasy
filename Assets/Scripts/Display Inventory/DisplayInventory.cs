@@ -24,8 +24,8 @@ public class DisplayInventory : InventoryInterface
         itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
 
         // Add button event listener if the button exists
-        if(backButton != null)
-            backButton.onClick.AddListener(delegate { GameManager.Instance.GoToPreviousScene(); });
+        // if(backButton != null)
+        //     backButton.onClick.AddListener(delegate { GameManager.Instance.GoToPreviousScene(); });
 
         // Apply event listeners for each item slot displayed.
         for (int i = 0; i < inventory.container.Items.Length; i++)

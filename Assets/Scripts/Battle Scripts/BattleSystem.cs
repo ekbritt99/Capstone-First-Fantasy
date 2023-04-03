@@ -357,12 +357,12 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     public void showInventory()
     {
         if(BattleState.PLAYERTURN == state)
-            inventoryOverlay.GetComponent<Canvas>().enabled = true;
+            inventoryOverlay.SetActive(true);
     }
 
     public void hideInventory()
     {
-        inventoryOverlay.GetComponent<Canvas>().enabled = false;
+        inventoryOverlay.SetActive(false);
     }
 
     //MUSIC INTERFACE

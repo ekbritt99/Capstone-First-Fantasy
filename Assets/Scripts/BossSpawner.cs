@@ -18,10 +18,5 @@ public class BossSpawner : MonoBehaviour
     void Update()
     {
 
-        //this doesnt work
-        if (SceneManager.GetActiveScene().name == "World Scene 2")
-        {
-            enemyBoss.SetActive(false);
-        }
     }
 }

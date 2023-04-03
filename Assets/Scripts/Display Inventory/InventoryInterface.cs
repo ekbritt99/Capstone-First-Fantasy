@@ -21,6 +21,13 @@ public abstract class InventoryInterface : MonoBehaviour
         CreateDisplay();
         AddEvent(gameObject, EventTriggerType.PointerEnter, delegate { OnEnterInterface(gameObject); });
         AddEvent(gameObject, EventTriggerType.PointerExit, delegate { OnExitInterface(gameObject); });
+
+        Time.timeScale = 0;
+    }
+
+    public void OnDisable()
+    {
+        Time.timeScale = 1;
     }
 
     public abstract void CreateDisplay();
