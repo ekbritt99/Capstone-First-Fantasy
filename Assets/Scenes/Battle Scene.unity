@@ -3131,7 +3131,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 520835150}
   m_HandleRect: {fileID: 0}
@@ -4255,6 +4255,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 486694276}
     m_Modifications:
+    - target: {fileID: 8340775420537612937, guid: b8ca6ff126e1cb04a83cb9e2afa8d617, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8340775420771891000, guid: b8ca6ff126e1cb04a83cb9e2afa8d617, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
