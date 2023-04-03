@@ -33,7 +33,7 @@ public class GameData
         this.playerIntellect = 0;
         this.playerAgility = 0;
         this.playerStrength = 0;
-        this.openedChests = new int[7];
+        this.openedChests = new int[14];
         // this.deathCount = 0;
         // this.spawnPosition = Vector3.zero;
         // this.spawnScene = Scenes.HOUSE;

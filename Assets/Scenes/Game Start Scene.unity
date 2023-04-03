@@ -1913,9 +1913,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1948053878}
         m_TargetAssemblyTypeName: GameManager, Scripts
-        m_MethodName: Quit
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3780,6 +3780,17 @@ MonoBehaviour:
   loadGameButton: {fileID: 2089067393}
   tutorial: {fileID: 719394321}
   saveSlotsMenu: {fileID: 178841093}
+--- !u!114 &1948053878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6980480209352282197, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
+  m_PrefabInstance: {fileID: 6980480210542050996}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7825fa063513a174a979ea5b52a4dc0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2017484755
 GameObject:
   m_ObjectHideFlags: 0

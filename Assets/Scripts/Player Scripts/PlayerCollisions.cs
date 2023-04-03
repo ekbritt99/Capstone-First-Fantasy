@@ -300,6 +300,7 @@ public class PlayerCollisions : MonoBehaviour
         }
         if (collision.gameObject.tag == "BR Castle Chest 2 Trigger") 
         {
+            Debug.Log("touched chest");
             playerPersistency = PlayerPersistency.Instance;
             playerPersistency.openedChests[collision.gameObject.GetComponent<Chest>().chestIndex] = 1;
             playerPersistency.money.addCurrency(5);
