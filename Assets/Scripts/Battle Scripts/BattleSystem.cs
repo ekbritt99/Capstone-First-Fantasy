@@ -41,6 +41,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     public GameOverScreen GameOverScreen;
 
     [SerializeField] AudioClip battleTheme;
+    [SerializeField] AudioClip bossTheme;
     [SerializeField] AudioClip gameOverTheme;
     AudioSource _audio;
 
@@ -67,7 +68,12 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     {
         playerAnimator = playerObj.GetComponentInChildren<Animator>();
         _audio = GetComponent<AudioSource>();
-        _audio.clip = battleTheme;
+        if(GameManager.Instance.enemyHistory[GameManager.Instance.enemyHistory.Count - 1] == "boss1"
+            || GameManager.Instance.enemyHistory[GameManager.Instance.enemyHistory.Count - 1] == "boss2") {
+            _audio.clip = bossTheme;
+        } else {
+            _audio.clip = battleTheme;
+        }
         PlayMusic();
         state = BattleState.START;
         sceneTrackerObj = GameObject.FindGameObjectWithTag("Scene Tracker");

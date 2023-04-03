@@ -3577,6 +3577,7 @@ MonoBehaviour:
   sceneTrackerObj: {fileID: 0}
   GameOverScreen: {fileID: 717077680}
   battleTheme: {fileID: 8300000, guid: 1a3959912c98f564f8c5c6529372d39c, type: 3}
+  bossTheme: {fileID: 8300000, guid: 4e803c703ef3024458baf6554b9f83bc, type: 3}
   gameOverTheme: {fileID: 8300000, guid: a1e8f95f525963a4fb2b426eddd3e931, type: 3}
   playerUnit: {fileID: 0}
   dialogueText: {fileID: 166807760}

@@ -563,7 +563,8 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.120747924
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4045344309509808589, guid: 322da76e1c139fd43b017ad1a82deadd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 322da76e1c139fd43b017ad1a82deadd, type: 3}
 --- !u!1 &551856750
 GameObject:
@@ -648,7 +649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4552770034531372719, guid: 9b5b492bb0d6b9d42b3acbb366cdd62d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.01
+      value: -3.54
       objectReference: {fileID: 0}
     - target: {fileID: 4552770034531372719, guid: 9b5b492bb0d6b9d42b3acbb366cdd62d, type: 3}
       propertyPath: m_LocalPosition.z

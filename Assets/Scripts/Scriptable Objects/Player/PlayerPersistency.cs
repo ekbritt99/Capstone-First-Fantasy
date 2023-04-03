@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 // This object is for player stats that should not be destroyed on new scene loads
 // It is essentially double dipping on the job of DataPersistencyManager so this will probably change later
@@ -12,6 +13,8 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
     public int maxHP;
     public int currentHP;
     public Currency money;
+    // Int List for indexing opened chests
+    public int[] openedChests;
 
     // Attributes contains all of the player's stats that are not HP or damage
     public Attribute[] attributes;
@@ -98,6 +101,8 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
                 attributes[i].value = data.playerIntellect;
             }
         }
+
+        this.openedChests = data.openedChests;
         // this.spawnPosition = data.spawnPosition;
     }
 
@@ -129,6 +134,8 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
             {
                 data.playerIntellect = attributes[i].value;
             }
+
+            data.openedChests = this.openedChests;
         }
 
         
