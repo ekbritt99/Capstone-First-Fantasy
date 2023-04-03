@@ -237,7 +237,12 @@ public class GameManager: MonoBehaviour
             {
                 positionHistory = new Vector3(0.15999f,-0.93999f,0f);
             }
-               
+            else if(prevScene == Scenes.TR_CASTLE_DOOR)
+            {
+                positionHistory = new Vector3(-0.03999f,-1.15f,1.565f);
+
+            }
+                
 
             GameObject player = GameObject.Find("Player");
             // Debug.Log("Player: " + player.gameObject.transform.position);
@@ -252,15 +257,10 @@ public class GameManager: MonoBehaviour
 
         DataPersistenceManager.instance.SaveGame();
 
-        
-
-        if(prevScene == Scenes.WORLD2)
+        if(prevScene == Scenes.WORLD2 || prevScene == Scenes.TR_CASTLE_DOOR)
         {
-            // Wait for scene to load
             StartCoroutine(WaitForLoadPrevScene(prevScene));
-
-            Debug.Log("Going to WORLD2 prevScene");
-        } 
+        }
         else
         {
             SceneManager.LoadScene((int) prevScene);
@@ -282,8 +282,17 @@ public class GameManager: MonoBehaviour
             yield return null;
         }
 
-        GameObject.Find("EnemyBoss").SetActive(false);
-        GameObject.Find("bosstext").SetActive(false);
+        if(scene == Scenes.WORLD2)
+        {
+            GameObject.Find("EnemyBoss").SetActive(false);
+            GameObject.Find("bosstext").SetActive(false);
+        }
+        if(scene == Scenes.TR_CASTLE_DOOR)
+        {
+            GameObject.Find("EnemyBoss2").SetActive(false);
+            // GameObject.Find("bosstext").SetActive(false);
+        }
+
 
     }
 

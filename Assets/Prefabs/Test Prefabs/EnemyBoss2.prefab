@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5461348189279581056}
   - component: {fileID: 8419915689473263466}
   - component: {fileID: 7893156982393354324}
-  - component: {fileID: 4045344309509808589}
   - component: {fileID: 6904417752678411850}
   m_Layer: 0
   m_Name: EnemyBoss2
@@ -104,7 +103,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.33, y: 2.41}
+    oldSize: {x: 0.77666664, y: 0.80333334}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -113,19 +112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
---- !u!114 &4045344309509808589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7244020545106449968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bb24c523db31194e800a41b81294cd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  randomLifeTime: 0
 --- !u!114 &6904417752678411850
 MonoBehaviour:
   m_ObjectHideFlags: 0
