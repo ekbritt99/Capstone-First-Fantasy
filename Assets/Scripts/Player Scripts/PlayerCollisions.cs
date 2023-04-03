@@ -162,6 +162,18 @@ public class PlayerCollisions : MonoBehaviour
             // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
             // gameManager.SendMessage("GoToBattle");
         }
+
+            if (collision.gameObject.tag == "boss2")
+        {
+            GameManager.Instance.enemyHistory.Add("boss2");
+            GameManager.Instance.GoToGameScene(Scenes.BATTLE);
+
+            //GameObject.GetComponent<enemyBoss2Prefab>
+
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberEnemy("Ten");
+            // sceneTrackerObj.GetComponent<SceneTracker>().rememberPosition(playerObj.transform.position);
+            // gameManager.SendMessage("GoToBattle");
+        }
         
 
         if (collision.gameObject.tag == "NPCRat2")
@@ -170,7 +182,13 @@ public class PlayerCollisions : MonoBehaviour
             bubbleManager.SendMessage("startDialogue");
         }
 
-        
+        if (collision.gameObject.tag == "boss2text")
+        {
+            Debug.Log("touched npc");
+            NPCBubbleManager bubbleManager = GameObject.Find("NPC Bubble Manager").GetComponent<NPCBubbleManager>();
+            bubbleManager.SendMessage("showDialogueBox");
+            bubbleManager.SendMessage("startDialogue");
+        }
 
     }
 
@@ -207,6 +225,7 @@ public class PlayerCollisions : MonoBehaviour
             bubbleManager.SendMessage("showDialogueBox");
             bubbleManager.SendMessage("startDialogue");
         }
+
 
         if (collision.gameObject.tag == "Castle Trigger") 
         {
