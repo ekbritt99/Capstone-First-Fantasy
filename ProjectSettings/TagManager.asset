@@ -32,6 +32,8 @@ TagManager:
   - Castle Trigger
   - boss1
   - boss1text
+  - boss2text
+  - boss2
   layers:
   - Default
   - TransparentFX

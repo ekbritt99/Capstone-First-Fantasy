@@ -20,6 +20,7 @@ public class GameManager: MonoBehaviour
     public Vector3 positionHistory;
     public Vector3 playerStartLocation;
 
+    public GameObject inventoryUI;
     public GameObject pauseMenu;
     public GameObject settingsMenu;
     public GameObject dialogueBox;
@@ -103,6 +104,7 @@ public class GameManager: MonoBehaviour
 
     public void GoToGameScene(Scenes scene)
     {
+        Debug.Log("Going to scene: " + scene);
         if(scene == sceneState)
         {
             return;
@@ -121,6 +123,14 @@ public class GameManager: MonoBehaviour
 
         DataPersistenceManager.instance.SaveGame();
 
+        if(scene == Scenes.INVENTORY)
+        {
+            if(inventoryUI != null)
+            {
+                inventoryUI.SetActive(true);
+                return;
+            }
+        }
         SceneManager.LoadScene((int) scene);
         
 
@@ -134,6 +144,8 @@ public class GameManager: MonoBehaviour
                 if (scene == Scenes.WORLD2)
                 {
                     PlayerPersistency.Instance.spawnPosition = new Vector3(positionHistory.x, -4.25f, 1.565f);
+                    // if(prevScene != Scenes.WORLD)  
+                    //     GameObject.Find("EnemyBoss").SetActive(false);
                 }
 
                 if (scene == Scenes.WORLD && SceneManager.GetActiveScene().name == "World Scene 2")
@@ -220,6 +232,11 @@ public class GameManager: MonoBehaviour
                 Debug.Log("Shop scene!!!");
                 positionHistory = new Vector3(-5.7f, -0.3f, 1f);
             }
+
+            if(prevScene == Scenes.WORLD2)
+            {
+                positionHistory = new Vector3(0.15999f,-0.93999f,0f);
+            }
                
 
             GameObject player = GameObject.Find("Player");
@@ -231,9 +248,23 @@ public class GameManager: MonoBehaviour
             
         }
 
+        
+
         DataPersistenceManager.instance.SaveGame();
 
-        SceneManager.LoadScene((int) prevScene);
+        
+
+        if(prevScene == Scenes.WORLD2)
+        {
+            // Wait for scene to load
+            StartCoroutine(WaitForLoadPrevScene(prevScene));
+
+            Debug.Log("Going to WORLD2 prevScene");
+        } 
+        else
+        {
+            SceneManager.LoadScene((int) prevScene);
+        }
 
         (prevScene, sceneState) = (sceneState, prevScene);
 
@@ -243,27 +274,18 @@ public class GameManager: MonoBehaviour
 
     }
 
-    // IEnumerator WaitForLoadPrevScene(Scenes scene)
-    // {
-    //     SceneManager.LoadScene((int) scene);
-    //     while(SceneManager.GetActiveScene().buildIndex != (int) scene)
-    //     {
-    //         yield return null;
-    //     }
+    IEnumerator WaitForLoadPrevScene(Scenes scene)
+    {
+        SceneManager.LoadScene((int) scene);
+        while(SceneManager.GetActiveScene().buildIndex != (int) scene)
+        {
+            yield return null;
+        }
 
-    //     if(gameState == GameState.ACTIVE)
-    //     {
-    //         GameObject player = GameObject.Find("Player");
-    //         Debug.Log("Player: " + player.gameObject.transform.position);
-    //         Vector3 temp = player.transform.position;
-    //         player.transform.position = positionHistory;
-    //         positionHistory = temp;
-    //     }
-        
-    //     (prevScene, sceneState) = (sceneState, prevScene);
+        GameObject.Find("EnemyBoss").SetActive(false);
+        GameObject.Find("bosstext").SetActive(false);
 
-    //     Debug.Log("Previous Scene: " + prevScene + " -- Scene State: " + sceneState);
-    // }
+    }
 
     public void ToggleSettingsMenu()
     {
@@ -282,9 +304,15 @@ public class GameManager: MonoBehaviour
         dialogueBox.SetActive(false);
     }
 
+    public void HideInventoryUI()
+    {
+        inventoryUI.SetActive(false);
+    }
+
     public void ResetTempDisplays()
     {
         HideDialogeBox();
+        HideInventoryUI();
     }
 
     // Load settings from PlayerPrefs (saved in registry)
