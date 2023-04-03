@@ -137,7 +137,7 @@ public abstract class InventoryInterface : MonoBehaviour
     //         return;
     //     } else {
     //         if(itemsDisplayed[obj].ItemObject.type == ItemType.Food) {
-    //             if (healPlayer(itemsDisplayed[obj].ItemObject.data.buffs[0].value) == true)
+    //             if ( healPlayer(itemsDisplayed[obj].ItemObject.data.buffs[0].value) == true)
     //             {
     //                 itemsDisplayed[obj].RemoveAmount(1);
     //             }
