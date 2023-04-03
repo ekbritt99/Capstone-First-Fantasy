@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerCollisions : MonoBehaviour
 {
-    public PlayerPersistency playerPersistency;
-    
     public GameObject gameManager;
 
     public GameObject shopButton;
@@ -172,6 +170,8 @@ public class PlayerCollisions : MonoBehaviour
             bubbleManager.SendMessage("startDialogue");
         }
 
+        
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -227,54 +227,6 @@ public class PlayerCollisions : MonoBehaviour
         if (collision.gameObject.tag == "Bottom Right Castle Door Trigger") 
         {
             GameManager.Instance.GoToGameScene(Scenes.BR_CASTLE_DOOR);
-        }
-        if (collision.gameObject.tag == "TL Castle Chest 1 Trigger") 
-        {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
-            playerPersistency.money.addCurrency(5);
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.tag == "TL Castle Chest 2 Trigger") 
-        {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
-            playerPersistency.money.addCurrency(5);
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.tag == "TR Castle Chest 1 Trigger") 
-        {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
-            playerPersistency.money.addCurrency(5);
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.tag == "TR Castle Chest 2 Trigger") 
-        {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
-            playerPersistency.money.addCurrency(5);
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.tag == "BL Castle Chest 1 Trigger") 
-        {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
-            playerPersistency.money.addCurrency(5);
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.tag == "BL Castle Chest 2 Trigger") 
-        {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
-            playerPersistency.money.addCurrency(5);
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.tag == "BR Castle Chest 1 Trigger") 
-        {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
-            playerPersistency.money.addCurrency(5);
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.tag == "BR Castle Chest 2 Trigger") 
-        {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
-            playerPersistency.money.addCurrency(5);
-            Destroy(collision.gameObject);
         }
     }
 
