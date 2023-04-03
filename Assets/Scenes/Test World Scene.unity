@@ -1550,6 +1550,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 5662717568887419865, guid: cb000a6dc5c0ab6449d243c2c4e8bdf1, type: 3}
+      propertyPath: typeOneEnemy
+      value: 
+      objectReference: {fileID: 649774131731707552, guid: a22903eec53134e4790391d67f04897f, type: 3}
+    - target: {fileID: 5662717568887419865, guid: cb000a6dc5c0ab6449d243c2c4e8bdf1, type: 3}
+      propertyPath: typeTenEnemy
+      value: 
+      objectReference: {fileID: 9143014642059542093, guid: c86448bd3b74f584f8849abba6378d91, type: 3}
+    - target: {fileID: 5662717568887419865, guid: cb000a6dc5c0ab6449d243c2c4e8bdf1, type: 3}
+      propertyPath: typeTwoEnemy
+      value: 
+      objectReference: {fileID: 3395990604518458458, guid: 0974be627e5f077498bded5fcab8baca, type: 3}
+    - target: {fileID: 5662717568887419865, guid: cb000a6dc5c0ab6449d243c2c4e8bdf1, type: 3}
+      propertyPath: typeNineEnemy
+      value: 
+      objectReference: {fileID: 6108972098264396084, guid: 89d2532d332539c49874a9f290e08952, type: 3}
+    - target: {fileID: 5662717568887419865, guid: cb000a6dc5c0ab6449d243c2c4e8bdf1, type: 3}
+      propertyPath: typeEightEnemy
+      value: 
+      objectReference: {fileID: 7244020545106449968, guid: c496e4b36369ba84a9087d94592dc08e, type: 3}
+    - target: {fileID: 5662717568887419865, guid: cb000a6dc5c0ab6449d243c2c4e8bdf1, type: 3}
+      propertyPath: typeSevenEnemy
+      value: 
+      objectReference: {fileID: 1104814378376789738, guid: bcc9fef2940ab9f42a729591e58a91d2, type: 3}
+    - target: {fileID: 5662717568887419865, guid: cb000a6dc5c0ab6449d243c2c4e8bdf1, type: 3}
+      propertyPath: typeThreeEnemy
+      value: 
+      objectReference: {fileID: 4504837620572870046, guid: 5f92219dcff20e748913dc76d3638c0b, type: 3}
     - target: {fileID: 5662717568887419870, guid: cb000a6dc5c0ab6449d243c2c4e8bdf1, type: 3}
       propertyPath: m_RootOrder
       value: 5
