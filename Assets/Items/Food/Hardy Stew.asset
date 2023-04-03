@@ -16,9 +16,9 @@ MonoBehaviour:
   uiDisplay: {fileID: 21300000, guid: 4c972dea28f31184f97c4df60896c0ec, type: 3}
   prefab: {fileID: 7478189960424040071, guid: d732c433f052247478d37fac6cedfe30, type: 3}
   type: 6
-  description: 'A cheap but effective HP boost.
+  description: 'Nutritious meal that restores your vitality.
 
-    Health +5'
+    Health +3'
   stackable: 1
   data:
     Name: Hardy Stew
