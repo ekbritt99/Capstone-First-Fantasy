@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 6930122694965717509}
   - component: {fileID: 6491913702539827632}
   - component: {fileID: 2597719085511350311}
+  - component: {fileID: 8460739405068812612}
   m_Layer: 0
   m_Name: PF Village Props - Chest Golden
   m_TagString: Untagged
@@ -164,3 +165,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.8551296}
   m_EdgeRadius: 0
+--- !u!114 &8460739405068812612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6930122694965717508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c0264d62d69994ab0d7dba211a6d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chestIndex: 0

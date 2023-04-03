@@ -251,49 +251,57 @@ public class PlayerCollisions : MonoBehaviour
         }
         if (collision.gameObject.tag == "TL Castle Chest 1 Trigger") 
         {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
+            playerPersistency = PlayerPersistency.Instance;
+            playerPersistency.openedChests[collision.gameObject.GetComponent<Chest>().chestIndex] = 1;
             playerPersistency.money.addCurrency(5);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "TL Castle Chest 2 Trigger") 
         {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
+            playerPersistency = PlayerPersistency.Instance;
+            playerPersistency.openedChests[collision.gameObject.GetComponent<Chest>().chestIndex] = 1;
             playerPersistency.money.addCurrency(5);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "TR Castle Chest 1 Trigger") 
         {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
+            playerPersistency = PlayerPersistency.Instance;
+            playerPersistency.openedChests[collision.gameObject.GetComponent<Chest>().chestIndex] = 1;
             playerPersistency.money.addCurrency(5);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "TR Castle Chest 2 Trigger") 
         {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
+            playerPersistency = PlayerPersistency.Instance;
+            playerPersistency.openedChests[collision.gameObject.GetComponent<Chest>().chestIndex] = 1;
             playerPersistency.money.addCurrency(5);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "BL Castle Chest 1 Trigger") 
         {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
+            playerPersistency = PlayerPersistency.Instance;
+            playerPersistency.openedChests[collision.gameObject.GetComponent<Chest>().chestIndex] = 1;
             playerPersistency.money.addCurrency(5);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "BL Castle Chest 2 Trigger") 
         {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
+            playerPersistency = PlayerPersistency.Instance;
+            playerPersistency.openedChests[collision.gameObject.GetComponent<Chest>().chestIndex] = 1;
             playerPersistency.money.addCurrency(5);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "BR Castle Chest 1 Trigger") 
         {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
+            playerPersistency = PlayerPersistency.Instance;
+            playerPersistency.openedChests[collision.gameObject.GetComponent<Chest>().chestIndex] = 1;
             playerPersistency.money.addCurrency(5);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "BR Castle Chest 2 Trigger") 
         {
-            playerPersistency = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
+            playerPersistency = PlayerPersistency.Instance;
+            playerPersistency.openedChests[collision.gameObject.GetComponent<Chest>().chestIndex] = 1;
             playerPersistency.money.addCurrency(5);
             Destroy(collision.gameObject);
         }
