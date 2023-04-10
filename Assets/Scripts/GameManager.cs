@@ -200,7 +200,17 @@ public class GameManager: MonoBehaviour
                 {
                     PlayerPersistency.Instance.spawnPosition = new Vector3(-0.779999971f, -4.31000023f, 1.56566381f);
                 }
-                
+
+                if (scene == Scenes.VILLAGE && SceneManager.GetActiveScene().name == "Test World Scene")
+                {
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(5.94999981f, -1.16999996f, 1f);
+                }
+
+                if (scene == Scenes.VILLAGE && SceneManager.GetActiveScene().name == "House Scene")
+                {
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(5.94999981f, -1.16999996f, 1f);
+                }
+
                 // switch(scene)
                 // {
                 //     case Scenes.HOUSE:
