@@ -155,27 +155,28 @@ public class GameManager: MonoBehaviour
 
                 if (scene == Scenes.WORLD && SceneManager.GetActiveScene().name == "Castle Scene")
                 {
-                    PlayerPersistency.Instance.spawnPosition = new Vector3(-5.054507f, -1.56f, 1.565f);
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-4.17999983f, -1.48000002f, 1.56566381f);
+
                 }
 
                 if (scene == Scenes.CASTLE && SceneManager.GetActiveScene().name == "Bottom Left Castle Room Scene")
                 {
-                    PlayerPersistency.Instance.spawnPosition = new Vector3(-3f, -3.9f, 1.565f);
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-3.74000001f, -4.5999999f, 1.56566381f);
                 }
 
                 if (scene == Scenes.CASTLE && SceneManager.GetActiveScene().name == "Bottom Right Castle Room Scene")
                 {
-                    PlayerPersistency.Instance.spawnPosition = new Vector3(3f, -3.9f, 1.565f);
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(2.1500001f, -4.55999994f, 1.56566381f);
                 }
 
                 if (scene == Scenes.CASTLE && SceneManager.GetActiveScene().name == "Top Left Castle Room Scene")
                 {
-                    PlayerPersistency.Instance.spawnPosition = new Vector3(-3f, 0.8f, 1.565f);
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-3.66000009f, 0.189999998f, 1.56566381f);
                 }
 
                 if (scene == Scenes.CASTLE && SceneManager.GetActiveScene().name == "Top Right Castle Room Scene")
                 {
-                    PlayerPersistency.Instance.spawnPosition = new Vector3(3f, 0.8f, 1.565f);
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(2.1500001f, 0.189999998f, 1.56566381f);
                 }
 
                 // switch(scene)
