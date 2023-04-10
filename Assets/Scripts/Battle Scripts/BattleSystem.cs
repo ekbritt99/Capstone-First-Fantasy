@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST }
+public enum BattleState { START, PLAYERTURN, ENEMYTURN, WON, LOST, RAN }
 
 public class BattleSystem : MonoBehaviour, IDataPersistence
 {
@@ -266,11 +266,17 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             sceneTrackerObj.GetComponent<SceneTracker>().rememberScene();
             yield return new WaitForSeconds(3);
             GameManager.Instance.GoToPreviousScene();
-        } else if (state == BattleState.LOST)
+        } 
+        else if (state == BattleState.LOST)
         {
             dialogueText.text = "You were defeated...";
             yield return new WaitForSeconds(1);
             GameOver();
+        }
+        else
+        {
+            yield return new WaitForSeconds(1);
+            GameManager.Instance.GoToPreviousScene();
         }
 
         DataPersistenceManager.instance.SaveGame();
@@ -337,6 +343,33 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     {
         if(state != BattleState.PLAYERTURN)
             return;
+    }
+
+    public void OnRunButton()
+    {
+        if(state != BattleState.PLAYERTURN)
+            return;
+
+        state = BattleState.ENEMYTURN;
+
+        int runChance = Random.Range(0, 100);
+        if(runChance < 65)
+        {
+            state = BattleState.RAN;
+            StartCoroutine(DisplayText("You got away safely!", EndBattle()));
+        }
+        else
+        {
+            StartCoroutine(DisplayText("You failed to run away!", EnemyTurn()));
+        }
+    }
+
+    IEnumerator DisplayText(string text, IEnumerator next = null)
+    {
+        dialogueText.text = text;
+        yield return new WaitForSeconds(2f);
+        if(next != null)
+            StartCoroutine(next);
     }
 
     public void onReturnButton() 
