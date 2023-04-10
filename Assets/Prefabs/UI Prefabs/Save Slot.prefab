@@ -1855,6 +1855,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1911589607704053228, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3632934896843783995, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1996,6 +2000,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -2009,6 +2017,10 @@ PrefabInstance:
       objectReference: {fileID: 11500000, guid: c9ce5a0ded317ef47a28ad29bb55ed5e, type: 3}
     - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399706050334460149, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7522105947910573475, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
@@ -2036,6 +2048,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 106497249480890645, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911589607704053228, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3632934896843783995, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
@@ -2142,6 +2158,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399706050334460149, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7522105947910573475, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_Name
       value: Shield Slot
@@ -2167,6 +2191,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 106497249480890645, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911589607704053228, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3632934896843783995, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
@@ -2273,6 +2301,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399706050334460149, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7522105947910573475, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_Name
       value: Boots Slot
@@ -2298,6 +2334,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 106497249480890645, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911589607704053228, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3632934896843783995, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
@@ -2404,6 +2444,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399706050334460149, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7522105947910573475, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_Name
       value: Legs Slot
@@ -2429,6 +2477,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 106497249480890645, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911589607704053228, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3632934896843783995, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
@@ -2535,6 +2587,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399706050334460149, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7522105947910573475, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_Name
       value: Chest Slot
@@ -2560,6 +2620,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 106497249480890645, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911589607704053228, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3632934896843783995, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
@@ -2666,6 +2730,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399706050334460149, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7522105947910573475, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_Name
       value: Sword Slot
@@ -2689,6 +2761,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7089117276252959353}
     m_Modifications:
+    - target: {fileID: 128720814456159410, guid: 11c51de7f31f30f45890c3a4a1655709, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1129350857955119608, guid: 11c51de7f31f30f45890c3a4a1655709, type: 3}
       propertyPath: m_Name
       value: Player
