@@ -179,6 +179,26 @@ public class GameManager: MonoBehaviour
                     PlayerPersistency.Instance.spawnPosition = new Vector3(2.1500001f, 0.189999998f, 1.56566381f);
                 }
 
+                if (scene == Scenes.BL_CASTLE_DOOR && SceneManager.GetActiveScene().name == "Castle Scene")
+                {
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.0199999996f, -4.01000023f, 1.56566381f);
+                }
+
+                if (scene == Scenes.BR_CASTLE_DOOR && SceneManager.GetActiveScene().name == "Castle Scene")
+                {
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.0199999996f, -4.01000023f, 1.56566381f);
+                }
+
+                if (scene == Scenes.TL_CASTLE_DOOR && SceneManager.GetActiveScene().name == "Castle Scene")
+                {
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.0199999996f, -4.01000023f, 1.56566381f);
+                }
+
+                if (scene == Scenes.TR_CASTLE_DOOR && SceneManager.GetActiveScene().name == "Castle Scene")
+                {
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.0199999996f, -4.01000023f, 1.56566381f);
+                }
+
                 // switch(scene)
                 // {
                 //     case Scenes.HOUSE:

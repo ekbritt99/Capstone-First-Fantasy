@@ -662,11 +662,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4552770034531372719, guid: 9b5b492bb0d6b9d42b3acbb366cdd62d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.04
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4552770034531372719, guid: 9b5b492bb0d6b9d42b3acbb366cdd62d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.54
+      value: -3.98
       objectReference: {fileID: 0}
     - target: {fileID: 4552770034531372719, guid: 9b5b492bb0d6b9d42b3acbb366cdd62d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -829,6 +829,10 @@ PrefabInstance:
     - target: {fileID: 5615695475055937279, guid: ee869a55f6d340649bdcee2a1dad7dc7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196263752625467056, guid: ee869a55f6d340649bdcee2a1dad7dc7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee869a55f6d340649bdcee2a1dad7dc7, type: 3}
@@ -1169,6 +1173,7 @@ GameObject:
   - component: {fileID: 1850835771}
   - component: {fileID: 1850835776}
   - component: {fileID: 1850835775}
+  - component: {fileID: 1850835777}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1295,6 +1300,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850835770}
   m_CullTransparentMesh: 1
+--- !u!114 &1850835777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850835770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d450172ba1af047a37a6f657be7f29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &1860863278 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5150558016258661747, guid: cbdb521b7a638cd4ebc356903abc41d4, type: 3}

@@ -918,6 +918,7 @@ GameObject:
   - component: {fileID: 1850835771}
   - component: {fileID: 1850835776}
   - component: {fileID: 1850835775}
+  - component: {fileID: 1850835777}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1044,6 +1045,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850835770}
   m_CullTransparentMesh: 1
+--- !u!114 &1850835777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850835770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d450172ba1af047a37a6f657be7f29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1907215968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1150,6 +1163,10 @@ PrefabInstance:
     - target: {fileID: 5615695475055937279, guid: ee869a55f6d340649bdcee2a1dad7dc7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196263752625467056, guid: ee869a55f6d340649bdcee2a1dad7dc7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee869a55f6d340649bdcee2a1dad7dc7, type: 3}
