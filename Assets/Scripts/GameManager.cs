@@ -158,7 +158,7 @@ public class GameManager: MonoBehaviour
                     PlayerPersistency.Instance.spawnPosition = new Vector3(-4.17999983f, -1.48000002f, 1.56566381f);
 
                 }
-
+                
                 if (scene == Scenes.CASTLE && SceneManager.GetActiveScene().name == "Bottom Left Castle Room Scene")
                 {
                     PlayerPersistency.Instance.spawnPosition = new Vector3(-3.74000001f, -4.5999999f, 1.56566381f);
@@ -178,27 +178,29 @@ public class GameManager: MonoBehaviour
                 {
                     PlayerPersistency.Instance.spawnPosition = new Vector3(2.1500001f, 0.189999998f, 1.56566381f);
                 }
+                
 
+                
                 if (scene == Scenes.BL_CASTLE_DOOR && SceneManager.GetActiveScene().name == "Castle Scene")
                 {
-                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.0199999996f, -4.01000023f, 1.56566381f);
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.769999981f, -4.5f, 1.56566381f);
                 }
 
                 if (scene == Scenes.BR_CASTLE_DOOR && SceneManager.GetActiveScene().name == "Castle Scene")
                 {
-                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.0199999996f, -4.01000023f, 1.56566381f);
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.769999981f, -4.5f, 1.56566381f);
                 }
 
                 if (scene == Scenes.TL_CASTLE_DOOR && SceneManager.GetActiveScene().name == "Castle Scene")
                 {
-                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.0199999996f, -4.01000023f, 1.56566381f);
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.779999971f, -4.31000023f, 1.56566381f);
                 }
 
                 if (scene == Scenes.TR_CASTLE_DOOR && SceneManager.GetActiveScene().name == "Castle Scene")
                 {
-                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.0199999996f, -4.01000023f, 1.56566381f);
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.779999971f, -4.31000023f, 1.56566381f);
                 }
-
+                
                 // switch(scene)
                 // {
                 //     case Scenes.HOUSE:
