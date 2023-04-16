@@ -155,27 +155,60 @@ public class GameManager: MonoBehaviour
 
                 if (scene == Scenes.WORLD && SceneManager.GetActiveScene().name == "Castle Scene")
                 {
-                    PlayerPersistency.Instance.spawnPosition = new Vector3(-5.054507f, -1.56f, 1.565f);
-                }
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-4.17999983f, -1.48000002f, 1.56566381f);
 
+                }
+                
                 if (scene == Scenes.CASTLE && SceneManager.GetActiveScene().name == "Bottom Left Castle Room Scene")
                 {
-                    PlayerPersistency.Instance.spawnPosition = new Vector3(-3f, -3.9f, 1.565f);
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-3.74000001f, -4.5999999f, 1.56566381f);
                 }
 
                 if (scene == Scenes.CASTLE && SceneManager.GetActiveScene().name == "Bottom Right Castle Room Scene")
                 {
-                    PlayerPersistency.Instance.spawnPosition = new Vector3(3f, -3.9f, 1.565f);
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(2.1500001f, -4.55999994f, 1.56566381f);
                 }
 
                 if (scene == Scenes.CASTLE && SceneManager.GetActiveScene().name == "Top Left Castle Room Scene")
                 {
-                    PlayerPersistency.Instance.spawnPosition = new Vector3(-3f, 0.8f, 1.565f);
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-3.66000009f, 0.189999998f, 1.56566381f);
                 }
 
                 if (scene == Scenes.CASTLE && SceneManager.GetActiveScene().name == "Top Right Castle Room Scene")
                 {
-                    PlayerPersistency.Instance.spawnPosition = new Vector3(3f, 0.8f, 1.565f);
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(2.1500001f, 0.189999998f, 1.56566381f);
+                }
+                
+
+                
+                if (scene == Scenes.BL_CASTLE_DOOR && SceneManager.GetActiveScene().name == "Castle Scene")
+                {
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.769999981f, -4.5f, 1.56566381f);
+                }
+
+                if (scene == Scenes.BR_CASTLE_DOOR && SceneManager.GetActiveScene().name == "Castle Scene")
+                {
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.769999981f, -4.5f, 1.56566381f);
+                }
+
+                if (scene == Scenes.TL_CASTLE_DOOR && SceneManager.GetActiveScene().name == "Castle Scene")
+                {
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.779999971f, -4.31000023f, 1.56566381f);
+                }
+
+                if (scene == Scenes.TR_CASTLE_DOOR && SceneManager.GetActiveScene().name == "Castle Scene")
+                {
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(-0.779999971f, -4.31000023f, 1.56566381f);
+                }
+
+                if (scene == Scenes.VILLAGE && SceneManager.GetActiveScene().name == "Test World Scene")
+                {
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(5.94999981f, -1.16999996f, 1f);
+                }
+
+                if (scene == Scenes.VILLAGE && SceneManager.GetActiveScene().name == "House Scene")
+                {
+                    PlayerPersistency.Instance.spawnPosition = new Vector3(5.94999981f, -1.16999996f, 1f);
                 }
 
                 // switch(scene)

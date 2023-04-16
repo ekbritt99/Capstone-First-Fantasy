@@ -43,6 +43,7 @@ public class PlayerCollisions : MonoBehaviour
             GameManager.Instance.GoToGameScene(Scenes.WORLD);
         }
 
+
         if (collision.gameObject.tag == "leave house")
         {
             GameManager.Instance.GoToGameScene(Scenes.VILLAGE);

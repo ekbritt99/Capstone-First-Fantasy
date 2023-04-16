@@ -26,6 +26,12 @@ public class DisplayPlayerHP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        // Find camera in scene
+        GameObject camera = GameObject.Find("Main Camera");
+        // Set parent canvas render camera
+        transform.parent.GetComponent<Canvas>().worldCamera = camera.GetComponent<Camera>();
+
         playerStats = PlayerPersistency.Instance;
         hpBarSlider = hpBar.GetComponent<Slider>();
         currHealth = playerStats.currentHP;
