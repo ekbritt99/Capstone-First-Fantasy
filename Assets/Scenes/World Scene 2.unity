@@ -944,10 +944,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 454152588560913944, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1755746192}
     - target: {fileID: 6980480209352282196, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -999,6 +995,10 @@ PrefabInstance:
     - target: {fileID: 6980480209352282198, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7073816699857445271, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
