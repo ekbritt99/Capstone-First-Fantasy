@@ -1736,10 +1736,9 @@ MonoBehaviour:
   displaySpeed: 0.05
   npcDialogueText: {fileID: 0}
   npcDialogueSentences:
-  - 'There''s a giant slime up north. Get rid of it for a hefty reward. Might kill
-    you though, so get some weapons and armor before you fight it.
-
-'
+  - Head east, and you'll find a land full of creatures and monsters to fight. There's
+    also giant slime up north. Get rid of it for a hefty reward. Might kill you though,
+    so get some weapons and armor before you fight it.
   shopBubble: {fileID: 0}
 --- !u!4 &1950938598
 Transform:
