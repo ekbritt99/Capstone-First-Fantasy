@@ -42,6 +42,17 @@ public class NPCBubbleManager : MonoBehaviour
                 npcDialogueText.text += letter;
                 yield return new WaitForSeconds(displaySpeed);
             }
+            if (npcDialogueSentences[0].ToCharArray() != null)
+            {
+                yield return new WaitForSeconds(1f);
+                npcDialogueText.text = "";
+                char[] charSentence2 = npcDialogueSentences[1].ToCharArray();
+                foreach (char letter in charSentence2)
+                {
+                    npcDialogueText.text += letter;
+                    yield return new WaitForSeconds(displaySpeed);
+                }
+            }
             if (GameManager.Instance.sceneState == Scenes.WORLD)
             {
                 Invoke("hideShopBubble", 2.0f);
