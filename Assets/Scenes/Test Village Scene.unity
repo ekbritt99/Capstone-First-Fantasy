@@ -1978,22 +1978,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1144188293648916253, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144188293648916253, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144188293648916253, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1144188293648916253, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -121316825
-      objectReference: {fileID: 0}
     - target: {fileID: 6980480209352282196, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
       propertyPath: m_Name
       value: GameManager

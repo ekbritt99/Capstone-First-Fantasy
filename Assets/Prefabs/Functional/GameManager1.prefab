@@ -4003,7 +4003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1144188293608947265, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_SortingOrder
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1144188293608947265, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_SortingLayerID
@@ -4240,6 +4240,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5150558016258661747, guid: cbdb521b7a638cd4ebc356903abc41d4, type: 3}
       propertyPath: m_BackGroundColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5150558016258661748, guid: cbdb521b7a638cd4ebc356903abc41d4, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5150558016258661749, guid: cbdb521b7a638cd4ebc356903abc41d4, type: 3}
