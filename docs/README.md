@@ -3,7 +3,7 @@
 
 
 ## Download
-You can download the game from the [releases page](/releases).
+You can download the game from the [releases page](http://github.com/SCCapstone/Freestyle/releases).
 Run the installer and launch the game either from the desktop shortcut or from the install location.
 
 ## Build
