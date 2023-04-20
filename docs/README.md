@@ -26,6 +26,9 @@ To build the game, you will need to have Unity installed. You can download it [h
 * `Left Click` - Interact
 
 Inventory controls:
+
+![Inventory](https://user-images.githubusercontent.com/70303464/233501560-dd4f467f-315c-4c47-90bb-ec1aa79dd84e.png)
+
 * `Drag Click` - Move item
 * `Right Click` - Use/Equip item
 * `Hover` over item - Show item description
