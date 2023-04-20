@@ -3,7 +3,7 @@
 
 ## Video Presentation (Placeholder Demo)
 
-![Watch the video](https://user-images.githubusercontent.com/77369228/233503289-cc425200-9131-4e6e-ad21-c58d1b9b2cb6.mp4)
+https://user-images.githubusercontent.com/70303464/233505687-f6aee03c-72bb-4cd4-af00-4ffdfc788f1c.mp4
 
 ## Game Screenshots
 ![FirstFantasyStartScreen](https://user-images.githubusercontent.com/77369228/233471780-80ff2e4f-8248-432e-b1fb-7f0e17c8a541.PNG)
