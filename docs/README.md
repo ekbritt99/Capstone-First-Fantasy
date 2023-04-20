@@ -6,10 +6,10 @@
 <video src="https://user-images.githubusercontent.com/70303464/233506531-c91acb32-c0cb-4163-9f0f-1a858bbdda02.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit" style="max-height:640px;"></video>
 
 ## Game Screenshots
-<img src="https://user-images.githubusercontent.com/77369228/233471780-80ff2e4f-8248-432e-b1fb-7f0e17c8a541.PNG" width="45%"> </img>
-<img src="https://user-images.githubusercontent.com/77369228/233471788-31c457c4-67a6-4bbf-a2b0-35431cae608c.PNG" width="45%"> </img> 
-<img src="https://user-images.githubusercontent.com/77369228/233471797-17d9462b-35f7-4e42-b93f-af3cc2cb2d66.PNG" width="45%"> </img> 
-<img src="https://user-images.githubusercontent.com/77369228/233471809-754b2afb-ed4f-4360-80ca-bfca614a5784.PNG" width="45%"> </img>
+![FirstFantasyStartScreen](https://user-images.githubusercontent.com/77369228/233471780-80ff2e4f-8248-432e-b1fb-7f0e17c8a541.PNG)
+![FFBattleScreen](https://user-images.githubusercontent.com/77369228/233471788-31c457c4-67a6-4bbf-a2b0-35431cae608c.PNG)
+![FFCastleScene](https://user-images.githubusercontent.com/77369228/233471797-17d9462b-35f7-4e42-b93f-af3cc2cb2d66.PNG)
+![FFSlimeScreen](https://user-images.githubusercontent.com/77369228/233471809-754b2afb-ed4f-4360-80ca-bfca614a5784.PNG)
 
 Explore a fantasy world filled with encounters of various creatures and monsters! Manage your health and coin well, and you'll become a powerful warrior. Load up on plenty of weapons, armor, and potions to keep the adventure going!
 
