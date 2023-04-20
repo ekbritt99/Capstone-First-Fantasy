@@ -12,6 +12,8 @@ https://user-images.githubusercontent.com/77369228/233471704-7ca1e9d3-7a5c-43b9-
 ![FFCastleScene](https://user-images.githubusercontent.com/77369228/233471797-17d9462b-35f7-4e42-b93f-af3cc2cb2d66.PNG)
 ![FFSlimeScreen](https://user-images.githubusercontent.com/77369228/233471809-754b2afb-ed4f-4360-80ca-bfca614a5784.PNG)
 
+Explore a fantasy world filled with encounters of various creatures and monsters! Manage your health and coin well, and you'll become a powerful warrior. Load up on plenty of weapons, armor, and potions to keep the adventure going!
+
 ## Download
 You can download the game from the [releases page](http://github.com/SCCapstone/Freestyle/releases).
 Run the installer and launch the game either from the desktop shortcut or from the install location.
