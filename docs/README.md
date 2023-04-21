@@ -44,15 +44,18 @@ Inventory controls:
 <ul>
   <li>
     <p>Ethan brittain <a href="https://www.linkedin.com/in/ethanbrittain99/">
-<img align="center" alt="Ethan's LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg">
+<img align="center" alt="Ethan's LinkedIN" width="22px" src="https://user-images.githubusercontent.com/70303464/233517001-f61916ff-6239-49ab-877f-061b237c38df.png">
       </a><a href="https://github.com/ekbritt99">
-<img align="center" alt="Ethan Brittain" width="22px" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">
+<img align="center" alt="Ethan Brittain" width="22px" src="https://user-images.githubusercontent.com/70303464/233516916-20a2769a-e219-438b-b3a0-5f833631eaac.png">
 </a></p>
   </li>
   </li>
       
 </ul>
- 
+
+
+
+
 
 ## Tools/Asset Credits
 * [Unity](https://unity3d.com/)
