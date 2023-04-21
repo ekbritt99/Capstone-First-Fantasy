@@ -3,7 +3,7 @@
 
 [Latest Release](#download) | [Build](#build) | [Controls](#controls) | [Authors](#authors-alphabetical-order) | [Tools/Asset Credits](#toolsasset-credits)
 
-## Video Presentation (Placeholder Demo)
+## Video Presentation
 
 <video src="https://user-images.githubusercontent.com/70303464/233506531-c91acb32-c0cb-4163-9f0f-1a858bbdda02.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit" style="max-height:640px;" width="750"></video>
 
