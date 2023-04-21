@@ -3754,8 +3754,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -195, y: -72}
-  m_SizeDelta: {x: 80, y: 69.44681}
+  m_AnchoredPosition: {x: -190.91, y: -72}
+  m_SizeDelta: {x: 71.83, y: 69.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &260918246
 MonoBehaviour:
@@ -30383,8 +30383,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000013828, y: 0.000015259}
-  m_SizeDelta: {x: 850.9171, y: 337.2071}
+  m_AnchoredPosition: {x: 4.52, y: -40.69}
+  m_SizeDelta: {x: 859.96, y: 418.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1946501281
 MonoBehaviour:
@@ -30424,12 +30424,16 @@ MonoBehaviour:
 
 
     Click ''Buy'' to purchase
-    that item, and it will be added to your inventory. Drag and drop a piece of equipment
-    to its respective item slot to equip it.
+    that item, and it will be added to your inventory.
 
 
-    Items can be equpped in this menu
-    as well.'
+    Equipped items which
+    are eligible to be upgraded to higher stats will be indicated by an upgrade arrow
+    directly underneath its slot. Click the arrow to see the cost and stat boost
+    associated with an upgrade.
+
+
+    Items can be equipped in this menu as well.'
 --- !u!222 &1946501282
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -33255,6 +33259,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
+      propertyPath: hpMenu
+      value: 
+      objectReference: {fileID: 1411902469}
+    - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
+      propertyPath: hpButton
+      value: 
+      objectReference: {fileID: 2132133209}
     - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
       propertyPath: legsMenu
       value: 
