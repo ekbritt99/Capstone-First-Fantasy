@@ -1017,7 +1017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -9071,7 +9071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -14637,7 +14637,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -19215,7 +19215,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -22607,7 +22607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -29639,7 +29639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4646158690066667552, guid: 52d7e4dd0af76264980390e71a0db6bb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -33255,6 +33255,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
+      propertyPath: legsMenu
+      value: 
+      objectReference: {fileID: 852185240}
+    - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
+      propertyPath: legsSlot
+      value: 
+      objectReference: {fileID: 462001374}
+    - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
+      propertyPath: bootsMenu
+      value: 
+      objectReference: {fileID: 2099853392}
+    - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
+      propertyPath: bootsSlot
+      value: 
+      objectReference: {fileID: 1373627401}
+    - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
+      propertyPath: chestMenu
+      value: 
+      objectReference: {fileID: 548662343}
+    - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
+      propertyPath: chestSlot
+      value: 
+      objectReference: {fileID: 593993117}
+    - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
+      propertyPath: swordMenu
+      value: 
+      objectReference: {fileID: 2054083170}
+    - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
+      propertyPath: swordSlot
+      value: 
+      objectReference: {fileID: 1446581924}
+    - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
+      propertyPath: helmetMenu
+      value: 
+      objectReference: {fileID: 1728721286}
+    - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
+      propertyPath: helmetSlot
+      value: 
+      objectReference: {fileID: 944542007}
+    - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
+      propertyPath: shieldMenu
+      value: 
+      objectReference: {fileID: 1673546575}
+    - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
+      propertyPath: shieldSlot
+      value: 
+      objectReference: {fileID: 1182919542}
     - target: {fileID: 474971713067068968, guid: ef52e9b88f1a094498c0152a4e2e66b8, type: 3}
       propertyPath: weaponName
       value: 
