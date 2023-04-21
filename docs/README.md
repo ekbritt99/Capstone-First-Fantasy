@@ -37,17 +37,22 @@ Inventory controls:
 * `Hover` over item - Show item description
 
 ## Authors (Alphabetical Order)
-* [**Ethan Brittain**](http://github.com/ekbritt99)
 * [**Christian Rios**](http://github.com/ChristianRios1)
 * [**JJ Tupacz**](http://github.com/j-bis)
 * [**Parker Wood**](http://github.com/cdrez)
 
 <ul>
   <li>
-    <p>[**Ethan Brittain**](http://github.com/ekbritt99) <a href="https://www.linkedin.com/in/ethanbrittain99/">
+    <p>Ethan brittain <a href="https://www.linkedin.com/in/ethanbrittain99/">
 <img align="center" alt="Ethan's LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg">
+      </a><a href="https://github.com/ekbritt99">
+<img align="left" alt="Ethan Brittain" width="22px" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">
+</a></p>
   </li>
+  </li>
+      
 </ul>
+ 
 
 ## Tools/Asset Credits
 * [Unity](https://unity3d.com/)
