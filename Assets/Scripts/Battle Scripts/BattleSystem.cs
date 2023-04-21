@@ -62,6 +62,8 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     public GameObject wholeCurrencyDisplay;
 
     public BattleState state;
+
+    string enemyEncountered;
     // Start is called before the first frame update
 
     void OnEnable()
@@ -115,76 +117,88 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         } else {
 
             int numOfEnemiesEncountered = GameManager.Instance.enemyHistory.Count - 1;
-            string enemyEncountered = GameManager.Instance.enemyHistory[numOfEnemiesEncountered];
+            enemyEncountered = GameManager.Instance.enemyHistory[numOfEnemiesEncountered];
             if (enemyEncountered == "One")
             {
-                enemyGO = Instantiate(enemyOnePrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
+                enemyOnePrefab.SetActive(true);
+                enemyGO = enemyOnePrefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
     ;        }
             if (enemyEncountered == "Two")
             {
-                enemyGO = Instantiate(enemyTwoPrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
+                enemyTwoPrefab.SetActive(true);
+                enemyGO = enemyTwoPrefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(7, 10);
             }
             if (enemyEncountered == "Three")
             {
-                enemyGO = Instantiate(enemyThreePrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
+                enemyThreePrefab.SetActive(true);
+                enemyGO = enemyThreePrefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(5, 7);
             }
             if (enemyEncountered == "Four")
             {
-                enemyGO = Instantiate(enemyFourPrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
+                enemyFourPrefab.SetActive(true);
+                enemyGO = enemyFourPrefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
             }
             if (enemyEncountered == "Five")
             {
-                enemyGO = Instantiate(enemyFivePrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
+                enemyFivePrefab.SetActive(true);
+                enemyGO = enemyFivePrefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(5, 7);
             }
             if (enemyEncountered == "Six")
             {
-                enemyGO = Instantiate(enemySixPrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
+                enemySixPrefab.SetActive(true);
+                enemyGO = enemySixPrefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(7, 10);
             }
             if (enemyEncountered == "Seven")
             {
-                enemyGO = Instantiate(enemySevenPrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
+                enemySevenPrefab.SetActive(true);
+                enemyGO = enemySevenPrefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(1, 3);
             }
             if (enemyEncountered == "Eight")
             {
-                enemyGO = Instantiate(enemyEightPrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
+                enemyEightPrefab.SetActive(true);
+                enemyGO = enemyEightPrefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
             }
             if (enemyEncountered == "Nine")
             {
-                enemyGO = Instantiate(enemyNinePrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
+                enemyNinePrefab.SetActive(true);
+                enemyGO = enemyNinePrefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
             }
             if (enemyEncountered == "Ten")
             {
-                enemyGO = Instantiate(enemyTenPrefab, new Vector3(5.09f, -1.4f, -4.85f), Quaternion.identity);
+                enemyTenPrefab.SetActive(true);
+                enemyGO = enemyTenPrefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(3, 5);
             }
             if (enemyEncountered == "boss1")
             {
-                enemyGO = Instantiate(enemyBossPrefab, new Vector3(5.09f, .25f, -4.85f), Quaternion.identity);
+                enemyBossPrefab.SetActive(true);
+                enemyGO = enemyBossPrefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = 50;
             }
             if (enemyEncountered == "boss2")
             {
-                enemyGO = Instantiate(enemyBoss2Prefab, new Vector3(4f, -.2f, -4.85f), Quaternion.identity);
+                enemyBoss2Prefab.SetActive(true);
+                enemyGO = enemyBoss2Prefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = 50;
             }
@@ -233,6 +247,54 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
 
     IEnumerator EnemyTurn()
     {
+        if (enemyEncountered == "One")
+        {
+            enemyGO.GetComponent<Animator>().Play("Enemy1Attack");
+        }
+        if (enemyEncountered == "Two")
+        {
+            enemyGO.GetComponent<Animator>().Play("Enemy2Attack");
+        }
+        if (enemyEncountered == "Three")
+        {
+            enemyGO.GetComponent<Animator>().Play("Enemy3Attack");
+        }
+        if (enemyEncountered == "Four")
+        {
+            enemyGO.GetComponent<Animator>().Play("Enemy4Attack");
+        }
+        if (enemyEncountered == "Five")
+        {
+            enemyGO.GetComponent<Animator>().Play("Enemy5Attack");
+        }
+        if (enemyEncountered == "Six")
+        {
+            enemyGO.GetComponent<Animator>().Play("Enemy6Attack");
+        }
+        if (enemyEncountered == "Seven")
+        {
+            enemyGO.GetComponent<Animator>().Play("Enemy7Attack");
+        }
+        if (enemyEncountered == "Eight")
+        {
+            enemyGO.GetComponent<Animator>().Play("Enemy8Attack");
+        }
+        if (enemyEncountered == "Nine")
+        {
+            enemyGO.GetComponent<Animator>().Play("Enemy9Attack");
+        }
+        if (enemyEncountered == "Ten")
+        {
+            enemyGO.GetComponent<Animator>().Play("Enemy10Attack");
+        }
+        if (enemyEncountered == "boss1")
+        {
+            enemyGO.GetComponent<Animator>().Play("Boss1Attack");
+        }
+        if (enemyEncountered == "boss2")
+        {
+            enemyGO.GetComponent<Animator>().Play("Boss2Attack");
+        }
         playerAnimator.SetTrigger("Defend");
         defendSound.Play();
         dialogueText.text = "Enemy attacks!";
