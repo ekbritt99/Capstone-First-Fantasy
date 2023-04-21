@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class ShopManager : MonoBehaviour
@@ -28,6 +29,25 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject bootsUpgradeBTN;
     [SerializeField] private GameObject swordUpgradeBTN;
     [SerializeField] private GameObject shieldUpgradeBTN;
+
+    [Header("Equipment Slots")]
+    [SerializeField] private GameObject helmetSlot;
+    [SerializeField] private GameObject chestSlot;
+    [SerializeField] private GameObject legsSlot;
+    [SerializeField] private GameObject bootsSlot;
+    [SerializeField] private GameObject swordSlot;
+    [SerializeField] private GameObject shieldSlot;
+    [SerializeField] private GameObject hpButton;
+
+    [Header("Purchase Menus")]
+    [SerializeField] private GameObject helmetMenu;
+    [SerializeField] private GameObject chestMenu;
+    [SerializeField] private GameObject legsMenu;
+    [SerializeField] private GameObject bootsMenu;
+    [SerializeField] private GameObject swordMenu;
+    [SerializeField] private GameObject shieldMenu;
+    [SerializeField] private GameObject hpMenu;
+
 
     [Header("Upgrade Info Labels")]
     [SerializeField] private GameObject upgradeInfoWindow;
@@ -58,6 +78,16 @@ public class ShopManager : MonoBehaviour
         //get current player money here
 
         // lblCurrentMoneyAmount.text = "Test";
+
+        helmetSlot.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(true, false, false, false, false, false, false); });
+        chestSlot.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(false, true, false, false, false, false, false); });
+        legsSlot.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(false, false, true, false, false, false, false); });
+        bootsSlot.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(false, false, false, true, false, false, false); });
+        swordSlot.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(false, false, false, false, true, false, false); });
+        shieldSlot.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(false, false, false, false, false, true, false); });
+        hpMenu.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(false, false, false, false, false, false, true); });
+
+
     }
 
     // Update is called once per frame
@@ -740,5 +770,17 @@ public class ShopManager : MonoBehaviour
             playerPersistency.money.removeCurrency(9);
         }
     }
+
+    public void showPurchaseMenu(bool helmet, bool chest, bool legs, bool boots, bool sword, bool shield, bool hp)
+    {
+        helmetMenu.SetActive(helmet);
+        chestMenu.SetActive(chest);
+        legsMenu.SetActive(legs);
+        bootsMenu.SetActive(boots);
+        swordMenu.SetActive(sword);
+        shieldMenu.SetActive(shield);
+        hpMenu.SetActive(hp);
+    }
+
 
 }
