@@ -46,7 +46,7 @@ Inventory controls:
     <p>Ethan brittain <a href="https://www.linkedin.com/in/ethanbrittain99/">
 <img align="center" alt="Ethan's LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg">
       </a><a href="https://github.com/ekbritt99">
-<img align="left" alt="Ethan Brittain" width="22px" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">
+<img align="center" alt="Ethan Brittain" width="22px" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">
 </a></p>
   </li>
   </li>
