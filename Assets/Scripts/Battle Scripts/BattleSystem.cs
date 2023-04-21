@@ -44,6 +44,10 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     [SerializeField] AudioClip bossTheme;
     [SerializeField] AudioClip gameOverTheme;
     AudioSource _audio;
+    [SerializeField] private AudioSource attackSound;
+    [SerializeField] private AudioSource defendSound;
+    [SerializeField] private AudioSource attackSuccessSound;
+    [SerializeField] private AudioSource battleWonSound;
 
     [SerializeField] private PlayerPersistency playerUnit;
     Unit enemyUnit;
@@ -203,7 +207,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     {
 
         playerAnimator.SetTrigger("Attack");
-
+        attackSound.PlayDelayed(0.4f);
         state = BattleState.ENEMYTURN;
         int weaponBuff = 0;
         if (playerEquipment.container.Items[4].item.ID != -1)
@@ -214,6 +218,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         bool isDead = enemyUnit.TakeDamage(newPlayerDamage);
         enemyHUD.setHP(enemyUnit.currentHP);
         dialogueText.text = "The attack is successful!";
+        attackSuccessSound.Play();
         yield return new WaitForSeconds(2f);
         if(isDead)
         {
@@ -229,7 +234,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     IEnumerator EnemyTurn()
     {
         playerAnimator.SetTrigger("Defend");
-
+        defendSound.Play();
         dialogueText.text = "Enemy attacks!";
         yield return new WaitForSeconds(1f);
         int newEnemyDamage = enemyUnit.damage - playerDefense;
@@ -260,6 +265,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         if(state == BattleState.WON)
         {
             dialogueText.text = "You won the battle!";
+            battleWonSound.Play();
             playerUnit.money.addCurrency(currencyReward);
             currencyRewardDisplay.text = currencyReward.ToString();
             wholeCurrencyDisplay.SetActive(true);
