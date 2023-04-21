@@ -45,7 +45,7 @@ Inventory controls:
 <ul>
   <li>
     <p>Ethan Brittain <a href="https://www.linkedin.com/in/ethanbrittain99/">
-<img align="left" alt="Ethan's LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg">
+<img align="center" alt="Ethan's LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg">
   </li>
 </ul>
 
