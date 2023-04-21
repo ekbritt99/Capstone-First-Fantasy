@@ -42,6 +42,13 @@ Inventory controls:
 * [**JJ Tupacz**](http://github.com/j-bis)
 * [**Parker Wood**](http://github.com/cdrez)
 
+<ul>
+  <li>
+    <p>Ethan Brittain <a href="https://www.linkedin.com/in/ethanbrittain99/">
+<img align="left" alt="Ethan's LinkedIN" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/linkedin.svg">
+  </li>
+</ul>
+
 ## Tools/Asset Credits
 * [Unity](https://unity3d.com/)
 * [Unity Asset Store](https://assetstore.unity.com/)
