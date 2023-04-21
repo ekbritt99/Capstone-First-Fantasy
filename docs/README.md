@@ -5,7 +5,7 @@
 
 ## Video Presentation (Placeholder Demo)
 
-<video src="https://user-images.githubusercontent.com/70303464/233506531-c91acb32-c0cb-4163-9f0f-1a858bbdda02.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit" style="max-height:640px;" width="700"></video>
+<video src="https://user-images.githubusercontent.com/70303464/233506531-c91acb32-c0cb-4163-9f0f-1a858bbdda02.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 width-fit" style="max-height:640px;" width="750"></video>
 
 ## Game Screenshots
 <img src="https://user-images.githubusercontent.com/77369228/233471780-80ff2e4f-8248-432e-b1fb-7f0e17c8a541.PNG" width="45%">
