@@ -46,14 +46,12 @@ Inventory controls:
 <img align="center" alt="Ethan Brittain" width="22px" src="https://user-images.githubusercontent.com/70303464/233516916-20a2769a-e219-438b-b3a0-5f833631eaac.png">
 </a></p>
   </li>
-  </li>
   
   <li>
     <p>Christian Rios
       </a><a href="http://github.com/ChristianRios1">
 <img align="center" alt="Christian Rios" width="22px" src="https://user-images.githubusercontent.com/70303464/233516916-20a2769a-e219-438b-b3a0-5f833631eaac.png">
 </a></p>
-  </li>
   </li>
   
   <li>
@@ -62,14 +60,12 @@ Inventory controls:
 <img align="center" alt="JJ Tupacz" width="22px" src="https://user-images.githubusercontent.com/70303464/233516916-20a2769a-e219-438b-b3a0-5f833631eaac.png">
 </a></p>
   </li>
-  </li>
   
   <li>
     <p>Parker Wood
       </a><a href="http://github.com/cdrez">
 <img align="center" alt="Parker Wood" width="22px" src="https://user-images.githubusercontent.com/70303464/233516916-20a2769a-e219-438b-b3a0-5f833631eaac.png">
 </a></p>
-  </li>
   </li>
       
 </ul>
