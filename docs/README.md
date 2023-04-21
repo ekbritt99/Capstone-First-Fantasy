@@ -44,3 +44,5 @@ Inventory controls:
 
 ## Tools/Asset Credits
 * [Unity](https://unity3d.com/)
+* [Unity Asset Store](https://assetstore.unity.com/)
+* [Toen's Medieval Strategy](https://toen.itch.io/toens-medieval-strategy)
