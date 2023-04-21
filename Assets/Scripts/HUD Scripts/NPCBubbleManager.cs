@@ -42,7 +42,7 @@ public class NPCBubbleManager : MonoBehaviour
                 npcDialogueText.text += letter;
                 yield return new WaitForSeconds(displaySpeed);
             }
-            if (npcDialogueSentences[0].ToCharArray() != null)
+            if (npcDialogueSentences.Length > 1)
             {
                 yield return new WaitForSeconds(1f);
                 npcDialogueText.text = "";
@@ -53,7 +53,7 @@ public class NPCBubbleManager : MonoBehaviour
                     yield return new WaitForSeconds(displaySpeed);
                 }
             }
-            if (GameManager.Instance.sceneState == Scenes.WORLD)
+            if (GameManager.Instance.sceneState == Scenes.WORLD || GameManager.Instance.sceneState == Scenes.VILLAGE)
             {
                 Invoke("hideShopBubble", 2.0f);
             }
