@@ -25,7 +25,7 @@ public class GameManager: MonoBehaviour
     public GameObject settingsMenu;
     public GameObject dialogueBox;
     public GameObject backButton;
-
+    public GameObject backpackButton;
 
 
     private void Awake()
@@ -58,6 +58,8 @@ public class GameManager: MonoBehaviour
             gameState = GameState.ACTIVE;
 
         Debug.Log("Scene at start: " + sceneState + " -- Expected: " + SceneManager.GetActiveScene().name);
+
+        backpackButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -237,7 +239,13 @@ public class GameManager: MonoBehaviour
         prevScene = sceneState;
         sceneState = scene;
 
-
+        if (scene == Scenes.VILLAGE || scene == Scenes.WORLD || scene == Scenes.WORLD2 || scene == Scenes.CASTLE || scene == Scenes.BL_CASTLE_DOOR || scene == Scenes.BR_CASTLE_DOOR || scene == Scenes.TL_CASTLE_DOOR || scene == Scenes.TR_CASTLE_DOOR)
+        {
+            backpackButton.SetActive(true);
+        } else
+        {
+            backpackButton.SetActive(false);
+        }
     }
     public string SceneString()
     {
@@ -299,9 +307,21 @@ public class GameManager: MonoBehaviour
             SceneManager.LoadScene((int) prevScene);
         }
 
+        if (prevScene == Scenes.VILLAGE || prevScene == Scenes.WORLD || prevScene == Scenes.WORLD2 || prevScene == Scenes.CASTLE || prevScene == Scenes.BL_CASTLE_DOOR || prevScene == Scenes.BR_CASTLE_DOOR || prevScene == Scenes.TL_CASTLE_DOOR || prevScene == Scenes.TR_CASTLE_DOOR)
+        {
+            backpackButton.SetActive(true);
+        }
+        else
+        {
+            backpackButton.SetActive(false);
+        }
+
         (prevScene, sceneState) = (sceneState, prevScene);
 
         // DataPersistenceManager.instance.SaveGame();
+
+        
+
 
         Debug.Log("Previous Scene: " + prevScene + " -- Scene State: " + sceneState);
 
