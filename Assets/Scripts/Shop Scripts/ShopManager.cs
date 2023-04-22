@@ -85,7 +85,7 @@ public class ShopManager : MonoBehaviour
         bootsSlot.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(false, false, false, true, false, false, false); });
         swordSlot.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(false, false, false, false, true, false, false); });
         shieldSlot.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(false, false, false, false, false, true, false); });
-        hpMenu.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(false, false, false, false, false, false, true); });
+        hpButton.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(false, false, false, false, false, false, true); });
 
 
     }
@@ -157,7 +157,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[1];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 4);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -175,7 +175,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[3];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 4);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -193,7 +193,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[5];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 4);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -211,7 +211,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[4];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 4);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -232,7 +232,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(11);
             ItemObject item = playerInventory.database.GetItem[9];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 1);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -249,7 +249,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[6];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 1);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -266,7 +266,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(7);
             ItemObject item = playerInventory.database.GetItem[7];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 1);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -283,7 +283,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(9);
             ItemObject item = playerInventory.database.GetItem[8];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 1);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -302,7 +302,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(9);
             ItemObject item = playerInventory.database.GetItem[12];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 3);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -319,7 +319,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[10];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 3);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -336,7 +336,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(7);
             ItemObject item = playerInventory.database.GetItem[11];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 3);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -358,7 +358,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[13];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 5);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -375,7 +375,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(7);
             ItemObject item = playerInventory.database.GetItem[14];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 5);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -392,7 +392,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(9);
             ItemObject item = playerInventory.database.GetItem[15];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 5);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -414,7 +414,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[16];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 2);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -431,7 +431,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(7);
             ItemObject item = playerInventory.database.GetItem[17];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 2);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -448,7 +448,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(9);
             ItemObject item = playerInventory.database.GetItem[18];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 2);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -466,7 +466,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(5);
             ItemObject item = playerInventory.database.GetItem[19];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 0);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -484,7 +484,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(7);
             ItemObject item = playerInventory.database.GetItem[20];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 0);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -501,7 +501,7 @@ public class ShopManager : MonoBehaviour
         {
             playerPersistency.money.removeCurrency(9);
             ItemObject item = playerInventory.database.GetItem[21];
-            playerInventory.AddItem(item.CreateItem(), 1);
+            autoEquip(item, 0);
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -782,5 +782,16 @@ public class ShopManager : MonoBehaviour
         hpMenu.SetActive(hp);
     }
 
+    public void autoEquip(ItemObject item, int slot)
+    {
+        if (playerEquipment.container.Items[slot].item.ID == -1)
+        {
+            playerEquipment.container.Items[slot].item = item.CreateItem();
+        }
+        else
+        {
+            playerInventory.AddItem(item.CreateItem(), 1);
+        }
+    }
 
 }
