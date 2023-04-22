@@ -16,6 +16,8 @@ public class GameData
 
     public int[] openedChests;
 
+    public bool[] playerObjectives;
+
     // public int deathCount;
 
     // public Vector3 spawnPosition;
@@ -34,6 +36,13 @@ public class GameData
         this.playerAgility = 0;
         this.playerStrength = 0;
         this.openedChests = new int[14];
+
+        playerObjectives = new bool[7];
+        for (int i = 0; i < playerObjectives.Length; i++)
+        {
+            playerObjectives[i] = false;
+        }
+
         // this.deathCount = 0;
         // this.spawnPosition = Vector3.zero;
         // this.spawnScene = Scenes.HOUSE;

@@ -16,6 +16,8 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
     // Int List for indexing opened chests
     public int[] openedChests;
 
+    public bool[] playerObjectives;
+
     // Attributes contains all of the player's stats that are not HP or damage
     public Attribute[] attributes;
 
@@ -103,6 +105,7 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
         }
 
         this.openedChests = data.openedChests;
+        this.playerObjectives = data.playerObjectives;
         // this.spawnPosition = data.spawnPosition;
     }
 
@@ -115,6 +118,7 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
         data.playerMaxHP = this.maxHP;
         data.money = this.money.GetCurrency();
         data.playerDamage = this.damage;
+        data.playerObjectives = this.playerObjectives;
 
         for (int i = 0; i < attributes.Length; i++)
         {

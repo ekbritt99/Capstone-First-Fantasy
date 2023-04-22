@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Linq;
 
 public class PlayerCollisions : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class PlayerCollisions : MonoBehaviour
     public GameObject playerObj;
 
     public NPCBubbleManager bubbleManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +54,7 @@ public class PlayerCollisions : MonoBehaviour
 
         if (collision.gameObject.tag == "World 2 Trigger") 
         {
+            GameManager.Instance.updateObjectiveSave(3);
             GameManager.Instance.GoToGameScene(Scenes.WORLD2);
         }
         if (collision.gameObject.tag == "Castle Trigger") 
@@ -183,6 +187,7 @@ public class PlayerCollisions : MonoBehaviour
         {
             bubbleManager.SendMessage("showShopBubble");
             bubbleManager.SendMessage("startDialogue");
+            GameManager.Instance.updateObjectiveSave(0);
         }
 
         if (collision.gameObject.tag == "boss2text")
@@ -191,6 +196,7 @@ public class PlayerCollisions : MonoBehaviour
             NPCBubbleManager bubbleManager = GameObject.Find("NPC Bubble Manager").GetComponent<NPCBubbleManager>();
             bubbleManager.SendMessage("showDialogueBox");
             bubbleManager.SendMessage("startDialogue");
+            GameManager.Instance.updateObjectiveSave(6);
         }
 
     }
@@ -203,6 +209,7 @@ public class PlayerCollisions : MonoBehaviour
         }
         if (collision.gameObject.tag == "Scene Trigger")
         {
+            GameManager.Instance.updateObjectiveSave(1);
             GameManager.Instance.GoToGameScene(Scenes.WORLD);
         }
         if (collision.gameObject.tag == "Scene Trigger 2")
@@ -232,22 +239,27 @@ public class PlayerCollisions : MonoBehaviour
 
         if (collision.gameObject.tag == "Castle Trigger") 
         {
+            GameManager.Instance.updateObjectiveSave(2);
             GameManager.Instance.GoToGameScene(Scenes.CASTLE);
         }
         if (collision.gameObject.tag == "Top Left Castle Door Trigger") 
         {
+            GameManager.Instance.updateObjectiveSave(5);
             GameManager.Instance.GoToGameScene(Scenes.TL_CASTLE_DOOR);
         }
         if (collision.gameObject.tag == "Top Right Castle Door Trigger") 
         {
+            GameManager.Instance.updateObjectiveSave(5);
             GameManager.Instance.GoToGameScene(Scenes.TR_CASTLE_DOOR);
         }
         if (collision.gameObject.tag == "Bottom Left Castle Door Trigger") 
         {
+            GameManager.Instance.updateObjectiveSave(5);
             GameManager.Instance.GoToGameScene(Scenes.BL_CASTLE_DOOR);
         }
         if (collision.gameObject.tag == "Bottom Right Castle Door Trigger") 
         {
+            GameManager.Instance.updateObjectiveSave(5);
             GameManager.Instance.GoToGameScene(Scenes.BR_CASTLE_DOOR);
         }
         if (collision.gameObject.tag == "TL Castle Chest 1 Trigger") 

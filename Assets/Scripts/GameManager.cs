@@ -26,7 +26,12 @@ public class GameManager: MonoBehaviour
     public GameObject dialogueBox;
     public GameObject backButton;
     public GameObject backpackButton;
+    public GameObject objectivesButton;
+    public TextMeshProUGUI objectivesDisplay;
 
+    public string[] objectives;
+
+    [SerializeField] public bool[] objectiveTracker;
 
     private void Awake()
     {
@@ -60,6 +65,16 @@ public class GameManager: MonoBehaviour
         Debug.Log("Scene at start: " + sceneState + " -- Expected: " + SceneManager.GetActiveScene().name);
 
         backpackButton.SetActive(false);
+
+        objectives = new string[7];
+        objectives[0] = ("• Have a chat with the rat outside the shop to the west.");
+        objectives[1] = ("• Check out the Overworld to the west of the village.");
+        objectives[2] = ("• Check out the castle");
+        objectives[3] = ("• Check out the area to the north.");
+        objectives[4] = ("• Battle the giant slime.");
+        objectives[5] = ("• Search the castle rooms for loot.");
+        objectives[6] = ("• Have a chat with the guard.");
+
     }
 
     // Update is called once per frame
@@ -72,6 +87,9 @@ public class GameManager: MonoBehaviour
         {
             Pause();
         }
+
+        updateObjectives(sceneState);
+        objectiveTracker = PlayerPersistency.Instance.playerObjectives;
 
         // if (SceneManager.GetActiveScene().name == "Shop Scene" || SceneManager.GetActiveScene().name == "Test Village Scene")
         // {
@@ -242,10 +260,16 @@ public class GameManager: MonoBehaviour
         if (scene == Scenes.VILLAGE || scene == Scenes.WORLD || scene == Scenes.WORLD2 || scene == Scenes.CASTLE || scene == Scenes.BL_CASTLE_DOOR || scene == Scenes.BR_CASTLE_DOOR || scene == Scenes.TL_CASTLE_DOOR || scene == Scenes.TR_CASTLE_DOOR)
         {
             backpackButton.SetActive(true);
+            objectivesButton.SetActive(true);
         } else
         {
             backpackButton.SetActive(false);
+            objectivesButton.SetActive(false);
         }
+
+
+        updateObjectives(scene);
+        
     }
     public string SceneString()
     {
@@ -310,11 +334,15 @@ public class GameManager: MonoBehaviour
         if (prevScene == Scenes.VILLAGE || prevScene == Scenes.WORLD || prevScene == Scenes.WORLD2 || prevScene == Scenes.CASTLE || prevScene == Scenes.BL_CASTLE_DOOR || prevScene == Scenes.BR_CASTLE_DOOR || prevScene == Scenes.TL_CASTLE_DOOR || prevScene == Scenes.TR_CASTLE_DOOR)
         {
             backpackButton.SetActive(true);
+            objectivesButton.SetActive(true);
         }
         else
         {
             backpackButton.SetActive(false);
+            objectivesButton.SetActive(false);
         }
+
+        updateObjectives(prevScene);
 
         (prevScene, sceneState) = (sceneState, prevScene);
 
@@ -398,6 +426,80 @@ public class GameManager: MonoBehaviour
         GameManager._instance = null;
     }
 
+    public void updateObjectives(Scenes scene)
+    {
+        if (scene == Scenes.VILLAGE)
+        {
+            objectivesDisplay.text = "";
+            if (PlayerPersistency.Instance.playerObjectives[0] == false)
+            {
+                objectivesDisplay.text += objectives[0];
+                objectivesDisplay.text += "\n";
+            }
+            if (PlayerPersistency.Instance.playerObjectives[1] == false)
+            {
+                objectivesDisplay.text += objectives[1];
+            }
+            if (PlayerPersistency.Instance.playerObjectives[0] == true && PlayerPersistency.Instance.playerObjectives[1] == true)
+            {
+                objectivesDisplay.text += "No objectives for this area.";
+            }
+        }
+
+        if (scene == Scenes.WORLD)
+        {
+            objectivesDisplay.text = "";
+            if (PlayerPersistency.Instance.playerObjectives[2] == false)
+            {
+                objectivesDisplay.text += objectives[2];
+                objectivesDisplay.text += "\n";
+            }
+            if (PlayerPersistency.Instance.playerObjectives[3] == false)
+            {
+                objectivesDisplay.text += objectives[3];
+            }
+            if (PlayerPersistency.Instance.playerObjectives[2] == true && PlayerPersistency.Instance.playerObjectives[3] == true)
+            {
+                objectivesDisplay.text += "No objectives for this area.";
+            }
+        }
+
+        if (scene == Scenes.WORLD2)
+        {
+            objectivesDisplay.text = "";
+            if (PlayerPersistency.Instance.playerObjectives[4] == false)
+            {
+                objectivesDisplay.text += objectives[4];
+            }
+            if (PlayerPersistency.Instance.playerObjectives[4] == true)
+            {
+                objectivesDisplay.text += "No objectives for this area.";
+            }
+        }
+
+        if (scene == Scenes.CASTLE)
+        {
+            objectivesDisplay.text = "";
+            if (PlayerPersistency.Instance.playerObjectives[5] == false)
+            {
+                objectivesDisplay.text += objectives[5];
+                objectivesDisplay.text += "\n";
+            }
+            if (PlayerPersistency.Instance.playerObjectives[6] == false)
+            {
+                objectivesDisplay.text += objectives[6];
+            }
+            if (PlayerPersistency.Instance.playerObjectives[5] == true && PlayerPersistency.Instance.playerObjectives[6] == true)
+            {
+                objectivesDisplay.text += "No objectives for this area.";
+            }
+        }
+    }
+
+    public void updateObjectiveSave(int currObjective)
+    {
+        PlayerPersistency.Instance.playerObjectives[currObjective] = true;
+    }
 }
 
 
