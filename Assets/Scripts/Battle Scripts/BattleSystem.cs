@@ -123,7 +123,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
                 enemyOnePrefab.SetActive(true);
                 enemyGO = enemyOnePrefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
-                currencyReward = Random.Range(3, 5);
+                currencyReward = Random.Range(7, 10);
     ;        }
             if (enemyEncountered == "Two")
             {
@@ -137,7 +137,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
                 enemyThreePrefab.SetActive(true);
                 enemyGO = enemyThreePrefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
-                currencyReward = Random.Range(5, 7);
+                currencyReward = Random.Range(7, 10);
             }
             if (enemyEncountered == "Four")
             {

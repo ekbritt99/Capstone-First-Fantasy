@@ -34,6 +34,7 @@ public class PlayerCollisions : MonoBehaviour
     {
         if (collision.gameObject.tag == "Scene Trigger")
         {
+            // does not work playerPersistency.Heal(5);
             GameManager.Instance.GoToGameScene(Scenes.WORLD);
         }
         if (collision.gameObject.tag == "Scene Trigger 2")
