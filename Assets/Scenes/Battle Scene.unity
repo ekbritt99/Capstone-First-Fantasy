@@ -912,6 +912,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6644365823552646053, guid: 89d2532d332539c49874a9f290e08952, type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89d2532d332539c49874a9f290e08952, type: 3}
 --- !u!1 &338547277 stripped
@@ -1775,6 +1779,10 @@ PrefabInstance:
     - target: {fileID: 30836930005164522, guid: c496e4b36369ba84a9087d94592dc08e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 458482065785235955, guid: c496e4b36369ba84a9087d94592dc08e, type: 3}
+      propertyPath: damage
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3395990604518458458, guid: c496e4b36369ba84a9087d94592dc08e, type: 3}
       propertyPath: m_Name
@@ -3836,6 +3844,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6904417752678411850, guid: 322da76e1c139fd43b017ad1a82deadd, type: 3}
+      propertyPath: maxHP
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904417752678411850, guid: 322da76e1c139fd43b017ad1a82deadd, type: 3}
+      propertyPath: damage
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904417752678411850, guid: 322da76e1c139fd43b017ad1a82deadd, type: 3}
+      propertyPath: currentHP
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 7244020545106449968, guid: 322da76e1c139fd43b017ad1a82deadd, type: 3}
       propertyPath: m_Name
       value: EnemyBoss2
@@ -4190,6 +4210,10 @@ PrefabInstance:
     - target: {fileID: 649774131731707552, guid: c86448bd3b74f584f8849abba6378d91, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 667789744989924144, guid: c86448bd3b74f584f8849abba6378d91, type: 3}
+      propertyPath: damage
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2758739894679622416, guid: c86448bd3b74f584f8849abba6378d91, type: 3}
       propertyPath: m_RootOrder
@@ -5391,6 +5415,18 @@ PrefabInstance:
     - target: {fileID: 5461348189279581056, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904417752678411850, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: maxHP
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904417752678411850, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904417752678411850, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: currentHP
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7244020545106449968, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
       propertyPath: m_Name

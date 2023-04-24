@@ -420,11 +420,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6904417752678411850, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
       propertyPath: maxHP
-      value: 50
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904417752678411850, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
+      propertyPath: damage
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6904417752678411850, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
       propertyPath: currentHP
-      value: 50
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7244020545106449968, guid: 6d4055354d02b5c4d934b4b56985cbfa, type: 3}
       propertyPath: m_Name
