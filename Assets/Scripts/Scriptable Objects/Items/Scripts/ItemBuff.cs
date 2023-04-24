@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+// An item buff that can be applied to an item
+// Can be manually set or generated randomly between min and max values
 [Serializable]
 public class ItemBuff
 {
@@ -22,14 +24,14 @@ public class ItemBuff
         GenerateValue();
     }
 
-
-
+    // Check if the buff can be upgraded
     public bool IsUpgradable() {
         if(value < max)
             return true;
         return false;
     }
 
+    // Upgrade the buff by the given value
     public void UpgradeStat(int v)
     {
         value += v;
@@ -39,6 +41,7 @@ public class ItemBuff
         }
     }
 
+    // Generate a random value for the buff between the min and max values
     public void GenerateValue()
     {
         value = UnityEngine.Random.Range(min, max);

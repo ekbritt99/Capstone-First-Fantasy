@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+// Base class for all inventory interfaces
 public abstract class InventoryInterface : MonoBehaviour
 {
     public InventoryObject inventory;
@@ -14,6 +15,7 @@ public abstract class InventoryInterface : MonoBehaviour
 
     public bool active = false;
 
+    // Run only if inventory has not been activated before to prevent duplicate event listeners
     public void OnEnable()
     {
         if(active)
@@ -24,19 +26,17 @@ public abstract class InventoryInterface : MonoBehaviour
         {
             inventory.container.Items[i].parent = this;
         }
+        // Create the display and add hover event listeners to the interface
         CreateDisplay();
         AddEvent(gameObject, EventTriggerType.PointerEnter, delegate { OnEnterInterface(gameObject); });
         AddEvent(gameObject, EventTriggerType.PointerExit, delegate { OnExitInterface(gameObject); });
 
     }
 
-    public void OnDisable()
-    {
-        
-    }
-
     public abstract void CreateDisplay();
 
+
+    // Update the inventory slot display once per frame
     public virtual void Update()
     {
         // Update each sprite and item count once per frame
@@ -56,7 +56,7 @@ public abstract class InventoryInterface : MonoBehaviour
         }
     }
 
-    /* Programmatically add event listeners to objects --  See DisplayInventory.cs and DisplayEquipSlots.cs */
+    // Programmatically add event listeners to objects --  See DisplayInventory.cs and DisplayEquipSlots.cs
     protected void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
     {
         EventTrigger trigger = obj.GetComponent<EventTrigger>();
@@ -107,6 +107,7 @@ public abstract class InventoryInterface : MonoBehaviour
         GameObject tempItem = null;
         if(itemsDisplayed[obj].item.ID >= 0) 
         {
+            // Create a temporary item image to follow the cursor
             tempItem = new GameObject();
             var rt = tempItem.AddComponent<RectTransform>();
             rt.sizeDelta = new Vector2(1, 1);
@@ -145,14 +146,14 @@ public abstract class InventoryInterface : MonoBehaviour
         }
     }
 
-    /* Timer used for the tool tip popup */
+    // Timer used for the tool tip popup
     private IEnumerator StartTimer()
     {
         yield return new WaitForSeconds(1);
         ShowToolTip();
     }
 
-    /* Displays a tool tip with item information next to the cursor */
+    // Displays a tool tip with item information next to the cursor
     private void ShowToolTip()
     {
         ItemObject item = inventory.database.GetItem[itemsDisplayed[MouseData.slotHovered].item.ID];
@@ -186,6 +187,7 @@ public abstract class InventoryInterface : MonoBehaviour
         hoverTransform.transform.position = mousePosition;
     }
 
+    // Called when the player clicks on a food/potion in the inventory
     public bool healPlayer(int healAmount)
     {
         GameObject playerObj = GameObject.Find("PlayerPersistency");
@@ -205,6 +207,7 @@ public abstract class InventoryInterface : MonoBehaviour
 
 }
 
+// Contains data about the mouse for dragging items between inventory interfaces
 public static class MouseData
 {
     public static InventoryInterface interfaceMouseIsOver;

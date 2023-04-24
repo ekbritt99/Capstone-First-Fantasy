@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Inventory slot that can hold an item
 [System.Serializable]
 public class InventorySlot
 {
@@ -16,6 +17,8 @@ public class InventorySlot
     public SlotUpdated OnAfterUpdate;
     public Item item;
     public int amount;
+
+    // Returns the item object from the database
     public ItemObject ItemObject
     {
         get
@@ -55,6 +58,7 @@ public class InventorySlot
         }
     }
 
+    // Directly set the item and amount of the slot
     // Invokes On_Update to trigger the attributes to recalculate in Player.cs
     public void UpdateSlot(Item _item, int _amount)
     {
@@ -70,6 +74,7 @@ public class InventorySlot
         amount = 0;
     }
 
+    // Check if the item can be placed in the slot
     public bool CanPlaceInSlot(ItemObject _item)
     {
         if(AllowedItems.Length <=0 || _item == null)

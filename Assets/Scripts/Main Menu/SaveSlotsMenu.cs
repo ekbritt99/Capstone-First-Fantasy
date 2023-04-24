@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Handles the save slot UI on main menu
 public class SaveSlotsMenu : MonoBehaviour
 {
     [Header("Menu Navigation")]
@@ -28,7 +29,7 @@ public class SaveSlotsMenu : MonoBehaviour
         this.DeactivateMenu();
     }
 
-    // Activate the save slot menu and set the save slot buttons to be interactable depending on if we are loading a game or not.
+    // Activate the save slot menu and set the save slot buttons to be interactable depending on if we are loading a game or not
     public void ActivateMenu(bool isLoadingGame)
     {
         // Show the menu
@@ -85,7 +86,7 @@ public class SaveSlotsMenu : MonoBehaviour
         GameManager.Instance.GoToGameScene(Scenes.HOUSE);
     }
 
-    // Called when delete save slot is clicked.
+    // Show confirmation box and delete the save slot if confirmed
     public void OnDeleteSaveSlotClicked(SaveSlot slot)
     {
         confirmationBox.ShowConfirmationBox("Are you sure you want to delete this save slot?", () => { DeleteSaveSlot(slot); }, null);

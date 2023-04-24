@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
+// Manages the saving and loading of game data
 public class DataPersistenceManager : MonoBehaviour
 {
 
@@ -44,11 +45,13 @@ public class DataPersistenceManager : MonoBehaviour
         this.selectedProfileID = dataHandler.LoadAllProfiles().FirstOrDefault().Key;
     }
 
+    // Add a listener for when a scene is loaded
     public void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    // Remove the listener when the object is disabled
     public void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
@@ -83,7 +86,7 @@ public class DataPersistenceManager : MonoBehaviour
     public void LoadGame()
     {
         Debug.Log("(DataPersistenceManager) LoadGame()");
-        // load game data from file with data handler
+        // Load game data from file with data handler
         this.gameData = dataHandler.Load(selectedProfileID);
 
         if(this.gameData == null && initializeDataIfNull)
@@ -91,7 +94,7 @@ public class DataPersistenceManager : MonoBehaviour
             NewGame();
         }
 
-        // if there is no save data, initialize to a new game
+        // If there is no save data, initialize to a new game
         if(this.gameData == null)
         {
             Debug.Log("No save data found. A new game needs to be started before load");
@@ -116,13 +119,9 @@ public class DataPersistenceManager : MonoBehaviour
             return;
         }
 
-        // dataPersistences = FindAllDataPersistences();
-
-        // pass data to other scripts to be updated
+        // Pass data to other scripts to be updated
         foreach(IDataPersistence dataPersistence in dataPersistences)
         {
-            // Ensure deleted instances do not get saved
-            
             dataPersistence.SaveData(gameData);
         }
 
@@ -139,13 +138,10 @@ public class DataPersistenceManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         SaveGame();
-        // playerInventory.Save();
-        // playerEquipment.Save();
-        // playerInventory.Clear();
-        // playerEquipment.Clear();
         Debug.Log("Saved");
     }
 
+    // Find all objects in the scene that implement IDataPersistence
     private List<IDataPersistence> FindAllDataPersistences()
     {
         IEnumerable<IDataPersistence> dataPersistences = FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();

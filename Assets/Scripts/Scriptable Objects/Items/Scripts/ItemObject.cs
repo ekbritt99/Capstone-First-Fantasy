@@ -16,6 +16,7 @@ public enum ItemType
     Default
 }
 
+// Item Scriptable Objects for the inventory system, holds item data
 public abstract class ItemObject : ScriptableObject
 {
     public int ID;

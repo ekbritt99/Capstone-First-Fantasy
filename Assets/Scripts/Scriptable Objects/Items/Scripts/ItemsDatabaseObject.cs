@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Stores list of ItemObjects to use as reference for other scripts
 [CreateAssetMenu(fileName = "New Item Database", menuName = "Inventory System/Items/Database")]
 public class ItemsDatabaseObject : ScriptableObject, ISerializationCallbackReceiver
 {

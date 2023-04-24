@@ -13,14 +13,14 @@ public enum InventoryType
     Chest
 }
 
-// Inventory Scriptable Object.
+// Inventory Scriptable Object
 [CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory System/Inventory")]
 public class InventoryObject : ScriptableObject
 {
     public string savePath;
     public InventoryType type;
-    public ItemsDatabaseObject database;
-    public Inventory container;
+    public ItemsDatabaseObject database; // Reference to the database of items that this inventory contains
+    public Inventory container; // Holds the inventory slots
     public InventorySlot[] GetSlots { get { return container.Items; } }
 
 
@@ -41,11 +41,12 @@ public class InventoryObject : ScriptableObject
             }
             return false;
         }
-        // If the item is stackable, add it to the first slot that has the same item.
+        // If the item is stackable, add it to the first slot that has the same item
         slot.AddAmount(_amt);
         return true;
     }
 
+    // Get the number of empty slots in the inventory
     public int EmptySlotCount
     {
         get

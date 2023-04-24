@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+// Stores the player's game data, is saved with DataPersistenceManager
 [System.Serializable]
 public class GameData
 {
@@ -18,13 +20,7 @@ public class GameData
 
     public bool[] playerObjectives;
 
-    // public int deathCount;
-
-    // public Vector3 spawnPosition;
-    // public Scenes spawnScene;
-    // public InventoryData inventory;
-    // public int playerMoney;
-
+    // Constructor for default values on new game
     public GameData()
     {
         this.playerHP = 30;
@@ -37,16 +33,13 @@ public class GameData
         this.playerStrength = 0;
         this.openedChests = new int[14];
 
+        // Tracks opened chests
         playerObjectives = new bool[7];
         for (int i = 0; i < playerObjectives.Length; i++)
         {
             playerObjectives[i] = false;
         }
 
-        // this.deathCount = 0;
-        // this.spawnPosition = Vector3.zero;
-        // this.spawnScene = Scenes.HOUSE;
-        // inventory = new InventoryData();
     }
 
     public int GetHealth()
@@ -59,9 +52,6 @@ public class GameData
         return playerMaxHP;
     }
 
-    // public int GetDeathCount()
-    // {
-    //     return deathCount;
-    // }
+
 
 }

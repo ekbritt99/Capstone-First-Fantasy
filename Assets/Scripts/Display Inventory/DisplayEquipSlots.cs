@@ -5,14 +5,17 @@ using UnityEngine.EventSystems;
 using TMPro;
 using UnityEngine.UI;
 
+// Displays the player's equipment slots
 public class DisplayEquipSlots : InventoryInterface
 {
     public GameObject[] slots;
 
 
+    // Update the inventory slot display once per frame
     public override void Update()
     {
         // Update each sprite and item count once per frame
+        // If there is no item equipped, display the default sprite
         foreach (KeyValuePair<GameObject, InventorySlot> _slot in itemsDisplayed)
         {
             if(_slot.Value.item.ID >= 0)
@@ -32,6 +35,7 @@ public class DisplayEquipSlots : InventoryInterface
     }
 
 
+    // Create the display and add hover event listeners to the interface
     public override void CreateDisplay()
     {
         itemsDisplayed = new();
@@ -51,6 +55,7 @@ public class DisplayEquipSlots : InventoryInterface
         }
     }
 
+    // Handles right clicking on an item in the equipment inventory, moves item from equipment to inventory slot
     public void OnPointerDown(GameObject obj, BaseEventData eventData)
     {
         PointerEventData pointerEventData = (PointerEventData)eventData;
