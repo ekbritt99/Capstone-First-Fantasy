@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+// Base class for all inventory interfaces
 public abstract class InventoryInterface : MonoBehaviour
 {
     public InventoryObject inventory;
@@ -14,6 +15,7 @@ public abstract class InventoryInterface : MonoBehaviour
 
     public bool active = false;
 
+    // Run only if inventory has not been activated before to prevent duplicate event listeners
     public void OnEnable()
     {
         if(active)
@@ -24,19 +26,17 @@ public abstract class InventoryInterface : MonoBehaviour
         {
             inventory.container.Items[i].parent = this;
         }
+        // Create the display and add hover event listeners to the interface
         CreateDisplay();
         AddEvent(gameObject, EventTriggerType.PointerEnter, delegate { OnEnterInterface(gameObject); });
         AddEvent(gameObject, EventTriggerType.PointerExit, delegate { OnExitInterface(gameObject); });
 
     }
 
-    public void OnDisable()
-    {
-        
-    }
-
     public abstract void CreateDisplay();
 
+
+    // Update the inventory slot display once per frame
     public virtual void Update()
     {
         // Update each sprite and item count once per frame
@@ -56,7 +56,7 @@ public abstract class InventoryInterface : MonoBehaviour
         }
     }
 
-    /* Programmatically add event listeners to objects --  See DisplayInventory.cs and DisplayEquipSlots.cs */
+    // Programmatically add event listeners to objects --  See DisplayInventory.cs and DisplayEquipSlots.cs
     protected void AddEvent(GameObject obj, EventTriggerType type, UnityAction<BaseEventData> action)
     {
         EventTrigger trigger = obj.GetComponent<EventTrigger>();
@@ -107,13 +107,16 @@ public abstract class InventoryInterface : MonoBehaviour
         GameObject tempItem = null;
         if(itemsDisplayed[obj].item.ID >= 0) 
         {
+            // Create a temporary item image to follow the cursor
             tempItem = new GameObject();
             var rt = tempItem.AddComponent<RectTransform>();
             rt.sizeDelta = new Vector2(1, 1);
             tempItem.transform.SetParent(transform.parent);
-            var img = tempItem.AddComponent<Image>();
+            var img = tempItem.AddComponent<SpriteRenderer>();
             img.sprite = itemsDisplayed[obj].ItemObject.uiDisplay;
-            img.raycastTarget = false;
+            img.sortingOrder = 100;
+            img.sortingLayerName = "Top";
+            img.size = new Vector2(1, 1);
             
         }
 
@@ -134,10 +137,8 @@ public abstract class InventoryInterface : MonoBehaviour
     /* Event - Keeps the dragged item image on the mouse location */
     public void OnDrag(GameObject obj)
     {
-        Debug.Log("Dragging");
         if(MouseData.tempItemBeingDragged != null)
         {
-            Debug.Log("Mouse Position: " + Input.mousePosition);
             // Calculate mouse position in world space
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 100;
@@ -145,56 +146,14 @@ public abstract class InventoryInterface : MonoBehaviour
         }
     }
 
-    // Handles clicking for equipping armor or using potion on right click
-    // public void OnPointerDown(GameObject obj, BaseEventData eventData)
-    // {
-    //     PointerEventData pointerEventData = (PointerEventData)eventData;
-
-    //     // Equip item if right clicked on in inventory
-    //     if(!(pointerEventData.button == PointerEventData.InputButton.Right && itemsDisplayed[obj].item.ID >= 0)) {
-    //         return;
-    //     } else {
-    //         if(itemsDisplayed[obj].ItemObject.type == ItemType.Food) {
-    //             if ( healPlayer(itemsDisplayed[obj].ItemObject.data.buffs[0].value) == true)
-    //             {
-    //                 itemsDisplayed[obj].RemoveAmount(1);
-    //             }
-    //         } else {
-    //             InventoryInterface equipment = GameObject.Find("EquipmentScreen").GetComponent<InventoryInterface>();
-    //             // Ensure the right click was not on equipment panel
-    //             if(this.GetComponent<InventoryInterface>() == equipment)
-    //             {
-    //                 return;
-    //             }
-                
-    //             if(itemsDisplayed[obj].ItemObject.type == ItemType.Helmet) {
-    //                 inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[0]);
-    //             } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Chest) {
-    //                 inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[1]);
-    //             } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Legs) {
-    //                 inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[2]);
-    //             } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Boots) {
-    //                 inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[3]);
-    //             } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Weapon) {
-    //                 inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[4]);
-    //             } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Offhand) {
-    //                 inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[5]);
-    //             }
-
-    //             InventorySlot mouseHoverSlotData = MouseData.interfaceMouseIsOver.itemsDisplayed[MouseData.slotHovered];
-    //             inventory.MoveItem(itemsDisplayed[obj], mouseHoverSlotData);
-    //         }
-    //     }
-    // }
-    
-    /* Timer used for the tool tip popup */
+    // Timer used for the tool tip popup
     private IEnumerator StartTimer()
     {
         yield return new WaitForSeconds(1);
         ShowToolTip();
     }
 
-    /* Displays a tool tip with item information next to the cursor */
+    // Displays a tool tip with item information next to the cursor
     private void ShowToolTip()
     {
         ItemObject item = inventory.database.GetItem[itemsDisplayed[MouseData.slotHovered].item.ID];
@@ -219,11 +178,16 @@ public abstract class InventoryInterface : MonoBehaviour
         RectTransform hoverTransform = hoverPanel.GetComponent<RectTransform>();
 
         Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        mousePosition.x = Mathf.Clamp(mousePosition.x + hoverTransform.sizeDelta.x / 2, 0 + hoverTransform.rect.width / 2, Screen.width - hoverTransform.rect.width / 2);
-        mousePosition.y = Mathf.Clamp(mousePosition.y - hoverTransform.sizeDelta.y / 2, 0 + hoverTransform.rect.height / 2, Screen.height - hoverTransform.rect.height / 2);
+
+        // Clamp the position to the screen size
+        mousePosition.x = Mathf.Clamp(mousePosition.x + hoverTransform.sizeDelta.x / 2, 0 + hoverTransform.rect.width / 2, Camera.main.pixelWidth - hoverTransform.rect.width / 2);
+        mousePosition.y = Mathf.Clamp(mousePosition.y - hoverTransform.sizeDelta.y / 2, 0 + hoverTransform.rect.height / 2, Camera.main.pixelHeight - hoverTransform.rect.height / 2);
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        
         hoverTransform.transform.position = mousePosition;
     }
 
+    // Called when the player clicks on a food/potion in the inventory
     public bool healPlayer(int healAmount)
     {
         GameObject playerObj = GameObject.Find("PlayerPersistency");
@@ -243,6 +207,7 @@ public abstract class InventoryInterface : MonoBehaviour
 
 }
 
+// Contains data about the mouse for dragging items between inventory interfaces
 public static class MouseData
 {
     public static InventoryInterface interfaceMouseIsOver;

@@ -31,6 +31,7 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
     private static PlayerPersistency _instance = null;
     public static PlayerPersistency Instance { get { return _instance; } }
 
+    // Singleton pattern
     private void Awake()
     {
         if(_instance != null && _instance != this)
@@ -84,6 +85,7 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
         this.money.SetCurrency(data.money);
         this.damage = data.playerDamage;
 
+        // Load attributes from GameData
         for (int i = 0; i < attributes.Length; i++)
         {
             if(attributes[i].type == Attributes.Defense)
@@ -120,6 +122,7 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
         data.playerDamage = this.damage;
         data.playerObjectives = this.playerObjectives;
 
+        // Save attributes to GameData
         for (int i = 0; i < attributes.Length; i++)
         {
             if(attributes[i].type == Attributes.Defense)
@@ -143,14 +146,6 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
         }
 
         
-
-        // GameObject player = GameObject.Find("Player");
-        // if(player != null){
-        //     data.spawnPosition = player.gameObject.transform.position;
-        // }
-        // data.spawnScene = (Scenes) SceneManager.GetActiveScene().buildIndex;
-
-        
     }
 
     private void OnDisable()
@@ -163,8 +158,4 @@ public class PlayerPersistency : MonoBehaviour, IDataPersistence
         equipment.Clear();
     }
 
-    // public void OnApplicationQuit()
-    // {
-    //     this.Clear();
-    // }
 }

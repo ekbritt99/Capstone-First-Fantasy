@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-// For full player inventory management. Allows equipping and healing with right click.
+// Displays the player's inventory
 public class DisplayInventory : InventoryInterface
 {
     public GameObject inventoryPrefab;
@@ -22,10 +22,6 @@ public class DisplayInventory : InventoryInterface
             return;
 
         itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
-
-        // Add button event listener if the button exists
-        // if(backButton != null)
-        //     backButton.onClick.AddListener(delegate { GameManager.Instance.GoToPreviousScene(); });
 
         // Apply event listeners for each item slot displayed.
         for (int i = 0; i < inventory.container.Items.Length; i++)
@@ -67,6 +63,7 @@ public class DisplayInventory : InventoryInterface
                     return;
                 }
                 
+                // Equip item to appropriate slot
                 if(itemsDisplayed[obj].ItemObject.type == ItemType.Helmet) {
                     inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[0]);
                 } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Chest) {

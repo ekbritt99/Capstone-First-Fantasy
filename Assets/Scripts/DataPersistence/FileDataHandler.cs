@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.IO;
 
+// Handles reading and writing game data to a file
 public class FileDataHandler
 {
     private string dataDirPath = "";
@@ -41,7 +42,7 @@ public class FileDataHandler
                     }
                 }
 
-                // deserialize from json to object
+                // Deserialize from json to object
                 loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
             }
             catch(Exception e)

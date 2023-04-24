@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Stores item data, not to be confused with ItemObject
 [System.Serializable]
 public class Item
 {

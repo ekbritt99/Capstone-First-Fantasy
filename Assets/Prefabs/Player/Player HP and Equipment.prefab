@@ -431,7 +431,7 @@ MonoBehaviour:
   katanaSprite: {fileID: 21300000, guid: 0cf4168ce2c65844fb55be38ebb4f80c, type: 3}
   maceSprite: {fileID: 21300000, guid: b170edf5f94ed7544b2b6e4c3a51b3d1, type: 3}
   romanSprite: {fileID: 21300000, guid: d22e7355c785e764b896b15c900c3f47, type: 3}
-  scimitarSprite: {fileID: 21300000, guid: 5b2df0b417aeb1f4896d32b6d7f8db14, type: 3}
+  scimitarSprite: {fileID: 21300000, guid: e1ee91cc1fd563b45b68e805d75e01ee, type: 3}
 --- !u!1 &7338411410125304580
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+// Main Menu scene
 public class MainMenu : MonoBehaviour
 {
 
@@ -65,6 +66,7 @@ public class MainMenu : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         newGameButton.interactable = true;
+        
         // Set the load game button to be interactable if there is data
         loadGameButton.interactable = DataPersistenceManager.instance.HasGameData();
     }

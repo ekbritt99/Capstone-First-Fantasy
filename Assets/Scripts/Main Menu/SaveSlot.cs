@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Individual save slot for the SaveSlotsMenu
 public class SaveSlot : MonoBehaviour
 {
     [Header("Profile")]
@@ -21,12 +22,14 @@ public class SaveSlot : MonoBehaviour
 
     [SerializeField] private Button deleteButton;
 
+    // Create empty inventory for the save slot
     private void Awake()
     {
         saveSlotButton = GetComponent<Button>();
         displaySaveEquipment.inventory = InventoryObject.Instantiate<InventoryObject>(equipment);
     }
 
+    // Set the data for the save slot
     public void SetData(GameData data)
     {
         // Show the correct content depending on if there is data or not
@@ -48,8 +51,8 @@ public class SaveSlot : MonoBehaviour
             healthText.text = "HP: " + data.playerHP.ToString();
             moneyText.text = "Gold: " + data.money.ToString();
             
+            // Load the equipment into the temporary inventory
             displaySaveEquipment.inventory.Load(profileID);
-
             displaySaveEquipment.Display();
 
         }

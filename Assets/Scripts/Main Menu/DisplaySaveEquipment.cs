@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+// Displays the equipment in the save slot
 public class DisplaySaveEquipment : MonoBehaviour
 {
     public GameObject[] slots;
@@ -14,14 +15,15 @@ public class DisplaySaveEquipment : MonoBehaviour
     {
         itemsDisplayed = new();
 
-        // Apply event listeners for each item slot displayed
+        // Add each slot to the dictionary
         for(int i = 0; i < inventory.container.Items.Length; i++)
         {
             var obj = slots[i];
             itemsDisplayed.Add(obj, inventory.container.Items[i]);
         }
 
-        // Update each sprite and item count once per frame
+        // Update each sprite and item count
+        // Does not need to be done every frame since it is not interactive
         foreach (KeyValuePair<GameObject, InventorySlot> _slot in itemsDisplayed)
         {
             if(_slot.Value.item.ID >= 0)
