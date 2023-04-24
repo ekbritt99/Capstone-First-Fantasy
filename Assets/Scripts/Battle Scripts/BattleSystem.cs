@@ -66,6 +66,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     string enemyEncountered;
     // Start is called before the first frame update
 
+    //OnEnable initializes the player unit and sets the background of the battle scene depending on where the user entered battle from.
     void OnEnable()
     {
         playerUnit = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
@@ -84,6 +85,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             castlebg.SetActive(true);
         }
     }
+    //Start initializes the fight by setting the correct music to play, setting the state of battle, and starting the next routine setupBattle.
     void Start()
     {
         playerAnimator = playerObj.GetComponentInChildren<Animator>();
@@ -99,12 +101,9 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         sceneTrackerObj = GameObject.FindGameObjectWithTag("Scene Tracker");
         StartCoroutine(SetupBattle());  
     }
-
+    //SetupBattle initializes the player's stats, sets up the correct enemy on screen, sets up the battle HUD, and starts the player's turn.
     IEnumerator SetupBattle()
     {
-        // GameObject playerGO = Instantiate(playerPrefab);
-        // playerUnit = playerGO.GetComponent<Unit>();
-        
         // Loop through player attributes and set each attribute value
         for(int i = 0; i < playerUnit.attributes.Length; i++)
         {
@@ -122,8 +121,10 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             }
         }
 
+        //Set player in correct position
         playerObj.transform.position = new Vector3(-5.45f, -0.63f, 0f);
 
+        //Spawn correct enemy and initialize stats and reward values
         if(sceneTrackerObj == null) {
             enemyGO = Instantiate(enemyBoss2Prefab, new Vector3(4f, -.2f, -4.85f), Quaternion.identity);
             enemyUnit = enemyGO.GetComponent<Unit>();
@@ -221,6 +222,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         Vector3 newEnemyScale = new Vector3(3.0f, 3.0f, 3.0f);
         enemyGO.transform.localScale += newEnemyScale;
 
+        //Set up battle HUD
         dialogueText.text = "Enemy approaches!";
         playerHUD.setHUD(playerUnit.maxHP, playerUnit.currentHP);
         enemyHUD.setHUD(enemyUnit.maxHP, enemyUnit.currentHP);
@@ -231,6 +233,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         PlayerTurn();
     }
     
+    //PlayerAttack handles the player's attack function. If the attack depletes theenemy's health to 0, the EndBattle coroutine is started. If not, the enemy's turn begins.
     IEnumerator PlayerAttack()
     {
 
@@ -258,9 +261,12 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             StartCoroutine(EnemyTurn());
         }
     }
-
+    /*In EnemyTurn, the enemy will play a certain animation for attacking, and deal a certain amount of damage to the player. If the amount of damage the player takes is enough to defeat them, 
+    they lose the battle. If not, the player's turn begtins again.       
+    */
     IEnumerator EnemyTurn()
     {
+        //Play correct animation for each enemy
         if (enemyEncountered == "One")
         {
             enemyGO.GetComponent<Animator>().Play("Enemy1Attack");
@@ -309,11 +315,14 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         {
             enemyGO.GetComponent<Animator>().Play("Boss2Attack");
         }
+
         playerAnimator.SetTrigger("Defend");
         defendSound.Play();
         dialogueText.text = "Enemy attacks!";
         yield return new WaitForSeconds(1f);
         int newEnemyDamage = enemyUnit.damage - playerDefense;
+
+        //If statements for handling the amount of damage the player takes
         bool isDead = false;
         if(newEnemyDamage <= 0)
         {
@@ -335,7 +344,8 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             PlayerTurn();
         }
     }
-
+    //If the user wins, the player will be given currency equal to the enemy's currency value, and the player will be taken to the scene the user was in previoulsy in. If they lost, 
+    //the GameOver screen will be shown to the player.
     IEnumerator EndBattle()
     {
         if(state == BattleState.WON)
@@ -364,6 +374,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         DataPersistenceManager.instance.SaveGame();
 
     }
+    //GameOver sets up the game over screen and plays the game over music.
     void GameOver() 
     {
         StopMusic();
@@ -375,7 +386,9 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     {
         dialogueText.text = "Choose an Action:";
     }
-
+    
+    
+    //The ability to heal is old battle functionality no longer used after the addition of inventory use during battle.
     IEnumerator PlayerHeal()
     {
         state = BattleState.ENEMYTURN;
@@ -395,22 +408,25 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             StartCoroutine(EnemyTurn());
         }  
     }
-    public void onAttackButton()
-    {
-        if(state != BattleState.PLAYERTURN)
-            return;
-
-        StartCoroutine(PlayerAttack());
-    }
-
     public void onHealButton()
     {
         if(state != BattleState.PLAYERTURN)
             return;
-
+        //Start player heal method
         StartCoroutine(PlayerHeal());
     }
+    
+    public void onAttackButton()
+    {
+        if(state != BattleState.PLAYERTURN)
+            return;
+        //Start player attack method
+        StartCoroutine(PlayerAttack());
+    }
 
+    
+    //After the user opens their inventory, the user's hp will be changed depending on if they used a healing item. After they close their inventory, 
+    //it will be the enemy's turn to prevent the user from using their inventory and attacking in the same turn.
     public void onBattleInventoryBackButton()
     {
         playerHUD.setHP(playerUnit.currentHP);
@@ -423,12 +439,14 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     
     public void onBattleInventoryButton()
     {
+        //Make sure the user is not entering their inventory during the enemy's turn
         if(state != BattleState.PLAYERTURN)
             return;
     }
-
+    //When the user decides to run, a number will be rolled, giving the user a 65% to run and end the battle. If they are unsuccessful, it becomes the enemy's turn again.
     public void OnRunButton()
     {
+        //Make sure the user is running only on their turn
         if(state != BattleState.PLAYERTURN)
             return;
 
@@ -445,7 +463,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
             StartCoroutine(DisplayText("You failed to run away!", EnemyTurn()));
         }
     }
-
+    //Allows the HUD to communicate to the player if their attempt to run was successful
     IEnumerator DisplayText(string text, IEnumerator next = null)
     {
         dialogueText.text = text;
@@ -453,7 +471,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         if(next != null)
             StartCoroutine(next);
     }
-
+    //When the player is defeated, they have the option to respawn in the village. The button they press will allow the player to spawn in the village with half of their health.
     public void onReturnButton() 
     {
         playerUnit.currentHP = 15;
