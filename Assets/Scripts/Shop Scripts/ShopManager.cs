@@ -6,17 +6,21 @@ using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
+    //what keeps track of all player stats in between scenes
     private PlayerPersistency playerPersistency;
 
+    //what the player has in their inventory and equipment slots
     public InventoryObject playerInventory;
     public InventoryObject playerEquipment;
 
     // public GameObject dataManagerObj;
     public DataPersistenceManager dataManager;
 
+    //displays which appear when a player attempts to purchase an item
     public GameObject notEnoughFunds;
     public GameObject purchaseSuccessful;
 
+    //display for the amount of gold the player has
     public int currPlayerMoney;
     public TextMeshProUGUI lblCurrentMoneyAmount;
 
@@ -79,6 +83,7 @@ public class ShopManager : MonoBehaviour
 
         // lblCurrentMoneyAmount.text = "Test";
 
+        //add listeners to the purchase equipment buttons which check for a click and displays the corresponding purchase menu and disables any others which may be displayed
         helmetSlot.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(true, false, false, false, false, false, false); });
         chestSlot.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(false, true, false, false, false, false, false); });
         legsSlot.GetComponent<Button>().onClick.AddListener(delegate { showPurchaseMenu(false, false, true, false, false, false, false); });
@@ -96,6 +101,7 @@ public class ShopManager : MonoBehaviour
         // lblCurrentMoneyAmount.text = playerInventory.money.getCurrency().ToString();
         // lblCurrentMoneyAmount.text = "Testing";
 
+        //checks all equipment slots if they are filled; if a slot is filled check if they are upgradable, if so, show the upgrade button for the corresponding slot, if not, don't show the button 
         if (playerEquipment.container.Items[0].item.ID != -1 && playerEquipment.container.Items[0].item.buffs[0].IsUpgradable())
         {
             helmetUpgradeBTN.SetActive(true);
@@ -151,13 +157,18 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+    //all the purchase methods are called when their corresponding "buy" button is clicked; they all work the same way
     public void purchaseKatana()
     {
+        //only go through with the purchase if the player has enough coins
         if (playerPersistency.money.canAfford(5))
         {
+            //remove the cost of the item from the players current currency amount
             playerPersistency.money.removeCurrency(5);
+            //get the item to be purchased from the database and call autoEquip to either equip it to its corresponding slot or inventory
             ItemObject item = playerInventory.database.GetItem[1];
             autoEquip(item, 4);
+            //display to the user that the purchase was successful and hide the message after a couple of seconds
             purchaseSuccessful.SetActive(true);
             Invoke("hidePurchaseSuccessful", 1.5f);
         }
@@ -602,13 +613,19 @@ public class ShopManager : MonoBehaviour
 
     }
 
+    //methods which calculate the cost of upgrading each item if it is indeed upgradeable
     private void calculateHelmet()
     {
+        //set the name of the item being upgraded in the upgrade window
         weaponName.text = playerEquipment.container.Items[0].item.Name;
+        //calculate the cost of this particular item
         int cost = calculateUpgrade(0);
+        //set the cost of the upgrade in the upgrade window
         upgradeCost.text = cost.ToString();
+        //show current stats of the item and what the upgraded stats will be
         currentBuff.text = playerEquipment.container.Items[0].item.buffs[0].value.ToString();
         upgradedBuff.text = playerEquipment.container.Items[0].item.buffs[0].Max.ToString();
+        //display the corresponding upgrade button for the item
         helmetPurchaseBtn.SetActive(true);
     }
     private void calculateChest()
@@ -702,20 +719,27 @@ public class ShopManager : MonoBehaviour
         Invoke("hideUpgradeSuccess", 1.5f);
     }
 
+    //calculates the cost of upgrading an item
     private int calculateUpgrade(int equipSlot)
     {
+        //calculate cost by finding the numerical difference between the max stats of the item and its current stats and multiplying it by 2
         int cost = (playerEquipment.container.Items[equipSlot].item.buffs[0].Max - playerEquipment.container.Items[equipSlot].item.buffs[0].value)*2;
         return cost;
     }
 
+    //upgrades an item 
     private void Upgrade(int equipSlot, int cost)
     {
+        //only go through with the upgrade if the player can afford it
         if (playerPersistency.money.canAfford(cost))
         {
+            //remove the currency from the player
             Debug.Log("tried to purchase upgrade");
             playerPersistency.money.removeCurrency(cost);
+            //upgrade the item
             playerEquipment.container.Items[equipSlot].item.buffs[0].UpgradeStat(playerEquipment.container.Items[equipSlot].item.buffs[0].Max);
 
+            //hide all the buttons for upgrading when done
             helmetPurchaseBtn.SetActive(false);
             chestPurchaseBtn.SetActive(false);
             legsPurchaseBtn.SetActive(false);
@@ -723,8 +747,10 @@ public class ShopManager : MonoBehaviour
             swordPurchaseBtn.SetActive(false);
             shieldPurchaseBtn.SetActive(false);
         }
+        //player doesn not have enough funds to upgrade item
         else
         {
+            //display to the user that they have insufficient funds
             notEnoughFundsUpgradeDisplay.SetActive(true);
             Invoke("hideNotEnoughFundsUpgrade", 1.5f);        
         }
@@ -782,12 +808,15 @@ public class ShopManager : MonoBehaviour
         hpMenu.SetActive(hp);
     }
 
+    //decides if an item goes to player equipment slot or inventory slot when an item is purchased
     public void autoEquip(ItemObject item, int slot)
     {
+        //if the corresponding equipment slot is empty, put the item in that slot
         if (playerEquipment.container.Items[slot].item.ID == -1)
         {
             playerEquipment.container.Items[slot].UpdateSlot(item.CreateItem(), 1);
         }
+        //if the corresponding equipment slot is already filled, put the item in the next available inventory slot
         else
         {
             playerInventory.AddItem(item.CreateItem(), 1);
