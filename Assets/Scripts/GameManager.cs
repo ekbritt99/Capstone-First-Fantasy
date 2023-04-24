@@ -68,7 +68,7 @@ public class GameManager: MonoBehaviour
 
         objectives = new string[7];
         objectives[0] = ("• Have a chat with the rat outside the shop to the west.");
-        objectives[1] = ("• Check out the Overworld to the west of the village.");
+        objectives[1] = ("• Check out the Overworld to the east of the village.");
         objectives[2] = ("• Check out the castle");
         objectives[3] = ("• Check out the area to the north.");
         objectives[4] = ("• Battle the giant slime.");
