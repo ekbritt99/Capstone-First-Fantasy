@@ -44,27 +44,37 @@ public class DisplayPlayerHP : MonoBehaviour
 
         weaponSprite = Weapon.GetComponent<Image>();
         int currentWeapon = playerEquipment.container.Items[4].item.ID;
+        if(currentWeapon < 0)
+        {
+            weaponSprite.sprite = null;
+            weaponSprite.color = Color.clear;
+        }
         if(currentWeapon == 1)
         {
+            Debug.Log("Katana equipped");
             weaponSprite.sprite = katanaSprite;
             weaponSprite.color = Color.white;
             // Weapon.transform.localScale = new Vector3(0.09564409f, 0.09564409f, 0.09564409f);
         }
         if (currentWeapon == 3)
         {
+            Debug.Log("Mace equipped");
             weaponSprite.sprite = maceSprite;
             weaponSprite.color = Color.white;
         }
         if (currentWeapon == 4)
         {
+            Debug.Log("Roman sword equipped");
             weaponSprite.sprite = romanSprite;
             weaponSprite.color = Color.white;
         }
         if (currentWeapon == 5)
         {
+            Debug.Log("Scimitar equipped");
             weaponSprite.sprite = scimitarSprite;
             weaponSprite.color = Color.white;
         }
+
         
     }
 
@@ -81,6 +91,11 @@ public class DisplayPlayerHP : MonoBehaviour
 
         weaponSprite = Weapon.GetComponent<Image>();
         int currentWeapon = playerEquipment.container.Items[4].item.ID;
+        if(currentWeapon < 0)
+        {
+            weaponSprite.sprite = null;
+            weaponSprite.color = Color.clear;
+        }
         if (currentWeapon == 1)
         {
             weaponSprite.sprite = katanaSprite;
