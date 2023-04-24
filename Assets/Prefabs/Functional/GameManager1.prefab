@@ -2699,6 +2699,7 @@ MonoBehaviour:
   objectivesButton: {fileID: 4555009930226258985}
   objectivesDisplay: {fileID: 8823991654334331022}
   objectives: []
+  objectiveTracker: 
 --- !u!1 &6980480210034193466
 GameObject:
   m_ObjectHideFlags: 0
@@ -5045,6 +5046,14 @@ PrefabInstance:
     - target: {fileID: 1144188293608947268, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976307420926124238, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976307420926124238, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15b89f1c150ed0542be3768acfa5a03e, type: 3}

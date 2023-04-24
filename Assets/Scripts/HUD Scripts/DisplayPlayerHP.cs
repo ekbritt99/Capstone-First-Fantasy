@@ -40,7 +40,6 @@ public class DisplayPlayerHP : MonoBehaviour
         float cHealth = (float)currHealth;
         float mHealth = (float)maxHealth;
         // hpBarSlider. = new Vector2((cHealth / mHealth) * 14.4f, 8f);
-        Debug.Log(hpBarSlider);
         hpBarSlider.value = cHealth / mHealth;
 
         weaponSprite = Weapon.GetComponent<Image>();
@@ -61,7 +60,7 @@ public class DisplayPlayerHP : MonoBehaviour
             weaponSprite.sprite = romanSprite;
             weaponSprite.color = Color.white;
         }
-        if (currentWeapon == 4)
+        if (currentWeapon == 5)
         {
             weaponSprite.sprite = scimitarSprite;
             weaponSprite.color = Color.white;
@@ -78,7 +77,6 @@ public class DisplayPlayerHP : MonoBehaviour
         float cHealth = (float)currHealth;
         float mHealth = (float)maxHealth;
         // hpBarSlider. = new Vector2((cHealth / mHealth) * 14.4f, 8f);
-        Debug.Log(hpBarSlider);
         hpBarSlider.value = cHealth / mHealth;
 
         weaponSprite = Weapon.GetComponent<Image>();
@@ -99,7 +97,7 @@ public class DisplayPlayerHP : MonoBehaviour
             weaponSprite.sprite = romanSprite;
             weaponSprite.color = Color.white;
         }
-        if (currentWeapon == 4)
+        if (currentWeapon == 5)
         {
             weaponSprite.sprite = scimitarSprite;
             weaponSprite.color = Color.white;
