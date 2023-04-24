@@ -69,6 +69,20 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
     void OnEnable()
     {
         playerUnit = GameObject.Find("PlayerPersistency").GetComponent<PlayerPersistency>();
+        //check if coming from castle area
+        if (GameManager.Instance.prevScene == Scenes.TR_CASTLE_DOOR || GameManager.Instance.prevScene == Scenes.TL_CASTLE_DOOR || GameManager.Instance.prevScene == Scenes.BL_CASTLE_DOOR || GameManager.Instance.prevScene == Scenes.BR_CASTLE_DOOR || GameManager.Instance.prevScene == Scenes.WORLD2) {
+            GameObject props = GameObject.FindGameObjectWithTag("props");
+            props.SetActive(false);
+        }
+        GameObject castlebg = GameObject.FindGameObjectWithTag("castle bg");
+        castlebg.SetActive(false);
+        if (GameManager.Instance.prevScene != Scenes.WORLD2) {
+            GameObject world2bg = GameObject.FindGameObjectWithTag("world2bg");
+            world2bg.SetActive(false);
+        }
+            if (GameManager.Instance.prevScene == Scenes.TR_CASTLE_DOOR || GameManager.Instance.prevScene == Scenes.TL_CASTLE_DOOR || GameManager.Instance.prevScene == Scenes.BL_CASTLE_DOOR || GameManager.Instance.prevScene == Scenes.BR_CASTLE_DOOR) {
+            castlebg.SetActive(true);
+        }
     }
     void Start()
     {

@@ -43,6 +43,9 @@ TagManager:
   - BR Castle Chest 1 Trigger
   - BR Castle Chest 2 Trigger
   - Scene Trigger 4
+  - props
+  - world2bg
+  - castle bg
   layers:
   - Default
   - TransparentFX
