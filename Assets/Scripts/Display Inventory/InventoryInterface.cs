@@ -12,8 +12,14 @@ public abstract class InventoryInterface : MonoBehaviour
     public Dictionary<GameObject, InventorySlot> itemsDisplayed = new Dictionary<GameObject, InventorySlot>();
     public GameObject hoverPanel;
 
+    public bool active = false;
+
     public void OnEnable()
     {
+        if(active)
+            return;
+
+        active = true;
         for(int i = 0; i < inventory.container.Items.Length; i++)
         {
             inventory.container.Items[i].parent = this;
@@ -31,7 +37,7 @@ public abstract class InventoryInterface : MonoBehaviour
 
     public abstract void CreateDisplay();
 
-    public void Update()
+    public virtual void Update()
     {
         // Update each sprite and item count once per frame
         foreach (KeyValuePair<GameObject, InventorySlot> _slot in itemsDisplayed)
@@ -103,11 +109,12 @@ public abstract class InventoryInterface : MonoBehaviour
         {
             tempItem = new GameObject();
             var rt = tempItem.AddComponent<RectTransform>();
-            rt.sizeDelta = new Vector2(50, 50);
+            rt.sizeDelta = new Vector2(1, 1);
             tempItem.transform.SetParent(transform.parent);
             var img = tempItem.AddComponent<Image>();
             img.sprite = itemsDisplayed[obj].ItemObject.uiDisplay;
             img.raycastTarget = false;
+            
         }
 
         MouseData.tempItemBeingDragged = tempItem;
@@ -127,9 +134,14 @@ public abstract class InventoryInterface : MonoBehaviour
     /* Event - Keeps the dragged item image on the mouse location */
     public void OnDrag(GameObject obj)
     {
+        Debug.Log("Dragging");
         if(MouseData.tempItemBeingDragged != null)
         {
-            MouseData.tempItemBeingDragged.GetComponent<RectTransform>().position = Input.mousePosition;
+            Debug.Log("Mouse Position: " + Input.mousePosition);
+            // Calculate mouse position in world space
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 100;
+            MouseData.tempItemBeingDragged.GetComponent<RectTransform>().position = mousePos;
         }
     }
 

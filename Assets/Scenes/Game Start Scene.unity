@@ -1701,7 +1701,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &719394322
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4569,6 +4569,30 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1144188292073115262, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -75.70801
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144188292154063011, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -75.70801
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144188292287703521, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 37.416504
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144188292563966428, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -86.64307
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144188292942829610, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 39.02002
+      objectReference: {fileID: 0}
+    - target: {fileID: 1144188293648916248, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2056740780796219974, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -4576,6 +4600,18 @@ PrefabInstance:
     - target: {fileID: 3604506950353366050, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -8.700002
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403733866643659294, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 66.096985
+      objectReference: {fileID: 0}
+    - target: {fileID: 6609472548963451648, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6609472548963451648, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6620473069144553616, guid: 9685e4b7a130d6641b518c4bb42762d9, type: 3}
       propertyPath: m_IsActive

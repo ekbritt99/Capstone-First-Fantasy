@@ -786,7 +786,7 @@ public class ShopManager : MonoBehaviour
     {
         if (playerEquipment.container.Items[slot].item.ID == -1)
         {
-            playerEquipment.container.Items[slot].item = item.CreateItem();
+            playerEquipment.container.Items[slot].UpdateSlot(item.CreateItem(), 1);
         }
         else
         {
