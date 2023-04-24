@@ -4,6 +4,8 @@ using UnityEngine;
 using System;
 using System.Linq;
 
+//this class handles the player's collisions with other objects, mostly scene triggers
+
 public class PlayerCollisions : MonoBehaviour
 {
     public PlayerPersistency playerPersistency;
@@ -31,33 +33,36 @@ public class PlayerCollisions : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
-    {
+    {   
+        //opens world scene on contact with hitbox at right of village scene
         if (collision.gameObject.tag == "Scene Trigger")
         {
             // does not work playerPersistency.Heal(5);
             GameManager.Instance.GoToGameScene(Scenes.WORLD);
         }
+        //opens village scene on contact with village hitbox of world scene
         if (collision.gameObject.tag == "Scene Trigger 2")
         {
             GameManager.Instance.GoToGameScene(Scenes.VILLAGE);
         }
-
+        //opens world scene on contact with bottom of world 2 scene
         if (collision.gameObject.tag == "Scene Trigger 3")
         {
             GameManager.Instance.GoToGameScene(Scenes.WORLD);
         }
 
-
+        //opens village scene on contact with door hitbox in house
         if (collision.gameObject.tag == "leave house")
         {
             GameManager.Instance.GoToGameScene(Scenes.VILLAGE);
         }
-
+        //opens world 2 scene with boss on contact with top of world scene
         if (collision.gameObject.tag == "World 2 Trigger") 
         {
             GameManager.Instance.updateObjectiveSave(3);
             GameManager.Instance.GoToGameScene(Scenes.WORLD2);
         }
+        //opens castle scene on contact with castle trigger in world scene
         if (collision.gameObject.tag == "Castle Trigger") 
         {
             GameManager.Instance.GoToGameScene(Scenes.CASTLE);
@@ -80,7 +85,7 @@ public class PlayerCollisions : MonoBehaviour
             GameManager.Instance.GoToGameScene(Scenes.BR_CASTLE_DOOR);
         }
         */
-
+        //these are for contact with enemies 
         if (collision.gameObject.tag == "One")
         {
             GameManager.Instance.enemyHistory.Add("One");
@@ -183,14 +188,14 @@ public class PlayerCollisions : MonoBehaviour
             // gameManager.SendMessage("GoToBattle");
         }
         
-
+        //shows dialogue box when player touches npc
         if (collision.gameObject.tag == "NPCRat2")
         {
             bubbleManager.SendMessage("showShopBubble");
             bubbleManager.SendMessage("startDialogue");
             GameManager.Instance.updateObjectiveSave(0);
         }
-
+        //shows dialogue box when player moves towards boss in world 2 scene
         if (collision.gameObject.tag == "boss2text")
         {
             Debug.Log("touched npc");
@@ -204,6 +209,7 @@ public class PlayerCollisions : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //opens shop when player touches shop trigger
         if (collision.gameObject.tag == "Shop Trigger")
         {
             GameManager.Instance.GoToGameScene(Scenes.SHOP);
@@ -213,14 +219,17 @@ public class PlayerCollisions : MonoBehaviour
             GameManager.Instance.updateObjectiveSave(1);
             GameManager.Instance.GoToGameScene(Scenes.WORLD);
         }
+        //returns to village scene from shop scene
         if (collision.gameObject.tag == "Scene Trigger 2")
         {
             GameManager.Instance.GoToGameScene(Scenes.VILLAGE);
         }
+        //goes to house scene from village scene
         if (collision.gameObject.tag == "house")
         {
             GameManager.Instance.GoToGameScene(Scenes.HOUSE);
         }
+        //shows dialogue box when player touches rat in village
         if (collision.gameObject.tag == "NPC Rat")
         {
             NPCBubbleManager bubbleManager = GameObject.Find("NPC Bubble Manager").GetComponent<NPCBubbleManager>();
@@ -229,7 +238,7 @@ public class PlayerCollisions : MonoBehaviour
             //GameManager.Instance.SendMessage("DisplayDialogueBox", "Don't forget to stop by the shop to the west of town and buy some gear...");
             // gameManager.SendMessage("DisplayDialogueBox", "Don't forget to stop by the shop to the west of town and buy some gear...");
         }
-
+        //shows dialogue with boss in world 2
         if (collision.gameObject.tag == "boss1text")
         {
             NPCBubbleManager bubbleManager = GameObject.Find("NPCBubbleManager").GetComponent<NPCBubbleManager>();
@@ -237,12 +246,13 @@ public class PlayerCollisions : MonoBehaviour
             bubbleManager.SendMessage("startDialogue");
         }
 
-
+        //opens castle scene from world scene
         if (collision.gameObject.tag == "Castle Trigger") 
         {
             GameManager.Instance.updateObjectiveSave(2);
             GameManager.Instance.GoToGameScene(Scenes.CASTLE);
         }
+        //the next 4 open their respective castle rooms on contact with doors
         if (collision.gameObject.tag == "Top Left Castle Door Trigger") 
         {
             GameManager.Instance.updateObjectiveSave(5);
@@ -263,6 +273,7 @@ public class PlayerCollisions : MonoBehaviour
             GameManager.Instance.updateObjectiveSave(5);
             GameManager.Instance.GoToGameScene(Scenes.BR_CASTLE_DOOR);
         }
+        //chest triggers open chests found in castle and add currency to player
         if (collision.gameObject.tag == "TL Castle Chest 1 Trigger") 
         {
             playerPersistency = PlayerPersistency.Instance;

@@ -137,6 +137,8 @@ public class DataPersistenceManager : MonoBehaviour
 
     private void OnApplicationQuit()
     {
+        if(SceneManager.GetActiveScene().buildIndex == (int) Scenes.MAIN_MENU)
+            return;
         SaveGame();
         Debug.Log("Saved");
     }

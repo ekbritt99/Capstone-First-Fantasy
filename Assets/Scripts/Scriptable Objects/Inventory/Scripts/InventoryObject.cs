@@ -197,7 +197,7 @@ public class InventoryObject : ScriptableObject
 public class Inventory
 {
     // public Currency gold;
-    public InventorySlot[] Items = new InventorySlot[24];
+    public InventorySlot[] Items = new InventorySlot[29];
     public void Clear()
     {
         // gold = new Currency();

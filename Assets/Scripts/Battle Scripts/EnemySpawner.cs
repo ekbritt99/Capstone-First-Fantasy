@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     
-
+    //prefabs for all enemies
     public GameObject gameManager;
     public GameObject typeOneEnemy;
     public GameObject typeTwoEnemy;
@@ -18,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject typeNineEnemy;
     public GameObject typeTenEnemy;
 
-
+    //arrays which will hold all enemies to be spawned to save performance by avoid instantiating and destroying prefabs 
     public GameObject[] typeOneEnemies;
     public GameObject[] typeTwoEnemies;
     public GameObject[] typeThreeEnemies;
@@ -30,9 +30,10 @@ public class EnemySpawner : MonoBehaviour
     public GameObject[] typeNineEnemies;
     public GameObject[] typeTenEnemies;
 
+    //location where the unspawned enemies will reside so we can check which enemies are unspawned by their location
     public float DEF_X_POSITION = -11.0f;
 
-    // Start is called before the first frame update
+    // start is used to instantiate the enemy arrays and populate them
     void Start()
     {
         typeOneEnemies = new GameObject[5];
@@ -60,19 +61,23 @@ public class EnemySpawner : MonoBehaviour
         InvokeRepeating("spawnEnemies", 0.0f, 2.0f);
     }
 
+    //used to populate any enemy array with 5 copies of the same enemy
     public void populateEnemyArray(GameObject[] enemyArray, GameObject enemyType)
     {
+        //set the default unspawned location of the enemy
         Vector3 location = Vector3.zero;
         location.x = DEF_X_POSITION;
         location.y = 100.0f;
         location.z = 1.0f;
 
+        //create 5 enemies of the same type and instantiate them in the default location
         for (int i = 0; i < 5; i++)
         {
             enemyArray[i] = Instantiate(enemyType, location, Quaternion.identity);
         }
     }
 
+    //depending on which area the player is in, spawn an enemy of random type
     public void spawnEnemies()
     {
         //int randomEnemyType = Random.Range(1, 11);
@@ -96,7 +101,7 @@ public class EnemySpawner : MonoBehaviour
             randomEnemyType = Random.Range(1,11);
         }
         
-        
+        //for each type of enemy, get the next available enemy from its array
         if (randomEnemyType == 1)
         {
             getNextAvailableEnemy(typeOneEnemies);
@@ -139,6 +144,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    //gets the next available enemy of a single type if there is one available in its array which isn't spawned
     public void getNextAvailableEnemy(GameObject[] enemyArray)
     {
         string scene = GameManager.Instance.SceneString();
@@ -165,9 +171,11 @@ public class EnemySpawner : MonoBehaviour
                 return;
             }
         }
+        //this part is only called if all enemies of this type are spawned at the same time. recalls spawnEnemies to attempt to spawn another enemy
         spawnEnemies();
     }
     
+    //spawn enemies of all type one for testing purposes
     public void spawnAllOfEnemyTypeOne()
     {
         for (int i = 0; i < typeOneEnemies.Length; i++)
@@ -184,6 +192,7 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    //populate all the arrays for enemies to be spawned
     public void populateAllArrays()
     {
         typeOneEnemies = new GameObject[5];
