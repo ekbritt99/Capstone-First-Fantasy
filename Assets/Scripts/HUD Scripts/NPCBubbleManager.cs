@@ -63,7 +63,7 @@ public class NPCBubbleManager : MonoBehaviour
             }
         }
     }
-
+    //ShopBubble handles npc rat dialogue
     private void showShopBubble()
     {
         shopBubble.SetActive(true);
@@ -75,7 +75,7 @@ public class NPCBubbleManager : MonoBehaviour
         npcDialogueText.text = "";
         hasStarted = false;
     }
-
+    //general dialogue box showing/hiding
     private void showDialogueBox()
     {
         GameManager.Instance.dialogueBox.SetActive(true);
