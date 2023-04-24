@@ -33,7 +33,7 @@ public class GameData
         this.playerStrength = 0;
         this.openedChests = new int[14];
 
-        // Tracks opened chests
+        // Track player objectives
         playerObjectives = new bool[7];
         for (int i = 0; i < playerObjectives.Length; i++)
         {

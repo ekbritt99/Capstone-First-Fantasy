@@ -51,7 +51,7 @@ public class InventorySystemTests
     public void TearDown() 
     {
         var inventory = (InventoryObject)AssetDatabase.LoadAssetAtPath("Assets/Scripts/Scriptable Objects/Inventory/Player Inventory.asset", typeof(InventoryObject));
-        inventory.container.Items = new InventorySlot[25];
+        inventory.container.Items = new InventorySlot[29];
     }
 
 }
