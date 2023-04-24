@@ -124,7 +124,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
                 enemyGO = enemyOnePrefab;
                 enemyUnit = enemyGO.GetComponent<Unit>();
                 currencyReward = Random.Range(7, 10);
-    ;        }
+            }
             if (enemyEncountered == "Two")
             {
                 enemyTwoPrefab.SetActive(true);
@@ -357,7 +357,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
         PlayMusic();
         GameOverScreen.Setup();
     }
-    void PlayerTurn()
+    public void PlayerTurn()
     {
         dialogueText.text = "Choose an Action:";
     }
@@ -442,7 +442,7 @@ public class BattleSystem : MonoBehaviour, IDataPersistence
 
     public void onReturnButton() 
     {
-        playerUnit.currentHP = 1;
+        playerUnit.currentHP = 15;
         GameManager.Instance.GoToGameScene(Scenes.VILLAGE);
     }
     public static int returnZero()

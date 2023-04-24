@@ -1,8 +1,11 @@
+using System;
+using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using Random = UnityEngine.Random;
 
 public class BattleSystemTests
 {
@@ -17,7 +20,32 @@ public class BattleSystemTests
             int num2 = BattleSystem.returnZero();
             Assert.AreEqual(num,num2);
         }
-
+    [Test]
+    public void AttackButtonTriggersEnemyTurn()
+        {
+            GameObject gameObject = new GameObject();
+            BattleSystem battle = gameObject.AddComponent<BattleSystem>();
+            battle.state = BattleState.ENEMYTURN;
+            battle.onAttackButton();
+            Assert.AreEqual(BattleState.ENEMYTURN, battle.state);
+        }
+    [Test]
+    public void StartBattleEnumTest()
+    {
+        GameObject gameObject = new GameObject();
+        BattleSystem battle = gameObject.AddComponent<BattleSystem>();
+        battle.state = BattleState.START;
+        Assert.AreEqual(BattleState.START, battle.state);
+    }
+    [Test]
+    public void ActionChoiceStaysAfterPlayerTurn()
+        {
+            GameObject gameObject = new GameObject();
+            BattleSystem battle = gameObject.AddComponent<BattleSystem>();
+            string text = "Choose an Action:";
+            battle.state = BattleState.PLAYERTURN;
+            StringAssert.AreEqualIgnoringCase("Choose an Action:", text, "They are not the same string");
+        }
     // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
     // `yield return null;` to skip a frame.
     [UnityTest]
