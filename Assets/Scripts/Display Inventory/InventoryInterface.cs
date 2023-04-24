@@ -111,9 +111,11 @@ public abstract class InventoryInterface : MonoBehaviour
             var rt = tempItem.AddComponent<RectTransform>();
             rt.sizeDelta = new Vector2(1, 1);
             tempItem.transform.SetParent(transform.parent);
-            var img = tempItem.AddComponent<Image>();
+            var img = tempItem.AddComponent<SpriteRenderer>();
             img.sprite = itemsDisplayed[obj].ItemObject.uiDisplay;
-            img.raycastTarget = false;
+            img.sortingOrder = 100;
+            img.sortingLayerName = "Top";
+            img.size = new Vector2(1, 1);
             
         }
 
@@ -134,10 +136,8 @@ public abstract class InventoryInterface : MonoBehaviour
     /* Event - Keeps the dragged item image on the mouse location */
     public void OnDrag(GameObject obj)
     {
-        Debug.Log("Dragging");
         if(MouseData.tempItemBeingDragged != null)
         {
-            Debug.Log("Mouse Position: " + Input.mousePosition);
             // Calculate mouse position in world space
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 100;
@@ -145,48 +145,6 @@ public abstract class InventoryInterface : MonoBehaviour
         }
     }
 
-    // Handles clicking for equipping armor or using potion on right click
-    // public void OnPointerDown(GameObject obj, BaseEventData eventData)
-    // {
-    //     PointerEventData pointerEventData = (PointerEventData)eventData;
-
-    //     // Equip item if right clicked on in inventory
-    //     if(!(pointerEventData.button == PointerEventData.InputButton.Right && itemsDisplayed[obj].item.ID >= 0)) {
-    //         return;
-    //     } else {
-    //         if(itemsDisplayed[obj].ItemObject.type == ItemType.Food) {
-    //             if ( healPlayer(itemsDisplayed[obj].ItemObject.data.buffs[0].value) == true)
-    //             {
-    //                 itemsDisplayed[obj].RemoveAmount(1);
-    //             }
-    //         } else {
-    //             InventoryInterface equipment = GameObject.Find("EquipmentScreen").GetComponent<InventoryInterface>();
-    //             // Ensure the right click was not on equipment panel
-    //             if(this.GetComponent<InventoryInterface>() == equipment)
-    //             {
-    //                 return;
-    //             }
-                
-    //             if(itemsDisplayed[obj].ItemObject.type == ItemType.Helmet) {
-    //                 inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[0]);
-    //             } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Chest) {
-    //                 inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[1]);
-    //             } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Legs) {
-    //                 inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[2]);
-    //             } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Boots) {
-    //                 inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[3]);
-    //             } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Weapon) {
-    //                 inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[4]);
-    //             } else if(itemsDisplayed[obj].ItemObject.type == ItemType.Offhand) {
-    //                 inventory.MoveItem(itemsDisplayed[obj], equipment.inventory.container.Items[5]);
-    //             }
-
-    //             InventorySlot mouseHoverSlotData = MouseData.interfaceMouseIsOver.itemsDisplayed[MouseData.slotHovered];
-    //             inventory.MoveItem(itemsDisplayed[obj], mouseHoverSlotData);
-    //         }
-    //     }
-    // }
-    
     /* Timer used for the tool tip popup */
     private IEnumerator StartTimer()
     {
@@ -219,8 +177,12 @@ public abstract class InventoryInterface : MonoBehaviour
         RectTransform hoverTransform = hoverPanel.GetComponent<RectTransform>();
 
         Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        mousePosition.x = Mathf.Clamp(mousePosition.x + hoverTransform.sizeDelta.x / 2, 0 + hoverTransform.rect.width / 2, Screen.width - hoverTransform.rect.width / 2);
-        mousePosition.y = Mathf.Clamp(mousePosition.y - hoverTransform.sizeDelta.y / 2, 0 + hoverTransform.rect.height / 2, Screen.height - hoverTransform.rect.height / 2);
+
+        // Clamp the position to the screen size
+        mousePosition.x = Mathf.Clamp(mousePosition.x + hoverTransform.sizeDelta.x / 2, 0 + hoverTransform.rect.width / 2, Camera.main.pixelWidth - hoverTransform.rect.width / 2);
+        mousePosition.y = Mathf.Clamp(mousePosition.y - hoverTransform.sizeDelta.y / 2, 0 + hoverTransform.rect.height / 2, Camera.main.pixelHeight - hoverTransform.rect.height / 2);
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        
         hoverTransform.transform.position = mousePosition;
     }
 
