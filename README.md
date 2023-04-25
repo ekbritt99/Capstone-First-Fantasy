@@ -1,7 +1,7 @@
 # First Fantasy
 `First Fantasy` is a 2D RPG game written in C# using Unity. It is a Capstone project for the University of South Carolina.
 
-[Latest Release](#download) | [Build](#build) | [Controls](#controls) | [Testing](#testing)| [Authors](#authors) | [Tools/Asset Credits](#toolsasset-credits)
+[Latest Release](#download) | [Build](#build) | [Controls](#controls) | [Authors](#authors) | [Testing](#testing) | [Tools/Asset Credits](#toolsasset-credits)
 
 Explore a fantasy world filled with encounters of various creatures and monsters! Manage your health and coin well, and you'll become a powerful warrior. Load up on plenty of weapons, armor, and potions to keep the adventure going!
 
