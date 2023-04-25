@@ -71,10 +71,8 @@ Inventory controls:
 </ul>
 
 
-
-
-
 ## Tools/Asset Credits
 * [Unity](https://unity3d.com/)
 * [Unity Asset Store](https://assetstore.unity.com/)
 * [Toen's Medieval Strategy](https://toen.itch.io/toens-medieval-strategy)
+* [Maxicons Icons from The Noun Project](https://thenounproject.com/maxicons/)
