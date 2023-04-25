@@ -1,10 +1,32 @@
-# First Fantasy by Team Freestyle
+# First Fantasy
+`First Fantasy` is a 2D RPG game written in C# using Unity. It is a Capstone project for the University of South Carolina.
 
-First Fantasy is a 2D RPG using the Unity game engine, programmed in C#.
+[Latest Release](#download) | [Build](#build) | [Controls](#controls) | [Testing](#testing)| [Authors](#authors) | [Tools/Asset Credits](#toolsasset-credits)
 
-Authors:
+Explore a fantasy world filled with encounters of various creatures and monsters! Manage your health and coin well, and you'll become a powerful warrior. Load up on plenty of weapons, armor, and potions to keep the adventure going!
+
+## Download
+You can download the game from the [releases page](http://github.com/SCCapstone/Freestyle/releases).
+Run the installer and launch the game either from the desktop shortcut or from the install location.
+
+## Build
+To build the game, you will need to have Unity installed. You can download it [here](https://unity3d.com/get-unity/download). Once you have Unity installed, open the project in Unity and click the `Build` button in the top menu bar. You can then select the platform you want to build for and the location to build to.
+
+## Controls
+* `WASD` - Movement
+* `E` - Inventory
+* `ESC` - Pause Menu
+* `Left Click` - Interact
+
+Inventory controls:
+* `Drag Click` - Move item
+* `Right Click` - Use/Equip item
+* `Hover` over item - Show item description
+
+
+
+# Authors:
 - Ethan Brittain
-- Maeko Maja
 - Christian Rios
 - JJ Tupacz
 - Parker Wood
@@ -18,3 +40,10 @@ In the Test Runner window, there are two tabs where the tests are located (PlayM
 All the tests are located in the following Directories: 
 - Assets/Tests/EditMode
 - Assets/Tests/PlayMode
+
+
+## Tools/Asset Credits
+* [Unity](https://unity3d.com/)
+* [Unity Asset Store](https://assetstore.unity.com/)
+* [Toen's Medieval Strategy](https://toen.itch.io/toens-medieval-strategy)
+* [Maxicons Icons from The Noun Project](https://thenounproject.com/maxicons/)
